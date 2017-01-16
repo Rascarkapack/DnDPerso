@@ -1,0 +1,1368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FichePersoDndModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Alignement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AptitudeRaciale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRace" Type="int" Nullable="false" />
+          <Property Name="Libelle" Type="varchar(max)" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Argent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPersonnage" Type="int" Nullable="false" />
+          <Property Name="IdTypeArgent" Type="int" Nullable="false" />
+          <Property Name="Valeur" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Classe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Divinite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Equipement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPersonnage" Type="int" Nullable="false" />
+          <Property Name="IdTypeEquipement" Type="int" Nullable="false" />
+          <Property Name="Quantite" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupeAventurier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Initiative">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPersonnage" Type="int" Nullable="false" />
+          <Property Name="DemiNiveau" Type="int" />
+          <Property Name="Divers" Type="int" />
+        </EntityType>
+        <EntityType Name="Mouvement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPersonnage" Type="int" Nullable="false" />
+          <Property Name="Base" Type="int" />
+          <Property Name="Armure" Type="int" />
+          <Property Name="Objet" Type="int" />
+          <Property Name="Divers" Type="int" />
+        </EntityType>
+        <EntityType Name="Personnage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Niveau" Type="int" Nullable="false" />
+          <Property Name="IdClasse" Type="int" Nullable="false" />
+          <Property Name="Experience" Type="int" Nullable="false" />
+          <Property Name="IdRace" Type="int" Nullable="false" />
+          <Property Name="CategorieTaille" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Sexe" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Taille" Type="decimal" Precision="3" Scale="2" Nullable="false" />
+          <Property Name="Poids" Type="int" Nullable="false" />
+          <Property Name="IdAlignement" Type="int" />
+          <Property Name="IdDivinite" Type="int" />
+          <Property Name="IdGroupeAventurier" Type="int" />
+          <Property Name="PointAction" Type="int" Nullable="false" />
+          <Property Name="PVMax" Type="int" Nullable="false" />
+          <Property Name="Personnalite" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Pouvoir">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTypePouvoir" Type="int" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Html" Type="varchar(max)" />
+          <Property Name="IdClasse" Type="int" Nullable="false" />
+          <Property Name="Level" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PouvoirPersonnage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPouvoir" Type="int" Nullable="false" />
+          <Property Name="IdPersonnage" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Race">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RareteEquipement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rituel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Html" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="RituelPersonnage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRituel" Type="int" Nullable="false" />
+          <Property Name="IdPersonnage" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Talent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar(max)" Nullable="false" />
+          <Property Name="Prerequis" Type="varchar(max)" />
+          <Property Name="Html" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TalentPersonnage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPersonnage" Type="int" Nullable="false" />
+          <Property Name="IdTalent" Type="int" />
+        </EntityType>
+        <EntityType Name="TypeArgent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeDes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeEquipement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IdRareteEquipement" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypePouvoir">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_IDALIGNEMENT">
+          <End Role="Alignement" Type="Self.Alignement" Multiplicity="0..1" />
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alignement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personnage">
+              <PropertyRef Name="IdAlignement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDCLASSE">
+          <End Role="Classe" Type="Self.Classe" Multiplicity="1" />
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personnage">
+              <PropertyRef Name="IdClasse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDCLASSEPOUVOIR">
+          <End Role="Classe" Type="Self.Classe" Multiplicity="1" />
+          <End Role="Pouvoir" Type="Self.Pouvoir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pouvoir">
+              <PropertyRef Name="IdClasse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDDIVINITE">
+          <End Role="Divinite" Type="Self.Divinite" Multiplicity="0..1" />
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Divinite">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personnage">
+              <PropertyRef Name="IdDivinite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDGroupeAventurier">
+          <End Role="GroupeAventurier" Type="Self.GroupeAventurier" Multiplicity="0..1" />
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupeAventurier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personnage">
+              <PropertyRef Name="IdGroupeAventurier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPERSONNAGEARGENT">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="Argent" Type="Self.Argent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Argent">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPERSONNAGEINITIATIVE">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="Initiative" Type="Self.Initiative" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Initiative">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPERSONNAGEMOUVEMENT">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="Mouvement" Type="Self.Mouvement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mouvement">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPERSONNAGEPOUVOIRPERSONNAGE">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="PouvoirPersonnage" Type="Self.PouvoirPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PouvoirPersonnage">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPERSONNAGERITUELPERSONNAGE">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="RituelPersonnage" Type="Self.RituelPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RituelPersonnage">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPERSONNAGETALENTPERSONNAGE">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="TalentPersonnage" Type="Self.TalentPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TalentPersonnage">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPOUVOIRPOUVOIRPERSONNAGE">
+          <End Role="Pouvoir" Type="Self.Pouvoir" Multiplicity="1" />
+          <End Role="PouvoirPersonnage" Type="Self.PouvoirPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pouvoir">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PouvoirPersonnage">
+              <PropertyRef Name="IdPouvoir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDRACE">
+          <End Role="Race" Type="Self.Race" Multiplicity="1" />
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Race">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personnage">
+              <PropertyRef Name="IdRace" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT">
+          <End Role="RareteEquipement" Type="Self.RareteEquipement" Multiplicity="1" />
+          <End Role="TypeEquipement" Type="Self.TypeEquipement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RareteEquipement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TypeEquipement">
+              <PropertyRef Name="IdRareteEquipement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDRITUELRITUELPERSONNAGE">
+          <End Role="Rituel" Type="Self.Rituel" Multiplicity="1" />
+          <End Role="RituelPersonnage" Type="Self.RituelPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rituel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RituelPersonnage">
+              <PropertyRef Name="IdRituel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDTALENTTALENTPERSONNAGE">
+          <End Role="Talent" Type="Self.Talent" Multiplicity="0..1" />
+          <End Role="TalentPersonnage" Type="Self.TalentPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Talent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TalentPersonnage">
+              <PropertyRef Name="IdTalent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDTYPEARGENTARGENT">
+          <End Role="TypeArgent" Type="Self.TypeArgent" Multiplicity="1" />
+          <End Role="Argent" Type="Self.Argent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeArgent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Argent">
+              <PropertyRef Name="IdTypeArgent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDTYPEEQUIPEMENTEQUIPEMENT">
+          <End Role="TypeEquipement" Type="Self.TypeEquipement" Multiplicity="1" />
+          <End Role="Equipement" Type="Self.Equipement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeEquipement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipement">
+              <PropertyRef Name="IdTypeEquipement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDTYPEPERSONNAGEEQUIPEMENT">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="Equipement" Type="Self.Equipement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipement">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDTYPEPOUVOIRPOUVOIR">
+          <End Role="TypePouvoir" Type="Self.TypePouvoir" Multiplicity="1" />
+          <End Role="Pouvoir" Type="Self.Pouvoir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypePouvoir">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pouvoir">
+              <PropertyRef Name="IdTypePouvoir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FichePersoDndModelStoreContainer">
+          <EntitySet Name="Alignement" EntityType="Self.Alignement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AptitudeRaciale" EntityType="Self.AptitudeRaciale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Argent" EntityType="Self.Argent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Classe" EntityType="Self.Classe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Divinite" EntityType="Self.Divinite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipement" EntityType="Self.Equipement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupeAventurier" EntityType="Self.GroupeAventurier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Initiative" EntityType="Self.Initiative" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mouvement" EntityType="Self.Mouvement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personnage" EntityType="Self.Personnage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pouvoir" EntityType="Self.Pouvoir" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PouvoirPersonnage" EntityType="Self.PouvoirPersonnage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Race" EntityType="Self.Race" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RareteEquipement" EntityType="Self.RareteEquipement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rituel" EntityType="Self.Rituel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RituelPersonnage" EntityType="Self.RituelPersonnage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Talent" EntityType="Self.Talent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TalentPersonnage" EntityType="Self.TalentPersonnage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeArgent" EntityType="Self.TypeArgent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeDes" EntityType="Self.TypeDes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeEquipement" EntityType="Self.TypeEquipement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypePouvoir" EntityType="Self.TypePouvoir" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_IDALIGNEMENT" Association="Self.fk_IDALIGNEMENT">
+            <End Role="Alignement" EntitySet="Alignement" />
+            <End Role="Personnage" EntitySet="Personnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDCLASSE" Association="Self.fk_IDCLASSE">
+            <End Role="Classe" EntitySet="Classe" />
+            <End Role="Personnage" EntitySet="Personnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDCLASSEPOUVOIR" Association="Self.fk_IDCLASSEPOUVOIR">
+            <End Role="Classe" EntitySet="Classe" />
+            <End Role="Pouvoir" EntitySet="Pouvoir" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDDIVINITE" Association="Self.fk_IDDIVINITE">
+            <End Role="Divinite" EntitySet="Divinite" />
+            <End Role="Personnage" EntitySet="Personnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDGroupeAventurier" Association="Self.fk_IDGroupeAventurier">
+            <End Role="GroupeAventurier" EntitySet="GroupeAventurier" />
+            <End Role="Personnage" EntitySet="Personnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPERSONNAGEARGENT" Association="Self.fk_IDPERSONNAGEARGENT">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="Argent" EntitySet="Argent" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPERSONNAGEINITIATIVE" Association="Self.fk_IDPERSONNAGEINITIATIVE">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="Initiative" EntitySet="Initiative" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPERSONNAGEMOUVEMENT" Association="Self.fk_IDPERSONNAGEMOUVEMENT">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="Mouvement" EntitySet="Mouvement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPERSONNAGEPOUVOIRPERSONNAGE" Association="Self.fk_IDPERSONNAGEPOUVOIRPERSONNAGE">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="PouvoirPersonnage" EntitySet="PouvoirPersonnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPERSONNAGERITUELPERSONNAGE" Association="Self.fk_IDPERSONNAGERITUELPERSONNAGE">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="RituelPersonnage" EntitySet="RituelPersonnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPERSONNAGETALENTPERSONNAGE" Association="Self.fk_IDPERSONNAGETALENTPERSONNAGE">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="TalentPersonnage" EntitySet="TalentPersonnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPOUVOIRPOUVOIRPERSONNAGE" Association="Self.fk_IDPOUVOIRPOUVOIRPERSONNAGE">
+            <End Role="Pouvoir" EntitySet="Pouvoir" />
+            <End Role="PouvoirPersonnage" EntitySet="PouvoirPersonnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDRACE" Association="Self.fk_IDRACE">
+            <End Role="Race" EntitySet="Race" />
+            <End Role="Personnage" EntitySet="Personnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT" Association="Self.fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT">
+            <End Role="RareteEquipement" EntitySet="RareteEquipement" />
+            <End Role="TypeEquipement" EntitySet="TypeEquipement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDRITUELRITUELPERSONNAGE" Association="Self.fk_IDRITUELRITUELPERSONNAGE">
+            <End Role="Rituel" EntitySet="Rituel" />
+            <End Role="RituelPersonnage" EntitySet="RituelPersonnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDTALENTTALENTPERSONNAGE" Association="Self.fk_IDTALENTTALENTPERSONNAGE">
+            <End Role="Talent" EntitySet="Talent" />
+            <End Role="TalentPersonnage" EntitySet="TalentPersonnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDTYPEARGENTARGENT" Association="Self.fk_IDTYPEARGENTARGENT">
+            <End Role="TypeArgent" EntitySet="TypeArgent" />
+            <End Role="Argent" EntitySet="Argent" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDTYPEEQUIPEMENTEQUIPEMENT" Association="Self.fk_IDTYPEEQUIPEMENTEQUIPEMENT">
+            <End Role="TypeEquipement" EntitySet="TypeEquipement" />
+            <End Role="Equipement" EntitySet="Equipement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDTYPEPERSONNAGEEQUIPEMENT" Association="Self.fk_IDTYPEPERSONNAGEEQUIPEMENT">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="Equipement" EntitySet="Equipement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDTYPEPOUVOIRPOUVOIR" Association="Self.fk_IDTYPEPOUVOIRPOUVOIR">
+            <End Role="TypePouvoir" EntitySet="TypePouvoir" />
+            <End Role="Pouvoir" EntitySet="Pouvoir" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FichePersoDndModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Alignement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Personnage" Relationship="Self.fk_IDALIGNEMENT" FromRole="Alignement" ToRole="Personnage" />
+        </EntityType>
+        <EntityType Name="AptitudeRaciale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRace" Type="Int32" Nullable="false" />
+          <Property Name="Libelle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Argent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPersonnage" Type="Int32" Nullable="false" />
+          <Property Name="IdTypeArgent" Type="Int32" Nullable="false" />
+          <Property Name="Valeur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Personnage" Relationship="Self.fk_IDPERSONNAGEARGENT" FromRole="Argent" ToRole="Personnage" />
+          <NavigationProperty Name="TypeArgent" Relationship="Self.fk_IDTYPEARGENTARGENT" FromRole="Argent" ToRole="TypeArgent" />
+        </EntityType>
+        <EntityType Name="Classe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Personnage" Relationship="Self.fk_IDCLASSE" FromRole="Classe" ToRole="Personnage" />
+          <NavigationProperty Name="Pouvoir" Relationship="Self.fk_IDCLASSEPOUVOIR" FromRole="Classe" ToRole="Pouvoir" />
+        </EntityType>
+        <EntityType Name="Divinite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Personnage" Relationship="Self.fk_IDDIVINITE" FromRole="Divinite" ToRole="Personnage" />
+        </EntityType>
+        <EntityType Name="Equipement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPersonnage" Type="Int32" Nullable="false" />
+          <Property Name="IdTypeEquipement" Type="Int32" Nullable="false" />
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TypeEquipement" Relationship="Self.fk_IDTYPEEQUIPEMENTEQUIPEMENT" FromRole="Equipement" ToRole="TypeEquipement" />
+          <NavigationProperty Name="Personnage" Relationship="Self.fk_IDTYPEPERSONNAGEEQUIPEMENT" FromRole="Equipement" ToRole="Personnage" />
+        </EntityType>
+        <EntityType Name="GroupeAventurier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Personnage" Relationship="Self.fk_IDGroupeAventurier" FromRole="GroupeAventurier" ToRole="Personnage" />
+        </EntityType>
+        <EntityType Name="Initiative">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPersonnage" Type="Int32" Nullable="false" />
+          <Property Name="DemiNiveau" Type="Int32" />
+          <Property Name="Divers" Type="Int32" />
+          <NavigationProperty Name="Personnage" Relationship="Self.fk_IDPERSONNAGEINITIATIVE" FromRole="Initiative" ToRole="Personnage" />
+        </EntityType>
+        <EntityType Name="Mouvement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPersonnage" Type="Int32" Nullable="false" />
+          <Property Name="Base" Type="Int32" />
+          <Property Name="Armure" Type="Int32" />
+          <Property Name="Objet" Type="Int32" />
+          <Property Name="Divers" Type="Int32" />
+          <NavigationProperty Name="Personnage" Relationship="Self.fk_IDPERSONNAGEMOUVEMENT" FromRole="Mouvement" ToRole="Personnage" />
+        </EntityType>
+        <EntityType Name="Personnage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Niveau" Type="Int32" Nullable="false" />
+          <Property Name="IdClasse" Type="Int32" Nullable="false" />
+          <Property Name="Experience" Type="Int32" Nullable="false" />
+          <Property Name="IdRace" Type="Int32" Nullable="false" />
+          <Property Name="CategorieTaille" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Sexe" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Taille" Type="Decimal" Precision="3" Scale="2" Nullable="false" />
+          <Property Name="Poids" Type="Int32" Nullable="false" />
+          <Property Name="IdAlignement" Type="Int32" />
+          <Property Name="IdDivinite" Type="Int32" />
+          <Property Name="IdGroupeAventurier" Type="Int32" />
+          <Property Name="PointAction" Type="Int32" Nullable="false" />
+          <Property Name="PVMax" Type="Int32" Nullable="false" />
+          <Property Name="Personnalite" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Alignement" Relationship="Self.fk_IDALIGNEMENT" FromRole="Personnage" ToRole="Alignement" />
+          <NavigationProperty Name="Argent" Relationship="Self.fk_IDPERSONNAGEARGENT" FromRole="Personnage" ToRole="Argent" />
+          <NavigationProperty Name="Classe" Relationship="Self.fk_IDCLASSE" FromRole="Personnage" ToRole="Classe" />
+          <NavigationProperty Name="Divinite" Relationship="Self.fk_IDDIVINITE" FromRole="Personnage" ToRole="Divinite" />
+          <NavigationProperty Name="Equipement" Relationship="Self.fk_IDTYPEPERSONNAGEEQUIPEMENT" FromRole="Personnage" ToRole="Equipement" />
+          <NavigationProperty Name="GroupeAventurier" Relationship="Self.fk_IDGroupeAventurier" FromRole="Personnage" ToRole="GroupeAventurier" />
+          <NavigationProperty Name="Initiative" Relationship="Self.fk_IDPERSONNAGEINITIATIVE" FromRole="Personnage" ToRole="Initiative" />
+          <NavigationProperty Name="Mouvement" Relationship="Self.fk_IDPERSONNAGEMOUVEMENT" FromRole="Personnage" ToRole="Mouvement" />
+          <NavigationProperty Name="PouvoirPersonnage" Relationship="Self.fk_IDPERSONNAGEPOUVOIRPERSONNAGE" FromRole="Personnage" ToRole="PouvoirPersonnage" />
+          <NavigationProperty Name="RituelPersonnage" Relationship="Self.fk_IDPERSONNAGERITUELPERSONNAGE" FromRole="Personnage" ToRole="RituelPersonnage" />
+          <NavigationProperty Name="TalentPersonnage" Relationship="Self.fk_IDPERSONNAGETALENTPERSONNAGE" FromRole="Personnage" ToRole="TalentPersonnage" />
+          <NavigationProperty Name="Race" Relationship="Self.fk_IDRACE" FromRole="Personnage" ToRole="Race" />
+        </EntityType>
+        <EntityType Name="Pouvoir">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTypePouvoir" Type="Int32" Nullable="false" />
+          <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Html" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdClasse" Type="Int32" Nullable="false" />
+          <Property Name="Level" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Classe" Relationship="Self.fk_IDCLASSEPOUVOIR" FromRole="Pouvoir" ToRole="Classe" />
+          <NavigationProperty Name="PouvoirPersonnage" Relationship="Self.fk_IDPOUVOIRPOUVOIRPERSONNAGE" FromRole="Pouvoir" ToRole="PouvoirPersonnage" />
+          <NavigationProperty Name="TypePouvoir" Relationship="Self.fk_IDTYPEPOUVOIRPOUVOIR" FromRole="Pouvoir" ToRole="TypePouvoir" />
+        </EntityType>
+        <EntityType Name="PouvoirPersonnage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPouvoir" Type="Int32" Nullable="false" />
+          <Property Name="IdPersonnage" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Personnage" Relationship="Self.fk_IDPERSONNAGEPOUVOIRPERSONNAGE" FromRole="PouvoirPersonnage" ToRole="Personnage" />
+          <NavigationProperty Name="Pouvoir" Relationship="Self.fk_IDPOUVOIRPOUVOIRPERSONNAGE" FromRole="PouvoirPersonnage" ToRole="Pouvoir" />
+        </EntityType>
+        <EntityType Name="Race">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Personnage" Relationship="Self.fk_IDRACE" FromRole="Race" ToRole="Personnage" />
+        </EntityType>
+        <EntityType Name="RareteEquipement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TypeEquipement" Relationship="Self.fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT" FromRole="RareteEquipement" ToRole="TypeEquipement" />
+        </EntityType>
+        <EntityType Name="Rituel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Html" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RituelPersonnage" Relationship="Self.fk_IDRITUELRITUELPERSONNAGE" FromRole="Rituel" ToRole="RituelPersonnage" />
+        </EntityType>
+        <EntityType Name="RituelPersonnage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRituel" Type="Int32" Nullable="false" />
+          <Property Name="IdPersonnage" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Personnage" Relationship="Self.fk_IDPERSONNAGERITUELPERSONNAGE" FromRole="RituelPersonnage" ToRole="Personnage" />
+          <NavigationProperty Name="Rituel" Relationship="Self.fk_IDRITUELRITUELPERSONNAGE" FromRole="RituelPersonnage" ToRole="Rituel" />
+        </EntityType>
+        <EntityType Name="Talent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prerequis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Html" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TalentPersonnage" Relationship="Self.fk_IDTALENTTALENTPERSONNAGE" FromRole="Talent" ToRole="TalentPersonnage" />
+        </EntityType>
+        <EntityType Name="TalentPersonnage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPersonnage" Type="Int32" Nullable="false" />
+          <Property Name="IdTalent" Type="Int32" />
+          <NavigationProperty Name="Personnage" Relationship="Self.fk_IDPERSONNAGETALENTPERSONNAGE" FromRole="TalentPersonnage" ToRole="Personnage" />
+          <NavigationProperty Name="Talent" Relationship="Self.fk_IDTALENTTALENTPERSONNAGE" FromRole="TalentPersonnage" ToRole="Talent" />
+        </EntityType>
+        <EntityType Name="TypeArgent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Argent" Relationship="Self.fk_IDTYPEARGENTARGENT" FromRole="TypeArgent" ToRole="Argent" />
+        </EntityType>
+        <EntityType Name="TypeDes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeEquipement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdRareteEquipement" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Equipement" Relationship="Self.fk_IDTYPEEQUIPEMENTEQUIPEMENT" FromRole="TypeEquipement" ToRole="Equipement" />
+          <NavigationProperty Name="RareteEquipement" Relationship="Self.fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT" FromRole="TypeEquipement" ToRole="RareteEquipement" />
+        </EntityType>
+        <EntityType Name="TypePouvoir">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Pouvoir" Relationship="Self.fk_IDTYPEPOUVOIRPOUVOIR" FromRole="TypePouvoir" ToRole="Pouvoir" />
+        </EntityType>
+        <Association Name="fk_IDALIGNEMENT">
+          <End Role="Alignement" Type="Self.Alignement" Multiplicity="0..1" />
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alignement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personnage">
+              <PropertyRef Name="IdAlignement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPERSONNAGEARGENT">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="Argent" Type="Self.Argent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Argent">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDTYPEARGENTARGENT">
+          <End Role="TypeArgent" Type="Self.TypeArgent" Multiplicity="1" />
+          <End Role="Argent" Type="Self.Argent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeArgent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Argent">
+              <PropertyRef Name="IdTypeArgent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDCLASSE">
+          <End Role="Classe" Type="Self.Classe" Multiplicity="1" />
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personnage">
+              <PropertyRef Name="IdClasse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDCLASSEPOUVOIR">
+          <End Role="Classe" Type="Self.Classe" Multiplicity="1" />
+          <End Role="Pouvoir" Type="Self.Pouvoir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pouvoir">
+              <PropertyRef Name="IdClasse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDDIVINITE">
+          <End Role="Divinite" Type="Self.Divinite" Multiplicity="0..1" />
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Divinite">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personnage">
+              <PropertyRef Name="IdDivinite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDTYPEEQUIPEMENTEQUIPEMENT">
+          <End Role="TypeEquipement" Type="Self.TypeEquipement" Multiplicity="1" />
+          <End Role="Equipement" Type="Self.Equipement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeEquipement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipement">
+              <PropertyRef Name="IdTypeEquipement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDTYPEPERSONNAGEEQUIPEMENT">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="Equipement" Type="Self.Equipement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipement">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDGroupeAventurier">
+          <End Role="GroupeAventurier" Type="Self.GroupeAventurier" Multiplicity="0..1" />
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupeAventurier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personnage">
+              <PropertyRef Name="IdGroupeAventurier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPERSONNAGEINITIATIVE">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="Initiative" Type="Self.Initiative" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Initiative">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPERSONNAGEMOUVEMENT">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="Mouvement" Type="Self.Mouvement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mouvement">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPERSONNAGEPOUVOIRPERSONNAGE">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="PouvoirPersonnage" Type="Self.PouvoirPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PouvoirPersonnage">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPERSONNAGERITUELPERSONNAGE">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="RituelPersonnage" Type="Self.RituelPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RituelPersonnage">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPERSONNAGETALENTPERSONNAGE">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="TalentPersonnage" Type="Self.TalentPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TalentPersonnage">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDRACE">
+          <End Role="Race" Type="Self.Race" Multiplicity="1" />
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Race">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personnage">
+              <PropertyRef Name="IdRace" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDPOUVOIRPOUVOIRPERSONNAGE">
+          <End Role="Pouvoir" Type="Self.Pouvoir" Multiplicity="1" />
+          <End Role="PouvoirPersonnage" Type="Self.PouvoirPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pouvoir">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PouvoirPersonnage">
+              <PropertyRef Name="IdPouvoir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDTYPEPOUVOIRPOUVOIR">
+          <End Role="TypePouvoir" Type="Self.TypePouvoir" Multiplicity="1" />
+          <End Role="Pouvoir" Type="Self.Pouvoir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypePouvoir">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pouvoir">
+              <PropertyRef Name="IdTypePouvoir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT">
+          <End Role="RareteEquipement" Type="Self.RareteEquipement" Multiplicity="1" />
+          <End Role="TypeEquipement" Type="Self.TypeEquipement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RareteEquipement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TypeEquipement">
+              <PropertyRef Name="IdRareteEquipement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDRITUELRITUELPERSONNAGE">
+          <End Role="Rituel" Type="Self.Rituel" Multiplicity="1" />
+          <End Role="RituelPersonnage" Type="Self.RituelPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rituel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RituelPersonnage">
+              <PropertyRef Name="IdRituel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDTALENTTALENTPERSONNAGE">
+          <End Role="Talent" Type="Self.Talent" Multiplicity="0..1" />
+          <End Role="TalentPersonnage" Type="Self.TalentPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Talent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TalentPersonnage">
+              <PropertyRef Name="IdTalent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FichePersoDndEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Alignement" EntityType="Self.Alignement" />
+          <EntitySet Name="AptitudeRaciale" EntityType="Self.AptitudeRaciale" />
+          <EntitySet Name="Argent" EntityType="Self.Argent" />
+          <EntitySet Name="Classe" EntityType="Self.Classe" />
+          <EntitySet Name="Divinite" EntityType="Self.Divinite" />
+          <EntitySet Name="Equipement" EntityType="Self.Equipement" />
+          <EntitySet Name="GroupeAventurier" EntityType="Self.GroupeAventurier" />
+          <EntitySet Name="Initiative" EntityType="Self.Initiative" />
+          <EntitySet Name="Mouvement" EntityType="Self.Mouvement" />
+          <EntitySet Name="Personnage" EntityType="Self.Personnage" />
+          <EntitySet Name="Pouvoir" EntityType="Self.Pouvoir" />
+          <EntitySet Name="PouvoirPersonnage" EntityType="Self.PouvoirPersonnage" />
+          <EntitySet Name="Race" EntityType="Self.Race" />
+          <EntitySet Name="RareteEquipement" EntityType="Self.RareteEquipement" />
+          <EntitySet Name="Rituel" EntityType="Self.Rituel" />
+          <EntitySet Name="RituelPersonnage" EntityType="Self.RituelPersonnage" />
+          <EntitySet Name="Talent" EntityType="Self.Talent" />
+          <EntitySet Name="TalentPersonnage" EntityType="Self.TalentPersonnage" />
+          <EntitySet Name="TypeArgent" EntityType="Self.TypeArgent" />
+          <EntitySet Name="TypeDes" EntityType="Self.TypeDes" />
+          <EntitySet Name="TypeEquipement" EntityType="Self.TypeEquipement" />
+          <EntitySet Name="TypePouvoir" EntityType="Self.TypePouvoir" />
+          <AssociationSet Name="fk_IDALIGNEMENT" Association="Self.fk_IDALIGNEMENT">
+            <End Role="Alignement" EntitySet="Alignement" />
+            <End Role="Personnage" EntitySet="Personnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPERSONNAGEARGENT" Association="Self.fk_IDPERSONNAGEARGENT">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="Argent" EntitySet="Argent" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDTYPEARGENTARGENT" Association="Self.fk_IDTYPEARGENTARGENT">
+            <End Role="TypeArgent" EntitySet="TypeArgent" />
+            <End Role="Argent" EntitySet="Argent" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDCLASSE" Association="Self.fk_IDCLASSE">
+            <End Role="Classe" EntitySet="Classe" />
+            <End Role="Personnage" EntitySet="Personnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDCLASSEPOUVOIR" Association="Self.fk_IDCLASSEPOUVOIR">
+            <End Role="Classe" EntitySet="Classe" />
+            <End Role="Pouvoir" EntitySet="Pouvoir" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDDIVINITE" Association="Self.fk_IDDIVINITE">
+            <End Role="Divinite" EntitySet="Divinite" />
+            <End Role="Personnage" EntitySet="Personnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDTYPEEQUIPEMENTEQUIPEMENT" Association="Self.fk_IDTYPEEQUIPEMENTEQUIPEMENT">
+            <End Role="TypeEquipement" EntitySet="TypeEquipement" />
+            <End Role="Equipement" EntitySet="Equipement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDTYPEPERSONNAGEEQUIPEMENT" Association="Self.fk_IDTYPEPERSONNAGEEQUIPEMENT">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="Equipement" EntitySet="Equipement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDGroupeAventurier" Association="Self.fk_IDGroupeAventurier">
+            <End Role="GroupeAventurier" EntitySet="GroupeAventurier" />
+            <End Role="Personnage" EntitySet="Personnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPERSONNAGEINITIATIVE" Association="Self.fk_IDPERSONNAGEINITIATIVE">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="Initiative" EntitySet="Initiative" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPERSONNAGEMOUVEMENT" Association="Self.fk_IDPERSONNAGEMOUVEMENT">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="Mouvement" EntitySet="Mouvement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPERSONNAGEPOUVOIRPERSONNAGE" Association="Self.fk_IDPERSONNAGEPOUVOIRPERSONNAGE">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="PouvoirPersonnage" EntitySet="PouvoirPersonnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPERSONNAGERITUELPERSONNAGE" Association="Self.fk_IDPERSONNAGERITUELPERSONNAGE">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="RituelPersonnage" EntitySet="RituelPersonnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPERSONNAGETALENTPERSONNAGE" Association="Self.fk_IDPERSONNAGETALENTPERSONNAGE">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="TalentPersonnage" EntitySet="TalentPersonnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDRACE" Association="Self.fk_IDRACE">
+            <End Role="Race" EntitySet="Race" />
+            <End Role="Personnage" EntitySet="Personnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDPOUVOIRPOUVOIRPERSONNAGE" Association="Self.fk_IDPOUVOIRPOUVOIRPERSONNAGE">
+            <End Role="Pouvoir" EntitySet="Pouvoir" />
+            <End Role="PouvoirPersonnage" EntitySet="PouvoirPersonnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDTYPEPOUVOIRPOUVOIR" Association="Self.fk_IDTYPEPOUVOIRPOUVOIR">
+            <End Role="TypePouvoir" EntitySet="TypePouvoir" />
+            <End Role="Pouvoir" EntitySet="Pouvoir" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT" Association="Self.fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT">
+            <End Role="RareteEquipement" EntitySet="RareteEquipement" />
+            <End Role="TypeEquipement" EntitySet="TypeEquipement" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDRITUELRITUELPERSONNAGE" Association="Self.fk_IDRITUELRITUELPERSONNAGE">
+            <End Role="Rituel" EntitySet="Rituel" />
+            <End Role="RituelPersonnage" EntitySet="RituelPersonnage" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDTALENTTALENTPERSONNAGE" Association="Self.fk_IDTALENTTALENTPERSONNAGE">
+            <End Role="Talent" EntitySet="Talent" />
+            <End Role="TalentPersonnage" EntitySet="TalentPersonnage" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FichePersoDndModelStoreContainer" CdmEntityContainer="FichePersoDndEntities">
+          <EntitySetMapping Name="Alignement">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Alignement">
+              <MappingFragment StoreEntitySet="Alignement">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AptitudeRaciale">
+            <EntityTypeMapping TypeName="FichePersoDndModel.AptitudeRaciale">
+              <MappingFragment StoreEntitySet="AptitudeRaciale">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdRace" ColumnName="IdRace" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Argent">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Argent">
+              <MappingFragment StoreEntitySet="Argent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdPersonnage" ColumnName="IdPersonnage" />
+                <ScalarProperty Name="IdTypeArgent" ColumnName="IdTypeArgent" />
+                <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Classe">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Classe">
+              <MappingFragment StoreEntitySet="Classe">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Divinite">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Divinite">
+              <MappingFragment StoreEntitySet="Divinite">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipement">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Equipement">
+              <MappingFragment StoreEntitySet="Equipement">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdPersonnage" ColumnName="IdPersonnage" />
+                <ScalarProperty Name="IdTypeEquipement" ColumnName="IdTypeEquipement" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupeAventurier">
+            <EntityTypeMapping TypeName="FichePersoDndModel.GroupeAventurier">
+              <MappingFragment StoreEntitySet="GroupeAventurier">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Initiative">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Initiative">
+              <MappingFragment StoreEntitySet="Initiative">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdPersonnage" ColumnName="IdPersonnage" />
+                <ScalarProperty Name="DemiNiveau" ColumnName="DemiNiveau" />
+                <ScalarProperty Name="Divers" ColumnName="Divers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mouvement">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Mouvement">
+              <MappingFragment StoreEntitySet="Mouvement">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdPersonnage" ColumnName="IdPersonnage" />
+                <ScalarProperty Name="Base" ColumnName="Base" />
+                <ScalarProperty Name="Armure" ColumnName="Armure" />
+                <ScalarProperty Name="Objet" ColumnName="Objet" />
+                <ScalarProperty Name="Divers" ColumnName="Divers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personnage">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Personnage">
+              <MappingFragment StoreEntitySet="Personnage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Niveau" ColumnName="Niveau" />
+                <ScalarProperty Name="IdClasse" ColumnName="IdClasse" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="IdRace" ColumnName="IdRace" />
+                <ScalarProperty Name="CategorieTaille" ColumnName="CategorieTaille" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="Taille" ColumnName="Taille" />
+                <ScalarProperty Name="Poids" ColumnName="Poids" />
+                <ScalarProperty Name="IdAlignement" ColumnName="IdAlignement" />
+                <ScalarProperty Name="IdDivinite" ColumnName="IdDivinite" />
+                <ScalarProperty Name="IdGroupeAventurier" ColumnName="IdGroupeAventurier" />
+                <ScalarProperty Name="PointAction" ColumnName="PointAction" />
+                <ScalarProperty Name="PVMax" ColumnName="PVMax" />
+                <ScalarProperty Name="Personnalite" ColumnName="Personnalite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pouvoir">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Pouvoir">
+              <MappingFragment StoreEntitySet="Pouvoir">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdTypePouvoir" ColumnName="IdTypePouvoir" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="Html" ColumnName="Html" />
+                <ScalarProperty Name="IdClasse" ColumnName="IdClasse" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PouvoirPersonnage">
+            <EntityTypeMapping TypeName="FichePersoDndModel.PouvoirPersonnage">
+              <MappingFragment StoreEntitySet="PouvoirPersonnage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdPouvoir" ColumnName="IdPouvoir" />
+                <ScalarProperty Name="IdPersonnage" ColumnName="IdPersonnage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Race">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Race">
+              <MappingFragment StoreEntitySet="Race">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RareteEquipement">
+            <EntityTypeMapping TypeName="FichePersoDndModel.RareteEquipement">
+              <MappingFragment StoreEntitySet="RareteEquipement">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rituel">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Rituel">
+              <MappingFragment StoreEntitySet="Rituel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="Html" ColumnName="Html" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RituelPersonnage">
+            <EntityTypeMapping TypeName="FichePersoDndModel.RituelPersonnage">
+              <MappingFragment StoreEntitySet="RituelPersonnage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdRituel" ColumnName="IdRituel" />
+                <ScalarProperty Name="IdPersonnage" ColumnName="IdPersonnage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Talent">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Talent">
+              <MappingFragment StoreEntitySet="Talent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="Prerequis" ColumnName="Prerequis" />
+                <ScalarProperty Name="Html" ColumnName="Html" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TalentPersonnage">
+            <EntityTypeMapping TypeName="FichePersoDndModel.TalentPersonnage">
+              <MappingFragment StoreEntitySet="TalentPersonnage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdPersonnage" ColumnName="IdPersonnage" />
+                <ScalarProperty Name="IdTalent" ColumnName="IdTalent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeArgent">
+            <EntityTypeMapping TypeName="FichePersoDndModel.TypeArgent">
+              <MappingFragment StoreEntitySet="TypeArgent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeDes">
+            <EntityTypeMapping TypeName="FichePersoDndModel.TypeDes">
+              <MappingFragment StoreEntitySet="TypeDes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeEquipement">
+            <EntityTypeMapping TypeName="FichePersoDndModel.TypeEquipement">
+              <MappingFragment StoreEntitySet="TypeEquipement">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="IdRareteEquipement" ColumnName="IdRareteEquipement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypePouvoir">
+            <EntityTypeMapping TypeName="FichePersoDndModel.TypePouvoir">
+              <MappingFragment StoreEntitySet="TypePouvoir">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4c3880fd20ae4efdb5a45fdfb68bad95" Name="Diagram1">
+        <EntityTypeShape EntityType="FichePersoDndModel.Alignement" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.AptitudeRaciale" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Argent" Width="1.5" PointX="8.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Classe" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Divinite" Width="1.5" PointX="3.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Equipement" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.GroupeAventurier" Width="1.5" PointX="3.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Initiative" Width="1.5" PointX="8.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Mouvement" Width="1.5" PointX="8.25" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Personnage" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Pouvoir" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.PouvoirPersonnage" Width="1.5" PointX="11.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Race" Width="1.5" PointX="3.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.RareteEquipement" Width="1.5" PointX="3.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Rituel" Width="1.5" PointX="9" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.RituelPersonnage" Width="1.5" PointX="11.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Talent" Width="1.5" PointX="9" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.TalentPersonnage" Width="1.5" PointX="11.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.TypeArgent" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.TypeDes" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.TypeEquipement" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FichePersoDndModel.TypePouvoir" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDALIGNEMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEARGENT" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDTYPEARGENTARGENT" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDCLASSE" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDCLASSEPOUVOIR" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDDIVINITE" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDTYPEEQUIPEMENTEQUIPEMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDTYPEPERSONNAGEEQUIPEMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDGroupeAventurier" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEINITIATIVE" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEMOUVEMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEPOUVOIRPERSONNAGE" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGERITUELPERSONNAGE" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGETALENTPERSONNAGE" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDRACE" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPOUVOIRPOUVOIRPERSONNAGE" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDTYPEPOUVOIRPOUVOIR" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDRITUELRITUELPERSONNAGE" ManuallyRouted="false" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDTALENTTALENTPERSONNAGE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
