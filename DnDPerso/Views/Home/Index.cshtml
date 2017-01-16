@@ -2,30 +2,162 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div id="header">
+    <img id="logo_header" src="Images/logo_header.png" alt="" />
+    <div id="account">
+        <span id="account_name">pygma</span><br />
+        <a id="logout">Déconnexion</a>
+    </div>
 </div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<div id="mainBloc_1" class="mainBloc">
+    <div class="col-md-10">
+        <div class="input_bloc width200">
+            <input type="text" id="input_characterName" />
+            <span class="input_libelle">Nom du personnage</span>
+        </div>
+        <div class="input_bloc width75">
+            <input type="text" id="input_characterLevel" class="text_center" disabled="disabled" />
+            <span class="input_libelle">Niveau</span>
+        </div>
+        <div class="input_bloc width150">
+            <select id="input_characterClass">
+                <option></option>
+                <option>Prêtre</option>
+                <option>Mage</option>
+                <option>Guerrier</option>
+            </select>
+            <span class="input_libelle">Classe</span>
+        </div>
+        <div class="input_bloc width150">
+            <input type="text" id="input_characterParagon" class="" />
+            <span class="input_libelle">Voie parangonique</span>
+        </div>
+        <div class="input_bloc width150">
+            <input type="text" id="input_characterEpic" class="" />
+            <span class="input_libelle">Destinée épique</span>
+        </div>
+        <div class="input_bloc width75">
+            <input type="text" id="input_characterExperience" class="text_center" />
+            <span class="input_libelle">Total de px</span>
+        </div>
+        <div class="input_bloc width150">
+            <select id="input_characterRace">
+                <option></option>
+                <option>Humain</option>
+                <option>Elfe</option>
+                <option>Nain</option>
+            </select>
+            <span class="input_libelle">Race</span>
+        </div>
+        <div class="input_bloc width150">
+            <input type="text" id="input_characterHeightCategorie" class="" />
+            <span class="input_libelle">Catégorie de taille</span>
+        </div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterAge" class="text_center" />
+            <span class="input_libelle">Âge</span>
+        </div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterSexe" class="text_center" />
+            <span class="input_libelle">Sexe</span>
+        </div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterHeight" class="text_center" />
+            <span class="input_libelle">Taille</span>
+        </div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterWeight" class="text_center" />
+            <span class="input_libelle">Poids</span>
+        </div>
+        <div class="input_bloc width200">
+            <input type="text" id="input_characterGroup" />
+            <span class="input_libelle">Groupe d'aventuriers</span>
+        </div>
+        <div class="input_bloc width150">
+            <select id="input_characterAlignment">
+                <option></option>
+                <option>Neutre</option>
+                <option>Loyal bon</option>
+                <option>Chaotique bon</option>
+            </select>
+            <span class="input_libelle">Alignement</span>
+        </div>
+        <div class="input_bloc width150">
+            <select id="input_characterAlignment">
+                <option></option>
+                <option>Reine Corneille</option>
+                <option>Kord</option>
+                <option>Pouet le singe</option>
+            </select>
+            <span class="input_libelle">Divinité</span>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="col-md-2">
+        <div id="character_picture"><img src="Images/blank_picture.jpg" alt="" /></div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+</div>
+<div id="mainBloc_3" class="mainBloc marginerRight5">
+    <div class="header_bloc_title">caractéristiques</div>
+    <div class="inner_bloc_container">
+        <div class="span_libelle">FOR</div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterSexe" class="text_center" />
+            <span class="input_libelle">Valeur</span>
+        </div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterSexe" class="text_center" disabled="disabled" />
+            <span class="input_libelle">Mod</span>
+        </div>
+        <div class="span_libelle">CON</div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterSexe" class="text_center" />
+            <span class="input_libelle">Valeur</span>
+        </div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterSexe" class="text_center" disabled="disabled" />
+            <span class="input_libelle">Mod</span>
+        </div>
+        <div class="span_libelle">DEX</div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterSexe" class="text_center" />
+            <span class="input_libelle">Valeur</span>
+        </div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterSexe" class="text_center" disabled="disabled" />
+            <span class="input_libelle">Mod</span>
+        </div>
+        <div class="span_libelle">INT</div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterSexe" class="text_center" />
+            <span class="input_libelle">Valeur</span>
+        </div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterSexe" class="text_center" disabled="disabled" />
+            <span class="input_libelle">Mod</span>
+        </div>
+        <div class="span_libelle">SAG</div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterSexe" class="text_center" />
+            <span class="input_libelle">Valeur</span>
+        </div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterSexe" class="text_center" disabled="disabled" />
+            <span class="input_libelle">Mod</span>
+        </div>
+        <div class="span_libelle">CHA</div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterSexe" class="text_center" />
+            <span class="input_libelle">Valeur</span>
+        </div>
+        <div class="input_bloc width50">
+            <input type="text" id="input_characterSexe" class="text_center" disabled="disabled" />
+            <span class="input_libelle">Mod</span>
+        </div>
     </div>
+</div>
+<div id="mainBloc_2" class="mainBloc marginerRight5">
+    <div class="header_bloc_title">défenses</div>
+</div>
+<div id="mainBloc_2" class="mainBloc">
+    <div class="header_bloc_title">actions</div>
 </div>

@@ -11,6 +11,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnDPersoDAL", "DnDPersoDAL\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnDPersoEntities", "DnDPersoEntities\DnDPersoEntities.csproj", "{188AA817-A427-4FA1-A9ED-1967C605FF2C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DnDGrep", "DnDGrep", "{338BCE0C-CCEF-424B-A0E0-DFC9107B934B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnDGrepTalents", "C:\Users\Felco\Desktop\dnd\grep\DnDTalents\DnDTalents\DnDGrepTalents.csproj", "{BC59C0F0-0197-4CF6-9397-0D595125843F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnDGrepSpells", "C:\Users\Felco\Desktop\dnd\grep\grepdnd\grepdnd\DnDGrepSpells.csproj", "{9D359D7B-3249-4C2C-8F34-39F64CC606C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLGenerated", "SQLGenerated", "{47558C38-61D0-49AC-B30F-3EB194FF5812}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\Felco\Desktop\dnd\db\DnDDB.sql = C:\Users\Felco\Desktop\dnd\db\DnDDB.sql
+		C:\Users\Felco\Desktop\dnd\db\level 1.txt = C:\Users\Felco\Desktop\dnd\db\level 1.txt
+		C:\Users\Felco\Desktop\dnd\db\level 10.txt = C:\Users\Felco\Desktop\dnd\db\level 10.txt
+		C:\Users\Felco\Desktop\dnd\db\level 13.txt = C:\Users\Felco\Desktop\dnd\db\level 13.txt
+		C:\Users\Felco\Desktop\dnd\db\level 15.txt = C:\Users\Felco\Desktop\dnd\db\level 15.txt
+		C:\Users\Felco\Desktop\dnd\db\level 2.txt = C:\Users\Felco\Desktop\dnd\db\level 2.txt
+		C:\Users\Felco\Desktop\dnd\db\level 3.txt = C:\Users\Felco\Desktop\dnd\db\level 3.txt
+		C:\Users\Felco\Desktop\dnd\db\level 5.txt = C:\Users\Felco\Desktop\dnd\db\level 5.txt
+		C:\Users\Felco\Desktop\dnd\db\level 6.txt = C:\Users\Felco\Desktop\dnd\db\level 6.txt
+		C:\Users\Felco\Desktop\dnd\db\level 7.txt = C:\Users\Felco\Desktop\dnd\db\level 7.txt
+		C:\Users\Felco\Desktop\dnd\db\level 9.txt = C:\Users\Felco\Desktop\dnd\db\level 9.txt
+		C:\Users\Felco\Desktop\dnd\db\scriptUtils.txt = C:\Users\Felco\Desktop\dnd\db\scriptUtils.txt
+		C:\Users\Felco\Desktop\dnd\db\talents.txt = C:\Users\Felco\Desktop\dnd\db\talents.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,8 +56,21 @@ Global
 		{188AA817-A427-4FA1-A9ED-1967C605FF2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{188AA817-A427-4FA1-A9ED-1967C605FF2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{188AA817-A427-4FA1-A9ED-1967C605FF2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC59C0F0-0197-4CF6-9397-0D595125843F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC59C0F0-0197-4CF6-9397-0D595125843F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC59C0F0-0197-4CF6-9397-0D595125843F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC59C0F0-0197-4CF6-9397-0D595125843F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D359D7B-3249-4C2C-8F34-39F64CC606C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D359D7B-3249-4C2C-8F34-39F64CC606C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D359D7B-3249-4C2C-8F34-39F64CC606C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D359D7B-3249-4C2C-8F34-39F64CC606C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BC59C0F0-0197-4CF6-9397-0D595125843F} = {338BCE0C-CCEF-424B-A0E0-DFC9107B934B}
+		{9D359D7B-3249-4C2C-8F34-39F64CC606C4} = {338BCE0C-CCEF-424B-A0E0-DFC9107B934B}
+		{47558C38-61D0-49AC-B30F-3EB194FF5812} = {338BCE0C-CCEF-424B-A0E0-DFC9107B934B}
 	EndGlobalSection
 EndGlobal
