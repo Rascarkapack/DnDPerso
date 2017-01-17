@@ -5,11 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using DnDPersoBLL;
 using DnDPersoEntities;
+using DnDPersoEntities.Entities;
 
 namespace DnDPerso.Controllers
 {
-    public class HomeController : Controller
+    public class PouvoirController : Controller
     {
+        // GET: Pouvoir
         public ActionResult Index()
         {
             List<Classe> listClasses = ClasseBLL.GetRList();
@@ -17,7 +19,15 @@ namespace DnDPerso.Controllers
             return View();
         }
 
-        public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement)
+        public string SendFilterToList(FilterPouvoir model)
+        {
+            string HtmlContent = PouvoirBLL.GetListePouvoir(model);
+
+            //return PartialView("/Views/Pouvoir/ListePouvoirPartial.cshtml", HtmlContent);
+            return HtmlContent;
+        }
+
+         public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement)
         {
             List<SelectListItem> listTypesEntrants = new List<SelectListItem>();
 

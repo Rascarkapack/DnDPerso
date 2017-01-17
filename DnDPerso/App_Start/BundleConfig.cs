@@ -26,6 +26,12 @@ namespace DnDPerso
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            // Common functions
+            bundles.Add(new ScriptBundle("~/bundles/Scripts/Views").Include("~/Scripts/Views/Common.js"));
+
+            // Pouvoir
+            bundles.Add(new ScriptBundle("~/bundles/Scripts/Views/Pouvoir").Include("~/Scripts/Views/Pouvoir/Pouvoir.js"));
         }
     }
 }

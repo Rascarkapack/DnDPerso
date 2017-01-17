@@ -63,6 +63,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DnDPersoEntity.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PouvoirDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

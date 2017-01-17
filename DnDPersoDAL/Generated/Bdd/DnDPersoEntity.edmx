@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FichePersoDndModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FichePersoDndModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alignement">
           <Key>
             <PropertyRef Name="Id" />
@@ -437,6 +437,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetListePouvoirs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Classe" Type="int" Mode="In" />
+          <Parameter Name="Niveau" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="FichePersoDndModelStoreContainer">
           <EntitySet Name="Alignement" EntityType="Self.Alignement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AptitudeRaciale" EntityType="Self.AptitudeRaciale" Schema="dbo" store:Type="Tables" />
@@ -541,8 +545,7 @@
             <End Role="Pouvoir" EntitySet="Pouvoir" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FichePersoDndModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1121,6 +1124,10 @@
             <End Role="Talent" EntitySet="Talent" />
             <End Role="TalentPersonnage" EntitySet="TalentPersonnage" />
           </AssociationSet>
+          <FunctionImport Name="ListePouvoirs" ReturnType="Collection(String)">
+            <Parameter Name="Classe" Mode="In" Type="Int32" />
+            <Parameter Name="Niveau" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1342,6 +1349,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ListePouvoirs" FunctionName="FichePersoDndModel.Store.GetListePouvoirs" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

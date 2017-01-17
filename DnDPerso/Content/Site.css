@@ -164,3 +164,11 @@ input[type="color"]:focus,
 #character_picture {
 	border: 1px #424242 solid;
 }
+
+/* Pouvoir/index */
+
+#searchPanel select {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 300px;
+}

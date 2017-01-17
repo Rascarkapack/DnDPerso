@@ -4,6 +4,7 @@
 }
 
 <div id="header">
+    <a href="/Pouvoir/Index">Liste pouvoirs</a>
     <img id="logo_header" src="Images/logo_header.png" alt="" />
     <div id="account">
         <span id="account_name">pygma</span><br />
@@ -27,7 +28,7 @@
                 <option>Mage</option>
                 <option>Guerrier</option>
             </select>*@
-            @Html.DropDownList("listClasses", (List<SelectListItem>)ViewData["listClasses"], new { @class = "form-control col-md-4" })
+            @Html.DropDownList("listClasses", (List<SelectListItem>)ViewData["listClasses"], new { @class = "input_characterClass" })
             <span class="input_libelle">Classe</span>
         </div>
         <div class="input_bloc width150">

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Base\BaseBLL.cs" />
     <Compile Include="ClasseBLL.cs" />
+    <Compile Include="PouvoirBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

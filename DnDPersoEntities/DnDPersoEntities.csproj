@@ -111,6 +111,7 @@
     <Compile Include="Entities\Generated\Bdd\TypePouvoir.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Pouvoir.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

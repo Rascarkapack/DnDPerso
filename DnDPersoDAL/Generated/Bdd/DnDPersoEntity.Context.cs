@@ -13,6 +13,8 @@ namespace DnDPersoDAL.Generated.Bdd
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using DnDPersoEntities;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class FichePersoDndEntities : DbContext
     {
@@ -48,5 +50,18 @@ namespace DnDPersoDAL.Generated.Bdd
         public virtual DbSet<TypeDes> TypeDes { get; set; }
         public virtual DbSet<TypeEquipement> TypeEquipement { get; set; }
         public virtual DbSet<TypePouvoir> TypePouvoir { get; set; }
+    
+        public virtual ObjectResult<string> ListePouvoirs(Nullable<int> classe, Nullable<int> niveau)
+        {
+            var classeParameter = classe.HasValue ?
+                new ObjectParameter("Classe", classe) :
+                new ObjectParameter("Classe", typeof(int));
+    
+            var niveauParameter = niveau.HasValue ?
+                new ObjectParameter("Niveau", niveau) :
+                new ObjectParameter("Niveau", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("ListePouvoirs", classeParameter, niveauParameter);
+        }
     }
 }
