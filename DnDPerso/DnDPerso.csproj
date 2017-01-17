@@ -173,7 +173,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Pouvoir\Index.cshtml" />
-    <Content Include="Views\Pouvoir\ListePouvoirPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

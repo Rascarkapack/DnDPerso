@@ -10,6 +10,6 @@
 <div id="searchPanel">
     @Html.DropDownList("listClasses", (List<SelectListItem>)ViewData["listClasses"], new { @class = "input_characterClass" })
     <input type="text" id="Niveau" />
-    <button class="btn" onclick="searchPouvoir()">Rechercher</button>
+    <button class="btn" id="searchPouvoirBtn" onclick="searchPouvoir()">Rechercher</button>
 </div>
 <div id="containerPouvoir"></div>

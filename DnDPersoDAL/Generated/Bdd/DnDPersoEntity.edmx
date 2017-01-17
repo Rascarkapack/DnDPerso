@@ -1349,7 +1349,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="ListePouvoirs" FunctionName="FichePersoDndModel.Store.GetListePouvoirs" />
+          <FunctionImportMapping FunctionImportName="ListePouvoirs" FunctionName="FichePersoDndModel.Store.GetListePouvoirs" >
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -22,7 +22,7 @@ namespace DnDPersoDAL
             try
             {
                 db_context = new FichePersoDndEntities();
-                result = db_context.ListePouvoirs(Classe, Niveau).ToString();
+                result = db_context.ListePouvoirs(Classe, Niveau).FirstOrDefault();
             }
             finally
             {

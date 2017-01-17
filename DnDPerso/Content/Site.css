@@ -170,5 +170,63 @@ input[type="color"]:focus,
 #searchPanel select {
     margin-top: 30px;
     margin-bottom: 30px;
-    width: 300px;
+    width: 200px;
+}
+#Niveau {
+    width: 50px;
+}
+.headerSpelltype {
+    width: 100%;
+    color: #fff;
+    padding: 10px;
+    text-transform: uppercase;
+    background-color: #993333;
+    height: 40px;
+    -webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	margin-bottom: 5px;
+}
+/* Bloc pouvoir DnD Wiki */
+
+.infobox {
+    border: 1px solid #993333;
+    border-collapse: collapse;
+    background-color: #fff;
+    color: black;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+    padding: 0.2em;
+    display: inline-block;
+    width: 240px;
+}
+.infobox-power .infobox-power-header {
+    background: #981332;
+    color: #FFF;
+}
+.infobox-power-at-will .infobox-power-header {
+    background: #649769;
+}
+.infobox-power-daily .infobox-power-header {
+    background: #4C4C4E;
+}
+.infobox-power .infobox-power-header .infobox-power-title {
+    font-weight: bold;
+    float: left;
+    margin-left: 1em;
+}
+.infobox-power .infobox-power-header .infobox-power-origin {
+    text-align: right;
+    margin-right: 1em;
+}
+.infobox-power {
+    width: 360px;
+    border-color: #981332;
+}
+.clearboth {
+    clear: both;
+}
+.hanging {
+    padding-left: 1em;
+    text-indent: -1em;
 }

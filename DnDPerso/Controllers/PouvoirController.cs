@@ -19,12 +19,11 @@ namespace DnDPerso.Controllers
             return View();
         }
 
-        public string SendFilterToList(FilterPouvoir model)
+        public ActionResult SendFilterToList(FilterPouvoir model)
         {
             string HtmlContent = PouvoirBLL.GetListePouvoir(model);
 
-            //return PartialView("/Views/Pouvoir/ListePouvoirPartial.cshtml", HtmlContent);
-            return HtmlContent;
+            return Json(HtmlContent);
         }
 
          public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement)
