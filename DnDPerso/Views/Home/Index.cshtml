@@ -1,4 +1,5 @@
-﻿@{
+﻿@model DnDPersoEntities.Classe
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -20,12 +21,13 @@
             <span class="input_libelle">Niveau</span>
         </div>
         <div class="input_bloc width150">
-            <select id="input_characterClass">
+            @*<select id="input_characterClass">
                 <option></option>
                 <option>Prêtre</option>
                 <option>Mage</option>
                 <option>Guerrier</option>
-            </select>
+            </select>*@
+            @Html.DropDownList("listClasses", (List<SelectListItem>)ViewData["listClasses"], new { @class = "form-control col-md-4" })
             <span class="input_libelle">Classe</span>
         </div>
         <div class="input_bloc width150">
