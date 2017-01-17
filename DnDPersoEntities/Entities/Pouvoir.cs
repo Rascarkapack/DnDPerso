@@ -12,7 +12,7 @@ namespace DnDPersoEntities.Entities
 
     public class FilterPouvoir
     {
-        public int Classe { get; set; }
-        public int Niveau { get; set; }
+        public int? Classe { get; set; }
+        public int? Niveau { get; set; }
     }
 }

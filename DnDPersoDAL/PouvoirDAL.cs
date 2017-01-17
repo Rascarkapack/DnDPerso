@@ -16,8 +16,8 @@ namespace DnDPersoDAL
         public static string GetListePouvoir(FilterPouvoir model)
         {
             FichePersoDndEntities db_context = null;
-            int Classe = model.Classe;
-            int Niveau = model.Niveau;
+            int? Classe = model.Classe;
+            int? Niveau = model.Niveau;
             string result = "";
             try
             {
