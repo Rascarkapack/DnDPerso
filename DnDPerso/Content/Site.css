@@ -77,6 +77,10 @@ input[type="color"]:focus,
 	text-align : center;
 	padding-right: 5px !important;
 }
+.width35 {
+    width: 35px;
+    margin-right: 5px !important;
+}
 .width50 {
 	width : 50px;
 }

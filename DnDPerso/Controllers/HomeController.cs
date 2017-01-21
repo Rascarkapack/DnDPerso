@@ -14,6 +14,16 @@ namespace DnDPerso.Controllers
         {
             List<Classe> listClasses = ClasseBLL.GetRList();
             ViewData["listClasses"] = SetDropDownValues(listClasses, "Id", "Libelle", false);
+
+            List<Race> listRaces = RaceBLL.GetRList();
+            ViewData["listRaces"] = SetDropDownValues(listRaces, "Id", "Libelle", false);
+
+            List<Alignement> listAlignements = AlignementBLL.GetRList();
+            ViewData["listAlignements"] = SetDropDownValues(listAlignements, "Id", "Libelle", false);
+
+            List<Divinite> listDivinites = DiviniteBLL.GetRList();
+            ViewData["listDivinites"] = SetDropDownValues(listDivinites, "Id", "Libelle", false);
+
             return View();
         }
 

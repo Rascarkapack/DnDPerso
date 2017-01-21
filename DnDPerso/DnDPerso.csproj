@@ -158,6 +158,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Views\Common.js" />
+    <Content Include="Scripts\Views\DnDAutoComplete.js" />
+    <Content Include="Scripts\Views\Home\Home.js" />
     <Content Include="Scripts\Views\Pouvoir\Pouvoir.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />

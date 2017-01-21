@@ -10,6 +10,7 @@
         <span id="account_name">pygma</span><br />
         <a id="logout">Déconnexion</a>
     </div>
+    <div><input type="button" onclick="SaveCharacterSheet()" value="Enregistrer" /></div>
 </div>
 <div id="mainBloc_1" class="mainBloc">
     <div class="col-md-10">
@@ -22,34 +23,15 @@
             <span class="input_libelle">Niveau</span>
         </div>
         <div class="input_bloc width150">
-            @*<select id="input_characterClass">
-                <option></option>
-                <option>Prêtre</option>
-                <option>Mage</option>
-                <option>Guerrier</option>
-            </select>*@
-            @Html.DropDownList("listClasses", (List<SelectListItem>)ViewData["listClasses"], new { @class = "input_characterClass" })
+            @Html.DropDownList("listClasses", (List<SelectListItem>)ViewData["listClasses"], new { })
             <span class="input_libelle">Classe</span>
-        </div>
-        <div class="input_bloc width150">
-            <input type="text" id="input_characterParagon" class="" />
-            <span class="input_libelle">Voie parangonique</span>
-        </div>
-        <div class="input_bloc width150">
-            <input type="text" id="input_characterEpic" class="" />
-            <span class="input_libelle">Destinée épique</span>
         </div>
         <div class="input_bloc width75">
             <input type="text" id="input_characterExperience" class="text_center" />
             <span class="input_libelle">Total de px</span>
         </div>
         <div class="input_bloc width150">
-            <select id="input_characterRace">
-                <option></option>
-                <option>Humain</option>
-                <option>Elfe</option>
-                <option>Nain</option>
-            </select>
+            @Html.DropDownList("listRaces", (List<SelectListItem>)ViewData["listRaces"], new { })
             <span class="input_libelle">Race</span>
         </div>
         <div class="input_bloc width150">
@@ -77,21 +59,11 @@
             <span class="input_libelle">Groupe d'aventuriers</span>
         </div>
         <div class="input_bloc width150">
-            <select id="input_characterAlignment">
-                <option></option>
-                <option>Neutre</option>
-                <option>Loyal bon</option>
-                <option>Chaotique bon</option>
-            </select>
+            @Html.DropDownList("listAlignements", (List<SelectListItem>)ViewData["listAlignements"], new { })
             <span class="input_libelle">Alignement</span>
         </div>
         <div class="input_bloc width150">
-            <select id="input_characterAlignment">
-                <option></option>
-                <option>Reine Corneille</option>
-                <option>Kord</option>
-                <option>Pouet le singe</option>
-            </select>
+            @Html.DropDownList("listDivinites", (List<SelectListItem>)ViewData["listDivinites"], new { })
             <span class="input_libelle">Divinité</span>
         </div>
     </div>
@@ -104,63 +76,184 @@
     <div class="inner_bloc_container">
         <div class="span_libelle">FOR</div>
         <div class="input_bloc width50">
-            <input type="text" id="input_characterSexe" class="text_center" />
+            <input type="text" id="input_ForceValue" class="text_center" />
             <span class="input_libelle">Valeur</span>
         </div>
         <div class="input_bloc width50">
-            <input type="text" id="input_characterSexe" class="text_center" disabled="disabled" />
+            <input type="text" id="input_ForceMod" class="text_center" disabled="disabled" />
             <span class="input_libelle">Mod</span>
         </div>
         <div class="span_libelle">CON</div>
         <div class="input_bloc width50">
-            <input type="text" id="input_characterSexe" class="text_center" />
+            <input type="text" id="input_ConsValue" class="text_center" />
             <span class="input_libelle">Valeur</span>
         </div>
         <div class="input_bloc width50">
-            <input type="text" id="input_characterSexe" class="text_center" disabled="disabled" />
+            <input type="text" id="input_ConsMod" class="text_center" disabled="disabled" />
             <span class="input_libelle">Mod</span>
         </div>
         <div class="span_libelle">DEX</div>
         <div class="input_bloc width50">
-            <input type="text" id="input_characterSexe" class="text_center" />
+            <input type="text" id="input_DexValue" class="text_center" />
             <span class="input_libelle">Valeur</span>
         </div>
         <div class="input_bloc width50">
-            <input type="text" id="input_characterSexe" class="text_center" disabled="disabled" />
+            <input type="text" id="input_DexMod" class="text_center" disabled="disabled" />
             <span class="input_libelle">Mod</span>
         </div>
         <div class="span_libelle">INT</div>
         <div class="input_bloc width50">
-            <input type="text" id="input_characterSexe" class="text_center" />
+            <input type="text" id="input_IntValue" class="text_center" />
             <span class="input_libelle">Valeur</span>
         </div>
         <div class="input_bloc width50">
-            <input type="text" id="input_characterSexe" class="text_center" disabled="disabled" />
+            <input type="text" id="input_IntMod" class="text_center" disabled="disabled" />
             <span class="input_libelle">Mod</span>
         </div>
         <div class="span_libelle">SAG</div>
         <div class="input_bloc width50">
-            <input type="text" id="input_characterSexe" class="text_center" />
+            <input type="text" id="input_SagValue" class="text_center" />
             <span class="input_libelle">Valeur</span>
         </div>
         <div class="input_bloc width50">
-            <input type="text" id="input_characterSexe" class="text_center" disabled="disabled" />
+            <input type="text" id="input_SagMod" class="text_center" disabled="disabled" />
             <span class="input_libelle">Mod</span>
         </div>
         <div class="span_libelle">CHA</div>
         <div class="input_bloc width50">
-            <input type="text" id="input_characterSexe" class="text_center" />
+            <input type="text" id="input_ChaValue" class="text_center" />
             <span class="input_libelle">Valeur</span>
         </div>
         <div class="input_bloc width50">
-            <input type="text" id="input_characterSexe" class="text_center" disabled="disabled" />
+            <input type="text" id="input_ChaMod" class="text_center" disabled="disabled" />
             <span class="input_libelle">Mod</span>
         </div>
     </div>
 </div>
 <div id="mainBloc_2" class="mainBloc marginerRight5">
     <div class="header_bloc_title">défenses</div>
+    <div class="inner_bloc_container">
+        <!--CA-->
+        <div class="span_libelle">CA</div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_CATotal" class="text_center" />
+            <span class="input_libelle">Total</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_CADemiNiveau" class="text_center" />
+            <span class="input_libelle">1/2</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_CAArmure" class="text_center" />
+            <span class="input_libelle">Armure</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_CAClasse" class="text_center" />
+            <span class="input_libelle">Classe</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_CATalent" class="text_center" />
+            <span class="input_libelle">Talent</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_CADivers" class="text_center" />
+            <span class="input_libelle">Divers</span>
+        </div>
+        <!--VIG-->
+        <div class="span_libelle">VIG</div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_VIGTotal" class="text_center" />
+            <span class="input_libelle">Total</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_VIGDemiNiveau" class="text_center" />
+            <span class="input_libelle">1/2</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_VIGArmure" class="text_center" />
+            <span class="input_libelle">Carac</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_VIGClasse" class="text_center" />
+            <span class="input_libelle">Classe</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_VIGTalent" class="text_center" />
+            <span class="input_libelle">Talent</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_VIGDivers" class="text_center" />
+            <span class="input_libelle">Divers</span>
+        </div>
+        <!--REF-->
+        <div class="span_libelle">REF</div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_REFTotal" class="text_center" />
+            <span class="input_libelle">Total</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_REFDemiNiveau" class="text_center" />
+            <span class="input_libelle">1/2</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_REFArmure" class="text_center" />
+            <span class="input_libelle">Carac</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_REFClasse" class="text_center" />
+            <span class="input_libelle">Classe</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_REFTalent" class="text_center" />
+            <span class="input_libelle">Talent</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_REFDivers" class="text_center" />
+            <span class="input_libelle">Divers</span>
+        </div>
+        <!--VOL-->
+        <div class="span_libelle">VOL</div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_VIGTotal" class="text_center" />
+            <span class="input_libelle">Total</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_VIGDemiNiveau" class="text_center" />
+            <span class="input_libelle">1/2</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_VIGArmure" class="text_center" />
+            <span class="input_libelle">Carac</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_VIGClasse" class="text_center" />
+            <span class="input_libelle">Classe</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_VIGTalent" class="text_center" />
+            <span class="input_libelle">Talent</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_VIGDivers" class="text_center" />
+            <span class="input_libelle">Divers</span>
+        </div>
+    </div>
 </div>
 <div id="mainBloc_2" class="mainBloc">
     <div class="header_bloc_title">actions</div>
+    <div class="inner_bloc_container">
+        <div class="span_libelle">Initiative</div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_INITTotal" class="text_center" />
+            <span class="input_libelle">Total</span>
+        </div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_INITDivers" class="text_center" />
+            <span class="input_libelle">Bonus divers</span>
+        </div>
+        <div class="span_libelle">Points d'action</div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_PAValue" class="text_center" />
+        </div>
+    </div>
 </div>
