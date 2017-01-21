@@ -47,6 +47,22 @@
         <AssociationConnector Association="FichePersoDndModel.fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT" ManuallyRouted="false" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDRITUELRITUELPERSONNAGE" ManuallyRouted="false" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDTALENTTALENTPERSONNAGE" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Caracteristique" Width="1.5" PointX="12" PointY="6.875" />
+        <EntityTypeShape EntityType="FichePersoDndModel.CaracteristiquePersonnage" Width="1.5" PointX="14.25" PointY="9.625" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Competence" Width="1.5" PointX="9" PointY="26.875" />
+        <EntityTypeShape EntityType="FichePersoDndModel.CompetencePersonnage" Width="1.5" PointX="11.25" PointY="18.625" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Defense" Width="1.5" PointX="12" PointY="21.875" />
+        <EntityTypeShape EntityType="FichePersoDndModel.DefensePersonnage" Width="1.5" PointX="14.25" PointY="15.75" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Utilisateur" Width="1.5" PointX="12" PointY="3.75" />
+        <EntityTypeShape EntityType="FichePersoDndModel.UtilisateurPersonnage" Width="1.5" PointX="14.25" PointY="12.75" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDCARACCARACPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGECARACPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDCOMPECOMPEPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGECOMPEPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDDEFDEFPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEDEFPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEUTILPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDUTILPERSONNAGE" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

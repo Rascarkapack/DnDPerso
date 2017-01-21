@@ -49,7 +49,25 @@
     <Compile Include="Entities\Generated\Bdd\Argent.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Generated\Bdd\Caracteristique.cs">
+      <DependentUpon>DnDPersoEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Generated\Bdd\CaracteristiquePersonnage.cs">
+      <DependentUpon>DnDPersoEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Generated\Bdd\Classe.cs">
+      <DependentUpon>DnDPersoEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Generated\Bdd\Competence.cs">
+      <DependentUpon>DnDPersoEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Generated\Bdd\CompetencePersonnage.cs">
+      <DependentUpon>DnDPersoEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Generated\Bdd\Defense.cs">
+      <DependentUpon>DnDPersoEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Generated\Bdd\DefensePersonnage.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Generated\Bdd\Divinite.cs">
@@ -109,6 +127,12 @@
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Generated\Bdd\TypePouvoir.cs">
+      <DependentUpon>DnDPersoEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Generated\Bdd\Utilisateur.cs">
+      <DependentUpon>DnDPersoEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Generated\Bdd\UtilisateurPersonnage.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Pouvoir.cs" />

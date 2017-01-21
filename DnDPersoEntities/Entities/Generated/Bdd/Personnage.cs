@@ -47,6 +47,10 @@ namespace DnDPersoEntities
             this.PouvoirPersonnage = new HashSet<PouvoirPersonnage>();
             this.RituelPersonnage = new HashSet<RituelPersonnage>();
             this.TalentPersonnage = new HashSet<TalentPersonnage>();
+            this.CaracteristiquePersonnage = new HashSet<CaracteristiquePersonnage>();
+            this.CompetencePersonnage = new HashSet<CompetencePersonnage>();
+            this.DefensePersonnage = new HashSet<DefensePersonnage>();
+            this.UtilisateurPersonnage = new HashSet<UtilisateurPersonnage>();
         }
     
         
@@ -307,5 +311,13 @@ namespace DnDPersoEntities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TalentPersonnage> TalentPersonnage { get; set; }
         public virtual Race Race { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CaracteristiquePersonnage> CaracteristiquePersonnage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CompetencePersonnage> CompetencePersonnage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DefensePersonnage> DefensePersonnage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UtilisateurPersonnage> UtilisateurPersonnage { get; set; }
     }
 }

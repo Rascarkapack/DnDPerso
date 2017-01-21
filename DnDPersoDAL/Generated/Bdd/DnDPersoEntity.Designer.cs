@@ -1,4 +1,4 @@
-﻿// La génération de code T4 est activée pour le modèle 'D:\depot\DnDPerso\DnDPersoDAL\Generated\Bdd\DnDPersoEntity.edmx'. 
+﻿// La génération de code T4 est activée pour le modèle 'c:\Users\Admin\documents\visual studio 2015\Projects\DnDPerso\DnDPersoDAL\Generated\Bdd\DnDPersoEntity.edmx'. 
 // Pour activer la génération de code héritée, définissez la valeur de la propriété
 // du concepteur 'Stratégie de génération de code' sur 'ObjectContext hérité'. Cette propriété est disponible dans la fenêtre Propriétés lorsque le modèle
 //  est ouvert dans le concepteur.

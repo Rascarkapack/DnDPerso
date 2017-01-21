@@ -50,6 +50,14 @@ namespace DnDPersoDAL.Generated.Bdd
         public virtual DbSet<TypeDes> TypeDes { get; set; }
         public virtual DbSet<TypeEquipement> TypeEquipement { get; set; }
         public virtual DbSet<TypePouvoir> TypePouvoir { get; set; }
+        public virtual DbSet<Caracteristique> Caracteristique { get; set; }
+        public virtual DbSet<CaracteristiquePersonnage> CaracteristiquePersonnage { get; set; }
+        public virtual DbSet<Competence> Competence { get; set; }
+        public virtual DbSet<CompetencePersonnage> CompetencePersonnage { get; set; }
+        public virtual DbSet<Defense> Defense { get; set; }
+        public virtual DbSet<DefensePersonnage> DefensePersonnage { get; set; }
+        public virtual DbSet<Utilisateur> Utilisateur { get; set; }
+        public virtual DbSet<UtilisateurPersonnage> UtilisateurPersonnage { get; set; }
     
         public virtual ObjectResult<string> ListePouvoirs(Nullable<int> classe, Nullable<int> niveau)
         {
