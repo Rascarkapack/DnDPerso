@@ -69,6 +69,7 @@
     <Compile Include="PouvoirDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RaceDAL.cs" />
+    <Compile Include="UtilisateurDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Generated\Bdd\DnDPersoEntity.edmx">
@@ -97,6 +98,10 @@
     <ProjectReference Include="..\DnDPersoEntities\DnDPersoEntities.csproj">
       <Project>{188aa817-a427-4fa1-a9ed-1967c605ff2c}</Project>
       <Name>DnDPersoEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DnDPersoUtil\DnDPersoUtil.csproj">
+      <Project>{1a4dbc16-4fff-4fcd-a259-3e99077527f8}</Project>
+      <Name>DnDPersoUtil</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

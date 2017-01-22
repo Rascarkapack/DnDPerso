@@ -1,0 +1,25 @@
+﻿@model DnDPersoEntities.Utilisateur
+
+@Scripts.Render("~/bundles/Scripts/Views/Login")
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div id="contentAuthBloc">
+    <p id="contentAuthTitle">Se connecter</p>
+    <div class="contentAuthSeparator"></div>
+    <div id="contentAuthIdBloc">
+        <input type="text" placeholder="Identifiant" id="authFormLogin" />
+    </div>
+    <div class="contentAuthSeparator"></div>
+    <div id="contentAuthPasswordBloc">
+        <input type="password" placeholder="Mot de passe" id="authFormPassword" />
+    </div>
+    <div class="contentAuthSeparator"></div>
+    <div id="contentAuthConnexionBloc">
+        <input type="button" class="btn" name="Connexion" value="Connexion" id="loginAuthConnexion" onclick="loginAuth()" />
+    </div>
+</div>

@@ -30,6 +30,9 @@ namespace DnDPerso
             // Common functions
             bundles.Add(new ScriptBundle("~/bundles/Scripts/Views").Include("~/Scripts/Views/Common.js"));
 
+            //Login
+            bundles.Add(new ScriptBundle("~/bundles/Scripts/Views/Login").Include("~/Scripts/Views/Login/Login.js"));
+
             // Home
             bundles.Add(new ScriptBundle("~/bundles/Scripts/Views/Home").Include("~/Scripts/Views/Home/Home.js"));
 

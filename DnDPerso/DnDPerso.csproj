@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PouvoirController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -160,6 +161,7 @@
     <Content Include="Scripts\Views\Common.js" />
     <Content Include="Scripts\Views\DnDAutoComplete.js" />
     <Content Include="Scripts\Views\Home\Home.js" />
+    <Content Include="Scripts\Views\Login\Login.js" />
     <Content Include="Scripts\Views\Pouvoir\Pouvoir.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -175,6 +177,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Pouvoir\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
