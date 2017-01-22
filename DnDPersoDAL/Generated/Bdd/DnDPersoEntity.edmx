@@ -83,6 +83,11 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdDefense" Type="int" Nullable="false" />
           <Property Name="IdPersonnage" Type="int" Nullable="false" />
+          <Property Name="DemiNiveau" Type="int" />
+          <Property Name="Caracteristique" Type="int" />
+          <Property Name="Classe" Type="int" />
+          <Property Name="Talent" Type="int" />
+          <Property Name="Divers" Type="int" />
         </EntityType>
         <EntityType Name="Divinite">
           <Key>
@@ -596,9 +601,58 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetCharacterData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CharacterId" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetListePouvoirs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Classe" Type="int" Mode="In" />
           <Parameter Name="Niveau" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SetCharacterData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCharacter" Type="int" Mode="In" />
+          <Parameter Name="Nom" Type="varchar" Mode="In" />
+          <Parameter Name="Niveau" Type="int" Mode="In" />
+          <Parameter Name="IdClasse" Type="int" Mode="In" />
+          <Parameter Name="Experience" Type="int" Mode="In" />
+          <Parameter Name="IdRace" Type="int" Mode="In" />
+          <Parameter Name="CategorieTaille" Type="varchar" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
+          <Parameter Name="Sexe" Type="char" Mode="In" />
+          <Parameter Name="Taille" Type="decimal" Mode="In" />
+          <Parameter Name="Poids" Type="int" Mode="In" />
+          <Parameter Name="IdAlignement" Type="int" Mode="In" />
+          <Parameter Name="IdDivinite" Type="int" Mode="In" />
+          <Parameter Name="IdGroupeAventurier" Type="int" Mode="In" />
+          <Parameter Name="PointAction" Type="int" Mode="In" />
+          <Parameter Name="PVMax" Type="int" Mode="In" />
+          <Parameter Name="Personnalite" Type="varchar" Mode="In" />
+          <Parameter Name="InitiativeDivers" Type="int" Mode="In" />
+          <Parameter Name="CaracteristiqueForce" Type="int" Mode="In" />
+          <Parameter Name="CaracteristiqueConstitution" Type="int" Mode="In" />
+          <Parameter Name="CaracteristiqueDexterite" Type="int" Mode="In" />
+          <Parameter Name="CaracteristiqueIntelligence" Type="int" Mode="In" />
+          <Parameter Name="CaracteristiqueSagesse" Type="int" Mode="In" />
+          <Parameter Name="CaracteristiqueCharisme" Type="int" Mode="In" />
+          <Parameter Name="DefenseCADemiNiveau" Type="int" Mode="In" />
+          <Parameter Name="DefenseCACaracteristique" Type="int" Mode="In" />
+          <Parameter Name="DefenseCAClasse" Type="int" Mode="In" />
+          <Parameter Name="DefenseCATalent" Type="int" Mode="In" />
+          <Parameter Name="DefenseCADivers" Type="int" Mode="In" />
+          <Parameter Name="DefenseVIGDemiNiveau" Type="int" Mode="In" />
+          <Parameter Name="DefenseVIGCaracteristique" Type="int" Mode="In" />
+          <Parameter Name="DefenseVIGClasse" Type="int" Mode="In" />
+          <Parameter Name="DefenseVIGTalent" Type="int" Mode="In" />
+          <Parameter Name="DefenseVIGDivers" Type="int" Mode="In" />
+          <Parameter Name="DefenseREFDemiNiveau" Type="int" Mode="In" />
+          <Parameter Name="DefenseREFCaracteristique" Type="int" Mode="In" />
+          <Parameter Name="DefenseREFClasse" Type="int" Mode="In" />
+          <Parameter Name="DefenseREFTalent" Type="int" Mode="In" />
+          <Parameter Name="DefenseREFDivers" Type="int" Mode="In" />
+          <Parameter Name="DefenseVOLDemiNiveau" Type="int" Mode="In" />
+          <Parameter Name="DefenseVOLCaracteristique" Type="int" Mode="In" />
+          <Parameter Name="DefenseVOLClasse" Type="int" Mode="In" />
+          <Parameter Name="DefenseVOLTalent" Type="int" Mode="In" />
+          <Parameter Name="DefenseVOLDivers" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="FichePersoDndModelStoreContainer">
           <EntitySet Name="Alignement" EntityType="Self.Alignement" Schema="dbo" store:Type="Tables" />
@@ -1371,6 +1425,55 @@
             <End Role="Utilisateur" EntitySet="Utilisateur" />
             <End Role="UtilisateurPersonnage" EntitySet="UtilisateurPersonnage" />
           </AssociationSet>
+          <FunctionImport Name="GetCharacterData">
+            <Parameter Name="CharacterId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SetCharacterData">
+            <Parameter Name="idCharacter" Mode="In" Type="Int32" />
+            <Parameter Name="Nom" Mode="In" Type="String" />
+            <Parameter Name="Niveau" Mode="In" Type="Int32" />
+            <Parameter Name="IdClasse" Mode="In" Type="Int32" />
+            <Parameter Name="Experience" Mode="In" Type="Int32" />
+            <Parameter Name="IdRace" Mode="In" Type="Int32" />
+            <Parameter Name="CategorieTaille" Mode="In" Type="String" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="Sexe" Mode="In" Type="String" />
+            <Parameter Name="Taille" Mode="In" Type="Decimal" />
+            <Parameter Name="Poids" Mode="In" Type="Int32" />
+            <Parameter Name="IdAlignement" Mode="In" Type="Int32" />
+            <Parameter Name="IdDivinite" Mode="In" Type="Int32" />
+            <Parameter Name="IdGroupeAventurier" Mode="In" Type="Int32" />
+            <Parameter Name="PointAction" Mode="In" Type="Int32" />
+            <Parameter Name="PVMax" Mode="In" Type="Int32" />
+            <Parameter Name="Personnalite" Mode="In" Type="String" />
+            <Parameter Name="InitiativeDivers" Mode="In" Type="Int32" />
+            <Parameter Name="CaracteristiqueForce" Mode="In" Type="Int32" />
+            <Parameter Name="CaracteristiqueConstitution" Mode="In" Type="Int32" />
+            <Parameter Name="CaracteristiqueDexterite" Mode="In" Type="Int32" />
+            <Parameter Name="CaracteristiqueIntelligence" Mode="In" Type="Int32" />
+            <Parameter Name="CaracteristiqueSagesse" Mode="In" Type="Int32" />
+            <Parameter Name="CaracteristiqueCharisme" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseCADemiNiveau" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseCACaracteristique" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseCAClasse" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseCATalent" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseCADivers" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVIGDemiNiveau" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVIGCaracteristique" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVIGClasse" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVIGTalent" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVIGDivers" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseREFDemiNiveau" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseREFCaracteristique" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseREFClasse" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseREFTalent" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseREFDivers" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVOLDemiNiveau" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVOLCaracteristique" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVOLClasse" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVOLTalent" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVOLDivers" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Caracteristique">
           <Key>
@@ -1427,6 +1530,11 @@
           <Property Name="IdPersonnage" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Defense" Relationship="FichePersoDndModel.fk_IDDEFDEFPERSONNAGE" FromRole="DefensePersonnage" ToRole="Defense" />
           <NavigationProperty Name="Personnage" Relationship="FichePersoDndModel.fk_IDPERSONNAGEDEFPERSONNAGE" FromRole="DefensePersonnage" ToRole="Personnage" />
+          <Property Name="DemiNiveau" Type="Int32" />
+          <Property Name="Caracteristique" Type="Int32" />
+          <Property Name="Classe" Type="Int32" />
+          <Property Name="Talent" Type="Int32" />
+          <Property Name="Divers" Type="Int32" />
         </EntityType>
         <EntityType Name="Utilisateur">
           <Key>
@@ -1812,6 +1920,11 @@
           <EntitySetMapping Name="DefensePersonnage">
             <EntityTypeMapping TypeName="FichePersoDndModel.DefensePersonnage">
               <MappingFragment StoreEntitySet="DefensePersonnage">
+                <ScalarProperty Name="Divers" ColumnName="Divers" />
+                <ScalarProperty Name="Talent" ColumnName="Talent" />
+                <ScalarProperty Name="Classe" ColumnName="Classe" />
+                <ScalarProperty Name="Caracteristique" ColumnName="Caracteristique" />
+                <ScalarProperty Name="DemiNiveau" ColumnName="DemiNiveau" />
                 <ScalarProperty Name="IdPersonnage" ColumnName="IdPersonnage" />
                 <ScalarProperty Name="IdDefense" ColumnName="IdDefense" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -1836,6 +1949,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetCharacterData" FunctionName="FichePersoDndModel.Store.GetCharacterData" />
+          <FunctionImportMapping FunctionImportName="SetCharacterData" FunctionName="FichePersoDndModel.Store.SetCharacterData" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

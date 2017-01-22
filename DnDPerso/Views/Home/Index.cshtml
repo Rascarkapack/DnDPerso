@@ -66,6 +66,10 @@
             @Html.DropDownList("listDivinites", (List<SelectListItem>)ViewData["listDivinites"], new { })
             <span class="input_libelle">Divinité</span>
         </div>
+        <div class="input_bloc input_text">
+            <input type="text" id="input_characterPersonnalite" />
+            <span class="input_libelle">Personnalité</span>
+        </div>
     </div>
     <div class="col-md-2">
         <div id="character_picture"><img src="Images/blank_picture.jpg" alt="" /></div>
@@ -144,7 +148,7 @@
             <span class="input_libelle">1/2</span>
         </div>
         <div class="input_bloc width35">
-            <input type="text" id="input_CAArmure" class="text_center" />
+            <input type="text" id="input_CACarac" class="text_center" />
             <span class="input_libelle">Armure</span>
         </div>
         <div class="input_bloc width35">
@@ -170,7 +174,7 @@
             <span class="input_libelle">1/2</span>
         </div>
         <div class="input_bloc width35">
-            <input type="text" id="input_VIGArmure" class="text_center" />
+            <input type="text" id="input_VIGCarac" class="text_center" />
             <span class="input_libelle">Carac</span>
         </div>
         <div class="input_bloc width35">
@@ -196,7 +200,7 @@
             <span class="input_libelle">1/2</span>
         </div>
         <div class="input_bloc width35">
-            <input type="text" id="input_REFArmure" class="text_center" />
+            <input type="text" id="input_REFCarac" class="text_center" />
             <span class="input_libelle">Carac</span>
         </div>
         <div class="input_bloc width35">
@@ -222,7 +226,7 @@
             <span class="input_libelle">1/2</span>
         </div>
         <div class="input_bloc width35">
-            <input type="text" id="input_VIGArmure" class="text_center" />
+            <input type="text" id="input_VIGCarac" class="text_center" />
             <span class="input_libelle">Carac</span>
         </div>
         <div class="input_bloc width35">
@@ -254,6 +258,10 @@
         <div class="span_libelle">Points d'action</div>
         <div class="input_bloc width35">
             <input type="text" id="input_PAValue" class="text_center" />
+        </div>
+        <div class="span_libelle">PV Max</div>
+        <div class="input_bloc width35">
+            <input type="text" id="input_PVMax" class="text_center" />
         </div>
     </div>
 </div>

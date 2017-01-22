@@ -26,7 +26,7 @@ namespace DnDPerso.Controllers
             return Json(HtmlContent);
         }
 
-         public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement)
+        public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement)
         {
             List<SelectListItem> listTypesEntrants = new List<SelectListItem>();
 

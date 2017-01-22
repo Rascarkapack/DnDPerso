@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DnDPersoBLL;
 using DnDPersoEntities;
+using DnDPersoEntities.Entities;
 
 namespace DnDPerso.Controllers
 {
@@ -25,6 +26,13 @@ namespace DnDPerso.Controllers
             ViewData["listDivinites"] = SetDropDownValues(listDivinites, "Id", "Libelle", false);
 
             return View();
+        }
+
+        public ActionResult SaveCharacterData(CharacterData model)
+        {
+            bool result = PersonnageBLL.SaveCharacterData(Session["IdCharacter"], model);
+
+            return new EmptyResult();
         }
 
         public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement)
