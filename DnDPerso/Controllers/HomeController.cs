@@ -32,7 +32,12 @@ namespace DnDPerso.Controllers
         {
             try
             {
-                PersonnageBLL.SaveCharacterData(Session["IdCharacter"].ToString(), model);
+                if (Session["UserSession"] != null)
+                {
+                    Utilisateur util = Session["UserSession"] as Utilisateur;
+
+                    PersonnageBLL.SaveCharacterData(util.Id, model);
+                }
             }
             catch(Exception e)
             { }

@@ -13,7 +13,7 @@ namespace DnDPersoDAL
 {
     public class PersonnageDAL : BaseDAL<Personnage>
     {
-        public static void SaveCharacterData(string idCharacter, CharacterData model)
+        public static void SaveCharacterData(int idCharacter, CharacterData model)
         {
             FichePersoDndEntities db_context = null;
             string Nom = model.Nom;
@@ -63,7 +63,7 @@ namespace DnDPersoDAL
             try
             {
                 db_context = new FichePersoDndEntities();
-                db_context.SetCharacterData(int.Parse(idCharacter), Nom, Niveau, IdClasse, Experience, IdRace, CategorieTaille, Age, Sexe, Taille, Poids, IdAlignement, IdDivinite, IdGroupeAventurier, PointAction, PVMax, Personnalite, InitiativeDivers,
+                db_context.SetCharacterData(idCharacter, Nom, Niveau, IdClasse, Experience, IdRace, CategorieTaille, Age, Sexe, Taille, Poids, IdAlignement, IdDivinite, IdGroupeAventurier, PointAction, PVMax, Personnalite, InitiativeDivers,
                     CaracteristiqueForce, CaracteristiqueConstitution, CaracteristiqueDexterite, CaracteristiqueIntelligence, CaracteristiqueSagesse, CaracteristiqueCharisme, DefenseCADemiNiveau, DefenseCACaracteristique, DefenseCAClasse,
                     DefenseCATalent, DefenseCADivers, DefenseVIGDemiNiveau, DefenseVIGCaracteristique, DefenseVIGClasse, DefenseVIGTalent, DefenseVIGDivers, DefenseREFDemiNiveau, DefenseREFCaracteristique, DefenseREFClasse, DefenseREFTalent,
                     DefenseREFDivers, DefenseVOLDemiNiveau, DefenseVOLCaracteristique, DefenseVOLClasse, DefenseVOLTalent, DefenseVOLDivers);
