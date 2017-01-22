@@ -20,6 +20,10 @@ namespace DnDPerso.Controllers
         {
             if (ModelState.IsValid)
             {
+                try
+                {
+
+               
                 Utilisateur util = UtilisateurBLL.Login(model);
 
                 if (!string.IsNullOrEmpty(util.Login) && !string.IsNullOrEmpty(util.Password))
@@ -27,6 +31,11 @@ namespace DnDPerso.Controllers
                     Session["UserSession"] = util;
 
                     return Json("OK");
+                }
+                }
+                catch (Exception ex)
+                {
+                    return Json("KO"); 
                 }
             }
             return Json("KO");
