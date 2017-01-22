@@ -19,20 +19,22 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnDGrepSpells", "C:\Users\F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLGenerated", "SQLGenerated", "{47558C38-61D0-49AC-B30F-3EB194FF5812}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\Felco\Desktop\dnd\db\DnDDB.sql = C:\Users\Felco\Desktop\dnd\db\DnDDB.sql
-		C:\Users\Felco\Desktop\dnd\db\level 1.txt = C:\Users\Felco\Desktop\dnd\db\level 1.txt
-		C:\Users\Felco\Desktop\dnd\db\level 10.txt = C:\Users\Felco\Desktop\dnd\db\level 10.txt
-		C:\Users\Felco\Desktop\dnd\db\level 13.txt = C:\Users\Felco\Desktop\dnd\db\level 13.txt
-		C:\Users\Felco\Desktop\dnd\db\level 15.txt = C:\Users\Felco\Desktop\dnd\db\level 15.txt
-		C:\Users\Felco\Desktop\dnd\db\level 2.txt = C:\Users\Felco\Desktop\dnd\db\level 2.txt
-		C:\Users\Felco\Desktop\dnd\db\level 3.txt = C:\Users\Felco\Desktop\dnd\db\level 3.txt
-		C:\Users\Felco\Desktop\dnd\db\level 5.txt = C:\Users\Felco\Desktop\dnd\db\level 5.txt
-		C:\Users\Felco\Desktop\dnd\db\level 6.txt = C:\Users\Felco\Desktop\dnd\db\level 6.txt
-		C:\Users\Felco\Desktop\dnd\db\level 7.txt = C:\Users\Felco\Desktop\dnd\db\level 7.txt
-		C:\Users\Felco\Desktop\dnd\db\level 9.txt = C:\Users\Felco\Desktop\dnd\db\level 9.txt
-		C:\Users\Felco\Desktop\dnd\db\scriptUtils.txt = C:\Users\Felco\Desktop\dnd\db\scriptUtils.txt
-		C:\Users\Felco\Desktop\dnd\db\talents.txt = C:\Users\Felco\Desktop\dnd\db\talents.txt
+		..\..\..\..\..\Felco\Desktop\dnd\db\DnDDB.sql = ..\..\..\..\..\Felco\Desktop\dnd\db\DnDDB.sql
+		..\..\..\..\..\Felco\Desktop\dnd\db\level 1.txt = ..\..\..\..\..\Felco\Desktop\dnd\db\level 1.txt
+		..\..\..\..\..\Felco\Desktop\dnd\db\level 10.txt = ..\..\..\..\..\Felco\Desktop\dnd\db\level 10.txt
+		..\..\..\..\..\Felco\Desktop\dnd\db\level 13.txt = ..\..\..\..\..\Felco\Desktop\dnd\db\level 13.txt
+		..\..\..\..\..\Felco\Desktop\dnd\db\level 15.txt = ..\..\..\..\..\Felco\Desktop\dnd\db\level 15.txt
+		..\..\..\..\..\Felco\Desktop\dnd\db\level 2.txt = ..\..\..\..\..\Felco\Desktop\dnd\db\level 2.txt
+		..\..\..\..\..\Felco\Desktop\dnd\db\level 3.txt = ..\..\..\..\..\Felco\Desktop\dnd\db\level 3.txt
+		..\..\..\..\..\Felco\Desktop\dnd\db\level 5.txt = ..\..\..\..\..\Felco\Desktop\dnd\db\level 5.txt
+		..\..\..\..\..\Felco\Desktop\dnd\db\level 6.txt = ..\..\..\..\..\Felco\Desktop\dnd\db\level 6.txt
+		..\..\..\..\..\Felco\Desktop\dnd\db\level 7.txt = ..\..\..\..\..\Felco\Desktop\dnd\db\level 7.txt
+		..\..\..\..\..\Felco\Desktop\dnd\db\level 9.txt = ..\..\..\..\..\Felco\Desktop\dnd\db\level 9.txt
+		..\..\..\..\..\Felco\Desktop\dnd\db\scriptUtils.txt = ..\..\..\..\..\Felco\Desktop\dnd\db\scriptUtils.txt
+		..\..\..\..\..\Felco\Desktop\dnd\db\talents.txt = ..\..\..\..\..\Felco\Desktop\dnd\db\talents.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnDPersoUtil", "DnDPersoUtil\DnDPersoUtil.csproj", "{1A4DBC16-4FFF-4FCD-A259-3E99077527F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +66,10 @@ Global
 		{9D359D7B-3249-4C2C-8F34-39F64CC606C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D359D7B-3249-4C2C-8F34-39F64CC606C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D359D7B-3249-4C2C-8F34-39F64CC606C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A4DBC16-4FFF-4FCD-A259-3E99077527F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A4DBC16-4FFF-4FCD-A259-3E99077527F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A4DBC16-4FFF-4FCD-A259-3E99077527F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A4DBC16-4FFF-4FCD-A259-3E99077527F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
