@@ -1,4 +1,7 @@
 ﻿function SaveCharacterSheet() {
+    //calcul new level from xp
+    $("input_characterLevel").val(SetCharacterLevel());
+
     var model =
     {
         Nom : $("#input_characterName").val(),
@@ -47,6 +50,33 @@
     };
 
     common.customRequest('POST', "Home", "SaveCharacterData", JSON.stringify(model), function (result) {
-        //todo function maj level...
+        SetModifierValue();
     });
+}
+
+function SetModifierValue() {
+    var level = $("input_characterLevel").val();
+    var bonusLevel = level % 2;
+
+    //caracteristiques
+    $("input_ForceMod").val(CalculCaracMod($("input_ForceValue").val()) + bonusLevel);
+    $("input_ConsMod").val(CalculCaracMod($("input_ConsValue").val()) + bonusLevel);
+    $("input_DexMod").val(CalculCaracMod($("input_DexValue").val()) + bonusLevel);
+    $("input_IntMod").val(CalculCaracMod($("input_IntValue").val()) + bonusLevel);
+    $("input_SagMod").val(CalculCaracMod($("input_SagValue").val()) + bonusLevel);
+    $("input_ChaMod").val(CalculCaracMod($("input_ChaValue").val()) + bonusLevel);
+
+    //defenses
+    $("input_CADemiNiveau").val(10 + bonusLevel);
+    $("input_VIGDemiNiveau").val(10 + bonusLevel);
+    $("input_REFDemiNiveau").val(10 + bonusLevel);
+    $("input_VOLDemiNiveau").val(10 + bonusLevel);
+
+    $("input_CADemiTotal").val($("input_CADemiNiveau").val() + $("input_CACarac").val() + $("input_CAClasse").val() + $("input_CATalent").val() + $("input_CADivers").val());
+    $("input_VIGDemiTotal").val($("input_VIGDemiNiveau").val() + $("input_VIGCarac").val() + $("input_VIGClasse").val() + $("input_VIGTalent").val() + $("input_VIGDivers").val());
+    $("input_REFDemiTotal").val($("input_REFDemiNiveau").val() + $("input_REFCarac").val() + $("input_REFClasse").val() + $("input_REFTalent").val() + $("input_REFDivers").val());
+    $("input_VOLDemiTotal").val($("input_VOLDemiNiveau").val() + $("input_VOLCarac").val() + $("input_VOLClasse").val() + $("input_VOLTalent").val() + $("input_VOLDivers").val());
+
+    //initiative
+    $("input_INITTotal").val(CalculCaracMod($("input_DexValue").val()) + bonusLevel + $("input_characterINITDivers").val());
 }
