@@ -12,9 +12,9 @@ namespace DnDPersoBLL
 {
     public class PersonnageBLL : BaseBLL<Personnage>
     {
-        public static bool SaveCharacterData(string idCharacter, CharacterData model)
+        public static void SaveCharacterData(string idCharacter, CharacterData model)
         {
-            return PersonnageDAL.SaveCharacterData(idCharacter, model);
+            PersonnageDAL.SaveCharacterData(idCharacter, model);
         }
     }
 }

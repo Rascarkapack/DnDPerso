@@ -30,7 +30,12 @@ namespace DnDPerso.Controllers
 
         public ActionResult SaveCharacterData(CharacterData model)
         {
-            bool result = PersonnageBLL.SaveCharacterData(Session["IdCharacter"], model);
+            try
+            {
+                PersonnageBLL.SaveCharacterData(Session["IdCharacter"].ToString(), model);
+            }
+            catch(Exception e)
+            { }
 
             return new EmptyResult();
         }

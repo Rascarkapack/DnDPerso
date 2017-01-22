@@ -22,20 +22,18 @@ namespace DnDPerso.Controllers
             {
                 try
                 {
+                    Utilisateur util = UtilisateurBLL.Login(model);
 
-               
-                Utilisateur util = UtilisateurBLL.Login(model);
+                    if (!string.IsNullOrEmpty(util.Login) && !string.IsNullOrEmpty(util.Password))
+                    {
+                        Session["UserSession"] = util;
 
-                if (!string.IsNullOrEmpty(util.Login) && !string.IsNullOrEmpty(util.Password))
-                {
-                    Session["UserSession"] = util;
-
-                    return Json("OK");
-                }
+                        return Json("OK");
+                    }
                 }
                 catch (Exception ex)
                 {
-                    return Json("KO"); 
+                    return Json("KO");
                 }
             }
             return Json("KO");

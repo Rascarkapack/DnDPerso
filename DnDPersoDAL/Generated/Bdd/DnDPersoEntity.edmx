@@ -1426,7 +1426,7 @@
             <End Role="UtilisateurPersonnage" EntitySet="UtilisateurPersonnage" />
           </AssociationSet>
           <FunctionImport Name="GetCharacterData">
-            <Parameter Name="CharacterId" Mode="In" Type="Int32" />
+          <Parameter Name="CharacterId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SetCharacterData">
             <Parameter Name="idCharacter" Mode="In" Type="Int32" />

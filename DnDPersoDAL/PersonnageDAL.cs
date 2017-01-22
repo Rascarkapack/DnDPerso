@@ -13,7 +13,7 @@ namespace DnDPersoDAL
 {
     public class PersonnageDAL : BaseDAL<Personnage>
     {
-        public static bool SaveCharacterData(string idCharacter, CharacterData model)
+        public static void SaveCharacterData(string idCharacter, CharacterData model)
         {
             FichePersoDndEntities db_context = null;
             string Nom = model.Nom;
@@ -23,7 +23,8 @@ namespace DnDPersoDAL
             int? IdRace = model.IdRace;
             string CategorieTaille = model.CategorieTaille;
             int? Age = model.Age;
-            double? Taille = model.Taille;
+            string Sexe = model.Sexe;
+            decimal? Taille = model.Taille;
             int? Poids = model.Poids;
             int? IdAlignement = model.IdAlignement;
             int? IdDivinite = model.IdDivinite;
@@ -58,12 +59,11 @@ namespace DnDPersoDAL
             int? DefenseVOLClasse = model.DefenseVOLClasse;
             int? DefenseVOLTalent = model.DefenseVOLTalent;
             int? DefenseVOLDivers = model.DefenseVOLDivers;
-            bool result = false;
 
             try
             {
                 db_context = new FichePersoDndEntities();
-                result = db_context.SetCharacterData(idCharacter, Nom, Niveau, IdClasse, Experience, IdRace, CategorieTaille, Age, Taille, Poids, IdAlignement, IdDivinite, IdGroupeAventurier, PointAction, PVMax, Personnalite, InitiativeDivers,
+                db_context.SetCharacterData(int.Parse(idCharacter), Nom, Niveau, IdClasse, Experience, IdRace, CategorieTaille, Age, Sexe, Taille, Poids, IdAlignement, IdDivinite, IdGroupeAventurier, PointAction, PVMax, Personnalite, InitiativeDivers,
                     CaracteristiqueForce, CaracteristiqueConstitution, CaracteristiqueDexterite, CaracteristiqueIntelligence, CaracteristiqueSagesse, CaracteristiqueCharisme, DefenseCADemiNiveau, DefenseCACaracteristique, DefenseCAClasse,
                     DefenseCATalent, DefenseCADivers, DefenseVIGDemiNiveau, DefenseVIGCaracteristique, DefenseVIGClasse, DefenseVIGTalent, DefenseVIGDivers, DefenseREFDemiNiveau, DefenseREFCaracteristique, DefenseREFClasse, DefenseREFTalent,
                     DefenseREFDivers, DefenseVOLDemiNiveau, DefenseVOLCaracteristique, DefenseVOLClasse, DefenseVOLTalent, DefenseVOLDivers);
@@ -77,7 +77,6 @@ namespace DnDPersoDAL
                 }
             }
 
-            return result;
         }
     }
 }

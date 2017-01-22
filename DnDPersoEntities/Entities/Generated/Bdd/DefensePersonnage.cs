@@ -79,6 +79,76 @@ namespace DnDPersoEntities
     			NotifyPropertyChange("IdPersonnage");
     		}
     	}
+        
+     	private Nullable<int> _deminiveau;
+    	public Nullable<int> DemiNiveau
+    	{
+    		get
+    		{
+    			return _deminiveau;
+    		}
+    		set
+    		{
+    			_deminiveau = value;
+    			NotifyPropertyChange("DemiNiveau");
+    		}
+    	}
+        
+     	private Nullable<int> _caracteristique;
+    	public Nullable<int> Caracteristique
+    	{
+    		get
+    		{
+    			return _caracteristique;
+    		}
+    		set
+    		{
+    			_caracteristique = value;
+    			NotifyPropertyChange("Caracteristique");
+    		}
+    	}
+        
+     	private Nullable<int> _classe;
+    	public Nullable<int> Classe
+    	{
+    		get
+    		{
+    			return _classe;
+    		}
+    		set
+    		{
+    			_classe = value;
+    			NotifyPropertyChange("Classe");
+    		}
+    	}
+        
+     	private Nullable<int> _talent;
+    	public Nullable<int> Talent
+    	{
+    		get
+    		{
+    			return _talent;
+    		}
+    		set
+    		{
+    			_talent = value;
+    			NotifyPropertyChange("Talent");
+    		}
+    	}
+        
+     	private Nullable<int> _divers;
+    	public Nullable<int> Divers
+    	{
+    		get
+    		{
+    			return _divers;
+    		}
+    		set
+    		{
+    			_divers = value;
+    			NotifyPropertyChange("Divers");
+    		}
+    	}
     
         public virtual Defense Defense { get; set; }
         public virtual Personnage Personnage { get; set; }

@@ -15,7 +15,8 @@ namespace DnDPersoEntities.Entities
         public int? IdRace { get; set; }
         public string CategorieTaille { get; set; }
         public int? Age { get; set; }
-        public double? Taille { get; set; }
+        public string Sexe { get; set; }
+        public decimal? Taille { get; set; }
         public int? Poids { get; set; }
         public int? IdAlignement { get; set; }
         public int? IdDivinite { get; set; }
