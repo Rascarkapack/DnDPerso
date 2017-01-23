@@ -33,8 +33,8 @@
         return 10;
 }
 
-function SetCharacterLevel() {
-    var xp = $("input_characterExperience").val();
+function SetCharacterLevel(value) {
+    var xp =value;
 
     if (xp < 1000)
         return 1;
