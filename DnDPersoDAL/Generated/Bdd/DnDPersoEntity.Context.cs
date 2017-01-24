@@ -261,5 +261,14 @@ namespace DnDPersoDAL.Generated.Bdd
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SetCharacterData", idCharacterParameter, nomParameter, niveauParameter, idClasseParameter, experienceParameter, idRaceParameter, categorieTailleParameter, ageParameter, sexeParameter, tailleParameter, poidsParameter, idAlignementParameter, idDiviniteParameter, idGroupeAventurierParameter, pointActionParameter, pVMaxParameter, personnaliteParameter, initiativeDiversParameter, caracteristiqueForceParameter, caracteristiqueConstitutionParameter, caracteristiqueDexteriteParameter, caracteristiqueIntelligenceParameter, caracteristiqueSagesseParameter, caracteristiqueCharismeParameter, defenseCADemiNiveauParameter, defenseCACaracteristiqueParameter, defenseCAClasseParameter, defenseCATalentParameter, defenseCADiversParameter, defenseVIGDemiNiveauParameter, defenseVIGCaracteristiqueParameter, defenseVIGClasseParameter, defenseVIGTalentParameter, defenseVIGDiversParameter, defenseREFDemiNiveauParameter, defenseREFCaracteristiqueParameter, defenseREFClasseParameter, defenseREFTalentParameter, defenseREFDiversParameter, defenseVOLDemiNiveauParameter, defenseVOLCaracteristiqueParameter, defenseVOLClasseParameter, defenseVOLTalentParameter, defenseVOLDiversParameter);
         }
+    
+        public virtual ObjectResult<PersonnageByUtilisateur> GetAllPersonnageByUtilisateur(Nullable<int> idUtilisateur)
+        {
+            var idUtilisateurParameter = idUtilisateur.HasValue ?
+                new ObjectParameter("IdUtilisateur", idUtilisateur) :
+                new ObjectParameter("IdUtilisateur", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PersonnageByUtilisateur>("GetAllPersonnageByUtilisateur", idUtilisateurParameter);
+        }
     }
 }

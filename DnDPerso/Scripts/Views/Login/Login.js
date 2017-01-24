@@ -23,7 +23,7 @@ function loginAuth() {
 
         if (result === "OK") {
             authMessage.addClass('HidePanel');
-            window.location.href = "/Home/Index";
+            window.location.href = "/SelectionPersonnage/Index";
         }
     });
 }

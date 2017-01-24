@@ -33,6 +33,12 @@ namespace DnDPerso
             //Login
             bundles.Add(new ScriptBundle("~/bundles/Scripts/Views/Login").Include("~/Scripts/Views/Login/Login.js"));
 
+            //Login
+            bundles.Add(new ScriptBundle("~/bundles/Scripts/Views/SelectionPersonnage").Include("~/Scripts/Views/SelectionPersonnage/SelectionPersonnage.js"));
+
+            // Pouvoir
+            bundles.Add(new ScriptBundle("~/bundles/Scripts/Views/Pouvoir").Include("~/Scripts/Views/Pouvoir/Pouvoir.js"));
+
             // Home
             bundles.Add(new ScriptBundle("~/bundles/Scripts/Views/Home").Include("~/Scripts/Views/Home/Home.js"));
 

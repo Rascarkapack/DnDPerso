@@ -601,6 +601,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetAllPersonnageByUtilisateur" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdUtilisateur" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetCharacterData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CharacterId" Type="int" Mode="In" />
         </Function>
@@ -1474,6 +1477,9 @@
             <Parameter Name="DefenseVOLTalent" Mode="In" Type="Int32" />
             <Parameter Name="DefenseVOLDivers" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="GetAllPersonnageByUtilisateur" ReturnType="Collection(FichePersoDndModel.PersonnageByUtilisateur)">
+            <Parameter Name="IdUtilisateur" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Caracteristique">
           <Key>
@@ -1651,6 +1657,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="PersonnageByUtilisateur">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nom" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Niveau" Nullable="false" />
+          <Property Type="String" Name="Classe" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Race" Nullable="false" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1951,6 +1964,17 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="GetCharacterData" FunctionName="FichePersoDndModel.Store.GetCharacterData" />
           <FunctionImportMapping FunctionImportName="SetCharacterData" FunctionName="FichePersoDndModel.Store.SetCharacterData" />
+          <FunctionImportMapping FunctionImportName="GetAllPersonnageByUtilisateur" FunctionName="FichePersoDndModel.Store.GetAllPersonnageByUtilisateur">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FichePersoDndModel.PersonnageByUtilisateur">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Niveau" ColumnName="Niveau" />
+                <ScalarProperty Name="Classe" ColumnName="Classe" />
+                <ScalarProperty Name="Race" ColumnName="Race" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -1,0 +1,32 @@
+﻿@using DnDPersoEntities
+@model List<DnDPersoEntities.PersonnageByUtilisateur>
+
+@Scripts.Render("~/bundles/Scripts/Views/SelectionPersonnage")
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <table style="border: solid blue 3px; border-collapse: collapse">
+        <tr style="border: solid blue 3px">
+            <th>Nom</th>
+            <th>Niveau</th>
+            <th>Classe</th>
+            <th>Race</th>
+            <th></th>
+        </tr>
+        <tr >
+            @foreach (PersonnageByUtilisateur personnageByUtilisateur in Model)
+            {
+                <td style="border: solid blue 3px">@personnageByUtilisateur.Nom</td>
+                <td style="border: solid blue 3px">@personnageByUtilisateur.Niveau</td>
+                <td style="border: solid blue 3px">@personnageByUtilisateur.Classe</td>
+                <td style="border: solid blue 3px">@personnageByUtilisateur.Race</td>
+                <td style="border: solid blue 3px" ><a onclick="LoadPersonnage(@personnageByUtilisateur.Id)">Play This motherFucker</a></td>
+            }
+            
+        </tr>
+    </table>
+</div>
