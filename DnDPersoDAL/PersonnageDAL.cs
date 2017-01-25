@@ -78,5 +78,26 @@ namespace DnDPersoDAL
             }
 
         }
+
+        public static CharacterData GetCharacterData(int idPersonnage)
+        {
+            FichePersoDndEntities db_context = null;
+            CharacterData result = new CharacterData();
+            try
+            {
+                db_context = new FichePersoDndEntities();
+                result = db_context.GetCharacterData(idPersonnage).FirstOrDefault();
+            }
+            finally
+            {
+                if (db_context != null)
+                {
+                    db_context.Dispose();
+                    db_context = null;
+                }
+            }
+
+            return result;
+        }
     }
 }

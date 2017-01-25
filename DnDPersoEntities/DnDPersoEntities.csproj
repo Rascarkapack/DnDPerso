@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\CharacterData.cs" />
     <Compile Include="Entities\Generated\Bdd\Alignement.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
@@ -54,6 +53,9 @@
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Generated\Bdd\CaracteristiquePersonnage.cs">
+      <DependentUpon>DnDPersoEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Generated\Bdd\CharacterData.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Generated\Bdd\Classe.cs">

@@ -16,5 +16,10 @@ namespace DnDPersoBLL
         {
             PersonnageDAL.SaveCharacterData(idCharacter, model);
         }
+
+        public static CharacterData GetCharacterData(int idPersonnage)
+        {
+            return PersonnageDAL.GetCharacterData(idPersonnage);
+        }
     }
 }

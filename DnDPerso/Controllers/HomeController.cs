@@ -13,6 +13,7 @@ namespace DnDPerso.Controllers
     {
         public ActionResult Index(int IdPersonnage)
         {
+            CharacterData characterData = PersonnageBLL.GetCharacterData(IdPersonnage);
             List<Classe> listClasses = ClasseBLL.GetRList();
             ViewData["listClasses"] = SetDropDownValues(listClasses, "Id", "Libelle", false);
 

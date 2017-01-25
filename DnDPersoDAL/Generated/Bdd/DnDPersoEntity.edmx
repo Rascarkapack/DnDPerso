@@ -1428,9 +1428,6 @@
             <End Role="Utilisateur" EntitySet="Utilisateur" />
             <End Role="UtilisateurPersonnage" EntitySet="UtilisateurPersonnage" />
           </AssociationSet>
-          <FunctionImport Name="GetCharacterData">
-          <Parameter Name="CharacterId" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="SetCharacterData">
             <Parameter Name="idCharacter" Mode="In" Type="Int32" />
             <Parameter Name="Nom" Mode="In" Type="String" />
@@ -1478,7 +1475,10 @@
             <Parameter Name="DefenseVOLDivers" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetAllPersonnageByUtilisateur" ReturnType="Collection(FichePersoDndModel.PersonnageByUtilisateur)">
-            <Parameter Name="IdUtilisateur" Mode="In" Type="Int32" />
+          <Parameter Name="IdUtilisateur" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetCharacterData" ReturnType="Collection(FichePersoDndModel.CharacterData)">
+            <Parameter Name="CharacterId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Caracteristique">
@@ -1663,6 +1663,52 @@
           <Property Type="Int32" Name="Niveau" Nullable="false" />
           <Property Type="String" Name="Classe" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Race" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="CharacterData" >
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nom" Nullable="false" />
+          <Property Type="Int32" Name="Niveau" Nullable="false" />
+          <Property Type="Int32" Name="IdClasse" Nullable="false" />
+          <Property Type="Int32" Name="Experience" Nullable="false" />
+          <Property Type="Int32" Name="IdRace" Nullable="false" />
+          <Property Type="String" Name="CategorieTaille" Nullable="false" />
+          <Property Type="Int32" Name="Age" Nullable="true" />
+          <Property Type="String" Name="Sexe" Nullable="false" />
+          <Property Type="Decimal" Name="Taille" Nullable="false" />
+          <Property Type="Int32" Name="Poids" Nullable="false" />
+          <Property Type="Int32" Name="IdAlignement" Nullable="false" />
+          <Property Type="Int32" Name="IdDivinite" Nullable="false" />
+          <Property Type="Int32" Name="IdGroupeAventurier" Nullable="false" />
+          <Property Type="Int32" Name="PointAction" Nullable="false" />
+          <Property Type="Int32" Name="PVMax" Nullable="false" />
+          <Property Type="String" Name="Personnalite" Nullable="false" />
+          <Property Type="Int32" Name="InitiativeDivers" Nullable="true" />
+          <Property Type="Int32" Name="CaracteristiqueForce" Nullable="true" />
+          <Property Type="Int32" Name="CaracteristiqueConstitution" Nullable="true" />
+          <Property Type="Int32" Name="CaracteristiqueDexterite" Nullable="true" />
+          <Property Type="Int32" Name="CaracteristiqueIntelligence" Nullable="true" />
+          <Property Type="Int32" Name="CaracteristiqueSagesse" Nullable="true" />
+          <Property Type="Int32" Name="CaracteristiqueCharisme" Nullable="true" />
+          <Property Type="Int32" Name="DefenseCADemiNiveau" Nullable="true" />
+          <Property Type="Int32" Name="DefenseCACaracteristique" Nullable="true" />
+          <Property Type="Int32" Name="DefenseCAClasse" Nullable="true" />
+          <Property Type="Int32" Name="DefenseCATalent" Nullable="true" />
+          <Property Type="Int32" Name="DefenseCADivers" Nullable="true" />
+          <Property Type="Int32" Name="DefenseVIGDemiNiveau" Nullable="true" />
+          <Property Type="Int32" Name="DefenseVIGCaracteristique" Nullable="true" />
+          <Property Type="Int32" Name="DefenseVIGClasse" Nullable="true" />
+          <Property Type="Int32" Name="DefenseVIGTalent" Nullable="true" />
+          <Property Type="Int32" Name="DefenseVIGDivers" Nullable="true" />
+          <Property Type="Int32" Name="DefenseREFDemiNiveau" Nullable="true" />
+          <Property Type="Int32" Name="DefenseREFCaracteristique" Nullable="true" />
+          <Property Type="Int32" Name="DefenseREFClasse" Nullable="true" />
+          <Property Type="Int32" Name="DefenseREFTalent" Nullable="true" />
+          <Property Type="Int32" Name="DefenseREFDivers" Nullable="true" />
+          <Property Type="Int32" Name="DefenseVOLDemiNiveau" Nullable="true" />
+          <Property Type="Int32" Name="DefenseVOLCaracteristique" Nullable="true" />
+          <Property Type="Int32" Name="DefenseVOLClasse" Nullable="true" />
+          <Property Type="Int32" Name="DefenseVOLTalent" Nullable="true" />
+          <Property Type="Int32" Name="DefenseVOLDivers" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1962,7 +2008,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="GetCharacterData" FunctionName="FichePersoDndModel.Store.GetCharacterData" />
           <FunctionImportMapping FunctionImportName="SetCharacterData" FunctionName="FichePersoDndModel.Store.SetCharacterData" />
           <FunctionImportMapping FunctionImportName="GetAllPersonnageByUtilisateur" FunctionName="FichePersoDndModel.Store.GetAllPersonnageByUtilisateur">
             <ResultMapping>
@@ -1972,6 +2017,56 @@
                 <ScalarProperty Name="Niveau" ColumnName="Niveau" />
                 <ScalarProperty Name="Classe" ColumnName="Classe" />
                 <ScalarProperty Name="Race" ColumnName="Race" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetCharacterData" FunctionName="FichePersoDndModel.Store.GetCharacterData" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FichePersoDndModel.CharacterData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Niveau" ColumnName="Niveau" />
+                <ScalarProperty Name="IdClasse" ColumnName="IdClasse" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="IdRace" ColumnName="IdRace" />
+                <ScalarProperty Name="CategorieTaille" ColumnName="CategorieTaille" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="Taille" ColumnName="Taille" />
+                <ScalarProperty Name="Poids" ColumnName="Poids" />
+                <ScalarProperty Name="IdAlignement" ColumnName="IdAlignement" />
+                <ScalarProperty Name="IdDivinite" ColumnName="IdDivinite" />
+                <ScalarProperty Name="IdGroupeAventurier" ColumnName="IdGroupeAventurier" />
+                <ScalarProperty Name="PointAction" ColumnName="PointAction" />
+                <ScalarProperty Name="PVMax" ColumnName="PVMax" />
+                <ScalarProperty Name="Personnalite" ColumnName="Personnalite" />
+                <ScalarProperty Name="InitiativeDivers" ColumnName="InitiativeDivers" />
+                <ScalarProperty Name="CaracteristiqueForce" ColumnName="CaracteristiqueForce" />
+                <ScalarProperty Name="CaracteristiqueConstitution" ColumnName="CaracteristiqueConstitution" />
+                <ScalarProperty Name="CaracteristiqueDexterite" ColumnName="CaracteristiqueDexterite" />
+                <ScalarProperty Name="CaracteristiqueIntelligence" ColumnName="CaracteristiqueIntelligence" />
+                <ScalarProperty Name="CaracteristiqueSagesse" ColumnName="CaracteristiqueSagesse" />
+                <ScalarProperty Name="CaracteristiqueCharisme" ColumnName="CaracteristiqueCharisme" />
+                <ScalarProperty Name="DefenseCADemiNiveau" ColumnName="DefenseCADemiNiveau" />
+                <ScalarProperty Name="DefenseCACaracteristique" ColumnName="DefenseCACaracteristique" />
+                <ScalarProperty Name="DefenseCAClasse" ColumnName="DefenseCAClasse" />
+                <ScalarProperty Name="DefenseCATalent" ColumnName="DefenseCATalent" />
+                <ScalarProperty Name="DefenseCADivers" ColumnName="DefenseCADivers" />
+                <ScalarProperty Name="DefenseVIGDemiNiveau" ColumnName="DefenseVIGDemiNiveau" />
+                <ScalarProperty Name="DefenseVIGCaracteristique" ColumnName="DefenseVIGCaracteristique" />
+                <ScalarProperty Name="DefenseVIGClasse" ColumnName="DefenseVIGClasse" />
+                <ScalarProperty Name="DefenseVIGTalent" ColumnName="DefenseVIGTalent" />
+                <ScalarProperty Name="DefenseVIGDivers" ColumnName="DefenseVIGDivers" />
+                <ScalarProperty Name="DefenseREFDemiNiveau" ColumnName="DefenseREFDemiNiveau" />
+                <ScalarProperty Name="DefenseREFCaracteristique" ColumnName="DefenseREFCaracteristique" />
+                <ScalarProperty Name="DefenseREFClasse" ColumnName="DefenseREFClasse" />
+                <ScalarProperty Name="DefenseREFTalent" ColumnName="DefenseREFTalent" />
+                <ScalarProperty Name="DefenseREFDivers" ColumnName="DefenseREFDivers" />
+                <ScalarProperty Name="DefenseVOLDemiNiveau" ColumnName="DefenseVOLDemiNiveau" />
+                <ScalarProperty Name="DefenseVOLCaracteristique" ColumnName="DefenseVOLCaracteristique" />
+                <ScalarProperty Name="DefenseVOLClasse" ColumnName="DefenseVOLClasse" />
+                <ScalarProperty Name="DefenseVOLTalent" ColumnName="DefenseVOLTalent" />
+                <ScalarProperty Name="DefenseVOLDivers" ColumnName="DefenseVOLDivers" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

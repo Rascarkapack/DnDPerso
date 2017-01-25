@@ -72,15 +72,6 @@ namespace DnDPersoDAL.Generated.Bdd
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("ListePouvoirs", classeParameter, niveauParameter);
         }
     
-        public virtual int GetCharacterData(Nullable<int> characterId)
-        {
-            var characterIdParameter = characterId.HasValue ?
-                new ObjectParameter("CharacterId", characterId) :
-                new ObjectParameter("CharacterId", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetCharacterData", characterIdParameter);
-        }
-    
         public virtual int SetCharacterData(Nullable<int> idCharacter, string nom, Nullable<int> niveau, Nullable<int> idClasse, Nullable<int> experience, Nullable<int> idRace, string categorieTaille, Nullable<int> age, string sexe, Nullable<decimal> taille, Nullable<int> poids, Nullable<int> idAlignement, Nullable<int> idDivinite, Nullable<int> idGroupeAventurier, Nullable<int> pointAction, Nullable<int> pVMax, string personnalite, Nullable<int> initiativeDivers, Nullable<int> caracteristiqueForce, Nullable<int> caracteristiqueConstitution, Nullable<int> caracteristiqueDexterite, Nullable<int> caracteristiqueIntelligence, Nullable<int> caracteristiqueSagesse, Nullable<int> caracteristiqueCharisme, Nullable<int> defenseCADemiNiveau, Nullable<int> defenseCACaracteristique, Nullable<int> defenseCAClasse, Nullable<int> defenseCATalent, Nullable<int> defenseCADivers, Nullable<int> defenseVIGDemiNiveau, Nullable<int> defenseVIGCaracteristique, Nullable<int> defenseVIGClasse, Nullable<int> defenseVIGTalent, Nullable<int> defenseVIGDivers, Nullable<int> defenseREFDemiNiveau, Nullable<int> defenseREFCaracteristique, Nullable<int> defenseREFClasse, Nullable<int> defenseREFTalent, Nullable<int> defenseREFDivers, Nullable<int> defenseVOLDemiNiveau, Nullable<int> defenseVOLCaracteristique, Nullable<int> defenseVOLClasse, Nullable<int> defenseVOLTalent, Nullable<int> defenseVOLDivers)
         {
             var idCharacterParameter = idCharacter.HasValue ?
@@ -269,6 +260,15 @@ namespace DnDPersoDAL.Generated.Bdd
                 new ObjectParameter("IdUtilisateur", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PersonnageByUtilisateur>("GetAllPersonnageByUtilisateur", idUtilisateurParameter);
+        }
+    
+        public virtual ObjectResult<CharacterData> GetCharacterData(Nullable<int> characterId)
+        {
+            var characterIdParameter = characterId.HasValue ?
+                new ObjectParameter("CharacterId", characterId) :
+                new ObjectParameter("CharacterId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CharacterData>("GetCharacterData", characterIdParameter);
         }
     }
 }
