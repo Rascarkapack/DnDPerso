@@ -8,6 +8,12 @@
 
 <div id="SelectCharacterBloc">
     <!--<div id="TitleSelectCharacterBloc">Choix du personnage</div>-->
+    <div class="CharacterAddBloc" onclick="CreateNewPersonnage()">
+        <img src="~/Images/icon_plus.png" alt="icon_character" />
+        <div class="displayerCharacterBloc">
+            <span>Nouveau personnage</span>
+        </div>
+    </div>
     @foreach (PersonnageByUtilisateur personnageByUtilisateur in Model)
     {
             <div class="CharacterSheetBloc" onclick="LoadPersonnage(@personnageByUtilisateur.Id)">
@@ -19,6 +25,5 @@
                 <span>Niveau: </span>@personnageByUtilisateur.Niveau
                 </div>
             </div>
-     
     }
 </div>
