@@ -3,30 +3,22 @@
 
 @Scripts.Render("~/bundles/Scripts/Views/SelectionPersonnage")
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Choix personnage";
 }
 
-<h2>Index</h2>
-
-<div>
-    <table style="border: solid blue 3px; border-collapse: collapse">
-        <tr style="border: solid blue 3px">
-            <th>Nom</th>
-            <th>Niveau</th>
-            <th>Classe</th>
-            <th>Race</th>
-            <th></th>
-        </tr>
-        <tr >
-            @foreach (PersonnageByUtilisateur personnageByUtilisateur in Model)
-            {
-                <td style="border: solid blue 3px">@personnageByUtilisateur.Nom</td>
-                <td style="border: solid blue 3px">@personnageByUtilisateur.Niveau</td>
-                <td style="border: solid blue 3px">@personnageByUtilisateur.Classe</td>
-                <td style="border: solid blue 3px">@personnageByUtilisateur.Race</td>
-                <td style="border: solid blue 3px" ><a onclick="LoadPersonnage(@personnageByUtilisateur.Id)">Play This motherFucker</a></td>
-            }
-            
-        </tr>
-    </table>
+<div id="SelectCharacterBloc">
+    <!--<div id="TitleSelectCharacterBloc">Choix du personnage</div>-->
+    @foreach (PersonnageByUtilisateur personnageByUtilisateur in Model)
+    {
+            <div class="CharacterSheetBloc" onclick="LoadPersonnage(@personnageByUtilisateur.Id)">
+                <img src="~/Images/icon_character.png" alt="icon_character" />
+                <div class="displayerCharacterBloc">
+                <span>Nom: </span>@personnageByUtilisateur.Nom<br />
+                <span>Classe: </span>@personnageByUtilisateur.Classe<br />
+                <span>Race: </span>@personnageByUtilisateur.Race<br />
+                <span>Niveau: </span>@personnageByUtilisateur.Niveau
+                </div>
+            </div>
+     
+    }
 </div>
