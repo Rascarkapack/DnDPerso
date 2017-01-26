@@ -1,27 +1,28 @@
 ﻿function SaveCharacterSheet() {
     //calcul new level from xp
     $("#input_characterLevel").val(SetCharacterLevel($("#input_characterExperience").val()));
+    SetModifierValue();
 
     var model =
     {
         Id: $("#input_characterId").val(),
         Nom : $("#input_characterName").val(),
         Niveau : $("#input_characterLevel").val(),
-        IdClasse : $("#IdClasses").val(),
+        IdClasse : $("#IdClasse").val(),
         Experience : $("#input_characterExperience").val(), 
-        IdRace : $("#IdRaces").val(),  
+        IdRace : $("#IdRace").val(),  
         CategorieTaille : $("#input_characterHeightCategorie").val(), 
         Age : $("#input_characterAge").val(), 
         Sexe : $("#input_characterSexe").val(), 
         Taille : $("#input_characterHeight").val(), 
         Poids : $("#input_characterWeight").val(), 
-        IdAlignement : $("#IdAlignements").val(), 
-        IdDivinite : $("#IdDivinites").val(), 
+        IdAlignement : $("#IdAlignement").val(), 
+        IdDivinite : $("#IdDivinite").val(), 
         IdGroupeAventurier : $("#input_characterGroup").val(), 
         PointAction : $("#input_characterPAValue").val(), 
         PVMax : $("#input_PVMax").val(),  
         Personnalite : $("#input_characterPersonnalite").val(),
-        InitiativeDivers : $("#input_characterINITDivers").val(),
+        InitiativeDivers : $("#input_INITDivers").val(),
         CaracteristiqueForce : $("#input_ForceValue").val(),
 		CaracteristiqueConstitution : $("#input_ConsValue").val(),
 		CaracteristiqueDexterite : $("#input_DexValue").val(),
@@ -49,13 +50,13 @@
 		DefenseVOLTalent: $("#input_VOLTalent").val(),
 		DefenseVOLDivers: $("#input_VOLDivers").val()
     };
-    SetModifierValue();
+
     common.customRequest('POST', "Home", "SaveCharacterData", JSON.stringify(model), null);
 }
 
 function SetModifierValue() {
     var level = $("#input_characterLevel").val();
-    var bonusLevel = level % 2;
+    var bonusLevel = (level - (level % 2)) / 2;
 
     //caracteristiques
     $("#input_ForceMod").val(CalculCaracMod($("#input_ForceValue").val()) + bonusLevel);
@@ -77,5 +78,13 @@ function SetModifierValue() {
     $("#input_VOLDemiTotal").val($("#input_VOLDemiNiveau").val() + $("#input_VOLCarac").val() + $("#input_VOLClasse").val() + $("#input_VOLTalent").val() + $("#input_VOLDivers").val());
 
     //initiative
-    $("#input_INITTotal").val(CalculCaracMod($("#input_DexValue").val()) + bonusLevel + $("#input_characterINITDivers").val());
+    var INITDivers;
+    if (typeof $("#input_INITDivers").val() == "undefined" || $("#input_INITDivers").val() == "") {
+        INITDivers = 0;
+        $("#input_INITDivers").val(INITDivers);
+    }
+    else
+        INITDivers = $("#input_INITDivers").val();
+
+    $("#input_INITTotal").val(CalculCaracMod($("#input_DexValue").val()) + bonusLevel + parseInt(INITDivers));
 }

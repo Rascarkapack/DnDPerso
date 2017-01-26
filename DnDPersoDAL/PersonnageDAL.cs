@@ -13,7 +13,7 @@ namespace DnDPersoDAL
 {
     public class PersonnageDAL : BaseDAL<Personnage>
     {
-        public static void SaveCharacterData(int idCharacter, CharacterData model)
+        public static void SaveCharacterData(int idUser, int idCharacter, CharacterData model)
         {
             FichePersoDndEntities db_context = null;
             string Nom = model.Nom;
@@ -28,7 +28,7 @@ namespace DnDPersoDAL
             int? Poids = model.Poids;
             int? IdAlignement = model.IdAlignement;
             int? IdDivinite = model.IdDivinite;
-            int? IdGroupeAventurier = model.IdGroupeAventurier;
+            int? GroupeAventurier = model.IdGroupeAventurier;
             int? PointAction = model.PointAction;
             int? PVMax = model.PVMax;
             string Personnalite = model.Personnalite;
@@ -63,7 +63,7 @@ namespace DnDPersoDAL
             try
             {
                 db_context = new FichePersoDndEntities();
-                db_context.SetCharacterData(idCharacter, Nom, Niveau, IdClasse, Experience, IdRace, CategorieTaille, Age, Sexe, Taille, Poids, IdAlignement, IdDivinite, IdGroupeAventurier, PointAction, PVMax, Personnalite, InitiativeDivers,
+                db_context.SetCharacterData(idUser, idCharacter, Nom, Niveau, IdClasse, Experience, IdRace, CategorieTaille, Age, Sexe, Taille, Poids, IdAlignement, IdDivinite, GroupeAventurier, PointAction, PVMax, Personnalite, InitiativeDivers,
                     CaracteristiqueForce, CaracteristiqueConstitution, CaracteristiqueDexterite, CaracteristiqueIntelligence, CaracteristiqueSagesse, CaracteristiqueCharisme, DefenseCADemiNiveau, DefenseCACaracteristique, DefenseCAClasse,
                     DefenseCATalent, DefenseCADivers, DefenseVIGDemiNiveau, DefenseVIGCaracteristique, DefenseVIGClasse, DefenseVIGTalent, DefenseVIGDivers, DefenseREFDemiNiveau, DefenseREFCaracteristique, DefenseREFClasse, DefenseREFTalent,
                     DefenseREFDivers, DefenseVOLDemiNiveau, DefenseVOLCaracteristique, DefenseVOLClasse, DefenseVOLTalent, DefenseVOLDivers);

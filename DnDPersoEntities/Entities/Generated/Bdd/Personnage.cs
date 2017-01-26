@@ -236,20 +236,6 @@ namespace DnDPersoEntities
     		}
     	}
         
-     	private Nullable<int> _idgroupeaventurier;
-    	public Nullable<int> IdGroupeAventurier
-    	{
-    		get
-    		{
-    			return _idgroupeaventurier;
-    		}
-    		set
-    		{
-    			_idgroupeaventurier = value;
-    			NotifyPropertyChange("IdGroupeAventurier");
-    		}
-    	}
-        
      	private int _pointaction;
     	public int PointAction
     	{
@@ -291,6 +277,20 @@ namespace DnDPersoEntities
     			NotifyPropertyChange("Personnalite");
     		}
     	}
+        
+     	private string _groupeaventurier1;
+    	public string GroupeAventurier1
+    	{
+    		get
+    		{
+    			return _groupeaventurier1;
+    		}
+    		set
+    		{
+    			_groupeaventurier1 = value;
+    			NotifyPropertyChange("GroupeAventurier1");
+    		}
+    	}
     
         public virtual Alignement Alignement { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -299,7 +299,6 @@ namespace DnDPersoEntities
         public virtual Divinite Divinite { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Equipement> Equipement { get; set; }
-        public virtual GroupeAventurier GroupeAventurier { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Initiative> Initiative { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

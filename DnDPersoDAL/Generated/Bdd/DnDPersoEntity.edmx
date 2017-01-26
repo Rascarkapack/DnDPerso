@@ -105,13 +105,6 @@
           <Property Name="IdTypeEquipement" Type="int" Nullable="false" />
           <Property Name="Quantite" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="GroupeAventurier">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Libelle" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="Initiative">
           <Key>
             <PropertyRef Name="Id" />
@@ -149,10 +142,10 @@
           <Property Name="Poids" Type="int" Nullable="false" />
           <Property Name="IdAlignement" Type="int" />
           <Property Name="IdDivinite" Type="int" />
-          <Property Name="IdGroupeAventurier" Type="int" />
           <Property Name="PointAction" Type="int" Nullable="false" />
           <Property Name="PVMax" Type="int" Nullable="false" />
           <Property Name="Personnalite" Type="varchar" MaxLength="255" />
+          <Property Name="GroupeAventurier" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Pouvoir">
           <Key>
@@ -347,18 +340,6 @@
             </Principal>
             <Dependent Role="Personnage">
               <PropertyRef Name="IdDivinite" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_IDGroupeAventurier">
-          <End Role="GroupeAventurier" Type="Self.GroupeAventurier" Multiplicity="0..1" />
-          <End Role="Personnage" Type="Self.Personnage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GroupeAventurier">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Personnage">
-              <PropertyRef Name="IdGroupeAventurier" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -622,6 +603,7 @@
           <Parameter Name="Niveau" Type="int" Mode="In" />
         </Function>
         <Function Name="SetCharacterData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUser" Type="int" Mode="In" />
           <Parameter Name="idCharacter" Type="int" Mode="In" />
           <Parameter Name="Nom" Type="varchar" Mode="In" />
           <Parameter Name="Niveau" Type="int" Mode="In" />
@@ -680,7 +662,6 @@
           <EntitySet Name="DefensePersonnage" EntityType="Self.DefensePersonnage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Divinite" EntityType="Self.Divinite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Equipement" EntityType="Self.Equipement" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GroupeAventurier" EntityType="Self.GroupeAventurier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Initiative" EntityType="Self.Initiative" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mouvement" EntityType="Self.Mouvement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personnage" EntityType="Self.Personnage" Schema="dbo" store:Type="Tables" />
@@ -724,10 +705,6 @@
           </AssociationSet>
           <AssociationSet Name="fk_IDDIVINITE" Association="Self.fk_IDDIVINITE">
             <End Role="Divinite" EntitySet="Divinite" />
-            <End Role="Personnage" EntitySet="Personnage" />
-          </AssociationSet>
-          <AssociationSet Name="fk_IDGroupeAventurier" Association="Self.fk_IDGroupeAventurier">
-            <End Role="GroupeAventurier" EntitySet="GroupeAventurier" />
             <End Role="Personnage" EntitySet="Personnage" />
           </AssociationSet>
           <AssociationSet Name="fk_IDPERSONNAGEARGENT" Association="Self.fk_IDPERSONNAGEARGENT">
@@ -871,14 +848,6 @@
           <NavigationProperty Name="TypeEquipement" Relationship="Self.fk_IDTYPEEQUIPEMENTEQUIPEMENT" FromRole="Equipement" ToRole="TypeEquipement" />
           <NavigationProperty Name="Personnage" Relationship="Self.fk_IDTYPEPERSONNAGEEQUIPEMENT" FromRole="Equipement" ToRole="Personnage" />
         </EntityType>
-        <EntityType Name="GroupeAventurier">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Personnage" Relationship="Self.fk_IDGroupeAventurier" FromRole="GroupeAventurier" ToRole="Personnage" />
-        </EntityType>
         <EntityType Name="Initiative">
           <Key>
             <PropertyRef Name="Id" />
@@ -918,7 +887,6 @@
           <Property Name="Poids" Type="Int32" Nullable="false" />
           <Property Name="IdAlignement" Type="Int32" />
           <Property Name="IdDivinite" Type="Int32" />
-          <Property Name="IdGroupeAventurier" Type="Int32" />
           <Property Name="PointAction" Type="Int32" Nullable="false" />
           <Property Name="PVMax" Type="Int32" Nullable="false" />
           <Property Name="Personnalite" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -927,7 +895,6 @@
           <NavigationProperty Name="Classe" Relationship="Self.fk_IDCLASSE" FromRole="Personnage" ToRole="Classe" />
           <NavigationProperty Name="Divinite" Relationship="Self.fk_IDDIVINITE" FromRole="Personnage" ToRole="Divinite" />
           <NavigationProperty Name="Equipement" Relationship="Self.fk_IDTYPEPERSONNAGEEQUIPEMENT" FromRole="Personnage" ToRole="Equipement" />
-          <NavigationProperty Name="GroupeAventurier" Relationship="Self.fk_IDGroupeAventurier" FromRole="Personnage" ToRole="GroupeAventurier" />
           <NavigationProperty Name="Initiative" Relationship="Self.fk_IDPERSONNAGEINITIATIVE" FromRole="Personnage" ToRole="Initiative" />
           <NavigationProperty Name="Mouvement" Relationship="Self.fk_IDPERSONNAGEMOUVEMENT" FromRole="Personnage" ToRole="Mouvement" />
           <NavigationProperty Name="PouvoirPersonnage" Relationship="Self.fk_IDPERSONNAGEPOUVOIRPERSONNAGE" FromRole="Personnage" ToRole="PouvoirPersonnage" />
@@ -938,6 +905,7 @@
           <NavigationProperty Name="CompetencePersonnage" Relationship="FichePersoDndModel.fk_IDPERSONNAGECOMPEPERSONNAGE" FromRole="Personnage" ToRole="CompetencePersonnage" />
           <NavigationProperty Name="DefensePersonnage" Relationship="FichePersoDndModel.fk_IDPERSONNAGEDEFPERSONNAGE" FromRole="Personnage" ToRole="DefensePersonnage" />
           <NavigationProperty Name="UtilisateurPersonnage" Relationship="FichePersoDndModel.fk_IDPERSONNAGEUTILPERSONNAGE" FromRole="Personnage" ToRole="UtilisateurPersonnage" />
+          <Property Name="GroupeAventurier1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Pouvoir">
           <Key>
@@ -1148,18 +1116,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_IDGroupeAventurier">
-          <End Role="GroupeAventurier" Type="Self.GroupeAventurier" Multiplicity="0..1" />
-          <End Role="Personnage" Type="Self.Personnage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GroupeAventurier">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Personnage">
-              <PropertyRef Name="IdGroupeAventurier" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_IDPERSONNAGEINITIATIVE">
           <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
           <End Role="Initiative" Type="Self.Initiative" Multiplicity="*" />
@@ -1299,7 +1255,6 @@
           <EntitySet Name="Classe" EntityType="Self.Classe" />
           <EntitySet Name="Divinite" EntityType="Self.Divinite" />
           <EntitySet Name="Equipement" EntityType="Self.Equipement" />
-          <EntitySet Name="GroupeAventurier" EntityType="Self.GroupeAventurier" />
           <EntitySet Name="Initiative" EntityType="Self.Initiative" />
           <EntitySet Name="Mouvement" EntityType="Self.Mouvement" />
           <EntitySet Name="Personnage" EntityType="Self.Personnage" />
@@ -1346,10 +1301,6 @@
           <AssociationSet Name="fk_IDTYPEPERSONNAGEEQUIPEMENT" Association="Self.fk_IDTYPEPERSONNAGEEQUIPEMENT">
             <End Role="Personnage" EntitySet="Personnage" />
             <End Role="Equipement" EntitySet="Equipement" />
-          </AssociationSet>
-          <AssociationSet Name="fk_IDGroupeAventurier" Association="Self.fk_IDGroupeAventurier">
-            <End Role="GroupeAventurier" EntitySet="GroupeAventurier" />
-            <End Role="Personnage" EntitySet="Personnage" />
           </AssociationSet>
           <AssociationSet Name="fk_IDPERSONNAGEINITIATIVE" Association="Self.fk_IDPERSONNAGEINITIATIVE">
             <End Role="Personnage" EntitySet="Personnage" />
@@ -1440,6 +1391,7 @@
             <End Role="UtilisateurPersonnage" EntitySet="UtilisateurPersonnage" />
           </AssociationSet>
           <FunctionImport Name="SetCharacterData">
+            <Parameter Name="idUser" Mode="In" Type="Int32" />
             <Parameter Name="idCharacter" Mode="In" Type="Int32" />
             <Parameter Name="Nom" Mode="In" Type="String" />
             <Parameter Name="Niveau" Mode="In" Type="Int32" />
@@ -1498,7 +1450,7 @@
           <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetAllTalentByIdPersonnage" ReturnType="Collection(FichePersoDndModel.AllTalentByIdPersonnage)">
-            <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
+          <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Caracteristique">
@@ -1807,14 +1759,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GroupeAventurier">
-            <EntityTypeMapping TypeName="FichePersoDndModel.GroupeAventurier">
-              <MappingFragment StoreEntitySet="GroupeAventurier">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Initiative">
             <EntityTypeMapping TypeName="FichePersoDndModel.Initiative">
               <MappingFragment StoreEntitySet="Initiative">
@@ -1840,6 +1784,7 @@
           <EntitySetMapping Name="Personnage">
             <EntityTypeMapping TypeName="FichePersoDndModel.Personnage">
               <MappingFragment StoreEntitySet="Personnage">
+                <ScalarProperty Name="GroupeAventurier1" ColumnName="GroupeAventurier" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
                 <ScalarProperty Name="Niveau" ColumnName="Niveau" />
@@ -1853,7 +1798,6 @@
                 <ScalarProperty Name="Poids" ColumnName="Poids" />
                 <ScalarProperty Name="IdAlignement" ColumnName="IdAlignement" />
                 <ScalarProperty Name="IdDivinite" ColumnName="IdDivinite" />
-                <ScalarProperty Name="IdGroupeAventurier" ColumnName="IdGroupeAventurier" />
                 <ScalarProperty Name="PointAction" ColumnName="PointAction" />
                 <ScalarProperty Name="PVMax" ColumnName="PVMax" />
                 <ScalarProperty Name="Personnalite" ColumnName="Personnalite" />

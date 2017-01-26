@@ -1,7 +1,10 @@
 ﻿function CalculCaracMod(CaracValue) {
-    if(CaracValue == 1)
+    if (typeof CaracValue == "undefined" || CaracValue == "")
+        return 0;
+
+    if (CaracValue == 1)
         return -1;
-    else if(CaracValue == 2 || CaracValue == 3)
+    else if (CaracValue == 2 || CaracValue == 3)
         return -4;
     else if (CaracValue == 4 || CaracValue == 5)
         return -3;
@@ -10,7 +13,7 @@
     else if (CaracValue == 8 || CaracValue == 9)
         return -1;
     else if (CaracValue == 10 || CaracValue == 11)
-        return -0;
+        return 0;
     else if (CaracValue == 12 || CaracValue == 13)
         return 1;
     else if (CaracValue == 14 || CaracValue == 15)

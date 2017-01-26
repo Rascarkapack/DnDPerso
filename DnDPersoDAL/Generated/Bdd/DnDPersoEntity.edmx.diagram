@@ -11,7 +11,6 @@
         <EntityTypeShape EntityType="FichePersoDndModel.Classe" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Divinite" Width="1.5" PointX="3.75" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Equipement" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="FichePersoDndModel.GroupeAventurier" Width="1.5" PointX="3.75" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Initiative" Width="1.5" PointX="8.25" PointY="16.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Mouvement" Width="1.5" PointX="8.25" PointY="19.25" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Personnage" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
@@ -35,7 +34,6 @@
         <AssociationConnector Association="FichePersoDndModel.fk_IDDIVINITE" ManuallyRouted="false" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDTYPEEQUIPEMENTEQUIPEMENT" ManuallyRouted="false" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDTYPEPERSONNAGEEQUIPEMENT" ManuallyRouted="false" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDGroupeAventurier" ManuallyRouted="false" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEINITIATIVE" ManuallyRouted="false" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEMOUVEMENT" ManuallyRouted="false" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEPOUVOIRPERSONNAGE" ManuallyRouted="false" />
