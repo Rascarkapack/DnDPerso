@@ -1,4 +1,10 @@
-﻿function SaveCharacterSheet() {
+﻿
+jQuery(document).ready(function($) {
+    $("#input_characterLevel").val(SetCharacterLevel($("#input_characterExperience").val()));
+    SetModifierValue();
+});
+
+function SaveCharacterSheet() {
     //calcul new level from xp
     $("#input_characterLevel").val(SetCharacterLevel($("#input_characterExperience").val()));
     SetModifierValue();

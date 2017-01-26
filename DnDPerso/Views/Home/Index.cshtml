@@ -35,7 +35,7 @@
             <span class="input_libelle">Classe</span>
         </div>
         <div class="input_bloc width75">
-            <input type="text" id="input_characterExperience" class="text_center" />
+            @Html.TextBoxFor(model => model.Experience, "", new { @class = "", id = "input_characterExperience" })
             <span class="input_libelle">Total de px</span>
         </div>
         <div class="input_bloc width150">
@@ -69,7 +69,7 @@
             <span class="input_libelle">Poids</span>
         </div>
         <div class="input_bloc width200">
-            <input type="text" id="input_characterGroup" />
+            @Html.TextBoxFor(model => model.IdGroupeAventurier, "", new { @class = "", id = "input_characterGroup" })
             <span class="input_libelle">Groupe d'aventuriers</span>
         </div>
         <div class="input_bloc width150">
