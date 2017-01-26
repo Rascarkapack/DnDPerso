@@ -71,6 +71,39 @@ namespace DnDPerso.Controllers
 
         #endregion
 
+        #region partialEncartCompe
+        public ActionResult EncartCompetencesPartialView(int idPersonnage)
+        {
+            List<AllCompetenceByIdPersonnage> listAllCompetenceByIdPersonnages = new List<AllCompetenceByIdPersonnage>();
+            try
+            {
+                listAllCompetenceByIdPersonnages = CompetenceBLL.GetAllCompetenceByIdPersonnage(idPersonnage);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return PartialView("EncartCompetencesPartialView", listAllCompetenceByIdPersonnages);
+        }
+
+        #endregion
+
+        #region partialEncartCompe
+        public ActionResult EncartTalentsPartialView(int idPersonnage)
+        {
+            List<AllTalentByIdPersonnage> listAllTalentByIdPersonnages = new List<AllTalentByIdPersonnage>();
+            try
+            {
+                listAllTalentByIdPersonnages = TalentBLL.GetAllTalentByIdPersonnage(idPersonnage);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return PartialView("EncartTalentsPartialView", listAllTalentByIdPersonnages);
+        }
+
+        #endregion
         public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement, int idSelected)
         {
             List<SelectListItem> listTypesEntrants = new List<SelectListItem>();

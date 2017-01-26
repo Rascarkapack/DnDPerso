@@ -279,5 +279,23 @@ namespace DnDPersoDAL.Generated.Bdd
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllPouvoirByIdPersonnage>("GetAllPouvoirByIdPersonnage", idPersonnageParameter);
         }
+    
+        public virtual ObjectResult<AllCompetenceByIdPersonnage> GetAllCompetenceByIdPersonnage(Nullable<int> idPersonnage)
+        {
+            var idPersonnageParameter = idPersonnage.HasValue ?
+                new ObjectParameter("IdPersonnage", idPersonnage) :
+                new ObjectParameter("IdPersonnage", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllCompetenceByIdPersonnage>("GetAllCompetenceByIdPersonnage", idPersonnageParameter);
+        }
+    
+        public virtual ObjectResult<AllTalentByIdPersonnage> GetAllTalentByIdPersonnage(Nullable<int> idPersonnage)
+        {
+            var idPersonnageParameter = idPersonnage.HasValue ?
+                new ObjectParameter("IdPersonnage", idPersonnage) :
+                new ObjectParameter("IdPersonnage", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllTalentByIdPersonnage>("GetAllTalentByIdPersonnage", idPersonnageParameter);
+        }
     }
 }

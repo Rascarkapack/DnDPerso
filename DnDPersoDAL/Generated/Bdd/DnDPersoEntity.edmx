@@ -602,10 +602,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetAllCompetenceByIdPersonnage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdPersonnage" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetAllPersonnageByUtilisateur" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdUtilisateur" Type="int" Mode="In" />
         </Function>
         <Function Name="GetAllPouvoirByIdPersonnage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdPersonnage" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetAllTalentByIdPersonnage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdPersonnage" Type="int" Mode="In" />
         </Function>
         <Function Name="GetCharacterData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1486,6 +1492,12 @@
           <Parameter Name="CharacterId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetAllPouvoirByIdPersonnage" ReturnType="Collection(FichePersoDndModel.AllPouvoirByIdPersonnage)">
+          <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllCompetenceByIdPersonnage" ReturnType="Collection(FichePersoDndModel.AllCompetenceByIdPersonnage)">
+          <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllTalentByIdPersonnage" ReturnType="Collection(FichePersoDndModel.AllTalentByIdPersonnage)">
             <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
@@ -1723,6 +1735,17 @@
           <Property Type="String" Name="Libelle" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Html" Nullable="true" />
           <Property Type="Int32" Name="Level" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="AllCompetenceByIdPersonnage">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Libelle" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="Former" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="AllTalentByIdPersonnage">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Libelle" Nullable="false" />
+          <Property Type="String" Name="Prerequis" Nullable="true" />
+          <Property Type="String" Name="Html" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2092,6 +2115,25 @@
                 <ScalarProperty Name="Libelle" ColumnName="Libelle" />
                 <ScalarProperty Name="Html" ColumnName="Html" />
                 <ScalarProperty Name="Level" ColumnName="Level" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAllCompetenceByIdPersonnage" FunctionName="FichePersoDndModel.Store.GetAllCompetenceByIdPersonnage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FichePersoDndModel.AllCompetenceByIdPersonnage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="Former" ColumnName="Former" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAllTalentByIdPersonnage" FunctionName="FichePersoDndModel.Store.GetAllTalentByIdPersonnage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FichePersoDndModel.AllTalentByIdPersonnage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="Prerequis" ColumnName="Prerequis" />
+                <ScalarProperty Name="Html" ColumnName="Html" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -43,11 +43,13 @@
     <Compile Include="AlignementBLL.cs" />
     <Compile Include="Base\BaseBLL.cs" />
     <Compile Include="ClasseBLL.cs" />
+    <Compile Include="CompetenceBLL.cs" />
     <Compile Include="DiviniteBLL.cs" />
     <Compile Include="PersonnageBLL.cs" />
     <Compile Include="PouvoirBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RaceBLL.cs" />
+    <Compile Include="TalentBLL.cs" />
     <Compile Include="UtilisateurBLL.cs" />
     <Compile Include="UtilisateurPersonnageBLL.cs" />
   </ItemGroup>

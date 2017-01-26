@@ -185,6 +185,8 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\SelectionPersonnage\Index.cshtml" />
     <Content Include="Views\Home\EncartPouvoirsPartialView.cshtml" />
+    <Content Include="Views\Home\EncartCompetencesPartialView.cshtml" />
+    <Content Include="Views\Home\EncartTalentsPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

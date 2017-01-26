@@ -1,0 +1,11 @@
+﻿@using DnDPersoEntities
+@model List<DnDPersoEntities.AllCompetenceByIdPersonnage>
+
+@foreach (AllCompetenceByIdPersonnage compe in @Model)
+{
+    <div>
+        <p>
+            @compe.Libelle
+        </p>
+    </div>
+}

@@ -312,13 +312,31 @@
     </div>
 </div>
 
-<div id="encartPouvoirs" class="mainBloc">
+<div id="encartPouvoirs" class="mainBloc_3">
     <div class="header_bloc_title">Pouvoirs
-        <input style="width: 15px" type="button" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+" />
+        <input style="width: 15px" type="button" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+"/>
     </div>
-   
+
     <div class="inner_bloc_container">
-        
+
         @Html.Action("EncartPouvoirsPartialView", @Model.Id)
-        </div>
     </div>
+</div>
+
+<div id="encartCompetences" class="mainBloc_1">
+    <div class="header_bloc_title">
+        Compétences
+    </div>
+    <div class="inner_bloc_container">
+        @Html.Action("EncartCompetencesPartialView", @Model.Id)
+    </div>
+</div>
+
+<div id="encartTalents" class="mainBloc_1">
+    <div class="header_bloc_title">
+        Talents
+    </div>
+    <div class="inner_bloc_container">
+        @Html.Action("EncartTalentsPartialView", @Model.Id)
+    </div>
+</div>
