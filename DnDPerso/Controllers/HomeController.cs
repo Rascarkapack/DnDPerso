@@ -53,6 +53,24 @@ namespace DnDPerso.Controllers
             return new EmptyResult();
         }
 
+        #region partialEncartPouvoir
+
+        public ActionResult EncartPouvoirsPartialView(int idPersonnage )
+        {
+            List<AllPouvoirByIdPersonnage> listAllPouvoirByIdPersonnages = new List<AllPouvoirByIdPersonnage>();
+            try
+            {
+                listAllPouvoirByIdPersonnages = PouvoirBLL.GetAllPouvoirByIdPersonnage(idPersonnage);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return PartialView("EncartPouvoirsPartialView", listAllPouvoirByIdPersonnages);
+        }
+
+        #endregion
+
         public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement, int idSelected)
         {
             List<SelectListItem> listTypesEntrants = new List<SelectListItem>();

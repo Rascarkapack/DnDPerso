@@ -291,23 +291,34 @@
     <div class="inner_bloc_container">
         <div class="span_libelle">Initiative</div>
         <div class="input_bloc width35">
-            <input type="text" id="input_INITTotal" class="text_center" />
+            <input type="text" id="input_INITTotal" class="text_center"/>
             <span class="input_libelle">Total</span>
         </div>
         <div class="input_bloc width35">
             @*<input type="text" id="input_INITDivers" class="text_center"/>*@
-            @Html.TextBoxFor(model => model.InitiativeDivers, "", new { @class = "text_center", id = "input_INITDivers" })
+            @Html.TextBoxFor(model => model.InitiativeDivers, "", new {@class = "text_center", id = "input_INITDivers"})
             <span class="input_libelle">Bonus divers</span>
         </div>
         <div class="span_libelle">Points d'action</div>
         <div class="input_bloc width35">
             @*<input type="text" id="input_PAValue" class="text_center"/>*@
-            @Html.TextBoxFor(model => model.PointAction, "", new { @class = "text_center", id = "input_PAValue" })
+            @Html.TextBoxFor(model => model.PointAction, "", new {@class = "text_center", id = "input_PAValue"})
         </div>
         <div class="span_libelle">PV Max</div>
         <div class="input_bloc width35">
             @*<input type="text" id="input_PVMax" class="text_center"/>*@
-            @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
+            @Html.TextBoxFor(model => model.PVMax, "", new {@class = "text_center", id = "input_PVMax"})
         </div>
     </div>
 </div>
+
+<div id="encartPouvoirs" class="mainBloc">
+    <div class="header_bloc_title">Pouvoirs
+        <input style="width: 15px" type="button" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+" />
+    </div>
+   
+    <div class="inner_bloc_container">
+        
+        @Html.Action("EncartPouvoirsPartialView", @Model.Id)
+        </div>
+    </div>
