@@ -37,11 +37,13 @@ namespace DnDPerso.Controllers
                 {
                     Utilisateur util = Session["UserSession"] as Utilisateur;
 
-                    PersonnageBLL.SaveCharacterData(util.Id, model);
+                    //PersonnageBLL.SaveCharacterData(util.Id, model);
                 }
             }
-            catch(Exception e)
-            { }
+            catch (Exception e)
+            {
+                
+            }
 
             return new EmptyResult();
         }
