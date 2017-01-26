@@ -28,7 +28,7 @@ namespace DnDPerso
                       "~/Content/site.css"));
 
             // Common functions
-            bundles.Add(new ScriptBundle("~/bundles/Scripts/Views").Include("~/Scripts/Views/Common.js", "~/Scripts/Views/DnDAutoComplete.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Scripts/Views").Include("~/Scripts/Views/Common.js", "~/Scripts/Views/DnDAutoComplete.js", "~/Scripts/toastr.js"));
 
             //Login
             bundles.Add(new ScriptBundle("~/bundles/Scripts/Views/Login").Include("~/Scripts/Views/Login/Login.js"));

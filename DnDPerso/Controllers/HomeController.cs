@@ -13,20 +13,29 @@ namespace DnDPerso.Controllers
     {
         public ActionResult Index(int IdPersonnage)
         {
-            CharacterData characterData = PersonnageBLL.GetCharacterData(IdPersonnage);
+            CharacterData characterData = null;
+            if (IdPersonnage !=0)
+            {
+                characterData = PersonnageBLL.GetCharacterData(IdPersonnage);
+            }
+            else
+            {
+                characterData = new CharacterData();
+            }
+             
             List<Classe> listClasses = ClasseBLL.GetRList();
-            ViewData["listClasses"] = SetDropDownValues(listClasses, "Id", "Libelle", false);
+            characterData.Classes = SetDropDownValues(listClasses, "Id", "Libelle", false, characterData.IdClasse);
 
             List<Race> listRaces = RaceBLL.GetRList();
-            ViewData["listRaces"] = SetDropDownValues(listRaces, "Id", "Libelle", false);
+            characterData.Races = SetDropDownValues(listRaces, "Id", "Libelle", false, characterData.IdRace);
 
             List<Alignement> listAlignements = AlignementBLL.GetRList();
-            ViewData["listAlignements"] = SetDropDownValues(listAlignements, "Id", "Libelle", false);
+            characterData.Alignements = SetDropDownValues(listAlignements, "Id", "Libelle", false, characterData.IdAlignement);
 
             List<Divinite> listDivinites = DiviniteBLL.GetRList();
-            ViewData["listDivinites"] = SetDropDownValues(listDivinites, "Id", "Libelle", false);
+            characterData.Divinites = SetDropDownValues(listDivinites, "Id", "Libelle", false, characterData.IdDivinite);
 
-            return View();
+            return View(characterData);
         }
 
         public ActionResult SaveCharacterData(CharacterData model)
@@ -48,7 +57,7 @@ namespace DnDPerso.Controllers
             return new EmptyResult();
         }
 
-        public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement)
+        public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement, int idSelected)
         {
             List<SelectListItem> listTypesEntrants = new List<SelectListItem>();
 
@@ -65,12 +74,25 @@ namespace DnDPerso.Controllers
             foreach (var t in objects)
             {
                 string id = t.GetType().GetProperty(idProperty).GetValue(t, null).ToString();
-                listTypesEntrants.Add(new SelectListItem
+                if (idSelected.ToString() == id && idSelected != 0)
                 {
-                    Selected = false,
-                    Text = t.GetType().GetProperty(libelleProperty).GetValue(t, null).ToString(),
-                    Value = id
-                });
+                    listTypesEntrants.Add(new SelectListItem
+                    {
+                        Selected = true,
+                        Text = t.GetType().GetProperty(libelleProperty).GetValue(t, null).ToString(),
+                        Value = id
+                    });
+                }
+                else
+                {
+                    listTypesEntrants.Add(new SelectListItem
+                    {
+                        Selected = false,
+                        Text = t.GetType().GetProperty(libelleProperty).GetValue(t, null).ToString(),
+                        Value = id
+                    });
+                }
+                
             }
 
             return listTypesEntrants;

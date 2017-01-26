@@ -146,6 +146,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\blank_picture.jpg" />
     <Content Include="Images\icon_character.png" />
+    <Content Include="Images\icon_plus.png" />
     <Content Include="Images\logo_header.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -160,6 +161,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\Views\Common.js" />
     <Content Include="Scripts\Views\DnDAutoComplete.js" />
     <Content Include="Scripts\Views\Home\Home.js" />
