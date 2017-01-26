@@ -35,5 +35,27 @@ namespace DnDPersoDAL
 
             return result;
         }
+
+        public static List<AllPouvoirByIdPersonnage> GetAllPouvoirByIdPersonnage(int idPersonnage)
+        {
+            FichePersoDndEntities db_context = null;
+
+            List<AllPouvoirByIdPersonnage> result = new List<AllPouvoirByIdPersonnage>();
+            try
+            {
+                db_context = new FichePersoDndEntities();
+                result = db_context.GetAllPouvoirByIdPersonnage(idPersonnage).ToList();
+            }
+            finally
+            {
+                if (db_context != null)
+                {
+                    db_context.Dispose();
+                    db_context = null;
+                }
+            }
+
+            return result;
+        }
     }
 }
