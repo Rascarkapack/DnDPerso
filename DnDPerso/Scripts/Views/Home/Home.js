@@ -4,6 +4,7 @@
 
     var model =
     {
+        Id: $("#input_characterId").val(),
         Nom : $("#input_characterName").val(),
         Niveau : $("#input_characterLevel").val(),
         IdClasse : $("#listClasses").val(),
@@ -49,9 +50,9 @@
 		DefenseVOLDivers: $("#input_VOLDivers").val()
     };
     SetModifierValue();
-    //common.customRequest('POST', "Home", "SaveCharacterData", JSON.stringify(model), function (result) {
-    //    SetModifierValue();
-    //});
+    common.customRequest('POST', "Home", "SaveCharacterData", JSON.stringify(model), function (result) {
+        SetModifierValue();
+    });
 }
 
 function SetModifierValue() {
@@ -67,10 +68,10 @@ function SetModifierValue() {
     $("#input_ChaMod").val(CalculCaracMod($("#input_ChaValue").val()) + bonusLevel);
 
     //defenses
-    $("#input_CADemiNiveau").val(10 + bonusLevel);
-    $("#input_VIGDemiNiveau").val(10 + bonusLevel);
-    $("#input_REFDemiNiveau").val(10 + bonusLevel);
-    $("#input_VOLDemiNiveau").val(10 + bonusLevel);
+    $("#input_CADemiNiveau").val(bonusLevel);
+    $("#input_VIGDemiNiveau").val( bonusLevel);
+    $("#input_REFDemiNiveau").val( bonusLevel);
+    $("#input_VOLDemiNiveau").val( bonusLevel);
 
     $("#input_CADemiTotal").val($("#input_CADemiNiveau").val() + $("#input_CACarac").val() + $("#input_CAClasse").val() + $("#input_CATalent").val() + $("#input_CADivers").val());
     $("#input_VIGDemiTotal").val($("#input_VIGDemiNiveau").val() + $("#input_VIGCarac").val() + $("#input_VIGClasse").val() + $("#input_VIGTalent").val() + $("#input_VIGDivers").val());

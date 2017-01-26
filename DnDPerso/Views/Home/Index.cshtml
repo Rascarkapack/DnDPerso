@@ -8,13 +8,15 @@
 
 <div id="header">
     <a href="/Pouvoir/Index">Liste pouvoirs</a>
-    <img id="logo_header" src="Images/logo_header.png" alt="" />
+    <img id="logo_header" src="Images/logo_header.png" alt=""/>
     <div id="account">
-        <span id="account_name">pygma</span><br />
+        <span id="account_name">pygma</span><br/>
         <a id="logout">Déconnexion</a>
     </div>
-    <div><input type="button" onclick="SaveCharacterSheet()" value="Enregistrer" /></div>
+    <div><input type="button" onclick="SaveCharacterSheet()" value="Enregistrer"/>
+    </div>
 </div>
+@Html.HiddenFor(model => model.Id, new { @class = "", id = "input_characterId" })
 <div id="mainBloc_1" class="mainBloc">
     <div class="col-md-10">
         <div class="input_bloc width200">

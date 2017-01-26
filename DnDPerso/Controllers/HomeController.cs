@@ -14,7 +14,7 @@ namespace DnDPerso.Controllers
         public ActionResult Index(int IdPersonnage)
         {
             CharacterData characterData = null;
-            if (IdPersonnage !=0)
+            if (IdPersonnage != 0)
             {
                 characterData = PersonnageBLL.GetCharacterData(IdPersonnage);
             }
@@ -22,7 +22,7 @@ namespace DnDPerso.Controllers
             {
                 characterData = new CharacterData();
             }
-             
+
             List<Classe> listClasses = ClasseBLL.GetRList();
             characterData.Classes = SetDropDownValues(listClasses, "Id", "Libelle", false, characterData.IdClasse);
 
@@ -42,16 +42,12 @@ namespace DnDPerso.Controllers
         {
             try
             {
-                if (Session["UserSession"] != null)
-                {
-                    Utilisateur util = Session["UserSession"] as Utilisateur;
 
-                    //PersonnageBLL.SaveCharacterData(util.Id, model);
-                }
+                PersonnageBLL.SaveCharacterData(model.Id, model);
             }
             catch (Exception e)
             {
-                
+
             }
 
             return new EmptyResult();
@@ -92,7 +88,7 @@ namespace DnDPerso.Controllers
                         Value = id
                     });
                 }
-                
+
             }
 
             return listTypesEntrants;
