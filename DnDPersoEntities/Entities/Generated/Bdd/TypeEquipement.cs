@@ -85,6 +85,20 @@ namespace DnDPersoEntities
     			NotifyPropertyChange("IdRareteEquipement");
     		}
     	}
+        
+     	private int _idcategorieequipement;
+    	public int IdCategorieEquipement
+    	{
+    		get
+    		{
+    			return _idcategorieequipement;
+    		}
+    		set
+    		{
+    			_idcategorieequipement = value;
+    			NotifyPropertyChange("IdCategorieEquipement");
+    		}
+    	}
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Equipement> Equipement { get; set; }

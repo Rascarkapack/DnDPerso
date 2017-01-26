@@ -241,6 +241,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Libelle" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="IdRareteEquipement" Type="int" Nullable="false" />
+          <Property Name="IdCategorieEquipement" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TypePouvoir">
           <Key>
@@ -1032,6 +1033,7 @@
           <Property Name="IdRareteEquipement" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Equipement" Relationship="Self.fk_IDTYPEEQUIPEMENTEQUIPEMENT" FromRole="TypeEquipement" ToRole="Equipement" />
           <NavigationProperty Name="RareteEquipement" Relationship="Self.fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT" FromRole="TypeEquipement" ToRole="RareteEquipement" />
+          <Property Name="IdCategorieEquipement" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TypePouvoir">
           <Key>
@@ -1478,7 +1480,7 @@
           <Parameter Name="IdUtilisateur" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetCharacterData" ReturnType="Collection(FichePersoDndModel.CharacterData)">
-            <Parameter Name="CharacterId" Mode="In" Type="Int32" />
+          <Parameter Name="CharacterId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Caracteristique">
@@ -1916,6 +1918,7 @@
           <EntitySetMapping Name="TypeEquipement">
             <EntityTypeMapping TypeName="FichePersoDndModel.TypeEquipement">
               <MappingFragment StoreEntitySet="TypeEquipement">
+                <ScalarProperty Name="IdCategorieEquipement" ColumnName="IdCategorieEquipement" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Libelle" ColumnName="Libelle" />
                 <ScalarProperty Name="IdRareteEquipement" ColumnName="IdRareteEquipement" />

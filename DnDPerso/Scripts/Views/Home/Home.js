@@ -7,16 +7,16 @@
         Id: $("#input_characterId").val(),
         Nom : $("#input_characterName").val(),
         Niveau : $("#input_characterLevel").val(),
-        IdClasse : $("#listClasses").val(),
+        IdClasse : $("#IdClasses").val(),
         Experience : $("#input_characterExperience").val(), 
-        IdRace : $("#listRaces").val(),  
+        IdRace : $("#IdRaces").val(),  
         CategorieTaille : $("#input_characterHeightCategorie").val(), 
         Age : $("#input_characterAge").val(), 
         Sexe : $("#input_characterSexe").val(), 
         Taille : $("#input_characterHeight").val(), 
         Poids : $("#input_characterWeight").val(), 
-        IdAlignement : $("#listAlignements").val(), 
-        IdDivinite : $("#listDivinites").val(), 
+        IdAlignement : $("#IdAlignements").val(), 
+        IdDivinite : $("#IdDivinites").val(), 
         IdGroupeAventurier : $("#input_characterGroup").val(), 
         PointAction : $("#input_characterPAValue").val(), 
         PVMax : $("#input_PVMax").val(),  
@@ -50,9 +50,7 @@
 		DefenseVOLDivers: $("#input_VOLDivers").val()
     };
     SetModifierValue();
-    common.customRequest('POST', "Home", "SaveCharacterData", JSON.stringify(model), function (result) {
-        SetModifierValue();
-    });
+    common.customRequest('POST', "Home", "SaveCharacterData", JSON.stringify(model), null);
 }
 
 function SetModifierValue() {

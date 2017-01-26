@@ -68,6 +68,8 @@ namespace DnDPersoDAL
                     DefenseCATalent, DefenseCADivers, DefenseVIGDemiNiveau, DefenseVIGCaracteristique, DefenseVIGClasse, DefenseVIGTalent, DefenseVIGDivers, DefenseREFDemiNiveau, DefenseREFCaracteristique, DefenseREFClasse, DefenseREFTalent,
                     DefenseREFDivers, DefenseVOLDemiNiveau, DefenseVOLCaracteristique, DefenseVOLClasse, DefenseVOLTalent, DefenseVOLDivers);
             }
+            catch(Exception e)
+            { }
             finally
             {
                 if (db_context != null)
