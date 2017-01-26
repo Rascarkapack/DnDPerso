@@ -605,6 +605,9 @@
         <Function Name="GetAllPersonnageByUtilisateur" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdUtilisateur" Type="int" Mode="In" />
         </Function>
+        <Function Name="GetAllPouvoirByIdPersonnage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdPersonnage" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetCharacterData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CharacterId" Type="int" Mode="In" />
         </Function>
@@ -1482,6 +1485,9 @@
           <FunctionImport Name="GetCharacterData" ReturnType="Collection(FichePersoDndModel.CharacterData)">
           <Parameter Name="CharacterId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="GetAllPouvoirByIdPersonnage" ReturnType="Collection(FichePersoDndModel.AllPouvoirByIdPersonnage)">
+            <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Caracteristique">
           <Key>
@@ -1711,6 +1717,12 @@
           <Property Type="Int32" Name="DefenseVOLClasse" Nullable="true" />
           <Property Type="Int32" Name="DefenseVOLTalent" Nullable="true" />
           <Property Type="Int32" Name="DefenseVOLDivers" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="AllPouvoirByIdPersonnage">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Libelle" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Html" Nullable="true" />
+          <Property Type="Int32" Name="Level" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2070,6 +2082,16 @@
                 <ScalarProperty Name="DefenseVOLClasse" ColumnName="DefenseVOLClasse" />
                 <ScalarProperty Name="DefenseVOLTalent" ColumnName="DefenseVOLTalent" />
                 <ScalarProperty Name="DefenseVOLDivers" ColumnName="DefenseVOLDivers" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAllPouvoirByIdPersonnage" FunctionName="FichePersoDndModel.Store.GetAllPouvoirByIdPersonnage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FichePersoDndModel.AllPouvoirByIdPersonnage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="Html" ColumnName="Html" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
