@@ -1,11 +1,14 @@
 ﻿@using DnDPersoEntities
 @model List<DnDPersoEntities.AllPouvoirByIdPersonnage>
+<div>
+   
+        @foreach (AllPouvoirByIdPersonnage pouvoir in @Model)
+        {
+
+            <div id="pourvoir_@pouvoir.Id"> @pouvoir.Libelle
+                </div>
+
+        }
+
     
-@foreach (AllPouvoirByIdPersonnage pouvoir in @Model)
-{
-    <div>
-        <p>
-            @pouvoir.Libelle
-        </p>
-    </div>
-}
+</div>

@@ -1,5 +1,5 @@
 ﻿
-jQuery(document).ready(function($) {
+$(document).ready(function () {
     $("#input_characterLevel").val(SetCharacterLevel($("#input_characterExperience").val()));
     SetModifierValue();
 });
@@ -93,4 +93,8 @@ function SetModifierValue() {
         INITDivers = $("#input_INITDivers").val();
 
     $("#input_INITTotal").val(CalculCaracMod($("#input_DexValue").val()) + bonusLevel + parseInt(INITDivers));
+}
+
+function AfficheHtml(html) {
+   
 }

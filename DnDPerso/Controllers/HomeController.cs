@@ -22,6 +22,7 @@ namespace DnDPerso.Controllers
             {
                 characterData = new CharacterData();
             }
+            Session["IdPersonnage"] = IdPersonnage;
 
             List<Classe> listClasses = ClasseBLL.GetRList();
             characterData.Classes = SetDropDownValues(listClasses, "Id", "Libelle", false, characterData.IdClasse);
@@ -44,6 +45,7 @@ namespace DnDPerso.Controllers
             {
                 if (Session["UserSession"] != null)
                 {
+                    int IdPersonnage = Convert.ToInt32(Session["IdPersonnage"]) ;
                     Utilisateur usr = Session["UserSession"] as Utilisateur;
                     PersonnageBLL.SaveCharacterData(usr.Id, model.Id, model);
                 }
