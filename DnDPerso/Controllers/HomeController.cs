@@ -47,7 +47,7 @@ namespace DnDPerso.Controllers
                 {
                     int IdPersonnage = Convert.ToInt32(Session["IdPersonnage"]) ;
                     Utilisateur usr = Session["UserSession"] as Utilisateur;
-                    PersonnageBLL.SaveCharacterData(usr.Id, model.Id, model);
+                    PersonnageBLL.SaveCharacterData(usr.Id, IdPersonnage, model);
                 }
             }
             catch (Exception e)
