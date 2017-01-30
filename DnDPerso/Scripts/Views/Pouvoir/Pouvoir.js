@@ -1,13 +1,29 @@
-﻿function searchPouvoir() {
+﻿$(document).ready(function () {
+    setTimeout(function() {
+            $("#searchPouvoirBtn").trigger('click');
+        },
+        10);
+   
+});
+function searchPouvoir(classe, level) {
     var model =
     {
-        Classe: $("#listClasses").val(),
-        Niveau: $("#Niveau").val()
+        Classe: classe,
+        Niveau: level
     };
 
     common.customRequest('POST', "Pouvoir", "SendFilterToList", JSON.stringify(model), function (result) {
         $("#containerPouvoir").empty();
         $("#containerPouvoir").append(htmlDecode(result));
+
+        $(".infobox-power-title").css('cursor', 'pointer');
+        $(".infobox-power-title").on('click',
+       function () {
+           common.customRequest('POST', "Pouvoir", "AddPouvoir", JSON.stringify({ pouvoirName: this.innerHTML }), function (idPersonnage) {
+               window.location = '/Home/Index?IdPersonnage=' + idPersonnage;
+           });
+           
+       });
     });
 }
 

@@ -21,5 +21,10 @@ namespace DnDPersoBLL
         {
             return PouvoirDAL.GetAllPouvoirByIdPersonnage(idPersonnage);
         }
+
+        public static Pouvoir GetPouvoirByName(string name)
+        {
+            return PouvoirDAL.GetPouvoirByName(name);
+        }
     }
 }

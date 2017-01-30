@@ -12,18 +12,37 @@ namespace DnDPerso.Controllers
     public class PouvoirController : Controller
     {
         // GET: Pouvoir
-        public ActionResult Index()
+        public ActionResult Index(int classe, int level)
         {
-            List<Classe> listClasses = ClasseBLL.GetRList();
-            ViewData["listClasses"] = SetDropDownValues(listClasses, "Id", "Libelle", false);
-            return View();
+            FilterPouvoir model = new FilterPouvoir { Classe = classe, Niveau = level };
+            
+            return View(model);
         }
 
         public ActionResult SendFilterToList(FilterPouvoir model)
         {
+            
             string HtmlContent = PouvoirBLL.GetListePouvoir(model);
 
             return Json(HtmlContent);
+        }
+
+        public ActionResult AddPouvoir(string pouvoirName)
+        {
+            int idPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
+            
+            Pouvoir pouvoir = PouvoirBLL.GetPouvoirByName(pouvoirName);
+            if (pouvoir != null)
+            {
+                PouvoirPersonnage pouvoirPersonnage = new PouvoirPersonnage
+                {
+                    IdPersonnage = idPersonnage,
+                    IdPouvoir = pouvoir.Id
+                };
+
+                PouvoirPersonnageBLL.Add(pouvoirPersonnage);
+            }
+            return Json(idPersonnage);
         }
 
         public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement)

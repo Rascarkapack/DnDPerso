@@ -98,3 +98,7 @@ function SetModifierValue() {
 function AfficheHtml(html) {
    
 }
+
+function OpenPopUpPouvoir(classe, level) {
+    window.location = '/Pouvoir/Index?classe=' + classe + '&level=' + level;
+}

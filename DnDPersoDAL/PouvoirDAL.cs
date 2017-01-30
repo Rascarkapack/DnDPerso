@@ -57,5 +57,27 @@ namespace DnDPersoDAL
 
             return result;
         }
+
+        public static Pouvoir GetPouvoirByName(string name)
+        {
+            FichePersoDndEntities db_context = null;
+            
+            Pouvoir result = null;
+            try
+            {
+                db_context = new FichePersoDndEntities();
+                result = db_context.Pouvoir.FirstOrDefault(a=>a.Libelle == name);
+            }
+            finally
+            {
+                if (db_context != null)
+                {
+                    db_context.Dispose();
+                    db_context = null;
+                }
+            }
+
+            return result;
+        }
     }
 }
