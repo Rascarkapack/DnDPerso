@@ -41,6 +41,7 @@ namespace DnDPersoEntities
         public Race()
         {
             this.Personnage = new HashSet<Personnage>();
+            this.Aptitude = new HashSet<Aptitude>();
         }
     
         
@@ -74,5 +75,7 @@ namespace DnDPersoEntities
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Personnage> Personnage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Aptitude> Aptitude { get; set; }
     }
 }

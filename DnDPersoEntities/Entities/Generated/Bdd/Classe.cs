@@ -42,6 +42,7 @@ namespace DnDPersoEntities
         {
             this.Personnage = new HashSet<Personnage>();
             this.Pouvoir = new HashSet<Pouvoir>();
+            this.Aptitude = new HashSet<Aptitude>();
         }
     
         
@@ -77,5 +78,7 @@ namespace DnDPersoEntities
         public virtual ICollection<Personnage> Personnage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pouvoir> Pouvoir { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Aptitude> Aptitude { get; set; }
     }
 }

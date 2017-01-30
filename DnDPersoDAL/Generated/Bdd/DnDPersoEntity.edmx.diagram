@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="4c3880fd20ae4efdb5a45fdfb68bad95" Name="Diagram1">
         <EntityTypeShape EntityType="FichePersoDndModel.Alignement" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="FichePersoDndModel.AptitudeRaciale" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Argent" Width="1.5" PointX="8.25" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Classe" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Divinite" Width="1.5" PointX="3.75" PointY="6.25" IsExpanded="true" />
@@ -61,6 +60,9 @@
         <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEDEFPERSONNAGE" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEUTILPERSONNAGE" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDUTILPERSONNAGE" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Aptitude" Width="1.5" PointX="6" PointY="17.875" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDCLASSEREFCLASSE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDRACEREFRACE" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

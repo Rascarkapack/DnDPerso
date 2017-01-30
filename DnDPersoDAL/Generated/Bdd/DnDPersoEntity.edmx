@@ -12,12 +12,13 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Libelle" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="AptitudeRaciale">
+        <EntityType Name="Aptitude">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdRace" Type="int" Nullable="false" />
+          <Property Name="IdClasse" Type="int" Nullable="false" />
           <Property Name="Libelle" Type="varchar(max)" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
         </EntityType>
@@ -307,6 +308,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_IDCLASSEREFCLASSE">
+          <End Role="Classe" Type="Self.Classe" Multiplicity="1" />
+          <End Role="Aptitude" Type="Self.Aptitude" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Aptitude">
+              <PropertyRef Name="IdClasse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_IDCOMPECOMPEPERSONNAGE">
           <End Role="Competence" Type="Self.Competence" Multiplicity="1" />
           <End Role="CompetencePersonnage" Type="Self.CompetencePersonnage" Multiplicity="*" />
@@ -487,6 +500,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_IDRACEREFRACE">
+          <End Role="Race" Type="Self.Race" Multiplicity="1" />
+          <End Role="Aptitude" Type="Self.Aptitude" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Race">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Aptitude">
+              <PropertyRef Name="IdRace" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT">
           <End Role="RareteEquipement" Type="Self.RareteEquipement" Multiplicity="1" />
           <End Role="TypeEquipement" Type="Self.TypeEquipement" Multiplicity="*" />
@@ -651,7 +676,7 @@
         </Function>
         <EntityContainer Name="FichePersoDndModelStoreContainer">
           <EntitySet Name="Alignement" EntityType="Self.Alignement" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AptitudeRaciale" EntityType="Self.AptitudeRaciale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Aptitude" EntityType="Self.Aptitude" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Argent" EntityType="Self.Argent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Caracteristique" EntityType="Self.Caracteristique" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CaracteristiquePersonnage" EntityType="Self.CaracteristiquePersonnage" Schema="dbo" store:Type="Tables" />
@@ -694,6 +719,10 @@
           <AssociationSet Name="fk_IDCLASSEPOUVOIR" Association="Self.fk_IDCLASSEPOUVOIR">
             <End Role="Classe" EntitySet="Classe" />
             <End Role="Pouvoir" EntitySet="Pouvoir" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDCLASSEREFCLASSE" Association="Self.fk_IDCLASSEREFCLASSE">
+            <End Role="Classe" EntitySet="Classe" />
+            <End Role="Aptitude" EntitySet="Aptitude" />
           </AssociationSet>
           <AssociationSet Name="fk_IDCOMPECOMPEPERSONNAGE" Association="Self.fk_IDCOMPECOMPEPERSONNAGE">
             <End Role="Competence" EntitySet="Competence" />
@@ -755,6 +784,10 @@
             <End Role="Race" EntitySet="Race" />
             <End Role="Personnage" EntitySet="Personnage" />
           </AssociationSet>
+          <AssociationSet Name="fk_IDRACEREFRACE" Association="Self.fk_IDRACEREFRACE">
+            <End Role="Race" EntitySet="Race" />
+            <End Role="Aptitude" EntitySet="Aptitude" />
+          </AssociationSet>
           <AssociationSet Name="fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT" Association="Self.fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT">
             <End Role="RareteEquipement" EntitySet="RareteEquipement" />
             <End Role="TypeEquipement" EntitySet="TypeEquipement" />
@@ -800,15 +833,6 @@
           <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Personnage" Relationship="Self.fk_IDALIGNEMENT" FromRole="Alignement" ToRole="Personnage" />
         </EntityType>
-        <EntityType Name="AptitudeRaciale">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdRace" Type="Int32" Nullable="false" />
-          <Property Name="Libelle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-        </EntityType>
         <EntityType Name="Argent">
           <Key>
             <PropertyRef Name="Id" />
@@ -828,6 +852,7 @@
           <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Personnage" Relationship="Self.fk_IDCLASSE" FromRole="Classe" ToRole="Personnage" />
           <NavigationProperty Name="Pouvoir" Relationship="Self.fk_IDCLASSEPOUVOIR" FromRole="Classe" ToRole="Pouvoir" />
+          <NavigationProperty Name="Aptitude" Relationship="FichePersoDndModel.fk_IDCLASSEREFCLASSE" FromRole="Classe" ToRole="Aptitude" />
         </EntityType>
         <EntityType Name="Divinite">
           <Key>
@@ -938,6 +963,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Personnage" Relationship="Self.fk_IDRACE" FromRole="Race" ToRole="Personnage" />
+          <NavigationProperty Name="Aptitude" Relationship="FichePersoDndModel.fk_IDRACEREFRACE" FromRole="Race" ToRole="Aptitude" />
         </EntityType>
         <EntityType Name="RareteEquipement">
           <Key>
@@ -1250,7 +1276,6 @@
         </Association>
         <EntityContainer Name="FichePersoDndEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Alignement" EntityType="Self.Alignement" />
-          <EntitySet Name="AptitudeRaciale" EntityType="Self.AptitudeRaciale" />
           <EntitySet Name="Argent" EntityType="Self.Argent" />
           <EntitySet Name="Classe" EntityType="Self.Classe" />
           <EntitySet Name="Divinite" EntityType="Self.Divinite" />
@@ -1452,6 +1477,15 @@
           <FunctionImport Name="GetAllTalentByIdPersonnage" ReturnType="Collection(FichePersoDndModel.AllTalentByIdPersonnage)">
           <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="Aptitude" EntityType="FichePersoDndModel.Aptitude" />
+          <AssociationSet Name="fk_IDCLASSEREFCLASSE" Association="FichePersoDndModel.fk_IDCLASSEREFCLASSE">
+            <End Role="Classe" EntitySet="Classe" />
+            <End Role="Aptitude" EntitySet="Aptitude" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDRACEREFRACE" Association="FichePersoDndModel.fk_IDRACEREFRACE">
+            <End Role="Race" EntitySet="Race" />
+            <End Role="Aptitude" EntitySet="Aptitude" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Caracteristique">
           <Key>
@@ -1699,6 +1733,42 @@
           <Property Type="String" Name="Prerequis" Nullable="true" />
           <Property Type="String" Name="Html" Nullable="true" />
         </ComplexType>
+        <EntityType Name="Aptitude">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRace" Type="Int32" Nullable="false" />
+          <Property Name="IdClasse" Type="Int32" Nullable="false" />
+          <Property Name="Libelle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Classe" Relationship="FichePersoDndModel.fk_IDCLASSEREFCLASSE" FromRole="Aptitude" ToRole="Classe" />
+          <NavigationProperty Name="Race" Relationship="FichePersoDndModel.fk_IDRACEREFRACE" FromRole="Aptitude" ToRole="Race" />
+        </EntityType>
+        <Association Name="fk_IDCLASSEREFCLASSE">
+          <End Type="FichePersoDndModel.Classe" Role="Classe" Multiplicity="1" />
+          <End Type="FichePersoDndModel.Aptitude" Role="Aptitude" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Aptitude">
+              <PropertyRef Name="IdClasse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDRACEREFRACE">
+          <End Type="FichePersoDndModel.Race" Role="Race" Multiplicity="1" />
+          <End Type="FichePersoDndModel.Aptitude" Role="Aptitude" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Race">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Aptitude">
+              <PropertyRef Name="IdRace" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1710,16 +1780,6 @@
               <MappingFragment StoreEntitySet="Alignement">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Libelle" ColumnName="Libelle" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AptitudeRaciale">
-            <EntityTypeMapping TypeName="FichePersoDndModel.AptitudeRaciale">
-              <MappingFragment StoreEntitySet="AptitudeRaciale">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdRace" ColumnName="IdRace" />
-                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2081,6 +2141,17 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Aptitude">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Aptitude">
+              <MappingFragment StoreEntitySet="Aptitude">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="IdClasse" ColumnName="IdClasse" />
+                <ScalarProperty Name="IdRace" ColumnName="IdRace" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

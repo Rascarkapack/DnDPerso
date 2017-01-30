@@ -29,7 +29,6 @@ namespace DnDPersoDAL.Generated.Bdd
         }
     
         public virtual DbSet<Alignement> Alignement { get; set; }
-        public virtual DbSet<AptitudeRaciale> AptitudeRaciale { get; set; }
         public virtual DbSet<Argent> Argent { get; set; }
         public virtual DbSet<Classe> Classe { get; set; }
         public virtual DbSet<Divinite> Divinite { get; set; }
@@ -57,6 +56,7 @@ namespace DnDPersoDAL.Generated.Bdd
         public virtual DbSet<DefensePersonnage> DefensePersonnage { get; set; }
         public virtual DbSet<Utilisateur> Utilisateur { get; set; }
         public virtual DbSet<UtilisateurPersonnage> UtilisateurPersonnage { get; set; }
+        public virtual DbSet<Aptitude> Aptitude { get; set; }
     
         public virtual ObjectResult<string> ListePouvoirs(Nullable<int> classe, Nullable<int> niveau)
         {
