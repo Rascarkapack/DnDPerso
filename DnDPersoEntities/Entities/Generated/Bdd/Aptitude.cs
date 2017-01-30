@@ -16,7 +16,7 @@ namespace DnDPersoEntities
     using System.Collections.Generic;
     
     
-    public partial class AptitudeRaciale : INotifyPropertyChanged, IEntity
+    public partial class Aptitude : INotifyPropertyChanged, IEntity
     {
     
         #region INotifyPropertyChanged implementation
@@ -66,6 +66,20 @@ namespace DnDPersoEntities
     		}
     	}
         
+     	private int _idclasse;
+    	public int IdClasse
+    	{
+    		get
+    		{
+    			return _idclasse;
+    		}
+    		set
+    		{
+    			_idclasse = value;
+    			NotifyPropertyChange("IdClasse");
+    		}
+    	}
+        
      	private string _libelle;
     	public string Libelle
     	{
@@ -93,5 +107,8 @@ namespace DnDPersoEntities
     			NotifyPropertyChange("Description");
     		}
     	}
+    
+        public virtual Classe Classe { get; set; }
+        public virtual Race Race { get; set; }
     }
 }

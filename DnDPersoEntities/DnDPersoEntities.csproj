@@ -55,7 +55,7 @@
     <Compile Include="Entities\Generated\Bdd\AllTalentByIdPersonnage.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Generated\Bdd\AptitudeRaciale.cs">
+    <Compile Include="Entities\Generated\Bdd\Aptitude.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Generated\Bdd\Argent.cs">
