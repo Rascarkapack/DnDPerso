@@ -642,7 +642,7 @@
           <Parameter Name="Poids" Type="int" Mode="In" />
           <Parameter Name="IdAlignement" Type="int" Mode="In" />
           <Parameter Name="IdDivinite" Type="int" Mode="In" />
-          <Parameter Name="IdGroupeAventurier" Type="int" Mode="In" />
+          <Parameter Name="GroupeAventurier" Type="varchar(max)" Mode="In" />
           <Parameter Name="PointAction" Type="int" Mode="In" />
           <Parameter Name="PVMax" Type="int" Mode="In" />
           <Parameter Name="Personnalite" Type="varchar" Mode="In" />
@@ -1430,7 +1430,7 @@
             <Parameter Name="Poids" Mode="In" Type="Int32" />
             <Parameter Name="IdAlignement" Mode="In" Type="Int32" />
             <Parameter Name="IdDivinite" Mode="In" Type="Int32" />
-            <Parameter Name="IdGroupeAventurier" Mode="In" Type="Int32" />
+            <Parameter Name="GroupeAventurier" Mode="In" Type="String" />
             <Parameter Name="PointAction" Mode="In" Type="Int32" />
             <Parameter Name="PVMax" Mode="In" Type="Int32" />
             <Parameter Name="Personnalite" Mode="In" Type="String" />
@@ -1684,7 +1684,6 @@
           <Property Type="Int32" Name="Poids" Nullable="false" />
           <Property Type="Int32" Name="IdAlignement" Nullable="false" />
           <Property Type="Int32" Name="IdDivinite" Nullable="false" />
-          <Property Type="Int32" Name="IdGroupeAventurier" Nullable="false" />
           <Property Type="Int32" Name="PointAction" Nullable="false" />
           <Property Type="Int32" Name="PVMax" Nullable="false" />
           <Property Type="String" Name="Personnalite" Nullable="false" />
@@ -1715,6 +1714,7 @@
           <Property Type="Int32" Name="DefenseVOLClasse" Nullable="true" />
           <Property Type="Int32" Name="DefenseVOLTalent" Nullable="true" />
           <Property Type="Int32" Name="DefenseVOLDivers" Nullable="true" />
+          <Property Type="String" Name="GroupeAventurier" Nullable="false" />
         </ComplexType>
         <ComplexType Name="AllPouvoirByIdPersonnage">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -2078,7 +2078,6 @@
                 <ScalarProperty Name="Poids" ColumnName="Poids" />
                 <ScalarProperty Name="IdAlignement" ColumnName="IdAlignement" />
                 <ScalarProperty Name="IdDivinite" ColumnName="IdDivinite" />
-                <ScalarProperty Name="IdGroupeAventurier" ColumnName="IdGroupeAventurier" />
                 <ScalarProperty Name="PointAction" ColumnName="PointAction" />
                 <ScalarProperty Name="PVMax" ColumnName="PVMax" />
                 <ScalarProperty Name="Personnalite" ColumnName="Personnalite" />

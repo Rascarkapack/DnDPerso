@@ -216,20 +216,6 @@ namespace DnDPersoEntities
     		}
     	}
         
-     	private int _idgroupeaventurier;
-    	public int IdGroupeAventurier
-    	{
-    		get
-    		{
-    			return _idgroupeaventurier;
-    		}
-    		set
-    		{
-    			_idgroupeaventurier = value;
-    			NotifyPropertyChange("IdGroupeAventurier");
-    		}
-    	}
-        
      	private int _pointaction;
     	public int PointAction
     	{
@@ -647,6 +633,20 @@ namespace DnDPersoEntities
     		{
     			_defensevoldivers = value;
     			NotifyPropertyChange("DefenseVOLDivers");
+    		}
+    	}
+        
+     	private string _groupeaventurier;
+    	public string GroupeAventurier
+    	{
+    		get
+    		{
+    			return _groupeaventurier;
+    		}
+    		set
+    		{
+    			_groupeaventurier = value;
+    			NotifyPropertyChange("GroupeAventurier");
     		}
     	}
     }

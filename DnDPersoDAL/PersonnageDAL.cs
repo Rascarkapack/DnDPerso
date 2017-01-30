@@ -28,7 +28,7 @@ namespace DnDPersoDAL
             int? Poids = model.Poids;
             int? IdAlignement = model.IdAlignement;
             int? IdDivinite = model.IdDivinite;
-            int? GroupeAventurier = model.IdGroupeAventurier;
+           string GroupeAventurier = model.GroupeAventurier;
             int? PointAction = model.PointAction;
             int? PVMax = model.PVMax;
             string Personnalite = model.Personnalite;
