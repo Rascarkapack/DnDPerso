@@ -1,6 +1,6 @@
 ﻿
 $(document).ready(function () {
-    $('#loginRightBloc').keypress(function (e) {
+    $('#contentAuthBloc').keypress(function (e) {
         if (e.which === 13) {
             e.preventDefault();
             loginAuth();

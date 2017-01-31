@@ -6,7 +6,7 @@
         {
 
             <div id="pourvoir_@pouvoir.PouvoirId">
-                @pouvoir.Libelle
+                @HttpUtility.HtmlDecode(pouvoir.Libelle)
                 <input style="width: 15px" type="button" onclick="deletePouvoir(@pouvoir.Id)" value="-" />
             </div>
         }

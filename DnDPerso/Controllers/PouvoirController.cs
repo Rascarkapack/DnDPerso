@@ -32,7 +32,7 @@ namespace DnDPerso.Controllers
             int idPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
             foreach (string pouvoirName in pouvoirNames)
             {
-                Pouvoir pouvoir = PouvoirBLL.GetPouvoirByName(pouvoirName);
+                Pouvoir pouvoir = PouvoirBLL.GetPouvoirByName(pouvoirName.Replace("'", "&apos;"));
                 if (pouvoir != null)
                 {
                     PouvoirPersonnage pouvoirPersonnage = new PouvoirPersonnage
