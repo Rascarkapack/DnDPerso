@@ -5,9 +5,10 @@
         @foreach (AllPouvoirByIdPersonnage pouvoir in @Model)
         {
 
-            <div id="pourvoir_@pouvoir.Id"> @pouvoir.Libelle
-                </div>
-
+            <div id="pourvoir_@pouvoir.PouvoirId">
+                @pouvoir.Libelle
+                <input style="width: 15px" type="button" onclick="deletePouvoir(@pouvoir.Id)" value="-" />
+            </div>
         }
 
     

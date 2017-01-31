@@ -102,3 +102,9 @@ function AfficheHtml(html) {
 function OpenPopUpPouvoir(classe, level) {
     window.location = '/Pouvoir/Index?classe=' + classe + '&level=' + level;
 }
+
+function deletePouvoir(idPouvoirPersonnage) {
+    common.customRequest('POST', "Pouvoir", "DeletePouvoir", JSON.stringify({ idPouvoirPersonnage: idPouvoirPersonnage }), function (idPersonnage) {
+        window.location = '/Home/Index?IdPersonnage=' + idPersonnage;
+    });
+}

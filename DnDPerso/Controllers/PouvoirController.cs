@@ -48,6 +48,14 @@ namespace DnDPerso.Controllers
             return Json(idPersonnage);
         }
 
+        public ActionResult DeletePouvoir(string idPouvoirPersonnage)
+        {
+            int idPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
+            PouvoirPersonnageBLL.Delete(Convert.ToInt32(idPouvoirPersonnage));
+
+            return Json(idPersonnage);
+        }
+
         public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement)
         {
             List<SelectListItem> listTypesEntrants = new List<SelectListItem>();

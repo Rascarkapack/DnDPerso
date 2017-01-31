@@ -89,5 +89,19 @@ namespace DnDPersoEntities
     			NotifyPropertyChange("Level");
     		}
     	}
+        
+     	private int _pouvoirid;
+    	public int PouvoirId
+    	{
+    		get
+    		{
+    			return _pouvoirid;
+    		}
+    		set
+    		{
+    			_pouvoirid = value;
+    			NotifyPropertyChange("PouvoirId");
+    		}
+    	}
     }
 }

@@ -44,3 +44,4 @@ function validatePouvoir() {
         window.location = '/Home/Index?IdPersonnage=' + idPersonnage;
     });
 }
+
