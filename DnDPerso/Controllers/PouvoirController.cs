@@ -27,21 +27,24 @@ namespace DnDPerso.Controllers
             return Json(HtmlContent);
         }
 
-        public ActionResult AddPouvoir(string pouvoirName)
+        public ActionResult AddPouvoir(string[] pouvoirNames)
         {
             int idPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
-            
-            Pouvoir pouvoir = PouvoirBLL.GetPouvoirByName(pouvoirName);
-            if (pouvoir != null)
+            foreach (string pouvoirName in pouvoirNames)
             {
-                PouvoirPersonnage pouvoirPersonnage = new PouvoirPersonnage
+                Pouvoir pouvoir = PouvoirBLL.GetPouvoirByName(pouvoirName);
+                if (pouvoir != null)
                 {
-                    IdPersonnage = idPersonnage,
-                    IdPouvoir = pouvoir.Id
-                };
+                    PouvoirPersonnage pouvoirPersonnage = new PouvoirPersonnage
+                    {
+                        IdPersonnage = idPersonnage,
+                        IdPouvoir = pouvoir.Id
+                    };
 
-                PouvoirPersonnageBLL.Add(pouvoirPersonnage);
+                    PouvoirPersonnageBLL.Add(pouvoirPersonnage);
+                }
             }
+            
             return Json(idPersonnage);
         }
 

@@ -1,9 +1,11 @@
-﻿$(document).ready(function () {
-    setTimeout(function() {
-            $("#searchPouvoirBtn").trigger('click');
-        },
+﻿var pouvoirs = [];
+
+$(document).ready(function () {
+    setTimeout(function () {
+        $("#searchPouvoirBtn").trigger('click');
+    },
         10);
-   
+
 });
 function searchPouvoir(classe, level) {
     var model =
@@ -19,14 +21,26 @@ function searchPouvoir(classe, level) {
         $(".infobox-power-title").css('cursor', 'pointer');
         $(".infobox-power-title").on('click',
        function () {
-           common.customRequest('POST', "Pouvoir", "AddPouvoir", JSON.stringify({ pouvoirName: this.innerHTML }), function (idPersonnage) {
-               window.location = '/Home/Index?IdPersonnage=' + idPersonnage;
-           });
-           
+
+           if ($.inArray(this.innerHTML, pouvoirs) === -1) {
+               pouvoirs.push(this.innerHTML);
+           }
+
+           if ($(this).parent().parent().attr('class').indexOf('highLight') !== -1) {
+               pouvoirs.splice($.inArray(this.innerHTML, pouvoirs), 1);
+           }
+           $(this).parent().parent().toggleClass('highLight');
+
        });
     });
 }
 
-function htmlDecode(value){
+function htmlDecode(value) {
     return $('<div/>').html(value.replace(/\?/g, "✦")).text();
+}
+
+function validatePouvoir() {
+    common.customRequest('POST', "Pouvoir", "AddPouvoir", JSON.stringify({ pouvoirNames: pouvoirs }), function (idPersonnage) {
+        window.location = '/Home/Index?IdPersonnage=' + idPersonnage;
+    });
 }

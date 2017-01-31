@@ -347,3 +347,7 @@ input[type="color"]:focus,
     text-transform: capitalize;
     width: 170px;
 }
+
+.highLight{
+    background-color: #333333;
+}
