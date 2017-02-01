@@ -156,6 +156,7 @@ input[type="color"]:focus,
 	border-radius: 4px;
 	margin-bottom: 5px;
 	border: 1px solid #993333;
+    display: inline-block;
 }
 #mainBloc_1 {
 	width: 100%;
@@ -166,12 +167,13 @@ input[type="color"]:focus,
 #mainBloc_2 {
 	width: 37%;
 	min-height : 200px;
-	float: left;
 }
 #mainBloc_3 {
 	width: 25%;
 	min-height : 200px;
-	float: left;
+}
+#mainBloc_4 {
+    width: 25%;
 }
 #character_picture {
 	border: 1px #424242 solid;
@@ -350,4 +352,26 @@ input[type="color"]:focus,
 
 .highLight{
     background-color: #333333;
+}
+/*encart*/
+#encartPouvoirs {
+    width: 200px;
+}
+#inner_Bloc_Pouvoir input,
+#encartPouvoirs input {
+    width: 25px;
+    height: 27px;
+    float: right;
+    color: #993333;
+    
+}
+#inner_Bloc_Pouvoir {
+    margin-top: 10px;
+}
+#inner_Bloc_Pouvoir div {
+    height: 30px;
+}
+.spanLibelle {
+    padding-top: 5px;
+    display: inline-block;
 }
