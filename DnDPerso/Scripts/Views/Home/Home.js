@@ -2,6 +2,16 @@
 $(document).ready(function () {
     $("#input_characterLevel").val(SetCharacterLevel($("#input_characterExperience").val()));
     SetModifierValue();
+
+    $("input[id^='checkBox_Former']").change(function (s, e) {
+        var lenghtString = 'checkBox_Former'.length;
+        var idTarget = s.currentTarget.attributes[0].value;
+        var compeLib = idTarget.substring(lenghtString, idTarget.lenght);
+        var hiddenId = $("#hiddenId" + compeLib).val();
+        common.customRequest('POST', "Home", "UpdateCompetence", JSON.stringify({ idCompePerso: hiddenId }), function (idPersonnage) {
+            window.location = '/Home/Index?IdPersonnage=' + idPersonnage;
+        });
+    });
 });
 
 function SaveCharacterSheet() {

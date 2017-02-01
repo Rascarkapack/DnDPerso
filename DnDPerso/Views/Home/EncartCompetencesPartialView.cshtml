@@ -4,9 +4,14 @@
 @foreach (AllCompetenceByIdPersonnage compe in @Model)
 {
     <div>
-        <p>
-           @Html.Label(compe.Libelle, compe.Libelle)
-            @Html.CheckBox("checkBox_Former", compe.Former)
-        </p>
+        
+            <div class=""  style="display: inline">
+                @Html.Label(compe.Libelle, compe.Libelle)
+                @Html.TextBox("modifDiversCompe", null, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
+                @Html.CheckBox("checkBox_Former"+ compe.Libelle, compe.Former)
+                @Html.TextBox("totalValueCompe", null, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
+                @Html.Hidden("hiddenId" + compe.Libelle ,compe.Id.ToString())
+                </div>
+
     </div>
 }
