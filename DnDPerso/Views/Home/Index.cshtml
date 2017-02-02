@@ -13,7 +13,7 @@
         <span id="account_name">pygma</span><br/>
         <a id="logout">Déconnexion</a>
     </div>
-    <div><input type="button" onclick="SaveCharacterSheet()" value="Enregistrer"/>
+    <div><input type="button" class="btn btn_DnD" onclick="SaveCharacterSheet()" value="Enregistrer"/>
     </div>
 </div>
 @Html.HiddenFor(model => model.Id, new { @class = "", id = "input_characterId" })
@@ -270,18 +270,20 @@
         </div>
     </div>
 </div>
+<div id="mainBloc_5" class="mainBloc marginerRight5">
+    <div id="encartPouvoirs">
+        <div class="header_bloc_title">
+            Pouvoirs
+            <input type="button" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+" />
+        </div>
 
-<div id="encartPouvoirs">
-    <div class="header_bloc_title">Pouvoirs
-        <input type="button" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+"/>
-    </div>
-
-    <div id="inner_Bloc_Pouvoir">
-        @Html.Action("EncartPouvoirsPartialView", @Model.Id)
+        <div id="inner_Bloc_Pouvoir">
+            @Html.Action("EncartPouvoirsPartialView", @Model.Id)
+        </div>
     </div>
 </div>
 
-<div id="encartCompetences" class="mainBloc_1">
+<div id="encartCompetences" class="mainBloc">
     <div class="header_bloc_title">
         Compétences
     </div>
@@ -290,7 +292,7 @@
     </div>
 </div>
 
-<div id="encartTalents" class="mainBloc_2">
+<div id="encartTalents" class="mainBloc">
     <div class="header_bloc_title">
         Talents
     </div>

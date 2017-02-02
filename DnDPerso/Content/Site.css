@@ -44,7 +44,7 @@ input[type="color"]:focus,
 }
 #header {
 	margin-top: 20px;
-	margin-bottom: 50px;
+	margin-bottom: 70px;
 	height: 75px;
 }
 #logo_header {
@@ -148,6 +148,9 @@ input[type="color"]:focus,
 	padding-top: 7px;
 	background-color: #fff;
 	
+}
+.btn_DnD {
+    color: #993333;
 }
 .mainBloc {
 	background-color: #993333;
@@ -365,13 +368,26 @@ input[type="color"]:focus,
     color: #993333;
     
 }
+.header_bloc_title input {
+    margin-right: 10px;
+}
 #inner_Bloc_Pouvoir {
-    margin-top: 10px;
+
+    padding: 10px;
 }
 #inner_Bloc_Pouvoir div {
     height: 30px;
+    color: #fff;
 }
 .spanLibelle {
     padding-top: 5px;
     display: inline-block;
+}
+
+#encartCompetences {
+    color: #fff;
+    width: 30%;
+}
+.encoartCompetenceInputBloc {
+    float: right;
 }
