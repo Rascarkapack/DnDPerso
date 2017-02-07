@@ -55,6 +55,7 @@
     <Compile Include="Base\BaseDAL.cs" />
     <Compile Include="ClasseDAL.cs" />
     <Compile Include="CompetenceDAL.cs" />
+    <Compile Include="CompetencePersonnageDAL.cs" />
     <Compile Include="DiviniteDAL.cs" />
     <Compile Include="Generated\Bdd\DnDPersoEntity.Context.cs">
       <AutoGen>True</AutoGen>

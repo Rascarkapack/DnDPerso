@@ -2,15 +2,19 @@
 $(document).ready(function () {
     $("#input_characterLevel").val(SetCharacterLevel($("#input_characterExperience").val()));
     SetModifierValue();
-
+    $("input[id^='modifDiversCompe']").change(function () {
+        SetModifierValue();
+    });
     $("input[id^='checkBox_Former']").change(function (s, e) {
         var lenghtString = 'checkBox_Former'.length;
-        var idTarget = s.currentTarget.attributes[0].value;
+        var idTarget = s.currentTarget.attributes["id"].value;
         var compeLib = idTarget.substring(lenghtString, idTarget.lenght);
         var hiddenId = $("#hiddenId" + compeLib).val();
         common.customRequest('POST', "Home", "UpdateCompetence", JSON.stringify({ idCompePerso: hiddenId }), function (idPersonnage) {
             window.location = '/Home/Index?IdPersonnage=' + idPersonnage;
         });
+
+        
     });
 });
 
@@ -74,6 +78,8 @@ function SetModifierValue() {
     var level = $("#input_characterLevel").val();
     var bonusLevel = (level - (level % 2)) / 2;
 
+    
+
     //caracteristiques
     $("#input_ForceMod").val(CalculCaracMod($("#input_ForceValue").val()) + bonusLevel);
     $("#input_ConsMod").val(CalculCaracMod($("#input_ConsValue").val()) + bonusLevel);
@@ -81,6 +87,86 @@ function SetModifierValue() {
     $("#input_IntMod").val(CalculCaracMod($("#input_IntValue").val()) + bonusLevel);
     $("#input_SagMod").val(CalculCaracMod($("#input_SagValue").val()) + bonusLevel);
     $("#input_ChaMod").val(CalculCaracMod($("#input_ChaValue").val()) + bonusLevel);
+
+    var compeId = $("input[id^='totalValueCompe']");
+
+    $.each(compeId, function (key, value) {
+
+        var checked = 0;
+        var modCarac;
+
+        var lenghtString = 'totalValueCompe'.length;
+        var idTarget = value.attributes["id"].value;
+        var compeLib = idTarget.substring(lenghtString, idTarget.lenght);
+        switch (compeLib) {
+            case "Acrobaties":
+                modCarac = CalculCaracMod($("#input_DexValue").val()) + bonusLevel;
+                break;
+            case "Arcanes":
+                modCarac = CalculCaracMod($("#input_IntValue").val()) + bonusLevel;
+                break;
+            case "Athl_tisme":
+                modCarac = CalculCaracMod($("#input_ForceValue").val()) + bonusLevel;
+                break;
+            case "Bluff":
+                modCarac = CalculCaracMod($("#input_ChaValue").val()) + bonusLevel;
+                break;
+            case "Connaissance_de_la_rue":
+                modCarac = CalculCaracMod($("#input_ChaValue").val()) + bonusLevel;
+                break;
+            case "Diplomatie":
+                modCarac = CalculCaracMod($("#input_ChaValue").val()) + bonusLevel;
+                break;
+            case "Discr_tion":
+                modCarac = CalculCaracMod($("#input_DexValue").val()) + bonusLevel;
+                break;
+            case "Endurance":
+                modCarac = CalculCaracMod($("#input_ConsValue").val()) + bonusLevel;
+                break;
+            case "Exploration":
+                modCarac = CalculCaracMod($("#input_SagValue").val()) + bonusLevel;
+                break;
+            case "Histoire":
+                modCarac = CalculCaracMod($("#input_IntValue").val()) + bonusLevel;
+                break;
+            case "Intimidation":
+                modCarac = CalculCaracMod($("#input_ChaValue").val()) + bonusLevel;
+                break;
+            case "Intuition":
+                modCarac = CalculCaracMod($("#input_SagValue").val()) + bonusLevel;
+                break;
+            case "Larcin":
+                modCarac = CalculCaracMod($("#input_DexValue").val()) + bonusLevel;
+                break;
+            case "Nature":
+                modCarac = CalculCaracMod($("#input_SagValue").val()) + bonusLevel;
+                break;
+            case "Perception":
+                modCarac = CalculCaracMod($("#input_SagValue").val()) + bonusLevel;
+                break;
+            case "Religion":
+                modCarac = CalculCaracMod($("#input_IntValue").val()) + bonusLevel;
+                break;
+            case "Soins":
+                modCarac = CalculCaracMod($("#input_SagValue").val()) + bonusLevel;
+                break;
+
+        }
+        if ($("#checkBox_Former" + compeLib).attr('checked')) {
+            checked = 5;
+        }
+
+        var modDiv = 0;
+        if ($("#modifDiversCompe" + compeLib).val() !== undefined && $("#modifDiversCompe" + compeLib).val() !== "") {
+            modDiv=parseInt($("#modifDiversCompe" + compeLib).val());
+        }
+        
+
+       
+
+        $("#totalValueCompe" + compeLib).val(bonusLevel + checked + modCarac + modDiv);
+
+    });
 
     //defenses
     $("#input_CADemiNiveau").val(bonusLevel);

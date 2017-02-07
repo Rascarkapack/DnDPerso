@@ -7,9 +7,9 @@
         <div class=""  style="display: inline">
             @Html.Label(compe.Libelle, compe.Libelle)
             <div class="encoartCompetenceInputBloc">
-                @Html.TextBox("modifDiversCompe", null, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
+                @Html.TextBox("modifDiversCompe" + compe.Libelle, null, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
                 @Html.CheckBox("checkBox_Former"+ compe.Libelle, compe.Former)
-                @Html.TextBox("totalValueCompe", null, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
+                @Html.TextBox("totalValueCompe"  +compe.Libelle, null, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
                 @Html.Hidden("hiddenId" + compe.Libelle ,compe.Id.ToString())
             </div>
         </div>

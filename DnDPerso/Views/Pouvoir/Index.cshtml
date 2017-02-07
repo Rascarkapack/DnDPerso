@@ -8,9 +8,10 @@
 <h2>Liste pouvoirs</h2>
 
 <div id="searchPanel">
-    @*@Html.DropDownList("listClasses", (List<SelectListItem>)ViewData["listClasses"], new { @class = "input_characterClass" })
-    <input type="text" id="Niveau" />*@
-    <button class="btn" id="searchPouvoirBtn" onclick="searchPouvoir(@Model.Classe, @Model.Niveau)">Rechercher</button>
+    @*@Html.DropDownList("listClasses", (List<SelectListItem>)ViewData["listClasses"], new { @class = "input_characterClass" })*@
+    <input type="text" id="Niveau" />
+    <button class="btn" id="searchPouvoirBtn" style="display: none" onclick="searchPouvoir(@Model.Classe, @Model.Niveau)">Rechercher</button>
+    <button class="btn" id="searchPouvoirManuBtn" onclick="searchPouvoir(@Model.Classe)">Rechercher</button>
     <button class="btn" id="validatePouvoirBtn" onclick="validatePouvoir()">Valider</button>
 </div>
 <div id="containerPouvoir"></div>

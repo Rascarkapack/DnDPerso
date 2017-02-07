@@ -108,6 +108,16 @@ namespace DnDPerso.Controllers
             return PartialView("EncartTalentsPartialView", listAllTalentByIdPersonnages);
         }
 
+        public ActionResult UpdateCompetence(string idCompePerso)
+        {
+            int idPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
+            CompetencePersonnage competencePersonnage = CompetencePersonnageBLL.Get(Convert.ToInt32(idCompePerso));
+            competencePersonnage.Former = !competencePersonnage.Former;
+            CompetencePersonnageBLL.Update(competencePersonnage);
+
+            return Json(idPersonnage);
+        }
+
         #endregion
         public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement, int idSelected)
         {

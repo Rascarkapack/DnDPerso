@@ -8,11 +8,22 @@ $(document).ready(function () {
 
 });
 function searchPouvoir(classe, level) {
-    var model =
-    {
-        Classe: classe,
-        Niveau: level
-    };
+    var model;
+    if (classe !== undefined && level !== undefined) {
+        model =
+            {
+                Classe: classe,
+                Niveau: level
+            };
+    }
+    else {
+        model =
+            {
+                Classe: classe,
+                Niveau: $("#Niveau").val()
+            };
+    }
+
 
     common.customRequest('POST', "Pouvoir", "SendFilterToList", JSON.stringify(model), function (result) {
         $("#containerPouvoir").empty();
