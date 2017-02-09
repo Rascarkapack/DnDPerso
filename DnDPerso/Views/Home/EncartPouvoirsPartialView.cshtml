@@ -5,6 +5,12 @@
     {
         <div id="pourvoir_@pouvoir.PouvoirId">
             <div class="spanLibelle">@HttpUtility.HtmlDecode(pouvoir.Libelle)</div>
-            <input type="button" onclick="deletePouvoir(@pouvoir.Id)" value="-" />
+            <input type="button" onclick="deletePouvoir(@pouvoir.Id)" value="-"/>
+          
+                        
+                   
+                @Html.Raw(pouvoir.Html)
+
+            
         </div>
     }

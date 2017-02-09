@@ -358,7 +358,7 @@ input[type="color"]:focus,
 }
 /*encart*/
 #encartPouvoirs {
-    width: 200px;
+    width: 500px;
 }
 #inner_Bloc_Pouvoir input,
 #encartPouvoirs input {
@@ -390,4 +390,8 @@ input[type="color"]:focus,
 }
 .encoartCompetenceInputBloc {
     float: right;
+}
+
+.cache {
+    display: none;
 }

@@ -3,9 +3,16 @@
 
 @foreach (AllTalentByIdPersonnage talent in @Model)
 {
-    <div>
-        <p>
-            @talent.Libelle
-        </p>
+    <div class="infobox infobox-power">
+        <div class="infobox-power-header">
+            <div class="infobox-power-title">
+                @talent.Libelle
+            </div>
+            <div class="infobox-power-origin">
+                @Html.Raw(talent.Prerequis)
+            </div>
+        </div>
+        @Html.Raw(talent.Html)
+
     </div>
 }

@@ -13,7 +13,18 @@ $(document).ready(function () {
         common.customRequest('POST', "Home", "UpdateCompetence", JSON.stringify({ idCompePerso: hiddenId }), function (idPersonnage) {
             window.location = '/Home/Index?IdPersonnage=' + idPersonnage;
         });
-
+    });
+    $(".hanging").addClass('cache');
+    $(".infobox-flavor").addClass('cache');
+    
+    $(".infobox-power-origin").on('click', function () {
+        
+        if ($(this).parent().parent().parent().find('.cache').length > 0) {
+            $(this).parent().parent().parent().find('.cache').removeClass('cache');
+        } else {
+            $(this).parent().parent().parent().find('.hanging').addClass('cache');
+            $(this).parent().parent().parent().find('.infobox-flavor').addClass('cache');
+        }
         
     });
 });
