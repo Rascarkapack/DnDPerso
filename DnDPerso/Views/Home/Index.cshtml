@@ -7,17 +7,19 @@
 }
 
 <div id="header">
-    <a href="/Pouvoir/Index">Liste pouvoirs</a>
     <img id="logo_header" src="~/Images/logo_header.png" alt=""/>
     <div id="account">
         <span id="account_name">pygma</span><br/>
         <a id="logout">Déconnexion</a>
     </div>
-    <div><input type="button" class="btn btn_DnD" onclick="SaveCharacterSheet()" value="Enregistrer"/>
+    <div>
+        <input type="button" class="btn btn-danger" onclick="SaveCharacterSheet()" value="Enregistrer"/>
     </div>
 </div>
 @Html.HiddenFor(model => model.Id, new { @class = "", id = "input_characterId" })
 <div id="mainBloc_1" class="mainBloc">
+    <div class="header_bloc_title">infos</div>
+    <div class="inner_bloc_container">
     <div class="col-md-10">
         <div class="input_bloc width200">
             @Html.TextBoxFor(model => model.Nom, "", new { @class = "", id = "input_characterName" })
@@ -72,231 +74,262 @@
             <span class="input_libelle">Divinité</span>
         </div>
         <div class="input_bloc input_text">
-            @Html.TextBoxFor(model => model.Personnalite, "", new { @class = "", id = "input_characterPersonnalite" })
+            @Html.TextAreaFor(model => model.Personnalite, new { @class = "", id = "input_characterPersonnalite" })
             <span class="input_libelle">Personnalité</span>
         </div>
+    </div>
     </div>
     <div class="col-md-2">
         <div id="character_picture"><img src="~/Images/blank_picture.jpg" alt="" /></div>
     </div>
 </div>
-<div id="mainBloc_3" class="mainBloc marginerRight5">
-    <div class="header_bloc_title">caractéristiques</div>
-    <div class="inner_bloc_container">
-        <div class="span_libelle">FOR</div>
-        <div class="input_bloc width50">
-            @Html.TextBoxFor(model => model.CaracteristiqueForce, "", new { @class = "text_center", id = "input_ForceValue" })
-            <span class="input_libelle">Valeur</span>
+
+<ul class="nav nav-tabs" id="mainNav">
+    <li id="tabCombat" onclick="setCombat()" role="combat" class="active"><a>Combat</a></li>
+    <li id="tabAutres" onclick="setAutres()" role="autres"><a>Autres</a></li>
+    <li id="tabNote" onclick="setNote()" role="note"><a>Note</a></li>
+</ul>
+
+<div id="bloc_combat">
+    <div id="mainBloc_3" class="mainBloc marginerRight5">
+        <div class="header_bloc_title">caractéristiques</div>
+        <div class="inner_bloc_container">
+            <div class="span_libelle">FOR</div>
+            <div class="input_bloc width50">
+                @Html.TextBoxFor(model => model.CaracteristiqueForce, "", new { @class = "text_center", id = "input_ForceValue" })
+                <span class="input_libelle">Valeur</span>
+            </div>
+            <div class="input_bloc width50">
+                <input type="text" id="input_ForceMod" class="text_center" disabled="disabled" />
+                <span class="input_libelle">Mod</span>
+            </div>
+            <div class="span_libelle">CON</div>
+            <div class="input_bloc width50">
+                @Html.TextBoxFor(model => model.CaracteristiqueConstitution, "", new { @class = "text_center", id = "input_ConsValue" })
+                <span class="input_libelle">Valeur</span>
+            </div>
+            <div class="input_bloc width50">
+                <input type="text" id="input_ConsMod" class="text_center" disabled="disabled" />
+                <span class="input_libelle">Mod</span>
+            </div>
+            <div class="span_libelle">DEX</div>
+            <div class="input_bloc width50">
+                @Html.TextBoxFor(model => model.CaracteristiqueDexterite, "", new { @class = "text_center", id = "input_DexValue" })
+                <span class="input_libelle">Valeur</span>
+            </div>
+            <div class="input_bloc width50">
+                <input type="text" id="input_DexMod" class="text_center" disabled="disabled" />
+                <span class="input_libelle">Mod</span>
+            </div>
+            <div class="span_libelle">INT</div>
+            <div class="input_bloc width50">
+                @Html.TextBoxFor(model => model.CaracteristiqueIntelligence, "", new { @class = "text_center", id = "input_IntValue" })
+                <span class="input_libelle">Valeur</span>
+            </div>
+            <div class="input_bloc width50">
+                <input type="text" id="input_IntMod" class="text_center" disabled="disabled" />
+                <span class="input_libelle">Mod</span>
+            </div>
+            <div class="span_libelle">SAG</div>
+            <div class="input_bloc width50">
+                @Html.TextBoxFor(model => model.CaracteristiqueSagesse, "", new { @class = "text_center", id = "input_SagValue" })
+                <span class="input_libelle">Valeur</span>
+            </div>
+            <div class="input_bloc width50">
+                <input type="text" id="input_SagMod" class="text_center" disabled="disabled" />
+                <span class="input_libelle">Mod</span>
+            </div>
+            <div class="span_libelle">CHA</div>
+            <div class="input_bloc width50">
+                @Html.TextBoxFor(model => model.CaracteristiqueCharisme, "", new { @class = "text_center", id = "input_ChaValue" })
+                <span class="input_libelle">Valeur</span>
+            </div>
+            <div class="input_bloc width50">
+                <input type="text" id="input_ChaMod" class="text_center" disabled="disabled" />
+                <span class="input_libelle">Mod</span>
+            </div>
         </div>
-        <div class="input_bloc width50">
-            <input type="text" id="input_ForceMod" class="text_center" disabled="disabled" />
-            <span class="input_libelle">Mod</span>
+    </div>
+    <div id="mainBloc_2" class="mainBloc marginerRight5">
+        <div class="header_bloc_title">défenses</div>
+        <div class="inner_bloc_container">
+            <!--CA-->
+            <div class="span_libelle">CA</div>
+            <div class="input_bloc width35">
+                <input type="text" id="input_CATotal" class="text_center" />
+                <span class="input_libelle">Total</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseCADemiNiveau, "", new { @class = "text_center", id = "input_CADemiNiveau" })
+                <span class="input_libelle">1/2</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseCACaracteristique, "", new { @class = "text_center", id = "input_CACarac" })
+                <span class="input_libelle">Armure</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseCAClasse, "", new { @class = "text_center", id = "input_CAClasse" })
+                <span class="input_libelle">Classe</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseCATalent, "", new { @class = "text_center", id = "input_CATalent" })
+                <span class="input_libelle">Talent</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseCADivers, "", new { @class = "text_center", id = "input_CADivers" })
+                <span class="input_libelle">Divers</span>
+            </div>
+            <!--VIG-->
+            <div class="span_libelle">VIG</div>
+            <div class="input_bloc width35">
+                <input type="text" id="input_VIGTotal" class="text_center" />
+                <span class="input_libelle">Total</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseVIGDemiNiveau, "", new { @class = "text_center", id = "input_VIGDemiNiveau" })
+                <span class="input_libelle">1/2</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseVIGCaracteristique, "", new { @class = "text_center", id = "input_VIGCarac" })
+                <span class="input_libelle">Carac</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseVIGClasse, "", new { @class = "text_center", id = "input_VIGClasse" })
+                <span class="input_libelle">Classe</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseVIGTalent, "", new { @class = "text_center", id = "input_VIGTalent" })
+                <span class="input_libelle">Talent</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseVIGDivers, "", new { @class = "text_center", id = "input_VIGDivers" })
+                <span class="input_libelle">Divers</span>
+            </div>
+            <!--REF-->
+            <div class="span_libelle">REF</div>
+            <div class="input_bloc width35">
+                <input type="text" id="input_REFTotal" class="text_center" />
+                <span class="input_libelle">Total</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseREFDemiNiveau, "", new { @class = "text_center", id = "input_REFDemiNiveau" })
+                <span class="input_libelle">1/2</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseREFCaracteristique, "", new { @class = "text_center", id = "input_REFCarac" })
+                <span class="input_libelle">Carac</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseREFClasse, "", new { @class = "text_center", id = "input_REFClasse" })
+                <span class="input_libelle">Classe</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseREFTalent, "", new { @class = "text_center", id = "input_REFTalent" })
+                <span class="input_libelle">Talent</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseREFDivers, "", new { @class = "text_center", id = "input_REFDivers" })
+                <span class="input_libelle">Divers</span>
+            </div>
+            <!--VOL-->
+            <div class="span_libelle">VOL</div>
+            <div class="input_bloc width35">
+                <input type="text" id="input_VOLTotal" class="text_center" />
+                <span class="input_libelle">Total</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseVOLDemiNiveau, "", new { @class = "text_center", id = "input_VOLDemiNiveau" })
+                <span class="input_libelle">1/2</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseVOLCaracteristique, "", new { @class = "text_center", id = "input_VOLCarac" })
+                <span class="input_libelle">Carac</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseVOLClasse, "", new { @class = "text_center", id = "input_VOLClasse" })
+                <span class="input_libelle">Classe</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseVOLTalent, "", new { @class = "text_center", id = "input_VOLTalent" })
+                <span class="input_libelle">Talent</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.DefenseVOLDivers, "", new { @class = "text_center", id = "input_VOLDivers" })
+                <span class="input_libelle">Divers</span>
+            </div>
         </div>
-        <div class="span_libelle">CON</div>
-        <div class="input_bloc width50">
-            @Html.TextBoxFor(model => model.CaracteristiqueConstitution, "", new { @class = "text_center", id = "input_ConsValue" })
-            <span class="input_libelle">Valeur</span>
+    </div>
+    <div id="mainBloc_4" class="mainBloc marginerRight5">
+        <div class="header_bloc_title">points de vie</div>
+        <div class="inner_bloc_container">
+            <div class="span_libelle">PV Max</div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
+            </div>
         </div>
-        <div class="input_bloc width50">
-            <input type="text" id="input_ConsMod" class="text_center" disabled="disabled" />
-            <span class="input_libelle">Mod</span>
+    </div>
+    <div id="mainBloc_4" class="mainBloc">
+        <div class="header_bloc_title">bataille</div>
+        <div class="inner_bloc_container">
+            <div class="span_libelle">PV Max</div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
+            </div>
         </div>
-        <div class="span_libelle">DEX</div>
-        <div class="input_bloc width50">
-            @Html.TextBoxFor(model => model.CaracteristiqueDexterite, "", new { @class = "text_center", id = "input_DexValue" })
-            <span class="input_libelle">Valeur</span>
+    </div>
+    <div id="mainBloc_6" class="mainBloc">
+        <div class="header_bloc_title">actions</div>
+        <div class="inner_bloc_container">
+            <div class="span_libelle">Init</div>
+            <div class="input_bloc width35">
+                <input type="text" id="input_INITTotal" class="text_center" />
+                <span class="input_libelle">Total</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.InitiativeDivers, "", new { @class = "text_center", id = "input_INITDivers" })
+                <span class="input_libelle">divers</span>
+            </div>
+            <div class="span_libelle">PA</div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.PointAction, "", new { @class = "text_center", id = "input_PAValue" })
+            </div>
         </div>
-        <div class="input_bloc width50">
-            <input type="text" id="input_DexMod" class="text_center" disabled="disabled" />
-            <span class="input_libelle">Mod</span>
-        </div>
-        <div class="span_libelle">INT</div>
-        <div class="input_bloc width50">
-            @Html.TextBoxFor(model => model.CaracteristiqueIntelligence, "", new { @class = "text_center", id = "input_IntValue" })
-            <span class="input_libelle">Valeur</span>
-        </div>
-        <div class="input_bloc width50">
-            <input type="text" id="input_IntMod" class="text_center" disabled="disabled" />
-            <span class="input_libelle">Mod</span>
-        </div>
-        <div class="span_libelle">SAG</div>
-        <div class="input_bloc width50">
-            @Html.TextBoxFor(model => model.CaracteristiqueSagesse, "", new { @class = "text_center", id = "input_SagValue" })
-            <span class="input_libelle">Valeur</span>
-        </div>
-        <div class="input_bloc width50">
-            <input type="text" id="input_SagMod" class="text_center" disabled="disabled" />
-            <span class="input_libelle">Mod</span>
-        </div>
-        <div class="span_libelle">CHA</div>
-        <div class="input_bloc width50">
-            @Html.TextBoxFor(model => model.CaracteristiqueCharisme, "", new { @class = "text_center", id = "input_ChaValue" })
-            <span class="input_libelle">Valeur</span>
-        </div>
-        <div class="input_bloc width50">
-            <input type="text" id="input_ChaMod" class="text_center" disabled="disabled" />
-            <span class="input_libelle">Mod</span>
+    </div>
+
+    <div id="mainBloc_5" class="mainBloc marginerRight5">
+        <div id="encartPouvoirs">
+            <div class="header_bloc_title">
+                Pouvoirs
+                <input type="button" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+" />
+            </div>
+
+            <div id="">
+                @Html.Action("EncartPouvoirsPartialView", @Model.Id)
+            </div>
         </div>
     </div>
 </div>
-<div id="mainBloc_2" class="mainBloc marginerRight5">
-    <div class="header_bloc_title">défenses</div>
-    <div class="inner_bloc_container">
-        <!--CA-->
-        <div class="span_libelle">CA</div>
-        <div class="input_bloc width35">
-            <input type="text" id="input_CATotal" class="text_center" />
-            <span class="input_libelle">Total</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseCADemiNiveau, "", new { @class = "text_center", id = "input_CADemiNiveau" })
-            <span class="input_libelle">1/2</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseCACaracteristique, "", new { @class = "text_center", id = "input_CACarac" })
-            <span class="input_libelle">Armure</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseCAClasse, "", new { @class = "text_center", id = "input_CAClasse" })
-            <span class="input_libelle">Classe</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseCATalent, "", new { @class = "text_center", id = "input_CATalent" })
-            <span class="input_libelle">Talent</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseCADivers, "", new { @class = "text_center", id = "input_CADivers" })
-            <span class="input_libelle">Divers</span>
-        </div>
-        <!--VIG-->
-        <div class="span_libelle">VIG</div>
-        <div class="input_bloc width35">
-            <input type="text" id="input_VIGTotal" class="text_center" />
-            <span class="input_libelle">Total</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseVIGDemiNiveau, "", new { @class = "text_center", id = "input_VIGDemiNiveau" })
-            <span class="input_libelle">1/2</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseVIGCaracteristique, "", new { @class = "text_center", id = "input_VIGCarac" })
-            <span class="input_libelle">Carac</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseVIGClasse, "", new { @class = "text_center", id = "input_VIGClasse" })
-            <span class="input_libelle">Classe</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseVIGTalent, "", new { @class = "text_center", id = "input_VIGTalent" })
-            <span class="input_libelle">Talent</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseVIGDivers, "", new { @class = "text_center", id = "input_VIGDivers" })
-            <span class="input_libelle">Divers</span>
-        </div>
-        <!--REF-->
-        <div class="span_libelle">REF</div>
-        <div class="input_bloc width35">
-            <input type="text" id="input_REFTotal" class="text_center" />
-            <span class="input_libelle">Total</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseREFDemiNiveau, "", new { @class = "text_center", id = "input_REFDemiNiveau" })
-            <span class="input_libelle">1/2</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseREFCaracteristique, "", new { @class = "text_center", id = "input_REFCarac" })
-            <span class="input_libelle">Carac</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseREFClasse, "", new { @class = "text_center", id = "input_REFClasse" })
-            <span class="input_libelle">Classe</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseREFTalent, "", new { @class = "text_center", id = "input_REFTalent" })
-            <span class="input_libelle">Talent</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseREFDivers, "", new { @class = "text_center", id = "input_REFDivers" })
-            <span class="input_libelle">Divers</span>
-        </div>
-        <!--VOL-->
-        <div class="span_libelle">VOL</div>
-        <div class="input_bloc width35">
-            <input type="text" id="input_VOLTotal" class="text_center" />
-            <span class="input_libelle">Total</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseVOLDemiNiveau, "", new { @class = "text_center", id = "input_VOLDemiNiveau" })
-            <span class="input_libelle">1/2</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseVOLCaracteristique, "", new { @class = "text_center", id = "input_VOLCarac" })
-            <span class="input_libelle">Carac</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseVOLClasse, "", new { @class = "text_center", id = "input_VOLClasse" })
-            <span class="input_libelle">Classe</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseVOLTalent, "", new { @class = "text_center", id = "input_VOLTalent" })
-            <span class="input_libelle">Talent</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.DefenseVOLDivers, "", new { @class = "text_center", id = "input_VOLDivers" })
-            <span class="input_libelle">Divers</span>
-        </div>
-    </div>
-</div>
-<div id="mainBloc_4" class="mainBloc">
-    <div class="header_bloc_title">actions</div>
-    <div class="inner_bloc_container">
-        <div class="span_libelle">Initiative</div>
-        <div class="input_bloc width35">
-            <input type="text" id="input_INITTotal" class="text_center"/>
-            <span class="input_libelle">Total</span>
-        </div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.InitiativeDivers, "", new {@class = "text_center", id = "input_INITDivers"})
-            <span class="input_libelle">Bonus divers</span>
-        </div>
-        <div class="span_libelle">Points d'action</div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.PointAction, "", new {@class = "text_center", id = "input_PAValue"})
-        </div>
-        <div class="span_libelle">PV Max</div>
-        <div class="input_bloc width35">
-            @Html.TextBoxFor(model => model.PVMax, "", new {@class = "text_center", id = "input_PVMax"})
-        </div>
-    </div>
-</div>
-<div id="mainBloc_5" class="mainBloc marginerRight5">
-    <div id="encartPouvoirs">
+
+<div id="bloc_autres" class="cache">
+    <div id="encartCompetences" class="mainBloc">
         <div class="header_bloc_title">
-            Pouvoirs
-            <input type="button" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+" />
+            Compétences
         </div>
+        <div class="inner_bloc_container">
+            @Html.Action("EncartCompetencesPartialView", @Model.Id)
+        </div>
+    </div>
 
-        <div id="">
-            @Html.Action("EncartPouvoirsPartialView", @Model.Id)
+    <div id="encartTalents" class="mainBloc">
+        <div class="header_bloc_title">
+            Talents
+        </div>
+        <div class="inner_bloc_container">
+            @Html.Action("EncartTalentsPartialView", @Model.Id)
         </div>
     </div>
 </div>
 
-<div id="encartCompetences" class="mainBloc">
-    <div class="header_bloc_title">
-        Compétences
-    </div>
-    <div class="inner_bloc_container">
-        @Html.Action("EncartCompetencesPartialView", @Model.Id)
-    </div>
-</div>
-
-<div id="encartTalents" class="mainBloc">
-    <div class="header_bloc_title">
-        Talents
-    </div>
-    <div class="inner_bloc_container">
-        @Html.Action("EncartTalentsPartialView", @Model.Id)
-    </div>
+<div id="bloc_note" class="cache">
+    <textarea id="noteArea"></textarea>
 </div>

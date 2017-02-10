@@ -150,6 +150,10 @@
     <Content Include="Images\logo_header.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\Planewalker.otf" />
+    <Content Include="fonts\PlanewalkerBold.otf" />
+    <Content Include="fonts\PlanewalkerBoldItalic.otf" />
+    <Content Include="fonts\PlanewalkerItalic.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

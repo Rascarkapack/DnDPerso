@@ -29,8 +29,8 @@ function searchPouvoir(classe, level) {
         $("#containerPouvoir").empty();
         $("#containerPouvoir").append(htmlDecode(result));
 
-        $(".infobox-power-title").css('cursor', 'pointer');
-        $(".infobox-power-title").on('click',
+        $(".infobox").css('cursor', 'pointer');
+        $(".infobox").on('click',
        function () {
 
            if ($.inArray(this.innerHTML, pouvoirs) === -1) {

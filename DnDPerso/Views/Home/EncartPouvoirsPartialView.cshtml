@@ -1,16 +1,10 @@
 ﻿@using DnDPersoEntities
 @model List<DnDPersoEntities.AllPouvoirByIdPersonnage>
 
-    @foreach (AllPouvoirByIdPersonnage pouvoir in @Model)
-    {
-        <div id="pourvoir_@pouvoir.PouvoirId">
-            <div class="spanLibelle">@HttpUtility.HtmlDecode(pouvoir.Libelle)</div>
-            <input type="button" onclick="deletePouvoir(@pouvoir.Id)" value="-"/>
-          
-                        
-                   
-                @Html.Raw(pouvoir.Html)
-
-            
-        </div>
-    }
+@foreach (AllPouvoirByIdPersonnage pouvoir in @Model)
+{
+    <div id="pourvoir_@pouvoir.PouvoirId">
+        <input type="button" onclick="deletePouvoir(@pouvoir.Id)" value="-"/>
+        @Html.Raw(pouvoir.Html)
+    </div>
+}

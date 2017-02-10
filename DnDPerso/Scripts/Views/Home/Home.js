@@ -215,3 +215,28 @@ function deletePouvoir(idPouvoirPersonnage) {
         window.location = '/Home/Index?IdPersonnage=' + idPersonnage;
     });
 }
+
+function setCombat() {
+    $("#tabCombat").addClass("active");
+    $("#tabAutres").removeClass("active");
+    $("#tabNote").removeClass("active");
+    $("#bloc_combat").removeClass("cache");
+    $("#bloc_autres").addClass("cache");
+    $("#bloc_note").addClass("cache");
+}
+function setAutres() {
+    $("#tabAutres").addClass("active");
+    $("#tabCombat").removeClass("active");
+    $("#tabNote").removeClass("active");
+    $("#bloc_combat").addClass("cache");
+    $("#bloc_autres").removeClass("cache");
+    $("#bloc_note").addClass("cache");
+}
+function setNote() {
+    $("#tabNote").addClass("active");
+    $("#tabAutres").removeClass("active");
+    $("#tabCombat").removeClass("active");
+    $("#bloc_combat").addClass("cache");
+    $("#bloc_autres").addClass("cache");
+    $("#bloc_note").removeClass("cache");
+}

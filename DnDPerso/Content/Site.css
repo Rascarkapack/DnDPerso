@@ -1,13 +1,51 @@
-﻿body {
+﻿@font-face {
+	font-family: "DetD";
+	src: url(../fonts/Planewalker.otf);
+}
+
+@font-face {
+	font-family: "DetD";
+	font-weight: bold;
+	src: url(../fonts/PlanewalkerBold.otf);
+}
+
+@font-face {
+	font-family: "DetD";
+	font-style: italic;
+	src: url(../fonts/PlanewalkerItalic.otf);
+}
+
+@font-face {
+	font-family: "DetD";
+	font-style: italic;
+	font-weight: bold;
+	src: url(../fonts/PlanewalkerBoldItalic.otf);
+}
+body {
 	background-color: #424242;
 	color: #424242;
+    font-family: DetD;
+    font-size: 14px;
 }
+a:hover,
+a {
+    color: #424242;
+}
+.nav > li > a {
+    cursor: pointer;
+}
+textarea,
 input[type=text] {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	width: 100%;
 	padding-left: 5px;
+    font-size: 16px;
+}
+textarea {
+    height: 80px;
+    resize: none;
 }
 select {
 	width: 100%;
@@ -33,7 +71,6 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus {   
-  border-color: #fff !important;
   box-shadow: 0 1px 1px #fff inset, 0 0 8px #fff !important;
   outline: 0 none !important;
 }
@@ -98,13 +135,15 @@ input[type="color"]:focus,
 	width : 200px;
 }
 .inner_bloc_container {
-	padding: 20px;
+	padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .span_libelle {
 	padding: 10px;
 	margin-left: 5px;
 	margin-top: -9px;
-	background-color: #dddbdb;
+	background-color: #fff;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -113,7 +152,7 @@ input[type="color"]:focus,
 	font-size: 15px;
 	width: 87px;
 	color: #424242;
-	border: 1px solid #fff;
+	border: 1px solid #B1B1B1;
 	text-align: center;
 	display: inline-block;
 	margin-right: 15px;
@@ -132,7 +171,7 @@ input[type="color"]:focus,
 	font-size: 10px;
 	line-height: 15px;
 	margin-left: 2px;
-	color: #fff;
+	color: #424242;
 	text-transform: uppercase;
 }
 .marginerRight5 {
@@ -143,29 +182,37 @@ input[type="color"]:focus,
 	text-align: center;
 	font-weight: bold;
 	font-size: 15px;
-	color: #993333;
+    color: #fff;
 	height: 35px;
 	padding-top: 7px;
-	background-color: #fff;
-	
+	background-color: #424242;
+	-webkit-border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 .btn_DnD {
     color: #993333;
 }
+#mainNav {
+    margin-bottom: 20px;
+}
 .mainBloc {
-	background-color: #993333;
+	background-color: #E1E1E1;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	margin-bottom: 5px;
-	border: 1px solid #993333;
+	border: 1px solid #c1C1C1;
     display: inline-block;
+    float: left;
 }
 #mainBloc_1 {
 	width: 100%;
-	height : 200px;
-	padding: 10px;
-	padding-top: 20px;
+	height : 280px;
+    margin-bottom: 30px;
 }
 #mainBloc_2 {
 	width: 37%;
@@ -174,9 +221,14 @@ input[type="color"]:focus,
 #mainBloc_3 {
 	width: 25%;
 	min-height : 200px;
+    height: 394px;
 }
 #mainBloc_4 {
-    width: 25%;
+    width: 18%;
+    min-height: 277px;
+}
+#mainBloc_6 {
+    width: 37%;
 }
 #character_picture {
 	border: 1px #424242 solid;
@@ -259,6 +311,7 @@ input[type="color"]:focus,
     -webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
+    border: 1px solid #C1C1C1;
 }
 #contentAuthBloc img {
     width: 250px;
@@ -275,10 +328,12 @@ input[type="color"]:focus,
 	border-radius: 4px;
 	width: 100%;
 	padding-left: 5px;
+    font-size: 18px;
 }
 #loginAuthConnexion {
-    margin-left: 133px;
+    margin-left: 128px;
     margin-top: 20px;
+    font-size: 18px;
 }
 
 /*character choice*/
@@ -294,6 +349,7 @@ input[type="color"]:focus,
     -webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
+    border: 1px solid #C1C1C1;
 }
 #TitleSelectCharacterBloc {
     color: #d2322d;
@@ -312,13 +368,13 @@ input[type="color"]:focus,
     cursor: pointer;
     margin-top: 10px;
     display: inline-block;
-    width: 340px;
+    width: 339px;
      background-color: #fff;
     padding: 10px;
     -webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-    border: 1px solid #d2322d;
+    border: 1px solid #B1B1B1;
     margin-right: 22px;
 }
 .CharacterAddBloc {
@@ -331,7 +387,7 @@ input[type="color"]:focus,
     -webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-    border: 1px solid #d2322d;
+    border: 1px solid #B1B1B1;
 }
 .CharacterAddBloc img{
     height: 50px;
@@ -394,4 +450,11 @@ input[type="color"]:focus,
 
 .cache {
     display: none;
+}
+
+/*note*/
+#noteArea{
+    width: 100%;
+    height: 500px;
+    resize: none;
 }
