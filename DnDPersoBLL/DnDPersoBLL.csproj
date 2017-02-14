@@ -46,6 +46,7 @@
     <Compile Include="CompetenceBLL.cs" />
     <Compile Include="CompetencePersonnageBLL.cs" />
     <Compile Include="DiviniteBLL.cs" />
+    <Compile Include="EquipementBLL.cs" />
     <Compile Include="PersonnageBLL.cs" />
     <Compile Include="PouvoirBLL.cs" />
     <Compile Include="PouvoirPersonnageBLL.cs" />

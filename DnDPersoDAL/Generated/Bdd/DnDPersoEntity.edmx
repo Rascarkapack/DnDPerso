@@ -617,6 +617,9 @@
         <Function Name="GetAllPouvoirByIdPersonnage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdPersonnage" Type="int" Mode="In" />
         </Function>
+        <Function Name="GetAllStuffByPersonnage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdPersonnage" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetAllTalentByIdPersonnage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdPersonnage" Type="int" Mode="In" />
         </Function>
@@ -1486,6 +1489,9 @@
             <End Role="Race" EntitySet="Race" />
             <End Role="Aptitude" EntitySet="Aptitude" />
           </AssociationSet>
+          <FunctionImport Name="GetAllStuffByPersonnage" ReturnType="Collection(FichePersoDndModel.AllStuffByPersonnage)">
+            <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Caracteristique">
           <Key>
@@ -1770,6 +1776,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="AllStuffByPersonnage">
+          <Property Type="String" Name="TypeEquipement" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="CategorieEquipement" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Quantite" Nullable="false" />
+          <Property Type="String" Name="Rarete" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2153,6 +2166,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAllStuffByPersonnage" FunctionName="FichePersoDndModel.Store.GetAllStuffByPersonnage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FichePersoDndModel.AllStuffByPersonnage">
+                <ScalarProperty Name="TypeEquipement" ColumnName="TypeEquipement" />
+                <ScalarProperty Name="CategorieEquipement" ColumnName="CategorieEquipement" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="Rarete" ColumnName="Rarete" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

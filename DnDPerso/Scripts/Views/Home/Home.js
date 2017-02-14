@@ -5,6 +5,13 @@ $(document).ready(function () {
     $("input[id^='modifDiversCompe']").change(function () {
         SetModifierValue();
     });
+
+    $("input[id^='quant']").on('propertychange input', function (s,e) {
+        var lenghtString = 'quant'.length;
+        var idTarget = s.currentTarget.attributes["id"].value;
+        var id = idTarget.substring(lenghtString, idTarget.lenght);
+    });
+
     $("input[id^='checkBox_Former']").change(function (s, e) {
         var lenghtString = 'checkBox_Former'.length;
         var idTarget = s.currentTarget.attributes["id"].value;

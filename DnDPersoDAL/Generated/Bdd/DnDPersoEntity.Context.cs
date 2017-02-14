@@ -300,5 +300,14 @@ namespace DnDPersoDAL.Generated.Bdd
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllTalentByIdPersonnage>("GetAllTalentByIdPersonnage", idPersonnageParameter);
         }
+    
+        public virtual ObjectResult<AllStuffByPersonnage> GetAllStuffByPersonnage(Nullable<int> idPersonnage)
+        {
+            var idPersonnageParameter = idPersonnage.HasValue ?
+                new ObjectParameter("IdPersonnage", idPersonnage) :
+                new ObjectParameter("IdPersonnage", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllStuffByPersonnage>("GetAllStuffByPersonnage", idPersonnageParameter);
+        }
     }
 }

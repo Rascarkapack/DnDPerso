@@ -191,6 +191,7 @@
     <Content Include="Views\Home\EncartPouvoirsPartialView.cshtml" />
     <Content Include="Views\Home\EncartCompetencesPartialView.cshtml" />
     <Content Include="Views\Home\EncartTalentsPartialView.cshtml" />
+    <Content Include="Views\Home\EncartEquipementPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
