@@ -304,15 +304,17 @@
     </div>
     <div id="mainBloc_6" class="mainBloc">
         <div class="header_bloc_title">bataille</div>
-        <div class="inner_bloc_container">
-            <div class="span_libelle">Arme équipé</div>
-            <select>
-                <option>Masse 1D10</option>
-                <option>Epée 1D10</option>
-                <option>Arc 1D8</option>
-                <option>Bâton 1D6</option>
-            </select>
-            <div class="span_libelle span_fixe_top">Attaque</div>
+        <div class="inner_bloc_container" style="padding-top: 5px; padding-left: 10px;">
+            <div class="span_libelle">Arme</div>
+            <div class="input_bloc width100">
+                <select>
+                    <option>Masse 1D10</option>
+                    <option>Epée 1D10</option>
+                    <option>Arc 1D8</option>
+                    <option>Bâton 1D6</option>
+                </select>
+            </div>
+            <div class="span_libelle span_fixe_top">Atq</div>
             <div class="input_bloc width35">
                 @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
                 <span class="input_libelle">divers</span>
@@ -321,6 +323,19 @@
                 @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
                 <span class="input_libelle">divers</span>
             </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
+                <span class="input_libelle">divers</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
+                <span class="input_libelle">divers</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
+                <span class="input_libelle">divers</span>
+            </div>
+            <div class="span_libelle span_fixe_top">Dgt</div>
             <div class="input_bloc width35">
                 @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
                 <span class="input_libelle">divers</span>
