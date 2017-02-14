@@ -108,6 +108,20 @@ namespace DnDPerso.Controllers
             return PartialView("EncartTalentsPartialView", listAllTalentByIdPersonnages);
         }
 
+        public ActionResult EncartEquipementPartialView(int idPersonnage)
+        {
+            List<AllStuffByPersonnage> listAllStuffByPersonnage = new List<AllStuffByPersonnage>();
+            try
+            {
+                listAllStuffByPersonnage = EquipementBLL.GetAllStuffByPersonnage(idPersonnage);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return PartialView("EncartEquipementPartialView", listAllStuffByPersonnage);
+        }
+
         public ActionResult UpdateCompetence(string idCompePerso)
         {
             int idPersonnage = Convert.ToInt32(Session["IdPersonnage"]);

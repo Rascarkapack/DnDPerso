@@ -5,13 +5,21 @@ $(document).ready(function () {
     $("input[id^='modifDiversCompe']").change(function () {
         SetModifierValue();
     });
+
+    $("input[id^='quant']").on('propertychange input', function (s,e) {
+        var lenghtString = 'quant'.length;
+        var idTarget = s.currentTarget.attributes["id"].value;
+        var id = idTarget.substring(lenghtString, idTarget.lenght);
+    });
+
     $("input[id^='checkBox_Former']").change(function (s, e) {
         var lenghtString = 'checkBox_Former'.length;
         var idTarget = s.currentTarget.attributes["id"].value;
         var compeLib = idTarget.substring(lenghtString, idTarget.lenght);
         var hiddenId = $("#hiddenId" + compeLib).val();
         common.customRequest('POST', "Home", "UpdateCompetence", JSON.stringify({ idCompePerso: hiddenId }), function (idPersonnage) {
-            window.location = '/Home/Index?IdPersonnage=' + idPersonnage;
+            //window.location = '/Home/Index?IdPersonnage=' + idPersonnage;
+            SetModifierValue();
         });
     });
     $(".hanging").addClass('cache');
@@ -163,7 +171,7 @@ function SetModifierValue() {
                 break;
 
         }
-        if ($("#checkBox_Former" + compeLib).attr('checked')) {
+        if ($("#checkBox_Former" + compeLib).prop('checked')) {
             checked = 5;
         }
 
@@ -180,15 +188,15 @@ function SetModifierValue() {
     });
 
     //defenses
-    $("#input_CADemiNiveau").val(bonusLevel);
-    $("#input_VIGDemiNiveau").val( bonusLevel);
-    $("#input_REFDemiNiveau").val( bonusLevel);
-    $("#input_VOLDemiNiveau").val( bonusLevel);
+    $("#input_CADemiNiveau").val(10+  parseInt(bonusLevel));
+    $("#input_VIGDemiNiveau").val(10+ parseInt(bonusLevel));
+    $("#input_REFDemiNiveau").val(10+ parseInt(bonusLevel));
+    $("#input_VOLDemiNiveau").val(10+ parseInt(bonusLevel));
 
-    $("#input_CADemiTotal").val($("#input_CADemiNiveau").val() + $("#input_CACarac").val() + $("#input_CAClasse").val() + $("#input_CATalent").val() + $("#input_CADivers").val());
-    $("#input_VIGDemiTotal").val($("#input_VIGDemiNiveau").val() + $("#input_VIGCarac").val() + $("#input_VIGClasse").val() + $("#input_VIGTalent").val() + $("#input_VIGDivers").val());
-    $("#input_REFDemiTotal").val($("#input_REFDemiNiveau").val() + $("#input_REFCarac").val() + $("#input_REFClasse").val() + $("#input_REFTalent").val() + $("#input_REFDivers").val());
-    $("#input_VOLDemiTotal").val($("#input_VOLDemiNiveau").val() + $("#input_VOLCarac").val() + $("#input_VOLClasse").val() + $("#input_VOLTalent").val() + $("#input_VOLDivers").val());
+    $("#input_CATotal").val(parseInt($("#input_CADemiNiveau").val()) + parseInt($("#input_CACarac").val()) + parseInt($("#input_CAClasse").val()) + parseInt($("#input_CATalent").val()) + parseInt($("#input_CADivers").val()));
+    $("#input_VIGTotal").val(parseInt($("#input_VIGDemiNiveau").val()) + parseInt($("#input_VIGCarac").val()) + parseInt($("#input_VIGClasse").val()) + parseInt($("#input_VIGTalent").val()) + parseInt($("#input_VIGDivers").val()));
+    $("#input_REFTotal").val(parseInt($("#input_REFDemiNiveau").val()) + parseInt($("#input_REFCarac").val()) + parseInt($("#input_REFClasse").val()) + parseInt($("#input_REFTalent").val()) + parseInt($("#input_REFDivers").val()));
+    $("#input_VOLTotal").val(parseInt($("#input_VOLDemiNiveau").val()) + parseInt($("#input_VOLCarac").val()) + parseInt($("#input_VOLClasse").val()) + parseInt($("#input_VOLTalent").val()) + parseInt($("#input_VOLDivers").val()));
 
     //initiative
     var INITDivers;

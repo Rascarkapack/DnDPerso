@@ -52,6 +52,9 @@
     <Compile Include="Entities\Generated\Bdd\AllPouvoirByIdPersonnage.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Generated\Bdd\AllStuffByPersonnage.cs">
+      <DependentUpon>DnDPersoEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Generated\Bdd\AllTalentByIdPersonnage.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
