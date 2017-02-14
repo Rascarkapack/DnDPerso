@@ -157,6 +157,14 @@ input[type="color"]:focus,
 	display: inline-block;
 	margin-right: 15px;
 }
+.span_large {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-bottom: 5px;
+}
+.span_fixe_top {
+    margin-top: 5px !important;
+}
 .input_bloc {
 	height: 55px;
 	display: inline-block;
@@ -228,7 +236,7 @@ input[type="color"]:focus,
     min-height: 277px;
 }
 #mainBloc_6 {
-    width: 37%;
+    width: 74%;
 }
 #character_picture {
 	border: 1px #424242 solid;
