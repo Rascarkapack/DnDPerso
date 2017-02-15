@@ -316,37 +316,43 @@
             </div>
             <div class="span_libelle span_fixe_top">Atq</div>
             <div class="input_bloc width35">
-                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
-                <span class="input_libelle">divers</span>
+                @Html.TextBox("TotalAttaque", null, new { @class = "text_center", id = "TotalAttaque" })
+                <span class="input_libelle">Total</span>
             </div>
             <div class="input_bloc width35">
-                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
-                <span class="input_libelle">divers</span>
+                @Html.TextBoxFor(model => model.ModCaracAttaque, "", new { @class = "text_center", id = "ModCaracAttaque" })
+                <span class="input_libelle">Carac</span>
             </div>
             <div class="input_bloc width35">
-                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
-                <span class="input_libelle">divers</span>
+                @Html.TextBox("ModClasseAttaque",null, new { @class = "text_center", id = "ModClasseAttaque" })
+                <span class="input_libelle">Classe</span>
             </div>
             <div class="input_bloc width35">
-                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
-                <span class="input_libelle">divers</span>
+                @Html.TextBoxFor(model => model.ModManiAttaque, "", new { @class = "text_center", id = "ModManiAttaque" })
+                <span class="input_libelle">Mani</span>
             </div>
             <div class="input_bloc width35">
-                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
-                <span class="input_libelle">divers</span>
+                @Html.TextBoxFor(model => model.ModTalentAttaque, "", new {@class = "text_center", id = "ModTalentAttaque"})
+                <span class="input_libelle">Talent</span>
             </div>
+           
+
             <div class="span_libelle span_fixe_top">Dgt</div>
             <div class="input_bloc width35">
-                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
-                <span class="input_libelle">divers</span>
+                @Html.TextBox("TotalDegat", null, new {@class = "text_center", id = "TotalDegat"})
+                <span class="input_libelle">Total</span>
             </div>
             <div class="input_bloc width35">
-                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
-                <span class="input_libelle">divers</span>
+                @Html.TextBox("DegatArme", null, new { @class = "text_center", id = "ModArmeDegat" })
+                <span class="input_libelle">Arme</span>
             </div>
             <div class="input_bloc width35">
-                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
-                <span class="input_libelle">divers</span>
+                @Html.TextBoxFor(model => model.ModCaracDegat, "", new { @class = "text_center", id = "ModCaracDegat" })
+                <span class="input_libelle">Carac</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBoxFor(model => model.ModTalentDegat, "", new { @class = "text_center", id = "ModTalentDegat" })
+                <span class="input_libelle">Talent</span>
             </div>
         </div>
     </div>

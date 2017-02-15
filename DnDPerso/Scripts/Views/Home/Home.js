@@ -6,6 +6,10 @@ $(document).ready(function () {
         SetModifierValue();
     });
 
+    $("#ModArmeDegat").on('propertychange input', function(s, e) {
+        SetModifierValue();
+    });
+
     $("input[id^='quant']").on('propertychange input', function (s,e) {
         var lenghtString = 'quant'.length;
         var idTarget = s.currentTarget.attributes["id"].value;
@@ -97,7 +101,11 @@ function SetModifierValue() {
     var level = $("#input_characterLevel").val();
     var bonusLevel = (level - (level % 2)) / 2;
 
-    
+    //TotalAttaque
+    $('#TotalAttaque').val(parseInt(bonusLevel) + parseInt($('#ModCaracAttaque').val()) + parseInt($('#ModClasseAttaque').val()) + parseInt($('#ModManiAttaque').val()) + parseInt($('#ModTalentAttaque').val()));
+
+    //TotalDegat
+    $('#TotalDegat').val(parseInt($('#ModArmeDegat').val()) + parseInt($('#ModCaracDegat').val()) + parseInt($('#ModTalentDegat').val()));
 
     //caracteristiques
     $("#input_ForceMod").val(CalculCaracMod($("#input_ForceValue").val()) + bonusLevel);

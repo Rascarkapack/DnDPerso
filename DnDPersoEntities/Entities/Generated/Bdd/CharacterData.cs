@@ -649,5 +649,75 @@ namespace DnDPersoEntities
     			NotifyPropertyChange("GroupeAventurier");
     		}
     	}
+        
+     	private Nullable<int> _modcaracattaque;
+    	public Nullable<int> ModCaracAttaque
+    	{
+    		get
+    		{
+    			return _modcaracattaque;
+    		}
+    		set
+    		{
+    			_modcaracattaque = value;
+    			NotifyPropertyChange("ModCaracAttaque");
+    		}
+    	}
+        
+     	private Nullable<int> _modmaniattaque;
+    	public Nullable<int> ModManiAttaque
+    	{
+    		get
+    		{
+    			return _modmaniattaque;
+    		}
+    		set
+    		{
+    			_modmaniattaque = value;
+    			NotifyPropertyChange("ModManiAttaque");
+    		}
+    	}
+        
+     	private Nullable<int> _modtalentattaque;
+    	public Nullable<int> ModTalentAttaque
+    	{
+    		get
+    		{
+    			return _modtalentattaque;
+    		}
+    		set
+    		{
+    			_modtalentattaque = value;
+    			NotifyPropertyChange("ModTalentAttaque");
+    		}
+    	}
+        
+     	private Nullable<int> _modcaracdegat;
+    	public Nullable<int> ModCaracDegat
+    	{
+    		get
+    		{
+    			return _modcaracdegat;
+    		}
+    		set
+    		{
+    			_modcaracdegat = value;
+    			NotifyPropertyChange("ModCaracDegat");
+    		}
+    	}
+        
+     	private Nullable<int> _modtalentdegat;
+    	public Nullable<int> ModTalentDegat
+    	{
+    		get
+    		{
+    			return _modtalentdegat;
+    		}
+    		set
+    		{
+    			_modtalentdegat = value;
+    			NotifyPropertyChange("ModTalentDegat");
+    		}
+    	}
     }
 }
