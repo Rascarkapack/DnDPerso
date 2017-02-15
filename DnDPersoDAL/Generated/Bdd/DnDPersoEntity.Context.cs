@@ -71,7 +71,7 @@ namespace DnDPersoDAL.Generated.Bdd
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("ListePouvoirs", classeParameter, niveauParameter);
         }
     
-        public virtual int SetCharacterData(Nullable<int> idUser, Nullable<int> idCharacter, string nom, Nullable<int> niveau, Nullable<int> idClasse, Nullable<int> experience, Nullable<int> idRace, string categorieTaille, Nullable<int> age, string sexe, Nullable<decimal> taille, Nullable<int> poids, Nullable<int> idAlignement, Nullable<int> idDivinite, string groupeAventurier, Nullable<int> pointAction, Nullable<int> pVMax, string personnalite, Nullable<int> initiativeDivers, Nullable<int> caracteristiqueForce, Nullable<int> caracteristiqueConstitution, Nullable<int> caracteristiqueDexterite, Nullable<int> caracteristiqueIntelligence, Nullable<int> caracteristiqueSagesse, Nullable<int> caracteristiqueCharisme, Nullable<int> defenseCADemiNiveau, Nullable<int> defenseCACaracteristique, Nullable<int> defenseCAClasse, Nullable<int> defenseCATalent, Nullable<int> defenseCADivers, Nullable<int> defenseVIGDemiNiveau, Nullable<int> defenseVIGCaracteristique, Nullable<int> defenseVIGClasse, Nullable<int> defenseVIGTalent, Nullable<int> defenseVIGDivers, Nullable<int> defenseREFDemiNiveau, Nullable<int> defenseREFCaracteristique, Nullable<int> defenseREFClasse, Nullable<int> defenseREFTalent, Nullable<int> defenseREFDivers, Nullable<int> defenseVOLDemiNiveau, Nullable<int> defenseVOLCaracteristique, Nullable<int> defenseVOLClasse, Nullable<int> defenseVOLTalent, Nullable<int> defenseVOLDivers)
+        public virtual int SetCharacterData(Nullable<int> idUser, Nullable<int> idCharacter, string nom, Nullable<int> niveau, Nullable<int> idClasse, Nullable<int> experience, Nullable<int> idRace, string categorieTaille, Nullable<int> age, string sexe, Nullable<decimal> taille, Nullable<int> poids, Nullable<int> idAlignement, Nullable<int> idDivinite, string groupeAventurier, Nullable<int> pointAction, Nullable<int> pVMax, string personnalite, Nullable<int> initiativeDivers, Nullable<int> caracteristiqueForce, Nullable<int> caracteristiqueConstitution, Nullable<int> caracteristiqueDexterite, Nullable<int> caracteristiqueIntelligence, Nullable<int> caracteristiqueSagesse, Nullable<int> caracteristiqueCharisme, Nullable<int> defenseCADemiNiveau, Nullable<int> defenseCACaracteristique, Nullable<int> defenseCAClasse, Nullable<int> defenseCATalent, Nullable<int> defenseCADivers, Nullable<int> defenseVIGDemiNiveau, Nullable<int> defenseVIGCaracteristique, Nullable<int> defenseVIGClasse, Nullable<int> defenseVIGTalent, Nullable<int> defenseVIGDivers, Nullable<int> defenseREFDemiNiveau, Nullable<int> defenseREFCaracteristique, Nullable<int> defenseREFClasse, Nullable<int> defenseREFTalent, Nullable<int> defenseREFDivers, Nullable<int> defenseVOLDemiNiveau, Nullable<int> defenseVOLCaracteristique, Nullable<int> defenseVOLClasse, Nullable<int> defenseVOLTalent, Nullable<int> defenseVOLDivers, Nullable<int> modCaracAttaque, Nullable<int> modManiAttaque, Nullable<int> modTalentAttaque, Nullable<int> modClasseAttaque, Nullable<int> modCaracDegat, Nullable<int> modTalentDegat)
         {
             var idUserParameter = idUser.HasValue ?
                 new ObjectParameter("idUser", idUser) :
@@ -253,7 +253,31 @@ namespace DnDPersoDAL.Generated.Bdd
                 new ObjectParameter("DefenseVOLDivers", defenseVOLDivers) :
                 new ObjectParameter("DefenseVOLDivers", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SetCharacterData", idUserParameter, idCharacterParameter, nomParameter, niveauParameter, idClasseParameter, experienceParameter, idRaceParameter, categorieTailleParameter, ageParameter, sexeParameter, tailleParameter, poidsParameter, idAlignementParameter, idDiviniteParameter, groupeAventurierParameter, pointActionParameter, pVMaxParameter, personnaliteParameter, initiativeDiversParameter, caracteristiqueForceParameter, caracteristiqueConstitutionParameter, caracteristiqueDexteriteParameter, caracteristiqueIntelligenceParameter, caracteristiqueSagesseParameter, caracteristiqueCharismeParameter, defenseCADemiNiveauParameter, defenseCACaracteristiqueParameter, defenseCAClasseParameter, defenseCATalentParameter, defenseCADiversParameter, defenseVIGDemiNiveauParameter, defenseVIGCaracteristiqueParameter, defenseVIGClasseParameter, defenseVIGTalentParameter, defenseVIGDiversParameter, defenseREFDemiNiveauParameter, defenseREFCaracteristiqueParameter, defenseREFClasseParameter, defenseREFTalentParameter, defenseREFDiversParameter, defenseVOLDemiNiveauParameter, defenseVOLCaracteristiqueParameter, defenseVOLClasseParameter, defenseVOLTalentParameter, defenseVOLDiversParameter);
+            var modCaracAttaqueParameter = modCaracAttaque.HasValue ?
+                new ObjectParameter("ModCaracAttaque", modCaracAttaque) :
+                new ObjectParameter("ModCaracAttaque", typeof(int));
+    
+            var modManiAttaqueParameter = modManiAttaque.HasValue ?
+                new ObjectParameter("ModManiAttaque", modManiAttaque) :
+                new ObjectParameter("ModManiAttaque", typeof(int));
+    
+            var modTalentAttaqueParameter = modTalentAttaque.HasValue ?
+                new ObjectParameter("ModTalentAttaque", modTalentAttaque) :
+                new ObjectParameter("ModTalentAttaque", typeof(int));
+    
+            var modClasseAttaqueParameter = modClasseAttaque.HasValue ?
+                new ObjectParameter("ModClasseAttaque", modClasseAttaque) :
+                new ObjectParameter("ModClasseAttaque", typeof(int));
+    
+            var modCaracDegatParameter = modCaracDegat.HasValue ?
+                new ObjectParameter("ModCaracDegat", modCaracDegat) :
+                new ObjectParameter("ModCaracDegat", typeof(int));
+    
+            var modTalentDegatParameter = modTalentDegat.HasValue ?
+                new ObjectParameter("ModTalentDegat", modTalentDegat) :
+                new ObjectParameter("ModTalentDegat", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SetCharacterData", idUserParameter, idCharacterParameter, nomParameter, niveauParameter, idClasseParameter, experienceParameter, idRaceParameter, categorieTailleParameter, ageParameter, sexeParameter, tailleParameter, poidsParameter, idAlignementParameter, idDiviniteParameter, groupeAventurierParameter, pointActionParameter, pVMaxParameter, personnaliteParameter, initiativeDiversParameter, caracteristiqueForceParameter, caracteristiqueConstitutionParameter, caracteristiqueDexteriteParameter, caracteristiqueIntelligenceParameter, caracteristiqueSagesseParameter, caracteristiqueCharismeParameter, defenseCADemiNiveauParameter, defenseCACaracteristiqueParameter, defenseCAClasseParameter, defenseCATalentParameter, defenseCADiversParameter, defenseVIGDemiNiveauParameter, defenseVIGCaracteristiqueParameter, defenseVIGClasseParameter, defenseVIGTalentParameter, defenseVIGDiversParameter, defenseREFDemiNiveauParameter, defenseREFCaracteristiqueParameter, defenseREFClasseParameter, defenseREFTalentParameter, defenseREFDiversParameter, defenseVOLDemiNiveauParameter, defenseVOLCaracteristiqueParameter, defenseVOLClasseParameter, defenseVOLTalentParameter, defenseVOLDiversParameter, modCaracAttaqueParameter, modManiAttaqueParameter, modTalentAttaqueParameter, modClasseAttaqueParameter, modCaracDegatParameter, modTalentDegatParameter);
         }
     
         public virtual ObjectResult<PersonnageByUtilisateur> GetAllPersonnageByUtilisateur(Nullable<int> idUtilisateur)

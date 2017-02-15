@@ -290,6 +290,10 @@
                     <span class="input_libelle">Total</span>
                 </div>
                 <div class="input_bloc width35">
+                    @Html.TextBoxFor(model => model.InitiativeDemiNiveau, "", new { @class = "text_center", id = "input_INITDivers" })
+                    <span class="input_libelle">divers</span>
+                </div>
+                <div class="input_bloc width35">
                     @Html.TextBoxFor(model => model.InitiativeDivers, "", new { @class = "text_center", id = "input_INITDivers" })
                     <span class="input_libelle">divers</span>
                 </div>
@@ -324,7 +328,7 @@
                 <span class="input_libelle">Carac</span>
             </div>
             <div class="input_bloc width35">
-                @Html.TextBox("ModClasseAttaque",null, new { @class = "text_center", id = "ModClasseAttaque" })
+                @Html.TextBoxFor(model=>model.ModClasseAttaque,"", new { @class = "text_center", id = "ModClasseAttaque" })
                 <span class="input_libelle">Classe</span>
             </div>
             <div class="input_bloc width35">

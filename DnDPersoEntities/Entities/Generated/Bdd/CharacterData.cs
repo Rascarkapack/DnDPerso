@@ -719,5 +719,33 @@ namespace DnDPersoEntities
     			NotifyPropertyChange("ModTalentDegat");
     		}
     	}
+        
+     	private Nullable<int> _modclasseattaque;
+    	public Nullable<int> ModClasseAttaque
+    	{
+    		get
+    		{
+    			return _modclasseattaque;
+    		}
+    		set
+    		{
+    			_modclasseattaque = value;
+    			NotifyPropertyChange("ModClasseAttaque");
+    		}
+    	}
+        
+     	private Nullable<int> _initiativedeminiveau;
+    	public Nullable<int> InitiativeDemiNiveau
+    	{
+    		get
+    		{
+    			return _initiativedeminiveau;
+    		}
+    		set
+    		{
+    			_initiativedeminiveau = value;
+    			NotifyPropertyChange("InitiativeDemiNiveau");
+    		}
+    	}
     }
 }

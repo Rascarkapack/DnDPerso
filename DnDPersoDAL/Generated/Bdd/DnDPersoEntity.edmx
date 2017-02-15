@@ -676,6 +676,12 @@
           <Parameter Name="DefenseVOLClasse" Type="int" Mode="In" />
           <Parameter Name="DefenseVOLTalent" Type="int" Mode="In" />
           <Parameter Name="DefenseVOLDivers" Type="int" Mode="In" />
+          <Parameter Name="ModCaracAttaque" Type="int" Mode="In" />
+          <Parameter Name="ModManiAttaque" Type="int" Mode="In" />
+          <Parameter Name="ModTalentAttaque" Type="int" Mode="In" />
+          <Parameter Name="ModClasseAttaque" Type="int" Mode="In" />
+          <Parameter Name="ModCaracDegat" Type="int" Mode="In" />
+          <Parameter Name="ModTalentDegat" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="FichePersoDndModelStoreContainer">
           <EntitySet Name="Alignement" EntityType="Self.Alignement" Schema="dbo" store:Type="Tables" />
@@ -1464,6 +1470,12 @@
             <Parameter Name="DefenseVOLClasse" Mode="In" Type="Int32" />
             <Parameter Name="DefenseVOLTalent" Mode="In" Type="Int32" />
             <Parameter Name="DefenseVOLDivers" Mode="In" Type="Int32" />
+            <Parameter Name="ModCaracAttaque" Mode="In" Type="Int32" />
+            <Parameter Name="ModManiAttaque" Mode="In" Type="Int32" />
+            <Parameter Name="ModTalentAttaque" Mode="In" Type="Int32" />
+            <Parameter Name="ModClasseAttaque" Mode="In" Type="Int32" />
+            <Parameter Name="ModCaracDegat" Mode="In" Type="Int32" />
+            <Parameter Name="ModTalentDegat" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetAllPersonnageByUtilisateur" ReturnType="Collection(FichePersoDndModel.PersonnageByUtilisateur)">
           <Parameter Name="IdUtilisateur" Mode="In" Type="Int32" />
@@ -1490,7 +1502,7 @@
             <End Role="Aptitude" EntitySet="Aptitude" />
           </AssociationSet>
           <FunctionImport Name="GetAllStuffByPersonnage" ReturnType="Collection(FichePersoDndModel.AllStuffByPersonnage)">
-            <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
+          <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Caracteristique">
@@ -1726,6 +1738,8 @@
           <Property Type="Int32" Name="ModTalentAttaque" Nullable="true" />
           <Property Type="Int32" Name="ModCaracDegat" Nullable="true" />
           <Property Type="Int32" Name="ModTalentDegat" Nullable="true" />
+          <Property Type="Int32" Name="ModClasseAttaque" Nullable="true" />
+          <Property Type="Int32" Name="InitiativeDemiNiveau" Nullable="true" />
         </ComplexType>
         <ComplexType Name="AllPouvoirByIdPersonnage">
           <Property Type="Int32" Name="Id" Nullable="false" />

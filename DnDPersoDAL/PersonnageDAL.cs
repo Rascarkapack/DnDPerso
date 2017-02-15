@@ -59,6 +59,12 @@ namespace DnDPersoDAL
             int? DefenseVOLClasse = model.DefenseVOLClasse;
             int? DefenseVOLTalent = model.DefenseVOLTalent;
             int? DefenseVOLDivers = model.DefenseVOLDivers;
+            int? ModCaracAttaque = model.ModCaracAttaque;
+            int? ModManiAttaque = model.ModManiAttaque;
+            int? ModTalentAttaque = model.ModTalentAttaque;
+            int? ModClasseAttaque = model.ModClasseAttaque;
+            int? ModCaracDegat = model.ModCaracDegat;
+            int? ModTalentDegat = model.ModTalentDegat;
 
             try
             {
@@ -66,7 +72,8 @@ namespace DnDPersoDAL
                 db_context.SetCharacterData(idUser, idCharacter, Nom, Niveau, IdClasse, Experience, IdRace, CategorieTaille, Age, Sexe, Taille, Poids, IdAlignement, IdDivinite, GroupeAventurier, PointAction, PVMax, Personnalite, InitiativeDivers,
                     CaracteristiqueForce, CaracteristiqueConstitution, CaracteristiqueDexterite, CaracteristiqueIntelligence, CaracteristiqueSagesse, CaracteristiqueCharisme, DefenseCADemiNiveau, DefenseCACaracteristique, DefenseCAClasse,
                     DefenseCATalent, DefenseCADivers, DefenseVIGDemiNiveau, DefenseVIGCaracteristique, DefenseVIGClasse, DefenseVIGTalent, DefenseVIGDivers, DefenseREFDemiNiveau, DefenseREFCaracteristique, DefenseREFClasse, DefenseREFTalent,
-                    DefenseREFDivers, DefenseVOLDemiNiveau, DefenseVOLCaracteristique, DefenseVOLClasse, DefenseVOLTalent, DefenseVOLDivers);
+                    DefenseREFDivers, DefenseVOLDemiNiveau, DefenseVOLCaracteristique, DefenseVOLClasse, DefenseVOLTalent, DefenseVOLDivers, ModCaracAttaque, ModManiAttaque, ModTalentAttaque, ModClasseAttaque
+                    , ModCaracDegat, ModTalentDegat);
             }
             catch(Exception e)
             { }

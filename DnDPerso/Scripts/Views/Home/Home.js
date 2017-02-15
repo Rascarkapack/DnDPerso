@@ -91,7 +91,13 @@ function SaveCharacterSheet() {
 		DefenseVOLCaracteristique: $("#input_VOLCarac").val(),
 		DefenseVOLClasse: $("#input_VOLClasse").val(),
 		DefenseVOLTalent: $("#input_VOLTalent").val(),
-		DefenseVOLDivers: $("#input_VOLDivers").val()
+		DefenseVOLDivers: $("#input_VOLDivers").val(),
+		ModCaracAttaque: $("#ModCaracAttaque").val(),
+		ModManiAttaque: $("#ModManiAttaque").val(),
+		ModTalentAttaque: $("#ModTalentAttaque").val(),
+		ModClasseAttaque: $("#ModClasseAttaque").val(),
+		ModCaracDegat: $("#ModCaracDegat").val(),
+		ModTalentDegat: $("#ModTalentDegat").val()
     };
 
     common.customRequest('POST', "Home", "SaveCharacterData", JSON.stringify(model), null);
