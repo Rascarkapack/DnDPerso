@@ -52,10 +52,10 @@ namespace DnDPerso.Controllers
             }
             catch (Exception e)
             {
-
+                return Json("KO");
             }
 
-            return new EmptyResult();
+            return Json("OK");
         }
 
         #region partialEncartPouvoir

@@ -100,7 +100,14 @@ function SaveCharacterSheet() {
 		ModTalentDegat: $("#ModTalentDegat").val()
     };
 
-    common.customRequest('POST', "Home", "SaveCharacterData", JSON.stringify(model), null);
+    common.customRequest('POST', "Home", "SaveCharacterData", JSON.stringify(model), function(result) {
+        if (result === "OK") {
+ 
+            toastr.info("enregistrement effectué");
+        } else {
+            toastr.error("erreur ors de l'enregistrement");
+        }
+    });
 }
 
 function SetModifierValue() {
