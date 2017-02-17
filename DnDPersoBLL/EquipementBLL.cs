@@ -15,5 +15,10 @@ namespace DnDPersoBLL
         {
             return EquipementDAL.GetAllStuffByPersonnage(idPersonnage);
         }
+
+        public static void DeleteEquipement(int idEquipement)
+        {
+            EquipementDAL.DeleteEquipement(idEquipement);
+        }
     }
 }

@@ -608,6 +608,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="DeleteEquipement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEquipement" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetAllCompetenceByIdPersonnage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdPersonnage" Type="int" Mode="In" />
         </Function>
@@ -1504,6 +1507,9 @@
           <FunctionImport Name="GetAllStuffByPersonnage" ReturnType="Collection(FichePersoDndModel.AllStuffByPersonnage)">
           <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="DeleteEquipement">
+            <Parameter Name="idEquipement" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Caracteristique">
           <Key>
@@ -2195,6 +2201,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DeleteEquipement" FunctionName="FichePersoDndModel.Store.DeleteEquipement" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

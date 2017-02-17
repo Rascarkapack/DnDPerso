@@ -10,10 +10,27 @@ $(document).ready(function () {
         SetModifierValue();
     });
 
-    $("input[id^='quant']").on('propertychange input', function (s,e) {
+    $("input[id^='quant']").on('blur', function (s,e) {
         var lenghtString = 'quant'.length;
         var idTarget = s.currentTarget.attributes["id"].value;
         var id = idTarget.substring(lenghtString, idTarget.lenght);
+        var value = s.currentTarget.value;
+        
+        if (value === "0") {
+            common.customRequest('POST', "Home", "DeleteEquipement", JSON.stringify({ idEquip: id }), function () {
+                var idPerso = $("#input_characterId").val();
+                //$("#innerEncartEquipement").load("/Home/EncartEquipementPartialView?idPersonnage=" + idPerso);
+                window.location = '/Home/Index?IdPersonnage=' + idPerso;
+
+            });
+        } else {
+            common.customRequest('POST', "Home", "UpdateEquipement", JSON.stringify({ idEquip: id, quantite : value }), function () {
+                //var idPerso = $("#input_characterId").val();
+                //$("#innerEncartEquipement").load("/Home/EncartEquipementPartialView?idPersonnage=" + idPerso);
+
+            });
+        }
+       
     });
 
     $("input[id^='checkBox_Former']").change(function (s, e) {

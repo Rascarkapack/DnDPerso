@@ -159,6 +159,36 @@ namespace DnDPerso.Controllers
             }
             return Json("OK");
         }
+
+        public ActionResult UpdateEquipement(int idEquip, int quantite)
+        {
+            try
+            {
+                int idPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
+                Equipement equipement = EquipementBLL.Get(idEquip);
+                equipement.Quantite = quantite;
+                EquipementBLL.Update(equipement);
+            }
+            catch (Exception)
+            {
+                return Json("KO");
+
+            }
+            return Json("OK");
+        }
+
+        public ActionResult DeleteEquipement(int idEquip)
+        {
+            try
+            {
+                EquipementBLL.DeleteEquipement(idEquip);
+            }
+            catch (Exception e)
+            {
+                return Json("KO");
+            }
+            return Json("OK");
+        }
         #endregion
 
         public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement, int idSelected)

@@ -333,5 +333,14 @@ namespace DnDPersoDAL.Generated.Bdd
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllStuffByPersonnage>("GetAllStuffByPersonnage", idPersonnageParameter);
         }
+    
+        public virtual int DeleteEquipement(Nullable<int> idEquipement)
+        {
+            var idEquipementParameter = idEquipement.HasValue ?
+                new ObjectParameter("idEquipement", idEquipement) :
+                new ObjectParameter("idEquipement", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteEquipement", idEquipementParameter);
+        }
     }
 }
