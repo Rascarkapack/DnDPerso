@@ -2,17 +2,34 @@
 @using DnDPersoEntities
 @model List<DnDPersoEntities.AllStuffByPersonnage>
 
+<div style="display: inline">
+    <input type="text" id="input_TypeEquipement" />
+    <select id="input_CategorieEquipement">
+        <option value="1">Arme</option>
+        <option value="2">Armure</option>
+        <option value="3">Divers</option>
+    </select>
+    <input type="text" id="input_QuantiteEquipement"/>
+    <select id="input_RareteEquipement">
+        <option value="1">Commun</option>
+        <option value="2">Precieux</option>
+        <option value="3">Magique</option>
+    </select>
+    <input type="button" onclick="AddEquipement()" value="+" />
+</div>
 @foreach (AllStuffByPersonnage stuff in @Model)
 {
     <div>
+        
+        
         <div class="" style="display: inline">
-            @Html.Label(stuff.TypeEquipement, stuff.TypeEquipement)
+
             <div class="encoartCompetenceInputBloc">
-               
-                
-                @Html.TextBox("quant" + stuff.Id, stuff.Quantite, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
-                @Html.Label("modifDiversCompe" + stuff.CategorieEquipement, stuff.CategorieEquipement, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
-                @Html.Label("rarete" , stuff.Rarete, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
+
+                @Html.Label(stuff.TypeEquipement, stuff.TypeEquipement)
+                @Html.TextBox("quant" + stuff.Id, stuff.Quantite, new {@class = "text_center ", @style = "width: 50px;height: 20px"})
+                @Html.Label("modifDiversCompe" + stuff.CategorieEquipement, stuff.CategorieEquipement, new {@class = "text_center ", @style = "width: 50px;height: 20px"})
+                @Html.Label("rarete", stuff.Rarete, new {@class = "text_center ", @style = "width: 50px;height: 20px"})
                 @Html.Hidden("hiddenId" + stuff.Id, stuff.Id.ToString())
             </div>
         </div>

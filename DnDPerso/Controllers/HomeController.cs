@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DnDPerso.Models;
 using DnDPersoBLL;
 using DnDPersoEntities;
 using DnDPersoEntities.Entities;
@@ -45,7 +46,7 @@ namespace DnDPerso.Controllers
             {
                 if (Session["UserSession"] != null)
                 {
-                    int IdPersonnage = Convert.ToInt32(Session["IdPersonnage"]) ;
+                    int IdPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
                     Utilisateur usr = Session["UserSession"] as Utilisateur;
                     PersonnageBLL.SaveCharacterData(usr.Id, IdPersonnage, model);
                 }
@@ -60,7 +61,7 @@ namespace DnDPerso.Controllers
 
         #region partialEncartPouvoir
 
-        public ActionResult EncartPouvoirsPartialView(int idPersonnage )
+        public ActionResult EncartPouvoirsPartialView(int idPersonnage)
         {
             List<AllPouvoirByIdPersonnage> listAllPouvoirByIdPersonnages = new List<AllPouvoirByIdPersonnage>();
             try
@@ -108,6 +109,19 @@ namespace DnDPerso.Controllers
             return PartialView("EncartTalentsPartialView", listAllTalentByIdPersonnages);
         }
 
+        public ActionResult UpdateCompetence(string idCompePerso)
+        {
+            int idPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
+            CompetencePersonnage competencePersonnage = CompetencePersonnageBLL.Get(Convert.ToInt32(idCompePerso));
+            competencePersonnage.Former = !competencePersonnage.Former;
+            CompetencePersonnageBLL.Update(competencePersonnage);
+
+            return Json(idPersonnage);
+        }
+
+        #endregion
+
+        #region equipement
         public ActionResult EncartEquipementPartialView(int idPersonnage)
         {
             List<AllStuffByPersonnage> listAllStuffByPersonnage = new List<AllStuffByPersonnage>();
@@ -122,17 +136,31 @@ namespace DnDPerso.Controllers
             return PartialView("EncartEquipementPartialView", listAllStuffByPersonnage);
         }
 
-        public ActionResult UpdateCompetence(string idCompePerso)
+        public ActionResult AddEquipement(Stuff model)
         {
-            int idPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
-            CompetencePersonnage competencePersonnage = CompetencePersonnageBLL.Get(Convert.ToInt32(idCompePerso));
-            competencePersonnage.Former = !competencePersonnage.Former;
-            CompetencePersonnageBLL.Update(competencePersonnage);
+            try
+            {
+                int idPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
+                TypeEquipement typeEquipement = new TypeEquipement();
+                typeEquipement.Libelle = model.typeEquipement;
+                typeEquipement.IdCategorieEquipement = model.categorieEquipement;
+                typeEquipement.IdRareteEquipement = model.rareteEquipement;
+                int idTypeEquipement = TypeEquipementBLL.AddWithReturn(typeEquipement);
+                Equipement equipement = new Equipement();
+                equipement.IdPersonnage = idPersonnage;
+                equipement.IdTypeEquipement = idTypeEquipement;
+                equipement.Quantite = model.quantite;
+                EquipementBLL.Add(equipement);
+            }
+            catch (Exception)
+            {
+                return Json("KO");
 
-            return Json(idPersonnage);
+            }
+            return Json("OK");
         }
-
         #endregion
+
         public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement, int idSelected)
         {
             List<SelectListItem> listTypesEntrants = new List<SelectListItem>();

@@ -269,3 +269,23 @@ function setNote() {
     $("#bloc_autres").addClass("cache");
     $("#bloc_note").removeClass("cache");
 }
+
+function AddEquipement() {
+    var model;
+    model = {
+        typeEquipement: $("#input_TypeEquipement").val(),
+        categorieEquipement: $("#input_CategorieEquipement").val(),
+        quantite: $("#input_QuantiteEquipement").val(),
+        rareteEquipement: $("#input_RareteEquipement").val()
+    };
+
+    common.customRequest("POST", "Home", "AddEquipement", JSON.stringify(model), function(result) {
+        if (result === "OK") {
+            toastr.info("Equipement ajouté");
+            var idPerso = $("#input_characterId").val();
+            $("#innerEncartEquipement").load("/Home/EncartEquipementPartialView?idPersonnage=" + idPerso);
+        } else {
+            toastr.error("Erreur");
+        }
+    });
+}

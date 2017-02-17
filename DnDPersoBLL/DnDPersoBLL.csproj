@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RaceBLL.cs" />
     <Compile Include="TalentBLL.cs" />
+    <Compile Include="TypeEquipementBLL.cs" />
     <Compile Include="UtilisateurBLL.cs" />
     <Compile Include="UtilisateurPersonnageBLL.cs" />
   </ItemGroup>

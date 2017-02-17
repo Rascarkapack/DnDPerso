@@ -22,8 +22,11 @@ function loginAuth() {
         loader.addClass('HidePanel');
 
         if (result === "OK") {
+            toastr.info("Connection réussie")
             authMessage.addClass('HidePanel');
             window.location.href = "/SelectionPersonnage/Index";
+        } else {
+            toastr.error("Erreur lors de l'authentification");
         }
     });
 }
