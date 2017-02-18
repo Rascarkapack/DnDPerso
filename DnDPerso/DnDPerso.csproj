@@ -132,6 +132,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PouvoirController.cs" />
     <Compile Include="Controllers\SelectionPersonnageController.cs" />
+    <Compile Include="Controllers\TalentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -167,6 +168,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Views\Talent\Talent.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\Views\Common.js" />
     <Content Include="Scripts\Views\DnDAutoComplete.js" />
@@ -194,6 +196,7 @@
     <Content Include="Views\Home\EncartCompetencesPartialView.cshtml" />
     <Content Include="Views\Home\EncartTalentsPartialView.cshtml" />
     <Content Include="Views\Home\EncartEquipementPartialView.cshtml" />
+    <Content Include="Views\Talent\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
