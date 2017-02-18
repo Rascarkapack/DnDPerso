@@ -22,7 +22,7 @@ namespace DnDPerso.Controllers
             int idPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
             foreach (string talentName in talentNames)
             {
-                Talent talent = TalentBLL.GetTalentByName(talentName.Replace("'", "&apos;"));
+                Talent talent = TalentBLL.GetTalentByName(talentName.Replace("'", "&apos;").Replace("\n", String.Empty).Trim());
                 if (talent != null)
                 {
                     TalentPersonnage talentPersonnage = new TalentPersonnage
