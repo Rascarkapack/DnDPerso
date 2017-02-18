@@ -1,4 +1,5 @@
-﻿@model DnDPersoEntities.CharacterData
+﻿@using System.Collections
+@model DnDPersoEntities.CharacterData
 
 @Scripts.Render("~/bundles/Scripts/Views/Home")
 
@@ -315,12 +316,13 @@
         <div class="header_bloc_title">bataille</div>
         <div class="inner_bloc_container" style="padding-top: 5px; padding-left: 15px;">
             <div class="input_bloc width100">
-                <select>
+                @*<select>
                     <option>Masse 1D10</option>
                     <option>Epée 1D10</option>
                     <option>Arc 1D8</option>
                     <option>Bâton 1D6</option>
-                </select>
+                </select>*@
+                @Html.DropDownList("SelectedArme",new SelectList((IEnumerable)ViewData["tempEquipList"], "TypeEquipement", "TypeEquipement"))
                 <span class="input_libelle">Arme équipée</span>
             </div>
             <div class="span_libelle span_fixe_top" style="margin-left: 25px;">Atq</div>

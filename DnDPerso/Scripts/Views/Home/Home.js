@@ -10,6 +10,13 @@ $(document).ready(function () {
         SetModifierValue();
     });
 
+    $("#SelectedArme").change(function() {
+        $("#ModArmeDegat").val($(this).val().substring($("#SelectedArme").val().indexOf("D") + 1, $(this).val().length));
+        SetModifierValue();
+    });
+
+    $("#ModArmeDegat").val($("#SelectedArme").val().substring($("#SelectedArme").val().indexOf("D") +1, $("#SelectedArme").val().length));
+
     $("input[id^='quant']").on('blur', function (s,e) {
         var lenghtString = 'quant'.length;
         var idTarget = s.currentTarget.attributes["id"].value;
@@ -301,12 +308,15 @@ function AddEquipement() {
     };
 
     common.customRequest("POST", "Home", "AddEquipement", JSON.stringify(model), function(result) {
-        if (result === "OK") {
+        if (result === "undifined" || result === "KO") {
+            toastr.error("Erreur");
+           
+        } else {
             toastr.info("Equipement ajouté");
             var idPerso = $("#input_characterId").val();
             $("#innerEncartEquipement").load("/Home/EncartEquipementPartialView?idPersonnage=" + idPerso);
-        } else {
-            toastr.error("Erreur");
+
+            $("#SelectedArme").append('<option value="' + result.type + '">'+result.type+ '</>');
         }
     });
 }

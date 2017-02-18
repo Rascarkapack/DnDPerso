@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using DnDPerso.Models;
 using DnDPersoBLL;
@@ -37,6 +38,13 @@ namespace DnDPerso.Controllers
 
             List<Divinite> listDivinites = DiviniteBLL.GetRList();
             characterData.Divinites = SetDropDownValues(listDivinites, "Id", "Libelle", false, characterData.IdDivinite);
+
+            List<AllStuffByPersonnage> listAllStuffByPersonnage = new List<AllStuffByPersonnage>();
+            listAllStuffByPersonnage = EquipementBLL.GetAllStuffByPersonnage(IdPersonnage);
+            List<AllStuffByPersonnage> listArme = listAllStuffByPersonnage.Where(a => a.CategorieEquipement == "Arme").ToList();
+            ViewData["tempEquipList"] = listArme;
+
+
 
             return View(characterData);
         }
@@ -150,6 +158,7 @@ namespace DnDPerso.Controllers
             try
             {
                 listAllStuffByPersonnage = EquipementBLL.GetAllStuffByPersonnage(idPersonnage);
+               
             }
             catch (Exception)
             {
@@ -173,13 +182,15 @@ namespace DnDPerso.Controllers
                 equipement.IdTypeEquipement = idTypeEquipement;
                 equipement.Quantite = model.quantite;
                 EquipementBLL.Add(equipement);
+
+                var data = new {Id = idTypeEquipement, type = model.typeEquipement};
+                return Json(data);
             }
             catch (Exception)
             {
                 return Json("KO");
 
             }
-            return Json("OK");
         }
 
         public ActionResult UpdateEquipement(int idEquip, int quantite)
