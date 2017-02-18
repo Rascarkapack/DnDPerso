@@ -267,8 +267,18 @@ function OpenPopUpPouvoir(classe, level) {
     window.location = '/Pouvoir/Index?classe=' + classe + '&level=' + level;
 }
 
+function OpenPopUpTalent(classe, level) {
+    window.location = '/Talent/Index';
+}
+
 function deletePouvoir(idPouvoirPersonnage) {
     common.customRequest('POST', "Pouvoir", "DeletePouvoir", JSON.stringify({ idPouvoirPersonnage: idPouvoirPersonnage }), function (idPersonnage) {
+        window.location = '/Home/Index?IdPersonnage=' + idPersonnage;
+    });
+}
+
+function deleteTalent(idTalentPersonnage) {
+    common.customRequest('POST', "Talent", "DeleteTalent", JSON.stringify({ idTalentPersonnage: idTalentPersonnage }), function (idPersonnage) {
         window.location = '/Home/Index?IdPersonnage=' + idPersonnage;
     });
 }

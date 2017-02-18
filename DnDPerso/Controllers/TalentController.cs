@@ -37,5 +37,15 @@ namespace DnDPerso.Controllers
 
             return Json(idPersonnage);
         }
+
+        public ActionResult DeleteTalent(string idTalentPersonnage)
+        {
+            int idPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
+            TalentPersonnage talentPersonnage =
+                TalentPersonnageBLL.GetList().SingleOrDefault(a => a.IdTalent == Convert.ToInt32(idTalentPersonnage));
+            if (talentPersonnage != null) TalentPersonnageBLL.Delete(talentPersonnage.Id);
+
+            return Json(idPersonnage);
+        }
     }
 }
