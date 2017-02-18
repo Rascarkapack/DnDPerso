@@ -297,12 +297,15 @@ function AddEquipement() {
     };
 
     common.customRequest("POST", "Home", "AddEquipement", JSON.stringify(model), function(result) {
-        if (result === "OK") {
+        if (result === "undifined" || result === "KO") {
+            toastr.error("Erreur");
+           
+        } else {
             toastr.info("Equipement ajouté");
             var idPerso = $("#input_characterId").val();
             $("#innerEncartEquipement").load("/Home/EncartEquipementPartialView?idPersonnage=" + idPerso);
-        } else {
-            toastr.error("Erreur");
+
+            $("#SelectedArme").append('<option value="' + result.Id + '">'+result.type+ '</>');
         }
     });
 }
