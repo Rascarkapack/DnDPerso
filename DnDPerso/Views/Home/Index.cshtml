@@ -275,15 +275,15 @@
             </div>
             <div class="span_libelle">Actuel</div>
             <div class="input_bloc width35">
-                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
+                @Html.TextBox( "PVActuel",null, new { @class = "text_center", id = "input_PVMax" })
             </div>
             <div class="span_libelle">Récup</div>
             <div class="input_bloc width35">
-                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
+                @Html.TextBox("Recup",null, new { @class = "text_center", id = "input_PVMax" })
             </div>
             <div class="span_libelle">Souffle</div>
             <div class="input_bloc width35">
-                @Html.TextBoxFor(model => model.PVMax, "", new { @class = "text_center", id = "input_PVMax" })
+                @Html.TextBox("SecondSouffle",null, new { @class = "text_center", id = "input_PVMax" })
             </div>
         </div>
     </div>
@@ -297,8 +297,8 @@
                     <span class="input_libelle">Total</span>
                 </div>
                 <div class="input_bloc width35">
-                    @Html.TextBoxFor(model => model.InitiativeDemiNiveau, "", new { @class = "text_center", id = "input_INITDivers" })
-                    <span class="input_libelle">divers</span>
+                    @Html.TextBoxFor(model => model.InitiativeDemiNiveau, "", new { @class = "text_center", id = "input_INITDeminiveau" })
+                    <span class="input_libelle">demi</span>
                 </div>
                 <div class="input_bloc width35">
                     @Html.TextBoxFor(model => model.InitiativeDivers, "", new { @class = "text_center", id = "input_INITDivers" })
@@ -354,7 +354,7 @@
                 @Html.TextBox("TotalDegat", null, new {@class = "text_center", id = "TotalDegat"})
                 <span class="input_libelle">Total</span>
             </div>
-            <div class="input_bloc width35">
+            <div class="input_bloc width50">
                 @Html.TextBox("DegatArme", null, new { @class = "text_center", id = "ModArmeDegat" })
                 <span class="input_libelle">Arme</span>
             </div>
@@ -388,7 +388,7 @@
             </div>
 
             <div class="inner_bloc_container">
-                @Html.Action("EncartPouvoirsPartialView", @Model.Id)
+               @* @Html.Action("EncartPouvoirsPartialView", @Model.Id)*@
             </div>
         </div>
     </div>

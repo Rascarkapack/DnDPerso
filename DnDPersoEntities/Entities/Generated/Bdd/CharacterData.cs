@@ -160,8 +160,8 @@ namespace DnDPersoEntities
     		}
     	}
         
-     	private decimal _taille;
-    	public decimal Taille
+     	private Nullable<int> _taille;
+    	public Nullable<int> Taille
     	{
     		get
     		{

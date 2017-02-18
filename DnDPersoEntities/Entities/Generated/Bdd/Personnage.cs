@@ -41,15 +41,15 @@ namespace DnDPersoEntities
         public Personnage()
         {
             this.Argent = new HashSet<Argent>();
+            this.CaracteristiquePersonnage = new HashSet<CaracteristiquePersonnage>();
+            this.CompetencePersonnage = new HashSet<CompetencePersonnage>();
+            this.DefensePersonnage = new HashSet<DefensePersonnage>();
             this.Equipement = new HashSet<Equipement>();
             this.Initiative = new HashSet<Initiative>();
             this.Mouvement = new HashSet<Mouvement>();
             this.PouvoirPersonnage = new HashSet<PouvoirPersonnage>();
             this.RituelPersonnage = new HashSet<RituelPersonnage>();
             this.TalentPersonnage = new HashSet<TalentPersonnage>();
-            this.CaracteristiquePersonnage = new HashSet<CaracteristiquePersonnage>();
-            this.CompetencePersonnage = new HashSet<CompetencePersonnage>();
-            this.DefensePersonnage = new HashSet<DefensePersonnage>();
             this.UtilisateurPersonnage = new HashSet<UtilisateurPersonnage>();
             this.PortraitPersonnage = new HashSet<PortraitPersonnage>();
         }
@@ -181,8 +181,8 @@ namespace DnDPersoEntities
     		}
     	}
         
-     	private decimal _taille;
-    	public decimal Taille
+     	private Nullable<int> _taille;
+    	public Nullable<int> Taille
     	{
     		get
     		{
@@ -279,24 +279,30 @@ namespace DnDPersoEntities
     		}
     	}
         
-     	private string _groupeaventurier1;
-    	public string GroupeAventurier1
+     	private string _groupeaventurier;
+    	public string GroupeAventurier
     	{
     		get
     		{
-    			return _groupeaventurier1;
+    			return _groupeaventurier;
     		}
     		set
     		{
-    			_groupeaventurier1 = value;
-    			NotifyPropertyChange("GroupeAventurier1");
+    			_groupeaventurier = value;
+    			NotifyPropertyChange("GroupeAventurier");
     		}
     	}
     
         public virtual Alignement Alignement { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Argent> Argent { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CaracteristiquePersonnage> CaracteristiquePersonnage { get; set; }
         public virtual Classe Classe { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CompetencePersonnage> CompetencePersonnage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DefensePersonnage> DefensePersonnage { get; set; }
         public virtual Divinite Divinite { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Equipement> Equipement { get; set; }
@@ -310,15 +316,9 @@ namespace DnDPersoEntities
         public virtual ICollection<RituelPersonnage> RituelPersonnage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TalentPersonnage> TalentPersonnage { get; set; }
-        public virtual Race Race { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CaracteristiquePersonnage> CaracteristiquePersonnage { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CompetencePersonnage> CompetencePersonnage { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DefensePersonnage> DefensePersonnage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UtilisateurPersonnage> UtilisateurPersonnage { get; set; }
+        public virtual Race Race { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PortraitPersonnage> PortraitPersonnage { get; set; }
     }

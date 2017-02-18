@@ -24,7 +24,7 @@ namespace DnDPersoDAL
             string CategorieTaille = model.CategorieTaille;
             int? Age = model.Age;
             string Sexe = model.Sexe;
-            decimal? Taille = model.Taille;
+            int? Taille = Convert.ToInt32(model.Taille);
             int? Poids = model.Poids;
             int? IdAlignement = model.IdAlignement;
             int? IdDivinite = model.IdDivinite;

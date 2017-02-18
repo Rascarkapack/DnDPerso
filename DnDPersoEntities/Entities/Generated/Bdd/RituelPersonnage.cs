@@ -80,7 +80,7 @@ namespace DnDPersoEntities
     		}
     	}
     
-        public virtual Personnage Personnage { get; set; }
         public virtual Rituel Rituel { get; set; }
+        public virtual Personnage Personnage { get; set; }
     }
 }

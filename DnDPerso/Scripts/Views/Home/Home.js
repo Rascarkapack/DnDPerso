@@ -11,11 +11,14 @@ $(document).ready(function () {
     });
 
     $("#SelectedArme").change(function() {
-        $("#ModArmeDegat").val($(this).val().substring($("#SelectedArme").val().indexOf("D") + 1, $(this).val().length));
+        $("#ModArmeDegat").val($(this).val().substring($("#SelectedArme").val().indexOf("1"), $(this).val().length));
         SetModifierValue();
     });
 
-    $("#ModArmeDegat").val($("#SelectedArme").val().substring($("#SelectedArme").val().indexOf("D") +1, $("#SelectedArme").val().length));
+    if ($("#SelectedArme").val() !== null) {
+        $("#ModArmeDegat").val($("#SelectedArme").val().substring($("#SelectedArme").val().indexOf("1"), $("#SelectedArme").val().length));
+    }
+    
 
     $("input[id^='quant']").on('blur', function (s,e) {
         var lenghtString = 'quant'.length;
@@ -92,10 +95,10 @@ function SaveCharacterSheet() {
         IdAlignement : $("#IdAlignement").val(), 
         IdDivinite : $("#IdDivinite").val(), 
         IdGroupeAventurier : $("#input_characterGroup").val(), 
-        PointAction : $("#input_characterPAValue").val(), 
+        PointAction: $("#input_PAValue").val(),
         PVMax : $("#input_PVMax").val(),  
         Personnalite : $("#input_characterPersonnalite").val(),
-        InitiativeDivers : $("#input_INITDivers").val(),
+        InitiativeDivers: $("#input_INITDivers").val(),
         CaracteristiqueForce : $("#input_ForceValue").val(),
 		CaracteristiqueConstitution : $("#input_ConsValue").val(),
 		CaracteristiqueDexterite : $("#input_DexValue").val(),
@@ -148,7 +151,7 @@ function SetModifierValue() {
     $('#TotalAttaque').val(parseInt(bonusLevel) + parseInt($('#ModCaracAttaque').val()) + parseInt($('#ModClasseAttaque').val()) + parseInt($('#ModManiAttaque').val()) + parseInt($('#ModTalentAttaque').val()));
 
     //TotalDegat
-    $('#TotalDegat').val(parseInt($('#ModArmeDegat').val()) + parseInt($('#ModCaracDegat').val()) + parseInt($('#ModTalentDegat').val()));
+    $('#TotalDegat').val(parseInt( parseInt($('#ModCaracDegat').val()) + parseInt($('#ModTalentDegat').val())));
 
     //caracteristiques
     $("#input_ForceMod").val(CalculCaracMod($("#input_ForceValue").val()) + bonusLevel);
@@ -257,7 +260,7 @@ function SetModifierValue() {
     }
     else
         INITDivers = $("#input_INITDivers").val();
-
+    $("#input_INITDeminiveau").val(bonusLevel);
     $("#input_INITTotal").val(CalculCaracMod($("#input_DexValue").val()) + bonusLevel + parseInt(INITDivers));
 }
 

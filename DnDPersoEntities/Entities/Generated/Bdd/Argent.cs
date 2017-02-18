@@ -94,7 +94,7 @@ namespace DnDPersoEntities
     		}
     	}
     
-        public virtual Personnage Personnage { get; set; }
         public virtual TypeArgent TypeArgent { get; set; }
+        public virtual Personnage Personnage { get; set; }
     }
 }

@@ -35,7 +35,6 @@ namespace DnDPersoDAL.Generated.Bdd
         public virtual DbSet<Equipement> Equipement { get; set; }
         public virtual DbSet<Initiative> Initiative { get; set; }
         public virtual DbSet<Mouvement> Mouvement { get; set; }
-        public virtual DbSet<Personnage> Personnage { get; set; }
         public virtual DbSet<Pouvoir> Pouvoir { get; set; }
         public virtual DbSet<PouvoirPersonnage> PouvoirPersonnage { get; set; }
         public virtual DbSet<Race> Race { get; set; }
@@ -58,6 +57,7 @@ namespace DnDPersoDAL.Generated.Bdd
         public virtual DbSet<UtilisateurPersonnage> UtilisateurPersonnage { get; set; }
         public virtual DbSet<Aptitude> Aptitude { get; set; }
         public virtual DbSet<PortraitPersonnage> PortraitPersonnage { get; set; }
+        public virtual DbSet<Personnage> Personnage { get; set; }
     
         public virtual ObjectResult<string> ListePouvoirs(Nullable<int> classe, Nullable<int> niveau)
         {
@@ -72,7 +72,7 @@ namespace DnDPersoDAL.Generated.Bdd
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("ListePouvoirs", classeParameter, niveauParameter);
         }
     
-        public virtual int SetCharacterData(Nullable<int> idUser, Nullable<int> idCharacter, string nom, Nullable<int> niveau, Nullable<int> idClasse, Nullable<int> experience, Nullable<int> idRace, string categorieTaille, Nullable<int> age, string sexe, Nullable<decimal> taille, Nullable<int> poids, Nullable<int> idAlignement, Nullable<int> idDivinite, string groupeAventurier, Nullable<int> pointAction, Nullable<int> pVMax, string personnalite, Nullable<int> initiativeDivers, Nullable<int> caracteristiqueForce, Nullable<int> caracteristiqueConstitution, Nullable<int> caracteristiqueDexterite, Nullable<int> caracteristiqueIntelligence, Nullable<int> caracteristiqueSagesse, Nullable<int> caracteristiqueCharisme, Nullable<int> defenseCADemiNiveau, Nullable<int> defenseCACaracteristique, Nullable<int> defenseCAClasse, Nullable<int> defenseCATalent, Nullable<int> defenseCADivers, Nullable<int> defenseVIGDemiNiveau, Nullable<int> defenseVIGCaracteristique, Nullable<int> defenseVIGClasse, Nullable<int> defenseVIGTalent, Nullable<int> defenseVIGDivers, Nullable<int> defenseREFDemiNiveau, Nullable<int> defenseREFCaracteristique, Nullable<int> defenseREFClasse, Nullable<int> defenseREFTalent, Nullable<int> defenseREFDivers, Nullable<int> defenseVOLDemiNiveau, Nullable<int> defenseVOLCaracteristique, Nullable<int> defenseVOLClasse, Nullable<int> defenseVOLTalent, Nullable<int> defenseVOLDivers, Nullable<int> modCaracAttaque, Nullable<int> modManiAttaque, Nullable<int> modTalentAttaque, Nullable<int> modClasseAttaque, Nullable<int> modCaracDegat, Nullable<int> modTalentDegat)
+        public virtual int SetCharacterData(Nullable<int> idUser, Nullable<int> idCharacter, string nom, Nullable<int> niveau, Nullable<int> idClasse, Nullable<int> experience, Nullable<int> idRace, string categorieTaille, Nullable<int> age, string sexe, Nullable<int> taille, Nullable<int> poids, Nullable<int> idAlignement, Nullable<int> idDivinite, string groupeAventurier, Nullable<int> pointAction, Nullable<int> pVMax, string personnalite, Nullable<int> initiativeDivers, Nullable<int> caracteristiqueForce, Nullable<int> caracteristiqueConstitution, Nullable<int> caracteristiqueDexterite, Nullable<int> caracteristiqueIntelligence, Nullable<int> caracteristiqueSagesse, Nullable<int> caracteristiqueCharisme, Nullable<int> defenseCADemiNiveau, Nullable<int> defenseCACaracteristique, Nullable<int> defenseCAClasse, Nullable<int> defenseCATalent, Nullable<int> defenseCADivers, Nullable<int> defenseVIGDemiNiveau, Nullable<int> defenseVIGCaracteristique, Nullable<int> defenseVIGClasse, Nullable<int> defenseVIGTalent, Nullable<int> defenseVIGDivers, Nullable<int> defenseREFDemiNiveau, Nullable<int> defenseREFCaracteristique, Nullable<int> defenseREFClasse, Nullable<int> defenseREFTalent, Nullable<int> defenseREFDivers, Nullable<int> defenseVOLDemiNiveau, Nullable<int> defenseVOLCaracteristique, Nullable<int> defenseVOLClasse, Nullable<int> defenseVOLTalent, Nullable<int> defenseVOLDivers, Nullable<int> modCaracAttaque, Nullable<int> modManiAttaque, Nullable<int> modTalentAttaque, Nullable<int> modClasseAttaque, Nullable<int> modCaracDegat, Nullable<int> modTalentDegat)
         {
             var idUserParameter = idUser.HasValue ?
                 new ObjectParameter("idUser", idUser) :
@@ -116,7 +116,7 @@ namespace DnDPersoDAL.Generated.Bdd
     
             var tailleParameter = taille.HasValue ?
                 new ObjectParameter("Taille", taille) :
-                new ObjectParameter("Taille", typeof(decimal));
+                new ObjectParameter("Taille", typeof(int));
     
             var poidsParameter = poids.HasValue ?
                 new ObjectParameter("Poids", poids) :

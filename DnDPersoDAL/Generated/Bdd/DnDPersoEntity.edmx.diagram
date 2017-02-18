@@ -12,7 +12,6 @@
         <EntityTypeShape EntityType="FichePersoDndModel.Equipement" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Initiative" Width="1.5" PointX="8.25" PointY="16.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Mouvement" Width="1.5" PointX="8.25" PointY="19.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="FichePersoDndModel.Personnage" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Pouvoir" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.PouvoirPersonnage" Width="1.5" PointX="11.25" PointY="12.25" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Race" Width="1.5" PointX="3.75" PointY="18" IsExpanded="true" />
@@ -25,20 +24,9 @@
         <EntityTypeShape EntityType="FichePersoDndModel.TypeDes" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.TypeEquipement" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.TypePouvoir" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDALIGNEMENT" ManuallyRouted="false" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEARGENT" ManuallyRouted="false" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDTYPEARGENTARGENT" ManuallyRouted="false" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDCLASSE" ManuallyRouted="false" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDCLASSEPOUVOIR" ManuallyRouted="false" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDDIVINITE" ManuallyRouted="false" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDTYPEEQUIPEMENTEQUIPEMENT" ManuallyRouted="false" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDTYPEPERSONNAGEEQUIPEMENT" ManuallyRouted="false" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEINITIATIVE" ManuallyRouted="false" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEMOUVEMENT" ManuallyRouted="false" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEPOUVOIRPERSONNAGE" ManuallyRouted="false" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGERITUELPERSONNAGE" ManuallyRouted="false" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGETALENTPERSONNAGE" ManuallyRouted="false" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDRACE" ManuallyRouted="false" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDPOUVOIRPOUVOIRPERSONNAGE" ManuallyRouted="false" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDTYPEPOUVOIRPOUVOIR" ManuallyRouted="false" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT" ManuallyRouted="false" />
@@ -53,17 +41,29 @@
         <EntityTypeShape EntityType="FichePersoDndModel.Utilisateur" Width="1.5" PointX="12" PointY="3.75" />
         <EntityTypeShape EntityType="FichePersoDndModel.UtilisateurPersonnage" Width="1.5" PointX="14.25" PointY="12.75" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDCARACCARACPERSONNAGE" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGECARACPERSONNAGE" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDCOMPECOMPEPERSONNAGE" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGECOMPEPERSONNAGE" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDDEFDEFPERSONNAGE" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEDEFPERSONNAGE" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEUTILPERSONNAGE" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDUTILPERSONNAGE" />
         <EntityTypeShape EntityType="FichePersoDndModel.Aptitude" Width="1.5" PointX="6" PointY="17.875" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDCLASSEREFCLASSE" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDRACEREFRACE" />
         <EntityTypeShape EntityType="FichePersoDndModel.PortraitPersonnage" Width="1.5" PointX="8.25" PointY="3.75" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Personnage" Width="1.5" PointX="15" PointY="1.375" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDALIGNEMENT" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEARGENT" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGECARACPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDCLASSE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGECOMPEPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEDEFPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDDIVINITE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDTYPEPERSONNAGEEQUIPEMENT" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEINITIATIVE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEMOUVEMENT" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEPOUVOIRPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGERITUELPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGETALENTPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEUTILPERSONNAGE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDRACE" />
         <AssociationConnector Association="FichePersoDndModel.fk_PORTRAITPERSO" />
       </Diagram>
     </edmx:Diagrams>

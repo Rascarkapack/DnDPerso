@@ -186,7 +186,7 @@ namespace DnDPerso.Controllers
                 var data = new {Id = idTypeEquipement, type = model.typeEquipement};
                 return Json(data);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return Json("KO");
 
@@ -202,7 +202,7 @@ namespace DnDPerso.Controllers
                 equipement.Quantite = quantite;
                 EquipementBLL.Update(equipement);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return Json("KO");
 

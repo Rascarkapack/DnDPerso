@@ -40,9 +40,9 @@ namespace DnDPersoEntities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Classe()
         {
-            this.Personnage = new HashSet<Personnage>();
             this.Pouvoir = new HashSet<Pouvoir>();
             this.Aptitude = new HashSet<Aptitude>();
+            this.Personnage = new HashSet<Personnage>();
         }
     
         
@@ -75,10 +75,10 @@ namespace DnDPersoEntities
     	}
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Personnage> Personnage { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pouvoir> Pouvoir { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Aptitude> Aptitude { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Personnage> Personnage { get; set; }
     }
 }
