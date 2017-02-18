@@ -63,6 +63,8 @@
         <EntityTypeShape EntityType="FichePersoDndModel.Aptitude" Width="1.5" PointX="6" PointY="17.875" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDCLASSEREFCLASSE" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDRACEREFRACE" />
+        <EntityTypeShape EntityType="FichePersoDndModel.PortraitPersonnage" Width="1.5" PointX="8.25" PointY="3.75" />
+        <AssociationConnector Association="FichePersoDndModel.fk_PORTRAITPERSO" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

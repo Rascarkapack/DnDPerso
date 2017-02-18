@@ -57,6 +57,7 @@ namespace DnDPersoDAL.Generated.Bdd
         public virtual DbSet<Utilisateur> Utilisateur { get; set; }
         public virtual DbSet<UtilisateurPersonnage> UtilisateurPersonnage { get; set; }
         public virtual DbSet<Aptitude> Aptitude { get; set; }
+        public virtual DbSet<PortraitPersonnage> PortraitPersonnage { get; set; }
     
         public virtual ObjectResult<string> ListePouvoirs(Nullable<int> classe, Nullable<int> niveau)
         {

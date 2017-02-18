@@ -51,6 +51,7 @@ namespace DnDPersoEntities
             this.CompetencePersonnage = new HashSet<CompetencePersonnage>();
             this.DefensePersonnage = new HashSet<DefensePersonnage>();
             this.UtilisateurPersonnage = new HashSet<UtilisateurPersonnage>();
+            this.PortraitPersonnage = new HashSet<PortraitPersonnage>();
         }
     
         
@@ -318,5 +319,7 @@ namespace DnDPersoEntities
         public virtual ICollection<DefensePersonnage> DefensePersonnage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UtilisateurPersonnage> UtilisateurPersonnage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PortraitPersonnage> PortraitPersonnage { get; set; }
     }
 }

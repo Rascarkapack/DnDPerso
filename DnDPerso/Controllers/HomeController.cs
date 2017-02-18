@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -57,6 +58,27 @@ namespace DnDPerso.Controllers
             }
 
             return Json("OK");
+        }
+
+        public ActionResult UploadPortrait()
+        {
+            int IdPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
+            if (Request.Files.Count > 0)
+            {
+                var file = Request.Files[0];
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    PortraitPersonnage portrait = PortraitPersonnageBLL.GetList().SingleOrDefault(a => a.IdPersonnage == IdPersonnage);
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(string.Format("/PortraitPersonnage/{0}", fileName));
+                    portrait.Chemin = path;
+                    PortraitPersonnageBLL.Update(portrait);
+                    file.SaveAs(Server.MapPath(path));
+                }
+            }
+
+            return RedirectToAction("Index", new { IdPersonnage = IdPersonnage });
         }
 
         #region partialEncartPouvoir

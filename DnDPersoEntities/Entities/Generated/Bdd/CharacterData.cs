@@ -747,5 +747,19 @@ namespace DnDPersoEntities
     			NotifyPropertyChange("InitiativeDemiNiveau");
     		}
     	}
+        
+     	private string _cheminportrait;
+    	public string CheminPortrait
+    	{
+    		get
+    		{
+    			return _cheminportrait;
+    		}
+    		set
+    		{
+    			_cheminportrait = value;
+    			NotifyPropertyChange("CheminPortrait");
+    		}
+    	}
     }
 }
