@@ -5,7 +5,6 @@ $(document).ready(function () {
         $("#searchPouvoirBtn").trigger('click');
     },
         10);
-
 });
 function searchPouvoir(classe, level) {
     var model;
@@ -37,10 +36,10 @@ function searchPouvoir(classe, level) {
                pouvoirs.push(this.innerHTML);
            }
 
-           if ($(this).parent().parent().attr('class').indexOf('highLight') !== -1) {
+           if ($(this).attr('class').indexOf('highLight') !== -1) {
                pouvoirs.splice($.inArray(this.innerHTML, pouvoirs), 1);
            }
-           $(this).parent().parent().toggleClass('highLight');
+           $(this).toggleClass('highLight');
 
        });
     });

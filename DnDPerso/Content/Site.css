@@ -226,7 +226,9 @@ input[type="color"]:focus,
     margin-bottom: 30px;
 }
 #mainBloc_5,
-#mainBloc_7,
+#mainBloc_7 {
+    width: 39%;
+}
 #mainBloc_2 {
 	width: 37%;
 	min-height : 200px;
@@ -243,13 +245,18 @@ input[type="color"]:focus,
 #mainBloc_6 {
     width: 74%;
 }
+
 #character_picture {
 	border: 1px #424242 solid;
-    
+    width: 157px;
+    height: 157px;
 }
 
 /* Pouvoir/index */
-
+#searchPanel {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
 #searchPanel select {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -278,7 +285,7 @@ input[type="color"]:focus,
     background-color: #fff;
     color: black;
     margin-bottom: 0.5em;
-    margin-left: 1em;
+    margin-right: 5px;
     padding: 0.2em;
     display: inline-block;
     width: 240px;
@@ -427,18 +434,22 @@ input[type="color"]:focus,
     background-color: #333333;
 }
 /*encart*/
-#encartPouvoirs {
-   
-}
 #encartPouvoirs input {
-    -webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
+    -webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+    background-color: #fff;
+    border: 1px solid #B1B1B1;
+    text-align: center;
+}
+.header_bloc_title input {
+    margin-right: 20px;
+    margin-top: -2px;
 }
 #inner_Bloc_Pouvoir input,
 #encartPouvoirs input {
     width: 25px;
-    height: 27px;
+    height: 25px;
     float: right;
     color: #993333;
     
