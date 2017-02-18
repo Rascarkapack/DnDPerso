@@ -323,7 +323,7 @@
                     <option>Arc 1D8</option>
                     <option>Bâton 1D6</option>
                 </select>*@
-                @Html.DropDownList("SelectedArme",new SelectList((IEnumerable)ViewData["tempEquipList"], "Id", "TypeEquipement"))
+                @Html.DropDownList("SelectedArme",new SelectList((IEnumerable)ViewData["tempEquipList"], "TypeEquipement", "TypeEquipement"))
             </div>
             <div class="span_libelle span_fixe_top">Atq</div>
             <div class="input_bloc width35">

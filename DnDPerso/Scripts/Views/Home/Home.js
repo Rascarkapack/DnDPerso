@@ -10,6 +10,13 @@ $(document).ready(function () {
         SetModifierValue();
     });
 
+    $("#SelectedArme").change(function() {
+        $("#ModArmeDegat").val($(this).val().substring($("#SelectedArme").val().indexOf("D") + 1, $(this).val().length));
+        SetModifierValue();
+    });
+
+    $("#ModArmeDegat").val($("#SelectedArme").val().substring($("#SelectedArme").val().indexOf("D") +1, $("#SelectedArme").val().length));
+
     $("input[id^='quant']").on('blur', function (s,e) {
         var lenghtString = 'quant'.length;
         var idTarget = s.currentTarget.attributes["id"].value;
@@ -305,7 +312,7 @@ function AddEquipement() {
             var idPerso = $("#input_characterId").val();
             $("#innerEncartEquipement").load("/Home/EncartEquipementPartialView?idPersonnage=" + idPerso);
 
-            $("#SelectedArme").append('<option value="' + result.Id + '">'+result.type+ '</>');
+            $("#SelectedArme").append('<option value="' + result.type + '">'+result.type+ '</>');
         }
     });
 }
