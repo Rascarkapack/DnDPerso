@@ -69,6 +69,7 @@
       <DependentUpon>DnDPersoEntity.edmx</DependentUpon>
     </Compile>
     <Compile Include="PersonnageDAL.cs" />
+    <Compile Include="PortraitPersonnageDAL.cs" />
     <Compile Include="PouvoirDAL.cs" />
     <Compile Include="PouvoirPersonnageDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

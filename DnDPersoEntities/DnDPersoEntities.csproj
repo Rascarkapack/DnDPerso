@@ -111,6 +111,9 @@
     <Compile Include="Entities\Generated\Bdd\PersonnageByUtilisateur.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Generated\Bdd\PortraitPersonnage.cs">
+      <DependentUpon>DnDPersoEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Generated\Bdd\Pouvoir.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>

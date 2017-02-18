@@ -48,6 +48,7 @@
     <Compile Include="DiviniteBLL.cs" />
     <Compile Include="EquipementBLL.cs" />
     <Compile Include="PersonnageBLL.cs" />
+    <Compile Include="PortraitPersonnageBLL.cs" />
     <Compile Include="PouvoirBLL.cs" />
     <Compile Include="PouvoirPersonnageBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

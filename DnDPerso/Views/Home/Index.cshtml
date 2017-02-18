@@ -80,7 +80,12 @@
     </div>
     </div>
     <div class="col-md-2">
-        <div id="character_picture"><img src="~/Images/blank_picture.jpg" alt="" /></div>
+        <div id="character_picture"><img style="width: 155px;height: 155px;" src="@Model.CheminPortrait" alt="" /></div>
+        @using (Html.BeginForm("UploadPortrait", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="FileUpload" />
+            <input type="submit" name="Submit" id="Submit" value="Upload" />
+        }
     </div>
 </div>
 

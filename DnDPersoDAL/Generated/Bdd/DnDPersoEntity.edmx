@@ -148,6 +148,14 @@
           <Property Name="Personnalite" Type="varchar" MaxLength="255" />
           <Property Name="GroupeAventurier" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="PortraitPersonnage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Chemin" Type="varchar(max)" />
+          <Property Name="IdPersonnage" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Pouvoir">
           <Key>
             <PropertyRef Name="Id" />
@@ -608,6 +616,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_PORTRAITPERSO">
+          <End Role="Personnage" Type="Self.Personnage" Multiplicity="1" />
+          <End Role="PortraitPersonnage" Type="Self.PortraitPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PortraitPersonnage">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DeleteEquipement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEquipement" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetAllCompetenceByIdPersonnage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdPersonnage" Type="int" Mode="In" />
         </Function>
@@ -699,6 +722,7 @@
           <EntitySet Name="Initiative" EntityType="Self.Initiative" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mouvement" EntityType="Self.Mouvement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personnage" EntityType="Self.Personnage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PortraitPersonnage" EntityType="Self.PortraitPersonnage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pouvoir" EntityType="Self.Pouvoir" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PouvoirPersonnage" EntityType="Self.PouvoirPersonnage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Race" EntityType="Self.Race" Schema="dbo" store:Type="Tables" />
@@ -829,6 +853,10 @@
             <End Role="Utilisateur" EntitySet="Utilisateur" />
             <End Role="UtilisateurPersonnage" EntitySet="UtilisateurPersonnage" />
           </AssociationSet>
+          <AssociationSet Name="fk_PORTRAITPERSO" Association="Self.fk_PORTRAITPERSO">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="PortraitPersonnage" EntitySet="PortraitPersonnage" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -940,6 +968,7 @@
           <NavigationProperty Name="DefensePersonnage" Relationship="FichePersoDndModel.fk_IDPERSONNAGEDEFPERSONNAGE" FromRole="Personnage" ToRole="DefensePersonnage" />
           <NavigationProperty Name="UtilisateurPersonnage" Relationship="FichePersoDndModel.fk_IDPERSONNAGEUTILPERSONNAGE" FromRole="Personnage" ToRole="UtilisateurPersonnage" />
           <Property Name="GroupeAventurier1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PortraitPersonnage" Relationship="FichePersoDndModel.fk_PORTRAITPERSO" FromRole="Personnage" ToRole="PortraitPersonnage" />
         </EntityType>
         <EntityType Name="Pouvoir">
           <Key>
@@ -1504,6 +1533,14 @@
           <FunctionImport Name="GetAllStuffByPersonnage" ReturnType="Collection(FichePersoDndModel.AllStuffByPersonnage)">
           <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="DeleteEquipement">
+          <Parameter Name="idEquipement" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="PortraitPersonnage" EntityType="FichePersoDndModel.PortraitPersonnage" />
+          <AssociationSet Name="fk_PORTRAITPERSO" Association="FichePersoDndModel.fk_PORTRAITPERSO">
+            <End Role="Personnage" EntitySet="Personnage" />
+            <End Role="PortraitPersonnage" EntitySet="PortraitPersonnage" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Caracteristique">
           <Key>
@@ -1740,6 +1777,7 @@
           <Property Type="Int32" Name="ModTalentDegat" Nullable="true" />
           <Property Type="Int32" Name="ModClasseAttaque" Nullable="true" />
           <Property Type="Int32" Name="InitiativeDemiNiveau" Nullable="true" />
+          <Property Type="String" Name="CheminPortrait" Nullable="false" />
         </ComplexType>
         <ComplexType Name="AllPouvoirByIdPersonnage">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1802,6 +1840,27 @@
           <Property Type="String" Name="Rarete" Nullable="false" MaxLength="20" />
           <Property Type="Int32" Name="Id" Nullable="false" />
         </ComplexType>
+        <EntityType Name="PortraitPersonnage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Chemin" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdPersonnage" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Personnage" Relationship="FichePersoDndModel.fk_PORTRAITPERSO" FromRole="PortraitPersonnage" ToRole="Personnage" />
+        </EntityType>
+        <Association Name="fk_PORTRAITPERSO">
+          <End Type="FichePersoDndModel.Personnage" Role="Personnage" Multiplicity="1" />
+          <End Type="FichePersoDndModel.PortraitPersonnage" Role="PortraitPersonnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PortraitPersonnage">
+              <PropertyRef Name="IdPersonnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2195,6 +2254,16 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DeleteEquipement" FunctionName="FichePersoDndModel.Store.DeleteEquipement" />
+          <EntitySetMapping Name="PortraitPersonnage">
+            <EntityTypeMapping TypeName="FichePersoDndModel.PortraitPersonnage">
+              <MappingFragment StoreEntitySet="PortraitPersonnage">
+                <ScalarProperty Name="IdPersonnage" ColumnName="IdPersonnage" />
+                <ScalarProperty Name="Chemin" ColumnName="Chemin" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

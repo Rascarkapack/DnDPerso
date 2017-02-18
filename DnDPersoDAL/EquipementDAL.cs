@@ -32,5 +32,26 @@ namespace DnDPersoDAL
 
             return result;
         }
+
+        public static void DeleteEquipement(int idEquipement)
+        {
+            FichePersoDndEntities db_context = null;
+
+            List<AllStuffByPersonnage> result = new List<AllStuffByPersonnage>();
+            try
+            {
+                db_context = new FichePersoDndEntities();
+                db_context.DeleteEquipement(idEquipement);
+            }
+            finally
+            {
+                if (db_context != null)
+                {
+                    db_context.Dispose();
+                    db_context = null;
+                }
+            }
+            
+        }
     }
 }
