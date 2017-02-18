@@ -63,6 +63,8 @@ $(document).ready(function () {
         }
         
     });
+
+    SetModifierValue();
 });
 
 function setAvatar() {
