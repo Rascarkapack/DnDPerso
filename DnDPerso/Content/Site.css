@@ -471,7 +471,7 @@ input[type="color"]:focus,
 }
 
 #encartCompetences {
-    color: #fff;
+    padding-bottom: 20px;
     width: 30%;
 }
 .encoartCompetenceInputBloc {
@@ -481,7 +481,12 @@ input[type="color"]:focus,
 .cache {
     display: none;
 }
-
+#encartEquipement {
+    width: 33%;
+}
+#encartEquipement select {
+    width: 80px;
+}
 /*note*/
 #noteArea{
     width: 100%;
