@@ -1,0 +1,24 @@
+﻿@using DnDPersoEntities
+@model IEnumerable<DnDPersoEntities.Talent>
+@{
+    ViewBag.Title = "Index";
+}
+@Scripts.Render("~/bundles/Scripts/Views/Talent")
+<button class="btn" id="validateTalentBtn" onclick="validateTalent()">Valider</button>
+
+@foreach (Talent talent in Model)
+{
+    <div class="infobox infobox-power">
+        <div class="infobox-power-header">
+            <div class="infobox-power-title">
+                @talent.Libelle
+            </div>
+            <div class="infobox-power-origin">
+                @Html.Raw(talent.Prerequis)
+            </div>
+        </div>
+        @Html.Raw(talent.Html)
+
+    </div>
+}
+

@@ -45,6 +45,9 @@ namespace DnDPerso
 
             // Pouvoir
             bundles.Add(new ScriptBundle("~/bundles/Scripts/Views/Pouvoir").Include("~/Scripts/Views/Pouvoir/Pouvoir.js"));
+
+            // Pouvoir
+            bundles.Add(new ScriptBundle("~/bundles/Scripts/Views/Talent").Include("~/Scripts/Views/Talent/Talent.js"));
         }
     }
 }

@@ -32,5 +32,27 @@ namespace DnDPersoDAL
 
             return result;
         }
+
+        public static Talent GetTalentByName(string name)
+        {
+            FichePersoDndEntities db_context = null;
+
+            Talent result = null;
+            try
+            {
+                db_context = new FichePersoDndEntities();
+                result = db_context.Talent.FirstOrDefault(a => a.Libelle == name);
+            }
+            finally
+            {
+                if (db_context != null)
+                {
+                    db_context.Dispose();
+                    db_context = null;
+                }
+            }
+
+            return result;
+        }
     }
 }
