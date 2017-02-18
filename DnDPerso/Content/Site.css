@@ -225,6 +225,8 @@ input[type="color"]:focus,
 	height : 280px;
     margin-bottom: 30px;
 }
+#mainBloc_5,
+#mainBloc_7,
 #mainBloc_2 {
 	width: 37%;
 	min-height : 200px;
@@ -425,7 +427,7 @@ input[type="color"]:focus,
 }
 /*encart*/
 #encartPouvoirs {
-    width: 500px;
+   
 }
 #encartPouvoirs input {
     -webkit-border-radius: 4px;

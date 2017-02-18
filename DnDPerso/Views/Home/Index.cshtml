@@ -284,7 +284,7 @@
         <div class="header_bloc_title">actions</div>
         <div class="inner_bloc_container">
             <div class="span_libelle span_large">Init</div>
-            <div style="margin-left: 40px;">
+            <div style="margin-left: 18px;">
                 <div class="input_bloc width35">
                     <input type="text" id="input_INITTotal" class="text_center" />
                     <span class="input_libelle">Total</span>
@@ -305,8 +305,33 @@
                 </div>
             </div>
         </div>
+    </div>    
+    <div id="mainBloc_5" class="mainBloc marginerRight5">
+        <div id="encartPouvoirs">
+            <div class="header_bloc_title">
+                Pouvoirs
+                <input type="button" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+" />
+            </div>
+
+            <div id="">
+                @Html.Action("EncartPouvoirsPartialView", @Model.Id)
+            </div>
+        </div>
     </div>
-    <div id="mainBloc_6" class="mainBloc">
+    <div id="mainBloc_7" class="mainBloc">
+        <div id="encartPouvoirs">
+            <div class="header_bloc_title">
+                Aptitudes
+                <input type="button" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+" />
+            </div>
+
+            <div id="">
+                @Html.Action("EncartPouvoirsPartialView", @Model.Id)
+            </div>
+        </div>
+    </div>
+
+        <div id="mainBloc_6" class="mainBloc">
         <div class="header_bloc_title">bataille</div>
         <div class="inner_bloc_container" style="padding-top: 5px; padding-left: 10px;">
             <div class="span_libelle">Arme</div>
@@ -357,19 +382,6 @@
             <div class="input_bloc width35">
                 @Html.TextBoxFor(model => model.ModTalentDegat, "", new { @class = "text_center", id = "ModTalentDegat" })
                 <span class="input_libelle">Talent</span>
-            </div>
-        </div>
-    </div>
-    
-    <div id="mainBloc_5" class="mainBloc marginerRight5">
-        <div id="encartPouvoirs">
-            <div class="header_bloc_title">
-                Pouvoirs
-                <input type="button" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+" />
-            </div>
-
-            <div id="">
-                @Html.Action("EncartPouvoirsPartialView", @Model.Id)
             </div>
         </div>
     </div>
