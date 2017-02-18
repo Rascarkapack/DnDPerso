@@ -65,6 +65,10 @@ $(document).ready(function () {
     });
 });
 
+function setAvatar() {
+    $('#imgupload').click();
+}
+
 function SaveCharacterSheet() {
     //calcul new level from xp
     $("#input_characterLevel").val(SetCharacterLevel($("#input_characterExperience").val()));

@@ -4,7 +4,7 @@
 @foreach (AllPouvoirByIdPersonnage pouvoir in @Model)
 {
     <div id="pourvoir_@pouvoir.PouvoirId">
-        <input type="button" onclick="deletePouvoir(@pouvoir.Id)" value="-"/>
+        <input type="button" onclick="deletePouvoir(@pouvoir.Id)" style="padding-top: 4px;" value="-"/>
         @Html.Raw(pouvoir.Html)
     </div>
 }

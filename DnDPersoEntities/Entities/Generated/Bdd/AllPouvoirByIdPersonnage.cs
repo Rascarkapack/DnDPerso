@@ -103,5 +103,19 @@ namespace DnDPersoEntities
     			NotifyPropertyChange("PouvoirId");
     		}
     	}
+        
+     	private int _idtypepouvoir;
+    	public int IdTypePouvoir
+    	{
+    		get
+    		{
+    			return _idtypepouvoir;
+    		}
+    		set
+    		{
+    			_idtypepouvoir = value;
+    			NotifyPropertyChange("IdTypePouvoir");
+    		}
+    	}
     }
 }

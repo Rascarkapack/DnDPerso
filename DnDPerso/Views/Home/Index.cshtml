@@ -82,11 +82,11 @@
     </div>
     </div>
     <div class="col-md-2">
-        <div id="character_picture"><img style="width: 155px;height: 155px;" src="@Model.CheminPortrait" alt="" /></div>
+        <button style="padding: 0 !important;" onclick="setAvatar()"><img style="width: 155px;height: 155px;" id="chara" src="@Model.CheminPortrait" alt="" /></button>
         @using (Html.BeginForm("UploadPortrait", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
-            <input type="file" name="FileUpload" />
-            <input type="submit" name="Submit" id="Submit" value="Upload" />
+            <input type="file" id="imgupload" style="display: none;" name="FileUpload" />
+            <input type="submit" name="Submit" id="Submit" style="float: right; margin-top: 5px;" value="Upload" />
         }
     </div>
 </div>
@@ -291,7 +291,7 @@
         <div class="header_bloc_title">actions</div>
         <div class="inner_bloc_container">
             <div class="span_libelle span_large">Init</div>
-            <div style="margin-left: 40px;">
+            <div style="margin-left: 18px;">
                 <div class="input_bloc width35">
                     <input type="text" id="input_INITTotal" class="text_center" />
                     <span class="input_libelle">Total</span>
@@ -313,10 +313,9 @@
             </div>
         </div>
     </div>
-    <div id="mainBloc_6" class="mainBloc">
+    <div id="mainBloc_6" class="mainBloc marginerRight5">
         <div class="header_bloc_title">bataille</div>
-        <div class="inner_bloc_container" style="padding-top: 5px; padding-left: 10px;">
-            <div class="span_libelle">Arme</div>
+        <div class="inner_bloc_container" style="padding-top: 5px; padding-left: 15px;">
             <div class="input_bloc width100">
                 @*<select>
                     <option>Masse 1D10</option>
@@ -325,8 +324,9 @@
                     <option>Bâton 1D6</option>
                 </select>*@
                 @Html.DropDownList("SelectedArme",new SelectList((IEnumerable)ViewData["tempEquipList"], "TypeEquipement", "TypeEquipement"))
+                <span class="input_libelle">Arme équipée</span>
             </div>
-            <div class="span_libelle span_fixe_top">Atq</div>
+            <div class="span_libelle span_fixe_top" style="margin-left: 25px;">Atq</div>
             <div class="input_bloc width35">
                 @Html.TextBox("TotalAttaque", null, new { @class = "text_center", id = "TotalAttaque" })
                 <span class="input_libelle">Total</span>
@@ -349,7 +349,7 @@
             </div>
            
 
-            <div class="span_libelle span_fixe_top">Dgt</div>
+            <div class="span_libelle span_fixe_top" style="margin-left: 25px;">Dgt</div>
             <div class="input_bloc width35">
                 @Html.TextBox("TotalDegat", null, new {@class = "text_center", id = "TotalDegat"})
                 <span class="input_libelle">Total</span>
@@ -368,15 +368,26 @@
             </div>
         </div>
     </div>
-    
     <div id="mainBloc_5" class="mainBloc marginerRight5">
         <div id="encartPouvoirs">
             <div class="header_bloc_title">
                 Pouvoirs
-                <input type="button" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+" />
+                <input type="button" style="margin-right: 20px; margin-top: -2px; padding-top: 3px; padding-left: 7px;" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+" />
             </div>
 
-            <div id="">
+            <div class="inner_bloc_container">
+                @Html.Action("EncartPouvoirsPartialView", @Model.Id)
+            </div>
+        </div>
+    </div>
+    <div id="mainBloc_7" class="mainBloc">
+        <div id="encartPouvoirs">
+            <div class="header_bloc_title">
+                Aptitudes
+                <input type="button" style="margin-right: 20px; margin-top: -2px; padding-top: 3px; padding-left: 7px;" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+" />
+            </div>
+
+            <div class="inner_bloc_container">
                 @Html.Action("EncartPouvoirsPartialView", @Model.Id)
             </div>
         </div>

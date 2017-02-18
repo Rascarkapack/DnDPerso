@@ -151,6 +151,8 @@
     <Content Include="Images\icon_character.png" />
     <Content Include="Images\icon_plus.png" />
     <Content Include="Images\logo_header.png" />
+    <Content Include="Images\moins_btn.png" />
+    <Content Include="Images\plus_btn.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\Planewalker.otf" />

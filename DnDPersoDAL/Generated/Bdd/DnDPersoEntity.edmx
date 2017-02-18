@@ -1785,6 +1785,7 @@
           <Property Type="String" Name="Html" Nullable="true" />
           <Property Type="Int32" Name="Level" Nullable="false" />
           <Property Type="Int32" Name="PouvoirId" Nullable="false" />
+          <Property Type="Int32" Name="IdTypePouvoir" Nullable="false" />
         </ComplexType>
         <ComplexType Name="AllCompetenceByIdPersonnage">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -2211,6 +2212,7 @@
                 <ScalarProperty Name="Html" ColumnName="Html" />
                 <ScalarProperty Name="Level" ColumnName="Level" />
                 <ScalarProperty Name="PouvoirId" ColumnName="PouvoirId" />
+                <ScalarProperty Name="IdTypePouvoir" ColumnName="IdTypePouvoir" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
