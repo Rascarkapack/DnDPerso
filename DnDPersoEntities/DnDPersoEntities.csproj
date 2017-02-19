@@ -46,6 +46,9 @@
     <Compile Include="Entities\Generated\Bdd\Alignement.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Generated\Bdd\AllAptitudes.cs">
+      <DependentUpon>DnDPersoEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Generated\Bdd\AllCompetenceByIdPersonnage.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>

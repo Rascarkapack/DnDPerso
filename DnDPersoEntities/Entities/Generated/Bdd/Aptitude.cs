@@ -52,8 +52,8 @@ namespace DnDPersoEntities
     		}
     	}
         
-     	private int _idrace;
-    	public int IdRace
+     	private Nullable<int> _idrace;
+    	public Nullable<int> IdRace
     	{
     		get
     		{
@@ -66,8 +66,8 @@ namespace DnDPersoEntities
     		}
     	}
         
-     	private int _idclasse;
-    	public int IdClasse
+     	private Nullable<int> _idclasse;
+    	public Nullable<int> IdClasse
     	{
     		get
     		{

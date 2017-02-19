@@ -17,8 +17,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdRace" Type="int" Nullable="false" />
-          <Property Name="IdClasse" Type="int" Nullable="false" />
+          <Property Name="IdRace" Type="int" />
+          <Property Name="IdClasse" Type="int" />
           <Property Name="Libelle" Type="varchar(max)" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
         </EntityType>
@@ -241,7 +241,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Libelle" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Libelle" Type="varchar(max)" Nullable="false" />
           <Property Name="IdRareteEquipement" Type="int" Nullable="false" />
           <Property Name="IdCategorieEquipement" Type="int" Nullable="false" />
         </EntityType>
@@ -317,7 +317,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_IDCLASSEREFCLASSE">
-          <End Role="Classe" Type="Self.Classe" Multiplicity="1" />
+          <End Role="Classe" Type="Self.Classe" Multiplicity="0..1" />
           <End Role="Aptitude" Type="Self.Aptitude" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Classe">
@@ -509,7 +509,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_IDRACEREFRACE">
-          <End Role="Race" Type="Self.Race" Multiplicity="1" />
+          <End Role="Race" Type="Self.Race" Multiplicity="0..1" />
           <End Role="Aptitude" Type="Self.Aptitude" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Race">
@@ -630,6 +630,10 @@
         </Association>
         <Function Name="DeleteEquipement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idEquipement" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetAllAptitudes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdClasse" Type="int" Mode="In" />
+          <Parameter Name="IdRace" Type="int" Mode="In" />
         </Function>
         <Function Name="GetAllCompetenceByIdPersonnage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdPersonnage" Type="int" Mode="In" />
@@ -888,8 +892,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Pouvoir" Relationship="Self.fk_IDCLASSEPOUVOIR" FromRole="Classe" ToRole="Pouvoir" />
-          <NavigationProperty Name="Aptitude" Relationship="FichePersoDndModel.fk_IDCLASSEREFCLASSE" FromRole="Classe" ToRole="Aptitude" />
           <NavigationProperty Name="Personnage" Relationship="FichePersoDndModel.fk_IDCLASSE" FromRole="Classe" ToRole="Personnage" />
+          <NavigationProperty Name="Aptitude" Relationship="FichePersoDndModel.fk_IDCLASSEREFCLASSE" FromRole="Classe" ToRole="Aptitude" />
         </EntityType>
         <EntityType Name="Divinite">
           <Key>
@@ -962,8 +966,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Aptitude" Relationship="FichePersoDndModel.fk_IDRACEREFRACE" FromRole="Race" ToRole="Aptitude" />
           <NavigationProperty Name="Personnage" Relationship="FichePersoDndModel.fk_IDRACE" FromRole="Race" ToRole="Personnage" />
+          <NavigationProperty Name="Aptitude" Relationship="FichePersoDndModel.fk_IDRACEREFRACE" FromRole="Race" ToRole="Aptitude" />
         </EntityType>
         <EntityType Name="RareteEquipement">
           <Key>
@@ -1032,7 +1036,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Libelle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Libelle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdRareteEquipement" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Equipement" Relationship="Self.fk_IDTYPEEQUIPEMENTEQUIPEMENT" FromRole="TypeEquipement" ToRole="Equipement" />
           <NavigationProperty Name="RareteEquipement" Relationship="Self.fk_IDRARETEEQUIPEMENTTYPEEQUIPEMENT" FromRole="TypeEquipement" ToRole="RareteEquipement" />
@@ -1290,15 +1294,6 @@
           <FunctionImport Name="GetAllTalentByIdPersonnage" ReturnType="Collection(FichePersoDndModel.AllTalentByIdPersonnage)">
           <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
           </FunctionImport>
-          <EntitySet Name="Aptitude" EntityType="FichePersoDndModel.Aptitude" />
-          <AssociationSet Name="fk_IDCLASSEREFCLASSE" Association="FichePersoDndModel.fk_IDCLASSEREFCLASSE">
-            <End Role="Classe" EntitySet="Classe" />
-            <End Role="Aptitude" EntitySet="Aptitude" />
-          </AssociationSet>
-          <AssociationSet Name="fk_IDRACEREFRACE" Association="FichePersoDndModel.fk_IDRACEREFRACE">
-            <End Role="Race" EntitySet="Race" />
-            <End Role="Aptitude" EntitySet="Aptitude" />
-          </AssociationSet>
           <FunctionImport Name="GetAllStuffByPersonnage" ReturnType="Collection(FichePersoDndModel.AllStuffByPersonnage)">
           <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1371,6 +1366,19 @@
             <End Role="Personnage" EntitySet="Personnage" />
             <End Role="PortraitPersonnage" EntitySet="PortraitPersonnage" />
           </AssociationSet>
+          <EntitySet Name="Aptitude" EntityType="FichePersoDndModel.Aptitude" />
+          <AssociationSet Name="fk_IDCLASSEREFCLASSE" Association="FichePersoDndModel.fk_IDCLASSEREFCLASSE">
+            <End Role="Classe" EntitySet="Classe" />
+            <End Role="Aptitude" EntitySet="Aptitude" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IDRACEREFRACE" Association="FichePersoDndModel.fk_IDRACEREFRACE">
+            <End Role="Race" EntitySet="Race" />
+            <End Role="Aptitude" EntitySet="Aptitude" />
+          </AssociationSet>
+          <FunctionImport Name="GetAllAptitudes" ReturnType="Collection(FichePersoDndModel.AllAptitudes)">
+            <Parameter Name="IdClasse" Mode="In" Type="Int32" />
+            <Parameter Name="IdRace" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Caracteristique">
           <Key>
@@ -1580,42 +1588,6 @@
           <Property Type="String" Name="Prerequis" Nullable="true" />
           <Property Type="String" Name="Html" Nullable="true" />
         </ComplexType>
-        <EntityType Name="Aptitude">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdRace" Type="Int32" Nullable="false" />
-          <Property Name="IdClasse" Type="Int32" Nullable="false" />
-          <Property Name="Libelle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Classe" Relationship="FichePersoDndModel.fk_IDCLASSEREFCLASSE" FromRole="Aptitude" ToRole="Classe" />
-          <NavigationProperty Name="Race" Relationship="FichePersoDndModel.fk_IDRACEREFRACE" FromRole="Aptitude" ToRole="Race" />
-        </EntityType>
-        <Association Name="fk_IDCLASSEREFCLASSE">
-          <End Type="FichePersoDndModel.Classe" Role="Classe" Multiplicity="1" />
-          <End Type="FichePersoDndModel.Aptitude" Role="Aptitude" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Classe">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Aptitude">
-              <PropertyRef Name="IdClasse" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_IDRACEREFRACE">
-          <End Type="FichePersoDndModel.Race" Role="Race" Multiplicity="1" />
-          <End Type="FichePersoDndModel.Aptitude" Role="Aptitude" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Race">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Aptitude">
-              <PropertyRef Name="IdRace" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <ComplexType Name="AllStuffByPersonnage">
           <Property Type="String" Name="TypeEquipement" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="CategorieEquipement" Nullable="true" MaxLength="50" />
@@ -1862,6 +1834,49 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Aptitude">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRace" Type="Int32" />
+          <Property Name="IdClasse" Type="Int32" />
+          <Property Name="Libelle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Classe" Relationship="FichePersoDndModel.fk_IDCLASSEREFCLASSE" FromRole="Aptitude" ToRole="Classe" />
+          <NavigationProperty Name="Race" Relationship="FichePersoDndModel.fk_IDRACEREFRACE" FromRole="Aptitude" ToRole="Race" />
+        </EntityType>
+        <Association Name="fk_IDCLASSEREFCLASSE">
+          <End Type="FichePersoDndModel.Classe" Role="Classe" Multiplicity="0..1" />
+          <End Type="FichePersoDndModel.Aptitude" Role="Aptitude" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Aptitude">
+              <PropertyRef Name="IdClasse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IDRACEREFRACE">
+          <End Type="FichePersoDndModel.Race" Role="Race" Multiplicity="0..1" />
+          <End Type="FichePersoDndModel.Aptitude" Role="Aptitude" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Race">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Aptitude">
+              <PropertyRef Name="IdRace" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="AllAptitudes">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdRace" Nullable="true" />
+          <Property Type="Int32" Name="IdClasse" Nullable="true" />
+          <Property Type="String" Name="Libelle" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2212,17 +2227,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="Aptitude">
-            <EntityTypeMapping TypeName="FichePersoDndModel.Aptitude">
-              <MappingFragment StoreEntitySet="Aptitude">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
-                <ScalarProperty Name="IdClasse" ColumnName="IdClasse" />
-                <ScalarProperty Name="IdRace" ColumnName="IdRace" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="GetAllStuffByPersonnage" FunctionName="FichePersoDndModel.Store.GetAllStuffByPersonnage">
             <ResultMapping>
               <ComplexTypeMapping TypeName="FichePersoDndModel.AllStuffByPersonnage">
@@ -2266,6 +2270,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Aptitude">
+            <EntityTypeMapping TypeName="FichePersoDndModel.Aptitude">
+              <MappingFragment StoreEntitySet="Aptitude">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="IdClasse" ColumnName="IdClasse" />
+                <ScalarProperty Name="IdRace" ColumnName="IdRace" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAllAptitudes" FunctionName="FichePersoDndModel.Store.GetAllAptitudes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FichePersoDndModel.AllAptitudes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdRace" ColumnName="IdRace" />
+                <ScalarProperty Name="IdClasse" ColumnName="IdClasse" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

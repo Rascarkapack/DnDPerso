@@ -13,17 +13,14 @@ namespace DnDPersoEntities
 
 {
     using System;
-    using System.Collections.Generic;
     
-    
-    public partial class Classe : INotifyPropertyChanged, IEntity
+    public partial class AllAptitudes : INotifyPropertyChanged, IEntity
     {
-    
-        #region INotifyPropertyChanged implementation
+    	#region INotifyPropertyChanged implementation
     
     	public event PropertyChangedEventHandler PropertyChanged;
     
-        /// <summary>
+    	/// <summary>
         ///   Raise the <see cref="PropertyChanged" /> event.
         /// </summary>
         /// <param name="propertyName"> </param>
@@ -36,15 +33,6 @@ namespace DnDPersoEntities
         }
     
     	#endregion
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Classe()
-        {
-            this.Pouvoir = new HashSet<Pouvoir>();
-            this.Personnage = new HashSet<Personnage>();
-            this.Aptitude = new HashSet<Aptitude>();
-        }
-    
         
      	private int _id;
     	public int Id
@@ -57,6 +45,34 @@ namespace DnDPersoEntities
     		{
     			_id = value;
     			NotifyPropertyChange("Id");
+    		}
+    	}
+        
+     	private Nullable<int> _idrace;
+    	public Nullable<int> IdRace
+    	{
+    		get
+    		{
+    			return _idrace;
+    		}
+    		set
+    		{
+    			_idrace = value;
+    			NotifyPropertyChange("IdRace");
+    		}
+    	}
+        
+     	private Nullable<int> _idclasse;
+    	public Nullable<int> IdClasse
+    	{
+    		get
+    		{
+    			return _idclasse;
+    		}
+    		set
+    		{
+    			_idclasse = value;
+    			NotifyPropertyChange("IdClasse");
     		}
     	}
         
@@ -73,12 +89,19 @@ namespace DnDPersoEntities
     			NotifyPropertyChange("Libelle");
     		}
     	}
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pouvoir> Pouvoir { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Personnage> Personnage { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Aptitude> Aptitude { get; set; }
+        
+     	private string _description;
+    	public string Description
+    	{
+    		get
+    		{
+    			return _description;
+    		}
+    		set
+    		{
+    			_description = value;
+    			NotifyPropertyChange("Description");
+    		}
+    	}
     }
 }

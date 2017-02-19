@@ -44,9 +44,6 @@
         <AssociationConnector Association="FichePersoDndModel.fk_IDCOMPECOMPEPERSONNAGE" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDDEFDEFPERSONNAGE" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDUTILPERSONNAGE" />
-        <EntityTypeShape EntityType="FichePersoDndModel.Aptitude" Width="1.5" PointX="6" PointY="17.875" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDCLASSEREFCLASSE" />
-        <AssociationConnector Association="FichePersoDndModel.fk_IDRACEREFRACE" />
         <EntityTypeShape EntityType="FichePersoDndModel.PortraitPersonnage" Width="1.5" PointX="8.25" PointY="3.75" />
         <EntityTypeShape EntityType="FichePersoDndModel.Personnage" Width="1.5" PointX="15" PointY="1.375" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDALIGNEMENT" />
@@ -65,6 +62,9 @@
         <AssociationConnector Association="FichePersoDndModel.fk_IDPERSONNAGEUTILPERSONNAGE" />
         <AssociationConnector Association="FichePersoDndModel.fk_IDRACE" />
         <AssociationConnector Association="FichePersoDndModel.fk_PORTRAITPERSO" />
+        <EntityTypeShape EntityType="FichePersoDndModel.Aptitude" Width="1.5" PointX="6" PointY="14.875" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDCLASSEREFCLASSE" />
+        <AssociationConnector Association="FichePersoDndModel.fk_IDRACEREFRACE" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

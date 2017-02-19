@@ -158,7 +158,7 @@ namespace DnDPerso.Controllers
             try
             {
                 listAllStuffByPersonnage = EquipementBLL.GetAllStuffByPersonnage(idPersonnage);
-               
+
             }
             catch (Exception)
             {
@@ -183,7 +183,7 @@ namespace DnDPerso.Controllers
                 equipement.Quantite = model.quantite;
                 EquipementBLL.Add(equipement);
 
-                var data = new {Id = idTypeEquipement, type = model.typeEquipement};
+                var data = new { Id = idTypeEquipement, type = model.typeEquipement };
                 return Json(data);
             }
             catch (Exception e)
@@ -221,6 +221,27 @@ namespace DnDPerso.Controllers
                 return Json("KO");
             }
             return Json("OK");
+        }
+        #endregion
+
+        #region Aptitudes
+
+        public ActionResult EncartAptitudesPartialView(int idClasse, int idRace)
+        {
+            List<AllAptitudes> listAptitudes = new List<AllAptitudes>();
+            try
+            {
+                if (idClasse != 0 && idRace != 0)
+                {
+                    listAptitudes = AptitudeBLL.GetAllAptitudes(idClasse, idRace);
+                }
+                
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            return PartialView("EncartAptitudesPartialView", listAptitudes);
         }
         #endregion
 

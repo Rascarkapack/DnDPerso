@@ -384,11 +384,10 @@
         <div id="encartPouvoirs">
             <div class="header_bloc_title">
                 Aptitudes
-                <input type="button" style="margin-right: 20px; margin-top: -2px; padding-top: 3px; padding-left: 7px;" onclick="OpenPopUpPouvoir(@Model.IdClasse, @Model.Niveau)" value="+" />
             </div>
 
             <div class="inner_bloc_container">
-               @* @Html.Action("EncartPouvoirsPartialView", @Model.Id)*@
+                @Html.Action("EncartAptitudesPartialView", new {idClasse = Model.IdClasse, idRace = Model.IdRace})
             </div>
         </div>
     </div>

@@ -55,9 +55,9 @@ namespace DnDPersoDAL.Generated.Bdd
         public virtual DbSet<DefensePersonnage> DefensePersonnage { get; set; }
         public virtual DbSet<Utilisateur> Utilisateur { get; set; }
         public virtual DbSet<UtilisateurPersonnage> UtilisateurPersonnage { get; set; }
-        public virtual DbSet<Aptitude> Aptitude { get; set; }
         public virtual DbSet<PortraitPersonnage> PortraitPersonnage { get; set; }
         public virtual DbSet<Personnage> Personnage { get; set; }
+        public virtual DbSet<Aptitude> Aptitude { get; set; }
     
         public virtual ObjectResult<string> ListePouvoirs(Nullable<int> classe, Nullable<int> niveau)
         {
@@ -342,6 +342,19 @@ namespace DnDPersoDAL.Generated.Bdd
                 new ObjectParameter("idEquipement", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteEquipement", idEquipementParameter);
+        }
+    
+        public virtual ObjectResult<AllAptitudes> GetAllAptitudes(Nullable<int> idClasse, Nullable<int> idRace)
+        {
+            var idClasseParameter = idClasse.HasValue ?
+                new ObjectParameter("IdClasse", idClasse) :
+                new ObjectParameter("IdClasse", typeof(int));
+    
+            var idRaceParameter = idRace.HasValue ?
+                new ObjectParameter("IdRace", idRace) :
+                new ObjectParameter("IdRace", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllAptitudes>("GetAllAptitudes", idClasseParameter, idRaceParameter);
         }
     }
 }
