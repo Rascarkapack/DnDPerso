@@ -65,7 +65,7 @@ namespace DnDPersoDAL
             int? ModClasseAttaque = model.ModClasseAttaque;
             int? ModCaracDegat = model.ModCaracDegat;
             int? ModTalentDegat = model.ModTalentDegat;
-            int? PVActuel = model.PVActuel;
+            int? PVActuel = model.PVActuel; 
 
             try
             {
