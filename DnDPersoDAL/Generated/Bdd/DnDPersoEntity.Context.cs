@@ -72,7 +72,83 @@ namespace DnDPersoDAL.Generated.Bdd
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("ListePouvoirs", classeParameter, niveauParameter);
         }
     
-        public virtual int SetCharacterData(Nullable<int> idUser, Nullable<int> idCharacter, string nom, Nullable<int> niveau, Nullable<int> idClasse, Nullable<int> experience, Nullable<int> idRace, string categorieTaille, Nullable<int> age, string sexe, Nullable<int> taille, Nullable<int> poids, Nullable<int> idAlignement, Nullable<int> idDivinite, string groupeAventurier, Nullable<int> pointAction, Nullable<int> pVMax, string personnalite, Nullable<int> initiativeDivers, Nullable<int> caracteristiqueForce, Nullable<int> caracteristiqueConstitution, Nullable<int> caracteristiqueDexterite, Nullable<int> caracteristiqueIntelligence, Nullable<int> caracteristiqueSagesse, Nullable<int> caracteristiqueCharisme, Nullable<int> defenseCADemiNiveau, Nullable<int> defenseCACaracteristique, Nullable<int> defenseCAClasse, Nullable<int> defenseCATalent, Nullable<int> defenseCADivers, Nullable<int> defenseVIGDemiNiveau, Nullable<int> defenseVIGCaracteristique, Nullable<int> defenseVIGClasse, Nullable<int> defenseVIGTalent, Nullable<int> defenseVIGDivers, Nullable<int> defenseREFDemiNiveau, Nullable<int> defenseREFCaracteristique, Nullable<int> defenseREFClasse, Nullable<int> defenseREFTalent, Nullable<int> defenseREFDivers, Nullable<int> defenseVOLDemiNiveau, Nullable<int> defenseVOLCaracteristique, Nullable<int> defenseVOLClasse, Nullable<int> defenseVOLTalent, Nullable<int> defenseVOLDivers, Nullable<int> modCaracAttaque, Nullable<int> modManiAttaque, Nullable<int> modTalentAttaque, Nullable<int> modClasseAttaque, Nullable<int> modCaracDegat, Nullable<int> modTalentDegat)
+        public virtual ObjectResult<PersonnageByUtilisateur> GetAllPersonnageByUtilisateur(Nullable<int> idUtilisateur)
+        {
+            var idUtilisateurParameter = idUtilisateur.HasValue ?
+                new ObjectParameter("IdUtilisateur", idUtilisateur) :
+                new ObjectParameter("IdUtilisateur", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PersonnageByUtilisateur>("GetAllPersonnageByUtilisateur", idUtilisateurParameter);
+        }
+    
+        public virtual ObjectResult<CharacterData> GetCharacterData(Nullable<int> characterId)
+        {
+            var characterIdParameter = characterId.HasValue ?
+                new ObjectParameter("CharacterId", characterId) :
+                new ObjectParameter("CharacterId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CharacterData>("GetCharacterData", characterIdParameter);
+        }
+    
+        public virtual ObjectResult<AllPouvoirByIdPersonnage> GetAllPouvoirByIdPersonnage(Nullable<int> idPersonnage)
+        {
+            var idPersonnageParameter = idPersonnage.HasValue ?
+                new ObjectParameter("IdPersonnage", idPersonnage) :
+                new ObjectParameter("IdPersonnage", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllPouvoirByIdPersonnage>("GetAllPouvoirByIdPersonnage", idPersonnageParameter);
+        }
+    
+        public virtual ObjectResult<AllCompetenceByIdPersonnage> GetAllCompetenceByIdPersonnage(Nullable<int> idPersonnage)
+        {
+            var idPersonnageParameter = idPersonnage.HasValue ?
+                new ObjectParameter("IdPersonnage", idPersonnage) :
+                new ObjectParameter("IdPersonnage", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllCompetenceByIdPersonnage>("GetAllCompetenceByIdPersonnage", idPersonnageParameter);
+        }
+    
+        public virtual ObjectResult<AllTalentByIdPersonnage> GetAllTalentByIdPersonnage(Nullable<int> idPersonnage)
+        {
+            var idPersonnageParameter = idPersonnage.HasValue ?
+                new ObjectParameter("IdPersonnage", idPersonnage) :
+                new ObjectParameter("IdPersonnage", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllTalentByIdPersonnage>("GetAllTalentByIdPersonnage", idPersonnageParameter);
+        }
+    
+        public virtual ObjectResult<AllStuffByPersonnage> GetAllStuffByPersonnage(Nullable<int> idPersonnage)
+        {
+            var idPersonnageParameter = idPersonnage.HasValue ?
+                new ObjectParameter("IdPersonnage", idPersonnage) :
+                new ObjectParameter("IdPersonnage", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllStuffByPersonnage>("GetAllStuffByPersonnage", idPersonnageParameter);
+        }
+    
+        public virtual int DeleteEquipement(Nullable<int> idEquipement)
+        {
+            var idEquipementParameter = idEquipement.HasValue ?
+                new ObjectParameter("idEquipement", idEquipement) :
+                new ObjectParameter("idEquipement", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteEquipement", idEquipementParameter);
+        }
+    
+        public virtual ObjectResult<AllAptitudes> GetAllAptitudes(Nullable<int> idClasse, Nullable<int> idRace)
+        {
+            var idClasseParameter = idClasse.HasValue ?
+                new ObjectParameter("IdClasse", idClasse) :
+                new ObjectParameter("IdClasse", typeof(int));
+    
+            var idRaceParameter = idRace.HasValue ?
+                new ObjectParameter("IdRace", idRace) :
+                new ObjectParameter("IdRace", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllAptitudes>("GetAllAptitudes", idClasseParameter, idRaceParameter);
+        }
+    
+        public virtual int SetCharacterData(Nullable<int> idUser, Nullable<int> idCharacter, string nom, Nullable<int> niveau, Nullable<int> idClasse, Nullable<int> experience, Nullable<int> idRace, string categorieTaille, Nullable<int> age, string sexe, Nullable<int> taille, Nullable<int> poids, Nullable<int> idAlignement, Nullable<int> idDivinite, string groupeAventurier, Nullable<int> pointAction, Nullable<int> pVMax, string personnalite, Nullable<int> initiativeDivers, Nullable<int> caracteristiqueForce, Nullable<int> caracteristiqueConstitution, Nullable<int> caracteristiqueDexterite, Nullable<int> caracteristiqueIntelligence, Nullable<int> caracteristiqueSagesse, Nullable<int> caracteristiqueCharisme, Nullable<int> defenseCADemiNiveau, Nullable<int> defenseCACaracteristique, Nullable<int> defenseCAClasse, Nullable<int> defenseCATalent, Nullable<int> defenseCADivers, Nullable<int> defenseVIGDemiNiveau, Nullable<int> defenseVIGCaracteristique, Nullable<int> defenseVIGClasse, Nullable<int> defenseVIGTalent, Nullable<int> defenseVIGDivers, Nullable<int> defenseREFDemiNiveau, Nullable<int> defenseREFCaracteristique, Nullable<int> defenseREFClasse, Nullable<int> defenseREFTalent, Nullable<int> defenseREFDivers, Nullable<int> defenseVOLDemiNiveau, Nullable<int> defenseVOLCaracteristique, Nullable<int> defenseVOLClasse, Nullable<int> defenseVOLTalent, Nullable<int> defenseVOLDivers, Nullable<int> modCaracAttaque, Nullable<int> modManiAttaque, Nullable<int> modTalentAttaque, Nullable<int> modClasseAttaque, Nullable<int> modCaracDegat, Nullable<int> modTalentDegat, Nullable<int> pVActuel)
         {
             var idUserParameter = idUser.HasValue ?
                 new ObjectParameter("idUser", idUser) :
@@ -278,83 +354,11 @@ namespace DnDPersoDAL.Generated.Bdd
                 new ObjectParameter("ModTalentDegat", modTalentDegat) :
                 new ObjectParameter("ModTalentDegat", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SetCharacterData", idUserParameter, idCharacterParameter, nomParameter, niveauParameter, idClasseParameter, experienceParameter, idRaceParameter, categorieTailleParameter, ageParameter, sexeParameter, tailleParameter, poidsParameter, idAlignementParameter, idDiviniteParameter, groupeAventurierParameter, pointActionParameter, pVMaxParameter, personnaliteParameter, initiativeDiversParameter, caracteristiqueForceParameter, caracteristiqueConstitutionParameter, caracteristiqueDexteriteParameter, caracteristiqueIntelligenceParameter, caracteristiqueSagesseParameter, caracteristiqueCharismeParameter, defenseCADemiNiveauParameter, defenseCACaracteristiqueParameter, defenseCAClasseParameter, defenseCATalentParameter, defenseCADiversParameter, defenseVIGDemiNiveauParameter, defenseVIGCaracteristiqueParameter, defenseVIGClasseParameter, defenseVIGTalentParameter, defenseVIGDiversParameter, defenseREFDemiNiveauParameter, defenseREFCaracteristiqueParameter, defenseREFClasseParameter, defenseREFTalentParameter, defenseREFDiversParameter, defenseVOLDemiNiveauParameter, defenseVOLCaracteristiqueParameter, defenseVOLClasseParameter, defenseVOLTalentParameter, defenseVOLDiversParameter, modCaracAttaqueParameter, modManiAttaqueParameter, modTalentAttaqueParameter, modClasseAttaqueParameter, modCaracDegatParameter, modTalentDegatParameter);
-        }
+            var pVActuelParameter = pVActuel.HasValue ?
+                new ObjectParameter("PVActuel", pVActuel) :
+                new ObjectParameter("PVActuel", typeof(int));
     
-        public virtual ObjectResult<PersonnageByUtilisateur> GetAllPersonnageByUtilisateur(Nullable<int> idUtilisateur)
-        {
-            var idUtilisateurParameter = idUtilisateur.HasValue ?
-                new ObjectParameter("IdUtilisateur", idUtilisateur) :
-                new ObjectParameter("IdUtilisateur", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PersonnageByUtilisateur>("GetAllPersonnageByUtilisateur", idUtilisateurParameter);
-        }
-    
-        public virtual ObjectResult<CharacterData> GetCharacterData(Nullable<int> characterId)
-        {
-            var characterIdParameter = characterId.HasValue ?
-                new ObjectParameter("CharacterId", characterId) :
-                new ObjectParameter("CharacterId", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CharacterData>("GetCharacterData", characterIdParameter);
-        }
-    
-        public virtual ObjectResult<AllPouvoirByIdPersonnage> GetAllPouvoirByIdPersonnage(Nullable<int> idPersonnage)
-        {
-            var idPersonnageParameter = idPersonnage.HasValue ?
-                new ObjectParameter("IdPersonnage", idPersonnage) :
-                new ObjectParameter("IdPersonnage", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllPouvoirByIdPersonnage>("GetAllPouvoirByIdPersonnage", idPersonnageParameter);
-        }
-    
-        public virtual ObjectResult<AllCompetenceByIdPersonnage> GetAllCompetenceByIdPersonnage(Nullable<int> idPersonnage)
-        {
-            var idPersonnageParameter = idPersonnage.HasValue ?
-                new ObjectParameter("IdPersonnage", idPersonnage) :
-                new ObjectParameter("IdPersonnage", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllCompetenceByIdPersonnage>("GetAllCompetenceByIdPersonnage", idPersonnageParameter);
-        }
-    
-        public virtual ObjectResult<AllTalentByIdPersonnage> GetAllTalentByIdPersonnage(Nullable<int> idPersonnage)
-        {
-            var idPersonnageParameter = idPersonnage.HasValue ?
-                new ObjectParameter("IdPersonnage", idPersonnage) :
-                new ObjectParameter("IdPersonnage", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllTalentByIdPersonnage>("GetAllTalentByIdPersonnage", idPersonnageParameter);
-        }
-    
-        public virtual ObjectResult<AllStuffByPersonnage> GetAllStuffByPersonnage(Nullable<int> idPersonnage)
-        {
-            var idPersonnageParameter = idPersonnage.HasValue ?
-                new ObjectParameter("IdPersonnage", idPersonnage) :
-                new ObjectParameter("IdPersonnage", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllStuffByPersonnage>("GetAllStuffByPersonnage", idPersonnageParameter);
-        }
-    
-        public virtual int DeleteEquipement(Nullable<int> idEquipement)
-        {
-            var idEquipementParameter = idEquipement.HasValue ?
-                new ObjectParameter("idEquipement", idEquipement) :
-                new ObjectParameter("idEquipement", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteEquipement", idEquipementParameter);
-        }
-    
-        public virtual ObjectResult<AllAptitudes> GetAllAptitudes(Nullable<int> idClasse, Nullable<int> idRace)
-        {
-            var idClasseParameter = idClasse.HasValue ?
-                new ObjectParameter("IdClasse", idClasse) :
-                new ObjectParameter("IdClasse", typeof(int));
-    
-            var idRaceParameter = idRace.HasValue ?
-                new ObjectParameter("IdRace", idRace) :
-                new ObjectParameter("IdRace", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllAptitudes>("GetAllAptitudes", idClasseParameter, idRaceParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SetCharacterData", idUserParameter, idCharacterParameter, nomParameter, niveauParameter, idClasseParameter, experienceParameter, idRaceParameter, categorieTailleParameter, ageParameter, sexeParameter, tailleParameter, poidsParameter, idAlignementParameter, idDiviniteParameter, groupeAventurierParameter, pointActionParameter, pVMaxParameter, personnaliteParameter, initiativeDiversParameter, caracteristiqueForceParameter, caracteristiqueConstitutionParameter, caracteristiqueDexteriteParameter, caracteristiqueIntelligenceParameter, caracteristiqueSagesseParameter, caracteristiqueCharismeParameter, defenseCADemiNiveauParameter, defenseCACaracteristiqueParameter, defenseCAClasseParameter, defenseCATalentParameter, defenseCADiversParameter, defenseVIGDemiNiveauParameter, defenseVIGCaracteristiqueParameter, defenseVIGClasseParameter, defenseVIGTalentParameter, defenseVIGDiversParameter, defenseREFDemiNiveauParameter, defenseREFCaracteristiqueParameter, defenseREFClasseParameter, defenseREFTalentParameter, defenseREFDiversParameter, defenseVOLDemiNiveauParameter, defenseVOLCaracteristiqueParameter, defenseVOLClasseParameter, defenseVOLTalentParameter, defenseVOLDiversParameter, modCaracAttaqueParameter, modManiAttaqueParameter, modTalentAttaqueParameter, modClasseAttaqueParameter, modCaracDegatParameter, modTalentDegatParameter, pVActuelParameter);
         }
     }
 }

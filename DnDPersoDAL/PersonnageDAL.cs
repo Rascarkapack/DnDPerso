@@ -65,6 +65,7 @@ namespace DnDPersoDAL
             int? ModClasseAttaque = model.ModClasseAttaque;
             int? ModCaracDegat = model.ModCaracDegat;
             int? ModTalentDegat = model.ModTalentDegat;
+            int? PVActuel = model.PVActuel;
 
             try
             {
@@ -73,7 +74,7 @@ namespace DnDPersoDAL
                     CaracteristiqueForce, CaracteristiqueConstitution, CaracteristiqueDexterite, CaracteristiqueIntelligence, CaracteristiqueSagesse, CaracteristiqueCharisme, DefenseCADemiNiveau, DefenseCACaracteristique, DefenseCAClasse,
                     DefenseCATalent, DefenseCADivers, DefenseVIGDemiNiveau, DefenseVIGCaracteristique, DefenseVIGClasse, DefenseVIGTalent, DefenseVIGDivers, DefenseREFDemiNiveau, DefenseREFCaracteristique, DefenseREFClasse, DefenseREFTalent,
                     DefenseREFDivers, DefenseVOLDemiNiveau, DefenseVOLCaracteristique, DefenseVOLClasse, DefenseVOLTalent, DefenseVOLDivers, ModCaracAttaque, ModManiAttaque, ModTalentAttaque, ModClasseAttaque
-                    , ModCaracDegat, ModTalentDegat);
+                    , ModCaracDegat, ModTalentDegat, PVActuel);
             }
             catch(Exception e)
             { }

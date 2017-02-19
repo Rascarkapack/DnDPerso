@@ -761,5 +761,19 @@ namespace DnDPersoEntities
     			NotifyPropertyChange("CheminPortrait");
     		}
     	}
+        
+     	private Nullable<int> _pvactuel;
+    	public Nullable<int> PVActuel
+    	{
+    		get
+    		{
+    			return _pvactuel;
+    		}
+    		set
+    		{
+    			_pvactuel = value;
+    			NotifyPropertyChange("PVActuel");
+    		}
+    	}
     }
 }

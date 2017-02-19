@@ -292,6 +292,20 @@ namespace DnDPersoEntities
     			NotifyPropertyChange("GroupeAventurier");
     		}
     	}
+        
+     	private Nullable<int> _pvactuel;
+    	public Nullable<int> PVActuel
+    	{
+    		get
+    		{
+    			return _pvactuel;
+    		}
+    		set
+    		{
+    			_pvactuel = value;
+    			NotifyPropertyChange("PVActuel");
+    		}
+    	}
     
         public virtual Alignement Alignement { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

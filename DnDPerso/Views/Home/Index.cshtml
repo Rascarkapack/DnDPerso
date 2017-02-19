@@ -275,15 +275,15 @@
             </div>
             <div class="span_libelle">Actuel</div>
             <div class="input_bloc width35">
-                @Html.TextBox( "PVActuel",null, new { @class = "text_center", id = "input_PVMax" })
+                @Html.TextBoxFor(model=>model.PVActuel,"", new { @class = "text_center", id = "input_PVActuel" })
             </div>
             <div class="span_libelle">Récup</div>
             <div class="input_bloc width35">
-                @Html.TextBox("Recup",null, new { @class = "text_center", id = "input_PVMax" })
+                @Html.TextBox("Recup",null, new { @class = "text_center", id = "input_PVRecup" })
             </div>
             <div class="span_libelle">Souffle</div>
             <div class="input_bloc width35">
-                @Html.TextBox("SecondSouffle",null, new { @class = "text_center", id = "input_PVMax" })
+                @Html.TextBox("SecondSouffle",null, new { @class = "text_center", id = "input_PVSecond" })
             </div>
         </div>
     </div>
@@ -347,6 +347,10 @@
                 @Html.TextBoxFor(model => model.ModTalentAttaque, "", new {@class = "text_center", id = "ModTalentAttaque"})
                 <span class="input_libelle">Talent</span>
             </div>
+            <div class="input_bloc width35">
+                @Html.TextBox("ModDiversAttaque", null, new { @class = "text_center", id = "ModDiversAttaque" })
+                <span class="input_libelle">Divers</span>
+            </div>
            
 
             <div class="span_libelle span_fixe_top" style="margin-left: 25px;">Dgt</div>
@@ -365,6 +369,10 @@
             <div class="input_bloc width35">
                 @Html.TextBoxFor(model => model.ModTalentDegat, "", new { @class = "text_center", id = "ModTalentDegat" })
                 <span class="input_libelle">Talent</span>
+            </div>
+            <div class="input_bloc width35">
+                @Html.TextBox("ModDiversDegat",null, new { @class = "text_center", id = "ModDiversDegat" })
+                <span class="input_libelle">Divers</span>
             </div>
         </div>
     </div>

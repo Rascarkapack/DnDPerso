@@ -147,6 +147,7 @@
           <Property Name="PVMax" Type="int" Nullable="false" />
           <Property Name="Personnalite" Type="varchar" MaxLength="255" />
           <Property Name="GroupeAventurier" Type="varchar(max)" />
+          <Property Name="PVActuel" Type="int" />
         </EntityType>
         <EntityType Name="PortraitPersonnage">
           <Key>
@@ -709,6 +710,7 @@
           <Parameter Name="ModClasseAttaque" Type="int" Mode="In" />
           <Parameter Name="ModCaracDegat" Type="int" Mode="In" />
           <Parameter Name="ModTalentDegat" Type="int" Mode="In" />
+          <Parameter Name="PVActuel" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="FichePersoDndModelStoreContainer">
           <EntitySet Name="Alignement" EntityType="Self.Alignement" Schema="dbo" store:Type="Tables" />
@@ -1226,59 +1228,6 @@
             <End Role="Utilisateur" EntitySet="Utilisateur" />
             <End Role="UtilisateurPersonnage" EntitySet="UtilisateurPersonnage" />
           </AssociationSet>
-          <FunctionImport Name="SetCharacterData">
-            <Parameter Name="idUser" Mode="In" Type="Int32" />
-            <Parameter Name="idCharacter" Mode="In" Type="Int32" />
-            <Parameter Name="Nom" Mode="In" Type="String" />
-            <Parameter Name="Niveau" Mode="In" Type="Int32" />
-            <Parameter Name="IdClasse" Mode="In" Type="Int32" />
-            <Parameter Name="Experience" Mode="In" Type="Int32" />
-            <Parameter Name="IdRace" Mode="In" Type="Int32" />
-            <Parameter Name="CategorieTaille" Mode="In" Type="String" />
-            <Parameter Name="Age" Mode="In" Type="Int32" />
-            <Parameter Name="Sexe" Mode="In" Type="String" />
-            <Parameter Name="Taille" Mode="In" Type="Int32" />
-            <Parameter Name="Poids" Mode="In" Type="Int32" />
-            <Parameter Name="IdAlignement" Mode="In" Type="Int32" />
-            <Parameter Name="IdDivinite" Mode="In" Type="Int32" />
-            <Parameter Name="GroupeAventurier" Mode="In" Type="String" />
-            <Parameter Name="PointAction" Mode="In" Type="Int32" />
-            <Parameter Name="PVMax" Mode="In" Type="Int32" />
-            <Parameter Name="Personnalite" Mode="In" Type="String" />
-            <Parameter Name="InitiativeDivers" Mode="In" Type="Int32" />
-            <Parameter Name="CaracteristiqueForce" Mode="In" Type="Int32" />
-            <Parameter Name="CaracteristiqueConstitution" Mode="In" Type="Int32" />
-            <Parameter Name="CaracteristiqueDexterite" Mode="In" Type="Int32" />
-            <Parameter Name="CaracteristiqueIntelligence" Mode="In" Type="Int32" />
-            <Parameter Name="CaracteristiqueSagesse" Mode="In" Type="Int32" />
-            <Parameter Name="CaracteristiqueCharisme" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseCADemiNiveau" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseCACaracteristique" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseCAClasse" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseCATalent" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseCADivers" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseVIGDemiNiveau" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseVIGCaracteristique" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseVIGClasse" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseVIGTalent" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseVIGDivers" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseREFDemiNiveau" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseREFCaracteristique" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseREFClasse" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseREFTalent" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseREFDivers" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseVOLDemiNiveau" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseVOLCaracteristique" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseVOLClasse" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseVOLTalent" Mode="In" Type="Int32" />
-            <Parameter Name="DefenseVOLDivers" Mode="In" Type="Int32" />
-            <Parameter Name="ModCaracAttaque" Mode="In" Type="Int32" />
-            <Parameter Name="ModManiAttaque" Mode="In" Type="Int32" />
-            <Parameter Name="ModTalentAttaque" Mode="In" Type="Int32" />
-            <Parameter Name="ModClasseAttaque" Mode="In" Type="Int32" />
-            <Parameter Name="ModCaracDegat" Mode="In" Type="Int32" />
-            <Parameter Name="ModTalentDegat" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="GetAllPersonnageByUtilisateur" ReturnType="Collection(FichePersoDndModel.PersonnageByUtilisateur)">
           <Parameter Name="IdUtilisateur" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1378,6 +1327,60 @@
           <FunctionImport Name="GetAllAptitudes" ReturnType="Collection(FichePersoDndModel.AllAptitudes)">
             <Parameter Name="IdClasse" Mode="In" Type="Int32" />
             <Parameter Name="IdRace" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SetCharacterData">
+            <Parameter Name="idUser" Mode="In" Type="Int32" />
+            <Parameter Name="idCharacter" Mode="In" Type="Int32" />
+            <Parameter Name="Nom" Mode="In" Type="String" />
+            <Parameter Name="Niveau" Mode="In" Type="Int32" />
+            <Parameter Name="IdClasse" Mode="In" Type="Int32" />
+            <Parameter Name="Experience" Mode="In" Type="Int32" />
+            <Parameter Name="IdRace" Mode="In" Type="Int32" />
+            <Parameter Name="CategorieTaille" Mode="In" Type="String" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="Sexe" Mode="In" Type="String" />
+            <Parameter Name="Taille" Mode="In" Type="Int32" />
+            <Parameter Name="Poids" Mode="In" Type="Int32" />
+            <Parameter Name="IdAlignement" Mode="In" Type="Int32" />
+            <Parameter Name="IdDivinite" Mode="In" Type="Int32" />
+            <Parameter Name="GroupeAventurier" Mode="In" Type="String" />
+            <Parameter Name="PointAction" Mode="In" Type="Int32" />
+            <Parameter Name="PVMax" Mode="In" Type="Int32" />
+            <Parameter Name="Personnalite" Mode="In" Type="String" />
+            <Parameter Name="InitiativeDivers" Mode="In" Type="Int32" />
+            <Parameter Name="CaracteristiqueForce" Mode="In" Type="Int32" />
+            <Parameter Name="CaracteristiqueConstitution" Mode="In" Type="Int32" />
+            <Parameter Name="CaracteristiqueDexterite" Mode="In" Type="Int32" />
+            <Parameter Name="CaracteristiqueIntelligence" Mode="In" Type="Int32" />
+            <Parameter Name="CaracteristiqueSagesse" Mode="In" Type="Int32" />
+            <Parameter Name="CaracteristiqueCharisme" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseCADemiNiveau" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseCACaracteristique" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseCAClasse" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseCATalent" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseCADivers" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVIGDemiNiveau" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVIGCaracteristique" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVIGClasse" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVIGTalent" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVIGDivers" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseREFDemiNiveau" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseREFCaracteristique" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseREFClasse" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseREFTalent" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseREFDivers" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVOLDemiNiveau" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVOLCaracteristique" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVOLClasse" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVOLTalent" Mode="In" Type="Int32" />
+            <Parameter Name="DefenseVOLDivers" Mode="In" Type="Int32" />
+            <Parameter Name="ModCaracAttaque" Mode="In" Type="Int32" />
+            <Parameter Name="ModManiAttaque" Mode="In" Type="Int32" />
+            <Parameter Name="ModTalentAttaque" Mode="In" Type="Int32" />
+            <Parameter Name="ModClasseAttaque" Mode="In" Type="Int32" />
+            <Parameter Name="ModCaracDegat" Mode="In" Type="Int32" />
+            <Parameter Name="ModTalentDegat" Mode="In" Type="Int32" />
+            <Parameter Name="PVActuel" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Caracteristique">
@@ -1568,6 +1571,7 @@
           <Property Type="Int32" Name="ModClasseAttaque" Nullable="true" />
           <Property Type="Int32" Name="InitiativeDemiNiveau" Nullable="true" />
           <Property Type="String" Name="CheminPortrait" Nullable="false" />
+          <Property Type="Int32" Name="PVActuel" Nullable="true" />
         </ComplexType>
         <ComplexType Name="AllPouvoirByIdPersonnage">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1641,6 +1645,7 @@
           <NavigationProperty Name="UtilisateurPersonnage" Relationship="FichePersoDndModel.fk_IDPERSONNAGEUTILPERSONNAGE" FromRole="Personnage" ToRole="UtilisateurPersonnage" />
           <NavigationProperty Name="Race" Relationship="FichePersoDndModel.fk_IDRACE" FromRole="Personnage" ToRole="Race" />
           <NavigationProperty Name="PortraitPersonnage" Relationship="FichePersoDndModel.fk_PORTRAITPERSO" FromRole="Personnage" ToRole="PortraitPersonnage" />
+          <Property Name="PVActuel" Type="Int32" />
         </EntityType>
         <Association Name="fk_IDALIGNEMENT">
           <End Type="FichePersoDndModel.Alignement" Role="Alignement" Multiplicity="0..1" />
@@ -2135,7 +2140,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SetCharacterData" FunctionName="FichePersoDndModel.Store.SetCharacterData" />
           <FunctionImportMapping FunctionImportName="GetAllPersonnageByUtilisateur" FunctionName="FichePersoDndModel.Store.GetAllPersonnageByUtilisateur">
             <ResultMapping>
               <ComplexTypeMapping TypeName="FichePersoDndModel.PersonnageByUtilisateur">
@@ -2250,6 +2254,7 @@
           <EntitySetMapping Name="Personnage">
             <EntityTypeMapping TypeName="FichePersoDndModel.Personnage">
               <MappingFragment StoreEntitySet="Personnage">
+                <ScalarProperty Name="PVActuel" ColumnName="PVActuel" />
                 <ScalarProperty Name="GroupeAventurier" ColumnName="GroupeAventurier" />
                 <ScalarProperty Name="Personnalite" ColumnName="Personnalite" />
                 <ScalarProperty Name="PVMax" ColumnName="PVMax" />
@@ -2292,6 +2297,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SetCharacterData" FunctionName="FichePersoDndModel.Store.SetCharacterData" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -10,6 +10,16 @@ $(document).ready(function () {
         SetModifierValue();
     });
 
+    $("#ModDiversAttaque").val(0);
+    $("#ModDiversAttaque").on('propertychange input', function (s, e) {
+        SetModifierValue();
+    });
+
+    $("#ModDiversDegat").val(0);
+    $("#ModDiversDegat").on('propertychange input', function (s, e) {
+        SetModifierValue();
+    });
+
     $("#SelectedArme").change(function() {
         $("#ModArmeDegat").val($(this).val().substring($("#SelectedArme").val().indexOf("1"), $(this).val().length));
         SetModifierValue();
@@ -130,7 +140,8 @@ function SaveCharacterSheet() {
 		ModTalentAttaque: $("#ModTalentAttaque").val(),
 		ModClasseAttaque: $("#ModClasseAttaque").val(),
 		ModCaracDegat: $("#ModCaracDegat").val(),
-		ModTalentDegat: $("#ModTalentDegat").val()
+		ModTalentDegat: $("#ModTalentDegat").val(),
+		PVActuel: $("#input_PVActuel").val()
     };
 
     common.customRequest('POST', "Home", "SaveCharacterData", JSON.stringify(model), function(result) {
@@ -148,10 +159,10 @@ function SetModifierValue() {
     var bonusLevel = (level - (level % 2)) / 2;
 
     //TotalAttaque
-    $('#TotalAttaque').val(parseInt(bonusLevel) + parseInt($('#ModCaracAttaque').val()) + parseInt($('#ModClasseAttaque').val()) + parseInt($('#ModManiAttaque').val()) + parseInt($('#ModTalentAttaque').val()));
+    $('#TotalAttaque').val(parseInt(bonusLevel) + parseInt($('#ModCaracAttaque').val()) + parseInt($('#ModClasseAttaque').val()) + parseInt($('#ModManiAttaque').val()) + parseInt($('#ModTalentAttaque').val()) + parseInt($("#ModDiversAttaque").val()));
 
     //TotalDegat
-    $('#TotalDegat').val(parseInt( parseInt($('#ModCaracDegat').val()) + parseInt($('#ModTalentDegat').val())));
+    $('#TotalDegat').val(parseInt(parseInt($('#ModCaracDegat').val()) + parseInt($('#ModTalentDegat').val()) + parseInt($("#ModDiversDegat").val())));
 
     //caracteristiques
     $("#input_ForceMod").val(CalculCaracMod($("#input_ForceValue").val()) + bonusLevel);
