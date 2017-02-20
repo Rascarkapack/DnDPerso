@@ -3,7 +3,7 @@
 @model List<DnDPersoEntities.AllStuffByPersonnage>
 
 <div style="display: inline">
-    <input type="text" id="input_TypeEquipement" />
+    <input type="text" id="input_TypeEquipement"/>
     <select id="input_CategorieEquipement">
         <option value="1">Arme</option>
         <option value="2">Armure</option>
@@ -15,13 +15,15 @@
         <option value="2">Precieux</option>
         <option value="3">Magique</option>
     </select>
-    <input type="button" onclick="AddEquipement()" value="+" />
+    <input type="button" onclick="AddEquipement()" value="+"/>
 </div>
-@foreach (AllStuffByPersonnage stuff in @Model)
+
+<div class="headerSpelltype">
+    Commun
+</div>
+@foreach (AllStuffByPersonnage stuff in @Model.Where(a=>a.Rarete == "Commun"))
 {
-    <div>
-        
-        
+   
         <div class="" style="display: inline">
 
             <div class="encoartCompetenceInputBloc">
@@ -32,6 +34,48 @@
                 @Html.Label("rarete", stuff.Rarete, new {@class = "text_center ", @style = "width: 50px;height: 20px"})
                 @Html.Hidden("hiddenId" + stuff.Id, stuff.Id.ToString())
                 
+            </div>
+        </div>
+   
+}
+
+<div class="headerSpelltype">
+    Précieux
+</div>
+@foreach (AllStuffByPersonnage stuff in @Model.Where(a => a.Rarete == "Precieux"))
+{
+    <div>
+        <div class="" style="display: inline">
+
+            <div class="encoartCompetenceInputBloc">
+
+                @Html.Label(stuff.TypeEquipement, stuff.TypeEquipement)
+                @Html.TextBox("quant" + stuff.Id, stuff.Quantite, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
+                @Html.Label("modifDiversCompe" + stuff.CategorieEquipement, stuff.CategorieEquipement, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
+                @Html.Label("rarete", stuff.Rarete, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
+                @Html.Hidden("hiddenId" + stuff.Id, stuff.Id.ToString())
+
+            </div>
+        </div>
+    </div>
+}
+<div class="headerSpelltype">
+    Magique
+</div>
+
+@foreach (AllStuffByPersonnage stuff in @Model.Where(a => a.Rarete == "Magique"))
+{
+    <div>
+        <div class="" style="display: inline">
+
+            <div class="encoartCompetenceInputBloc">
+
+                @Html.Label(stuff.TypeEquipement, stuff.TypeEquipement)
+                @Html.TextBox("quant" + stuff.Id, stuff.Quantite, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
+                @Html.Label("modifDiversCompe" + stuff.CategorieEquipement, stuff.CategorieEquipement, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
+                @Html.Label("rarete", stuff.Rarete, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
+                @Html.Hidden("hiddenId" + stuff.Id, stuff.Id.ToString())
+
             </div>
         </div>
     </div>

@@ -1,10 +1,33 @@
 ﻿@using DnDPersoEntities
 @model List<DnDPersoEntities.AllPouvoirByIdPersonnage>
 
-@foreach (AllPouvoirByIdPersonnage pouvoir in @Model)
-{
-    <div id="pourvoir_@pouvoir.PouvoirId">
-        <input type="button" onclick="deletePouvoir(@pouvoir.Id)" style="padding-top: 4px;" value="-"/>
-        @Html.Raw(pouvoir.Html)
-    </div>
-}
+
+<div class="headerSpelltype">
+    Pouvoirs à volonté
+</div>
+    @foreach (AllPouvoirByIdPersonnage pouvoir in @Model.Where(a => a.IdTypePouvoir == 1))
+    {
+        <div id="pourvoir_@pouvoir.PouvoirId">
+            <input type="button" onclick="deletePouvoir(@pouvoir.Id)" style="padding-top: 4px;" value="-"/>
+            @Html.Raw(pouvoir.Html)
+        </div>
+    }
+
+<div class="headerSpelltype">Pouvoirs de rencontre</div>
+    @foreach (AllPouvoirByIdPersonnage pouvoir in @Model.Where(a => a.IdTypePouvoir == 2))
+    {
+        <div id="pourvoir_@pouvoir.PouvoirId">
+            <input type="button" onclick="deletePouvoir(@pouvoir.Id)" style="padding-top: 4px;" value="-"/>
+            @Html.Raw(pouvoir.Html)
+        </div>
+    }
+
+<div class="headerSpelltype">Pouvoirs journalier</div>
+    
+    @foreach (AllPouvoirByIdPersonnage pouvoir in @Model.Where(a => a.IdTypePouvoir == 3))
+    {
+        <div id="pourvoir_@pouvoir.PouvoirId">
+            <input type="button" onclick="deletePouvoir(@pouvoir.Id)" style="padding-top: 4px;" value="-" />
+            @Html.Raw(pouvoir.Html)
+        </div>
+    }
