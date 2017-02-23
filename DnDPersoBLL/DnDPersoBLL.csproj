@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AlignementBLL.cs" />
     <Compile Include="AptitudeBLL.cs" />
+    <Compile Include="ArgentBLL.cs" />
     <Compile Include="Base\BaseBLL.cs" />
     <Compile Include="ClasseBLL.cs" />
     <Compile Include="CompetenceBLL.cs" />

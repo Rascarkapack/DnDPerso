@@ -102,6 +102,9 @@
     <Compile Include="Entities\Generated\Bdd\Equipement.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Generated\Bdd\GetArgentByPersonnage.cs">
+      <DependentUpon>DnDPersoEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Generated\Bdd\Initiative.cs">
       <DependentUpon>DnDPersoEntity.tt</DependentUpon>
     </Compile>

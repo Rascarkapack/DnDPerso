@@ -29,6 +29,16 @@ $(document).ready(function () {
         $("#ModArmeDegat").val($("#SelectedArme").val().substring($("#SelectedArme").val().indexOf("1"), $("#SelectedArme").val().length));
     }
     
+    $("input[id^='Argent']").on('blur', function (s, e) {
+        var idTarget = s.currentTarget.attributes["name"].value;
+       //var id = idTarget.substring(lenghtString, idTarget.lenght);
+        var value = s.currentTarget.value;
+        common.customRequest('POST', "Home", "UpdateArgent", JSON.stringify({ idArgent: idTarget, value: value }),function(result) {
+            if (result === "OK") {
+                toastr.info("Mise a jour effectuée");
+            }
+        });
+    });
 
     $("input[id^='quant']").on('blur', function (s,e) {
         var lenghtString = 'quant'.length;

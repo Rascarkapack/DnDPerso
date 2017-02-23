@@ -1,0 +1,14 @@
+﻿@using DnDPersoEntities
+@model List<DnDPersoEntities.GetArgentByPersonnage>
+<div class="" style="display: inline">
+    <div class="encoartCompetenceInputBloc">
+@foreach (GetArgentByPersonnage argent in Model)
+{
+    @Html.Label(argent.Libelle)
+    @Html.TextBox(argent.Id.ToString(), argent.Valeur,null , new { @class = "text_center ", @style = "width: 50px;height: 20px", @Id = "Argent" })
+}
+        
+       
+
+    </div>
+    </div>

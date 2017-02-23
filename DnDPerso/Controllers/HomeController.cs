@@ -245,6 +245,33 @@ namespace DnDPerso.Controllers
         }
         #endregion
 
+        #region Argent
+
+        public ActionResult EncartArgentPartialView(int idPersonnage)
+        {
+            List<GetArgentByPersonnage> argentPersonnage = new List<GetArgentByPersonnage>();
+            try
+            {
+                argentPersonnage = ArgentBLL.GetArgentByPersonnage(idPersonnage);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return PartialView("EncartArgentPartialView", argentPersonnage);
+        }
+
+        public ActionResult UpdateArgent(string idArgent, string value)
+        {
+            Argent argent = ArgentBLL.Get(Convert.ToInt32(idArgent));
+            argent.Valeur = Convert.ToInt32(value);
+            ArgentBLL.Update(argent);
+
+            return Json("OK");
+        }
+
+        #endregion
+
         public static List<SelectListItem> SetDropDownValues<T>(IList<T> objects, string idProperty, string libelleProperty, bool hasEmptyElement, int idSelected)
         {
             List<SelectListItem> listTypesEntrants = new List<SelectListItem>();

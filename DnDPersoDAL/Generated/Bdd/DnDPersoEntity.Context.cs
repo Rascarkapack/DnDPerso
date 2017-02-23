@@ -360,5 +360,14 @@ namespace DnDPersoDAL.Generated.Bdd
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SetCharacterData", idUserParameter, idCharacterParameter, nomParameter, niveauParameter, idClasseParameter, experienceParameter, idRaceParameter, categorieTailleParameter, ageParameter, sexeParameter, tailleParameter, poidsParameter, idAlignementParameter, idDiviniteParameter, groupeAventurierParameter, pointActionParameter, pVMaxParameter, personnaliteParameter, initiativeDiversParameter, caracteristiqueForceParameter, caracteristiqueConstitutionParameter, caracteristiqueDexteriteParameter, caracteristiqueIntelligenceParameter, caracteristiqueSagesseParameter, caracteristiqueCharismeParameter, defenseCADemiNiveauParameter, defenseCACaracteristiqueParameter, defenseCAClasseParameter, defenseCATalentParameter, defenseCADiversParameter, defenseVIGDemiNiveauParameter, defenseVIGCaracteristiqueParameter, defenseVIGClasseParameter, defenseVIGTalentParameter, defenseVIGDiversParameter, defenseREFDemiNiveauParameter, defenseREFCaracteristiqueParameter, defenseREFClasseParameter, defenseREFTalentParameter, defenseREFDiversParameter, defenseVOLDemiNiveauParameter, defenseVOLCaracteristiqueParameter, defenseVOLClasseParameter, defenseVOLTalentParameter, defenseVOLDiversParameter, modCaracAttaqueParameter, modManiAttaqueParameter, modTalentAttaqueParameter, modClasseAttaqueParameter, modCaracDegatParameter, modTalentDegatParameter, pVActuelParameter);
         }
+    
+        public virtual ObjectResult<GetArgentByPersonnage> GetArgentByPersonnage(Nullable<int> idPersonnage)
+        {
+            var idPersonnageParameter = idPersonnage.HasValue ?
+                new ObjectParameter("IdPersonnage", idPersonnage) :
+                new ObjectParameter("IdPersonnage", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetArgentByPersonnage>("GetArgentByPersonnage", idPersonnageParameter);
+        }
     }
 }

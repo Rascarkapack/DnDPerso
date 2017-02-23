@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4c3880fd20ae4efdb5a45fdfb68bad95" Name="Diagram1">
+      <Diagram DiagramId="4c3880fd20ae4efdb5a45fdfb68bad95" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="FichePersoDndModel.Alignement" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Argent" Width="1.5" PointX="8.25" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FichePersoDndModel.Classe" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
