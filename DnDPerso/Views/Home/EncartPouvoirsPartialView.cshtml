@@ -2,9 +2,7 @@
 @model List<DnDPersoEntities.AllPouvoirByIdPersonnage>
 
 
-<div class="headerSpelltype">
-    Pouvoirs à volonté
-</div>
+<div class="encart_headerSpelltype pouvoirVol">Pouvoirs à volonté</div>
     @foreach (AllPouvoirByIdPersonnage pouvoir in @Model.Where(a => a.IdTypePouvoir == 1))
     {
         <div id="pourvoir_@pouvoir.PouvoirId">
@@ -13,7 +11,7 @@
         </div>
     }
 
-<div class="headerSpelltype">Pouvoirs de rencontre</div>
+<div class="encart_headerSpelltype pouvoirRenc">Pouvoirs de rencontre</div>
     @foreach (AllPouvoirByIdPersonnage pouvoir in @Model.Where(a => a.IdTypePouvoir == 2))
     {
         <div id="pourvoir_@pouvoir.PouvoirId">
@@ -22,7 +20,7 @@
         </div>
     }
 
-<div class="headerSpelltype">Pouvoirs journalier</div>
+<div class="encart_headerSpelltype pouvoirQuot">Pouvoirs journalier</div>
     
     @foreach (AllPouvoirByIdPersonnage pouvoir in @Model.Where(a => a.IdTypePouvoir == 3))
     {

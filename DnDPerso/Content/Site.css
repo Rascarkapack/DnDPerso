@@ -225,8 +225,10 @@ input[type="color"]:focus,
 	height : 280px;
     margin-bottom: 30px;
 }
-#mainBloc_5,
 #mainBloc_7 {
+    width: 36%;
+}
+#mainBloc_5 {
     width: 39%;
 }
 #mainBloc_2 {
@@ -272,9 +274,6 @@ input[type="color"]:focus,
     text-transform: uppercase;
     background-color: #993333;
     height: 40px;
-    -webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
 	margin-bottom: 5px;
 }
 /* Bloc pouvoir DnD Wiki */
@@ -431,7 +430,8 @@ input[type="color"]:focus,
 }
 
 .highLight{
-    background-color: #333333;
+    webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #993333;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #993333;
 }
 /*encart*/
 #encartPouvoirs input {
@@ -474,6 +474,10 @@ input[type="color"]:focus,
     padding-bottom: 20px;
     width: 30%;
 }
+#encartCompetences label {
+    margin-bottom: 0 !important;
+    padding-top: 5px;
+}
 .encoartCompetenceInputBloc {
     float: right;
 }
@@ -486,6 +490,25 @@ input[type="color"]:focus,
 }
 #encartEquipement select {
     width: 80px;
+}
+.encart_headerSpelltype {
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #fff;
+    height: 40px;
+	margin-bottom: 5px;
+    border: 1px solid #fff;
+}
+.pouvoirVol {
+    background-color: #649769;
+}
+.pouvoirRenc {
+    background-color: #981332;
+}
+.pouvoirQuot {
+    background-color: #4C4C4E;
 }
 /*note*/
 #noteArea{

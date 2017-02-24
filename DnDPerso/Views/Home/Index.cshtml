@@ -8,14 +8,13 @@
 }
 
 <div id="header">
-    <a href="/Talent/Index">Liste talent</a>
     <img id="logo_header" src="~/Images/logo_header.png" alt=""/>
     <div id="account">
         <span id="account_name">pygma</span><br/>
         <a id="logout">Déconnexion</a>
     </div>
     <div>
-        <input type="button" class="btn btn-danger" onclick="SaveCharacterSheet()" value="Enregistrer"/>
+        <input type="button" style="float: right;" class="btn btn-danger" onclick="SaveCharacterSheet()" value="Enregistrer"/>
     </div>
 </div>
 @Html.HiddenFor(model => model.Id, new { @class = "", id = "input_characterId" })
@@ -358,7 +357,7 @@
                 @Html.TextBox("TotalDegat", null, new {@class = "text_center", id = "TotalDegat"})
                 <span class="input_libelle">Total</span>
             </div>
-            <div class="input_bloc width50">
+            <div class="input_bloc width35">
                 @Html.TextBox("DegatArme", null, new { @class = "text_center", id = "ModArmeDegat" })
                 <span class="input_libelle">Arme</span>
             </div>
