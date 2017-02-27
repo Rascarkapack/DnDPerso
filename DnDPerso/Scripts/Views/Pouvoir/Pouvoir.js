@@ -32,12 +32,12 @@ function searchPouvoir(classe, level) {
         $(".infobox-power").on('click',
        function () {
 
-           if ($.inArray(this.innerHTML, pouvoirs) === -1) {
-               pouvoirs.push(this.innerHTML);
+           if ($.inArray($(this).find('.infobox-power-title')[0].innerHTML, pouvoirs) === -1) {
+               pouvoirs.push($(this).find('.infobox-power-title')[0].innerHTML);
            }
 
            if ($(this).attr('class').indexOf('highLight') !== -1) {
-               pouvoirs.splice($.inArray(this.innerHTML, pouvoirs), 1);
+               pouvoirs.splice($.inArray($(this).find('.infobox-power-title')[0].innerHTML, pouvoirs), 1);
            }
            $(this).toggleClass('highLight');
 
