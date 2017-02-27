@@ -137,6 +137,9 @@ input[type="color"]:focus,
 .width200 {
 	width : 200px;
 }
+.width100pc {
+    width: 100%;
+}
 .inner_bloc_container {
 	padding-top: 20px;
     padding-left: 20px;
@@ -226,7 +229,7 @@ input[type="color"]:focus,
     margin-bottom: 30px;
 }
 #mainBloc_7 {
-    width: 36%;
+    width: 34%;
 }
 #mainBloc_5 {
     width: 39%;
@@ -236,7 +239,6 @@ input[type="color"]:focus,
 	min-height : 200px;
 }
 #mainBloc_3 {
-	width: 25%;
 	min-height : 200px;
     height: 394px;
 }
@@ -245,7 +247,7 @@ input[type="color"]:focus,
     min-height: 277px;
 }
 #mainBloc_6 {
-    width: 74%;
+
 }
 
 #character_picture {
@@ -434,6 +436,14 @@ input[type="color"]:focus,
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #993333;
 }
 /*encart*/
+.colonne1 {
+    width: 26%;
+    display: inline-block;
+    float: left;
+}
+#encartAptitudes .inner_bloc_container {
+    padding-left: 12px;
+}
 #encartPouvoirs input {
     -webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
