@@ -4,7 +4,7 @@
 @foreach (AllAptitudes aptitude in Model)
 {
     <div class="infobox infobox-power">
-       
+
         <div class="infobox-power-header">
             @aptitude.Libelle
             <div class="infobox-power-title">
@@ -12,7 +12,8 @@
             <div class="infobox-power-origin">
             </div>
         </div>
-        @Html.Raw(aptitude.Description)
-
+        <div class="descApt">
+            @Html.Raw(aptitude.Description)
+        </div>
     </div>
 }

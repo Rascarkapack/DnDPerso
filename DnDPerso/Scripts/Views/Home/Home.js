@@ -76,6 +76,11 @@ $(document).ready(function () {
     $(".hanging").addClass('cache');
     $(".infobox-flavor").addClass('cache');
     
+    $(".descApt").addClass('cache');
+
+    $(".infobox-power").css('cursor', 'pointer');
+    $(".infobox-power-origin").css('cursor', 'pointer');
+    
     $(".infobox-power-origin").on('click', function () {
         
         if ($(this).parent().parent().parent().find('.cache').length > 0) {
@@ -85,6 +90,17 @@ $(document).ready(function () {
             $(this).parent().parent().parent().find('.infobox-flavor').addClass('cache');
         }
         
+    });
+
+    $(".infobox-power").on('click', function () {
+
+        if ($(this).find('.cache').length > 0) {
+            $(this).find('.cache').removeClass('cache');
+        } else {
+            $(this).find('.descApt').addClass('cache');
+            $(this).find('.descApt').addClass('cache');
+        }
+
     });
 
     SetModifierValue();
