@@ -164,53 +164,55 @@
                     @Html.DropDownList("SelectedArme",new SelectList((IEnumerable)ViewData["tempEquipList"], "TypeEquipement", "TypeEquipement"))
                     <span class="input_libelle">Arme équipée</span>
                 </div>
-                <div class="span_libelle span_fixe_top">Atq</div>
-                <div class="input_bloc width35">
+                <div class="span_libelle span_fixe_top span_large">Atq</div>
+                <div class="input_bloc width32">
                     @Html.TextBox("TotalAttaque", null, new { @class = "text_center", id = "TotalAttaque" })
                     <span class="input_libelle">Total</span>
                 </div>
-                <div class="input_bloc width35">
+                <div class="input_bloc width32">
                     @Html.TextBoxFor(model => model.ModCaracAttaque, "", new { @class = "text_center", id = "ModCaracAttaque" })
                     <span class="input_libelle">Carac</span>
                 </div>
-                <div class="input_bloc width35">
+                <div class="input_bloc width32">
                     @Html.TextBoxFor(model=>model.ModClasseAttaque,"", new { @class = "text_center", id = "ModClasseAttaque" })
                     <span class="input_libelle">Classe</span>
                 </div>
-                <div class="input_bloc width35">
+                <div class="input_bloc width32">
                     @Html.TextBoxFor(model => model.ModManiAttaque, "", new { @class = "text_center", id = "ModManiAttaque" })
                     <span class="input_libelle">Mani</span>
                 </div>
-                <div class="input_bloc width35">
+                <div class="input_bloc width32">
                     @Html.TextBoxFor(model => model.ModTalentAttaque, "", new {@class = "text_center", id = "ModTalentAttaque"})
                     <span class="input_libelle">Talent</span>
                 </div>
-                <div class="input_bloc width35">
+                <div class="input_bloc width32">
                     @Html.TextBox("ModDiversAttaque", null, new { @class = "text_center", id = "ModDiversAttaque" })
                     <span class="input_libelle">Divers</span>
                 </div>
                 
                 
-                <div class="span_libelle span_fixe_top">Dgt</div>
-                <div class="input_bloc width35">
-                    @Html.TextBox("TotalDegat", null, new {@class = "text_center", id = "TotalDegat"})
-                    <span class="input_libelle">Total</span>
-                </div>
-                <div class="input_bloc width35">
-                    @Html.TextBox("DegatArme", null, new { @class = "text_center", id = "ModArmeDegat" })
-                    <span class="input_libelle">Arme</span>
-                </div>
-                <div class="input_bloc width35">
-                    @Html.TextBoxFor(model => model.ModCaracDegat, "", new { @class = "text_center", id = "ModCaracDegat" })
-                    <span class="input_libelle">Carac</span>
-                </div>
-                <div class="input_bloc width35">
-                    @Html.TextBoxFor(model => model.ModTalentDegat, "", new { @class = "text_center", id = "ModTalentDegat" })
-                    <span class="input_libelle">Talent</span>
-                </div>
-                <div class="input_bloc width35">
-                    @Html.TextBox("ModDiversDegat",null, new { @class = "text_center", id = "ModDiversDegat" })
-                    <span class="input_libelle">Divers</span>
+                <div class="span_libelle span_fixe_top span_large">Dgt</div>
+                <div style="margin-left: 15px;">
+                    <div class="input_bloc width35">
+                        @Html.TextBox("TotalDegat", null, new {@class = "text_center", id = "TotalDegat"})
+                        <span class="input_libelle">Total</span>
+                    </div>
+                    <div class="input_bloc width35">
+                        @Html.TextBox("DegatArme", null, new { @class = "text_center", id = "ModArmeDegat" })
+                        <span class="input_libelle">Arme</span>
+                    </div>
+                    <div class="input_bloc width35">
+                        @Html.TextBoxFor(model => model.ModCaracDegat, "", new { @class = "text_center", id = "ModCaracDegat" })
+                        <span class="input_libelle">Carac</span>
+                    </div>
+                    <div class="input_bloc width35">
+                        @Html.TextBoxFor(model => model.ModTalentDegat, "", new { @class = "text_center", id = "ModTalentDegat" })
+                        <span class="input_libelle">Talent</span>
+                    </div>
+                    <div class="input_bloc width35">
+                        @Html.TextBox("ModDiversDegat",null, new { @class = "text_center", id = "ModDiversDegat" })
+                        <span class="input_libelle">Divers</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -405,7 +407,14 @@
             @Html.Action("EncartCompetencesPartialView", @Model.Id)
         </div>
     </div>
-
+    <div id="encartArgent" class="mainBloc">
+        <div class="header_bloc_title">
+            Argent
+        </div>
+        <div id="innerEncartArgent" class="inner_bloc_container">
+            @Html.Action("EncartArgentPartialView", @Model.Id)
+        </div>
+    </div>
     <div id="encartTalents" class="mainBloc marginerRight5">
         <div class="header_bloc_title">
             Talents
@@ -422,15 +431,6 @@
         </div>
         <div id="innerEncartEquipement" class="inner_bloc_container">
             @Html.Action("EncartEquipementPartialView", @Model.Id)
-        </div>
-    </div>
-
-    <div id="encartArgent" class="mainBloc">
-        <div class="header_bloc_title">
-            Argent
-        </div>
-        <div id="innerEncartArgent" class="inner_bloc_container">
-            @Html.Action("EncartArgentPartialView", @Model.Id)
         </div>
     </div>
 </div>

@@ -2,36 +2,38 @@
 @using DnDPersoEntities
 @model List<DnDPersoEntities.AllStuffByPersonnage>
 
+<div class="span_libelle span_fixe_top span_large">Ajouter</div>
 <div style="display: inline">
+    <label>Libelle</label>
     <input type="text" id="input_TypeEquipement"/>
+    <label>Qtt</label>
+    <input type="text" id="input_QuantiteEquipement"/>
     <select id="input_CategorieEquipement">
         <option value="1">Arme</option>
         <option value="2">Armure</option>
         <option value="3">Divers</option>
     </select>
-    <input type="text" id="input_QuantiteEquipement"/>
     <select id="input_RareteEquipement">
         <option value="1">Commun</option>
         <option value="2">Precieux</option>
         <option value="3">Magique</option>
     </select>
-    <input type="button" onclick="AddEquipement()" value="+"/>
+    <input type="button" onclick="AddEquipement()" style="padding-top: 3px; padding-left: 7px;" value="+"/>
 </div>
 
-<div class="headerSpelltype">
-    Commun
-</div>
+<div class="headerSpelltype">Commun</div>
+
 @foreach (AllStuffByPersonnage stuff in @Model.Where(a=>a.Rarete == "Commun"))
 {
    
         <div class="" style="display: inline">
 
-            <div class="encoartCompetenceInputBloc">
+            <div class="encartEquipementInputBloc">
 
                 @Html.Label(stuff.TypeEquipement, stuff.TypeEquipement)
-                @Html.TextBox("quant" + stuff.Id, stuff.Quantite, new {@class = "text_center ", @style = "width: 50px;height: 20px"})
                 @Html.Label("modifDiversCompe" + stuff.CategorieEquipement, stuff.CategorieEquipement, new {@class = "text_center ", @style = "width: 50px;height: 20px"})
-                @Html.Label("rarete", stuff.Rarete, new {@class = "text_center ", @style = "width: 50px;height: 20px"})
+                @Html.Label("rarete", stuff.Rarete, new {@class = "text_center ", @style = "width: 60px;height: 20px"})
+                @Html.TextBox("quant" + stuff.Id, stuff.Quantite, new {@class = "text_center ", @style = "width: 30px;height: 20px"})
                 @Html.Hidden("hiddenId" + stuff.Id, stuff.Id.ToString())
                 
             </div>
@@ -39,41 +41,38 @@
    
 }
 
-<div class="headerSpelltype">
-    Précieux
-</div>
+<div class="headerSpelltype">Précieux</div>
+
 @foreach (AllStuffByPersonnage stuff in @Model.Where(a => a.Rarete == "Precieux"))
 {
     <div>
         <div class="" style="display: inline">
 
-            <div class="encoartCompetenceInputBloc">
+            <div class="encartEquipementInputBloc">
 
                 @Html.Label(stuff.TypeEquipement, stuff.TypeEquipement)
-                @Html.TextBox("quant" + stuff.Id, stuff.Quantite, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
                 @Html.Label("modifDiversCompe" + stuff.CategorieEquipement, stuff.CategorieEquipement, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
-                @Html.Label("rarete", stuff.Rarete, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
+                @Html.Label("rarete", stuff.Rarete, new { @class = "text_center ", @style = "width: 60px;height: 20px" })
+                @Html.TextBox("quant" + stuff.Id, stuff.Quantite, new { @class = "text_center ", @style = "width: 30px;height: 20px" })
                 @Html.Hidden("hiddenId" + stuff.Id, stuff.Id.ToString())
 
             </div>
         </div>
     </div>
 }
-<div class="headerSpelltype">
-    Magique
-</div>
+<div class="headerSpelltype">Magique</div>
 
 @foreach (AllStuffByPersonnage stuff in @Model.Where(a => a.Rarete == "Magique"))
 {
     <div>
         <div class="" style="display: inline">
 
-            <div class="encoartCompetenceInputBloc">
+            <div class="encartEquipementInputBloc">
 
                 @Html.Label(stuff.TypeEquipement, stuff.TypeEquipement)
-                @Html.TextBox("quant" + stuff.Id, stuff.Quantite, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
                 @Html.Label("modifDiversCompe" + stuff.CategorieEquipement, stuff.CategorieEquipement, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
-                @Html.Label("rarete", stuff.Rarete, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
+                @Html.Label("rarete", stuff.Rarete, new { @class = "text_center ", @style = "width: 60px;height: 20px" })
+                @Html.TextBox("quant" + stuff.Id, stuff.Quantite, new { @class = "text_center ", @style = "width: 30px;height: 20px" })
                 @Html.Hidden("hiddenId" + stuff.Id, stuff.Id.ToString())
 
             </div>
