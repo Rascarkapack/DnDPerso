@@ -20,13 +20,27 @@ $(document).ready(function () {
         SetModifierValue();
     });
 
-    $("#SelectedArme").change(function() {
-        $("#ModArmeDegat").val($(this).val().substring($("#SelectedArme").val().indexOf("1"), $(this).val().length));
+    $("#SelectedArme").change(function () {
+        if ($("#SelectedArme").val().indexOf("+") > 0) {
+            $("#ModArmeDegat").val($("#SelectedArme").val().substring($("#SelectedArme").val().indexOf("+") + 1, $("#SelectedArme").val().length));
+            
+        } else {
+            $("#ModArmeDegat").val(0);
+            
+        }
         SetModifierValue();
+       
     });
 
     if ($("#SelectedArme").val() !== null) {
-        $("#ModArmeDegat").val($("#SelectedArme").val().substring($("#SelectedArme").val().indexOf("1"), $("#SelectedArme").val().length));
+        if ($("#SelectedArme").val().indexOf("+") > 0) {
+            $("#ModArmeDegat").val($("#SelectedArme").val().substring($("#SelectedArme").val().indexOf("+") + 1, $("#SelectedArme").val().length));
+           
+        } else {
+            $("#ModArmeDegat").val(0);
+          
+        }
+        SetModifierValue();
     }
     
     $("input[id^='Argent']").on('blur', function (s, e) {
@@ -188,7 +202,7 @@ function SetModifierValue() {
     $('#TotalAttaque').val(parseInt(bonusLevel) + parseInt($('#ModCaracAttaque').val()) + parseInt($('#ModClasseAttaque').val()) + parseInt($('#ModManiAttaque').val()) + parseInt($('#ModTalentAttaque').val()) + parseInt($("#ModDiversAttaque").val()));
 
     //TotalDegat
-    $('#TotalDegat').val(parseInt(parseInt($('#ModCaracDegat').val()) + parseInt($('#ModTalentDegat').val()) + parseInt($("#ModDiversDegat").val())));
+    $('#TotalDegat').val(parseInt(parseInt($('#ModCaracDegat').val()) + parseInt($('#ModTalentDegat').val()) + parseInt($("#ModDiversDegat").val()) + parseInt($("#ModArmeDegat").val())));
 
     //caracteristiques
     $("#input_ForceMod").val(CalculCaracMod($("#input_ForceValue").val()) + bonusLevel);
