@@ -4,8 +4,9 @@
     ViewBag.Title = "Index";
 }
 @Scripts.Render("~/bundles/Scripts/Views/Talent")
-<button class="btn" id="validateTalentBtn" onclick="validateTalent()">Valider</button>
-
+<div style="width: 100%; margin-top: 30px; height: 30px;  margin-bottom: 30px;">
+    <button class="btn btn-danger" style="float: right;" id="validateTalentBtn" onclick="validateTalent()">Valider</button>
+</div>
 @foreach (Talent talent in Model)
 {
     <div class="infobox infobox-power">

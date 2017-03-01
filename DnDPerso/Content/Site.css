@@ -590,6 +590,9 @@ input[type="color"]:focus,
     float: right;
     margin-right: 5px;
 }
+.infobox-power-origin a {
+    color: #fff;
+}
 /*note*/
 #noteArea{
     width: 100%;
