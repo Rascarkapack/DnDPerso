@@ -19,11 +19,12 @@
             <div class="CharacterSheetBloc" onclick="LoadPersonnage(@personnageByUtilisateur.Id)">
                 <img src="~/Images/icon_character.png" alt="icon_character" />
                 <div class="displayerCharacterBloc">
-                <span>Nom: </span>@personnageByUtilisateur.Nom<br />
-                <span>Classe: </span>@personnageByUtilisateur.Classe<br />
-                <span>Race: </span>@personnageByUtilisateur.Race<br />
-                <span>Niveau: </span>@personnageByUtilisateur.Niveau
+                    <span>Nom: </span>@personnageByUtilisateur.Nom<br/>
+                    <span>Classe: </span>@personnageByUtilisateur.Classe<br/>
+                    <span>Race: </span>@personnageByUtilisateur.Race<br/>
+                    <span>Niveau: </span>@personnageByUtilisateur.Niveau
                 </div>
+                <input type="button" onclick="deletePerso(@personnageByUtilisateur.Id)" style="padding-top: 4px;" value="-" />
             </div>
     }
 </div>

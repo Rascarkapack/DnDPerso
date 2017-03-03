@@ -109,5 +109,24 @@ namespace DnDPersoDAL
 
             return result;
         }
+
+        public static void DeleteCharacter(int idPersonnage)
+        {
+            FichePersoDndEntities db_context = null;
+            CharacterData result = new CharacterData();
+            try
+            {
+                db_context = new FichePersoDndEntities();
+                db_context.DeletePersonnage(idPersonnage);
+            }
+            finally
+            {
+                if (db_context != null)
+                {
+                    db_context.Dispose();
+                    db_context = null;
+                }
+            }
+        }
     }
 }

@@ -159,6 +159,8 @@
     <Content Include="fonts\PlanewalkerBold.otf" />
     <Content Include="fonts\PlanewalkerBoldItalic.otf" />
     <Content Include="fonts\PlanewalkerItalic.otf" />
+    <None Include="Properties\PublishProfiles\persodd4 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\persodd4 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

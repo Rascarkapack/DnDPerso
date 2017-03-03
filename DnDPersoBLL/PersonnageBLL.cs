@@ -21,5 +21,10 @@ namespace DnDPersoBLL
         {
             return PersonnageDAL.GetCharacterData(idPersonnage);
         }
+
+        public static void DeleteCharacter(int idPersonnage)
+        {
+            PersonnageDAL.DeleteCharacter(idPersonnage);
+        }
     }
 }

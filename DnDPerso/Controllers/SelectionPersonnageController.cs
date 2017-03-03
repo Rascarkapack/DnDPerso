@@ -21,5 +21,19 @@ namespace DnDPerso.Controllers
             }
             return View(listPerso);
         }
+
+        public ActionResult DeletePersonnage(string IdPersonnage)
+        {
+            try
+            {
+                PersonnageBLL.DeleteCharacter(Convert.ToInt32(IdPersonnage));
+            }
+            catch (Exception e)
+            {
+                
+                throw;
+            }
+            return View("Index");
+        }
     }
 }

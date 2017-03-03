@@ -632,6 +632,9 @@
         <Function Name="DeleteEquipement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idEquipement" Type="int" Mode="In" />
         </Function>
+        <Function Name="DeletePersonnage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdPersonnage" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetAllAptitudes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdClasse" Type="int" Mode="In" />
           <Parameter Name="IdRace" Type="int" Mode="In" />
@@ -1387,6 +1390,9 @@
           </FunctionImport>
           <FunctionImport Name="GetArgentByPersonnage" ReturnType="Collection(FichePersoDndModel.GetArgentByPersonnage)">
           <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeletePersonnage">
+            <Parameter Name="IdPersonnage" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Caracteristique">
@@ -2317,6 +2323,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DeletePersonnage" FunctionName="FichePersoDndModel.Store.DeletePersonnage" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

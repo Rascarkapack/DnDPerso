@@ -369,5 +369,14 @@ namespace DnDPersoDAL.Generated.Bdd
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetArgentByPersonnage>("GetArgentByPersonnage", idPersonnageParameter);
         }
+    
+        public virtual int DeletePersonnage(Nullable<int> idPersonnage)
+        {
+            var idPersonnageParameter = idPersonnage.HasValue ?
+                new ObjectParameter("IdPersonnage", idPersonnage) :
+                new ObjectParameter("IdPersonnage", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeletePersonnage", idPersonnageParameter);
+        }
     }
 }
