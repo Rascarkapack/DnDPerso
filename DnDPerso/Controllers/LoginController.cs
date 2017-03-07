@@ -38,5 +38,13 @@ namespace DnDPerso.Controllers
             }
             return Json("KO");
         }
+
+        public ActionResult LogOut()
+        {
+            System.Web.HttpContext.Current.Session.Clear();
+            System.Web.HttpContext.Current.Session.Abandon();
+
+            return RedirectToAction("Index", "Login");
+        }
     }
 }

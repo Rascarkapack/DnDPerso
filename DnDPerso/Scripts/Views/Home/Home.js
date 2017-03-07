@@ -386,3 +386,7 @@ function AddEquipement() {
         }
     });
 }
+
+function LogOut() {
+    window.location.href = "/Login/LogOut";
+}
