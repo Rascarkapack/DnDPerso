@@ -96,17 +96,17 @@ $(document).ready(function () {
     $(".infobox-power-origin").css('cursor', 'pointer');
     
     $(".infobox-power-origin").on('click', function () {
-        
+
         if ($(this).parent().parent().parent().find('.cache').length > 0) {
             $(this).parent().parent().parent().find('.cache').removeClass('cache');
         } else {
             $(this).parent().parent().parent().find('.hanging').addClass('cache');
             $(this).parent().parent().parent().find('.infobox-flavor').addClass('cache');
         }
-        
+
     });
 
-    $(".infobox-power").on('click', function () {
+    $(".testApt").on('click', function () {
 
         if ($(this).find('.cache').length > 0) {
             $(this).find('.cache').removeClass('cache');
