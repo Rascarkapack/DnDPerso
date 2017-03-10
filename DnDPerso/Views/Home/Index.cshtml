@@ -21,66 +21,77 @@
 <div id="mainBloc_1" class="mainBloc">
     <div class="header_bloc_title">infos</div>
     <div class="inner_bloc_container">
-    <div class="col-md-10">
-        <div class="input_bloc width200">
-            @Html.TextBoxFor(model => model.Nom, "", new { @class = "", id = "input_characterName" })
-            <span class="input_libelle">Nom du personnage</span>
-        </div>
-        <div class="input_bloc width75">
-            @Html.TextBoxFor(model => model.Niveau, "", new { @class = "", id = "input_characterLevel" })
-            <span class="input_libelle">Niveau</span>
-        </div>
-        <div class="input_bloc width150">
-            @Html.DropDownListFor(a=>a.IdClasse, Model.Classes)
-            <span class="input_libelle">Classe</span>
-        </div>
-        <div class="input_bloc width75">
-            @Html.TextBoxFor(model => model.Experience, "", new { @class = "", id = "input_characterExperience" })
-            <span class="input_libelle">Total de px</span>
-        </div>
-        <div class="input_bloc width150">
-            @Html.DropDownListFor(a => a.IdRace, Model.Races)
-            <span class="input_libelle">Race</span>
-        </div>
-        <div class="input_bloc width150">
-            @Html.TextBoxFor(model => model.CategorieTaille, "", new { @class = "", id = "input_characterHeightCategorie" })
-            <span class="input_libelle">Catégorie de taille</span>
-        </div>
-        <div class="input_bloc width50">
-            @Html.TextBoxFor(model => model.Age, "", new { @class = "", id = "input_characterAge" })
-            <span class="input_libelle">Âge</span>
-        </div>
-        <div class="input_bloc width50">
-            @Html.TextBoxFor(model => model.Sexe, "", new { @class = "", id = "input_characterSexe" })
-            <span class="input_libelle">Sexe</span>
-        </div>
-        <div class="input_bloc width50">
-            @Html.TextBoxFor(model => model.Taille, "", new { @class = "", id = "input_characterHeight" })
-            <span class="input_libelle">Taille</span>
-        </div>
-        <div class="input_bloc width50">
-            @Html.TextBoxFor(model => model.Poids, "", new { @class = "", id = "input_characterWeight" })
-            <span class="input_libelle">Poids</span>
-        </div>
-        <div class="input_bloc width200">
-            @Html.TextBoxFor(model => model.GroupeAventurier, "", new { @class = "", id = "input_characterGroup" })
-            <span class="input_libelle">Groupe d'aventuriers</span>
-        </div>
-        <div class="input_bloc width150">
-            @Html.DropDownListFor(a => a.IdAlignement, Model.Alignements)
-            <span class="input_libelle">Alignement</span>
-        </div>
-        <div class="input_bloc width150">
-            @Html.DropDownListFor(a => a.IdDivinite, Model.Divinites)
-            <span class="input_libelle">Divinité</span>
-        </div>
-        <div class="input_bloc input_text">
-            @Html.TextAreaFor(model => model.Personnalite, new { @class = "", id = "input_characterPersonnalite" })
-            <span class="input_libelle">Personnalité</span>
+        <div class="form-group">
+
+            <div class="form-group">
+                <div class="input_bloc col-sm-2">
+                    @Html.TextBoxFor(model => model.Nom, "", new {@class = "form-control ", id = "input_characterName"})
+                    <span class="input_libelle">Nom du personnage</span>
+                </div>
+                <div class="input_bloc col-sm-2">
+                    @Html.TextBoxFor(model => model.Niveau, "", new {@class = "form-control ", id = "input_characterLevel"})
+                    <span class="input_libelle">Niveau</span>
+                </div>
+                <div class="input_bloc col-sm-2">
+                    @Html.DropDownListFor(a => a.IdClasse, Model.Classes, new {@class = "form-control "})
+                    <span class="input_libelle">Classe</span>
+                </div>
+                <div class="input_bloc col-sm-2">
+                    @Html.TextBoxFor(model => model.Experience, "", new {@class = "form-control ", id = "input_characterExperience"})
+                    <span class="input_libelle">Total de px</span>
+                </div>
+
+                <div class="input_bloc col-sm-2">
+                    @Html.DropDownListFor(a => a.IdRace, Model.Races, new {@class = "form-control"})
+                    <span class="input_libelle">Race</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input_bloc col-sm-2">
+                    @Html.TextBoxFor(model => model.CategorieTaille, "", new {@class = "form-control", id = "input_characterHeightCategorie"})
+                    <span class="input_libelle">Catégorie de taille</span>
+                </div>
+                <div class="input_bloc col-sm-2">
+                    @Html.TextBoxFor(model => model.Age, "", new {@class = "form-control ", id = "input_characterAge"})
+                    <span class="input_libelle">Âge</span>
+                </div>
+                <div class="input_bloc col-sm-2">
+                    @Html.TextBoxFor(model => model.Sexe, "", new {@class = "form-control ", id = "input_characterSexe"})
+                    <span class="input_libelle">Sexe</span>
+                </div>
+                <div class="input_bloc col-sm-2">
+                    @Html.TextBoxFor(model => model.Taille, "", new {@class = "form-control ", id = "input_characterHeight"})
+                    <span class="input_libelle">Taille</span>
+                </div>
+                <div class="input_bloc col-sm-2">
+                    @Html.TextBoxFor(model => model.Poids, "", new {@class = "form-control", id = "input_characterWeight"})
+                    <span class="input_libelle">Poids</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input_bloc col-sm-2">
+                    @Html.TextBoxFor(model => model.GroupeAventurier, "", new {@class = "form-control ", id = "input_characterGroup"})
+                    <span class="input_libelle">Groupe d'aventuriers</span>
+                </div>
+                <div class="input_bloc col-sm-2">
+                    @Html.DropDownListFor(a => a.IdAlignement, Model.Alignements, new {@class = "form-control "})
+                    <span class="input_libelle">Alignement</span>
+                </div>
+                <div class="input_bloc col-sm-2">
+                    @Html.DropDownListFor(a => a.IdDivinite, Model.Divinites, new {@class = "form-control "})
+                    <span class="input_libelle">Divinité</span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Personnalite, new {@class = "form-control ", id = "input_characterPersonnalite"})
+                    <span class="input_libelle">Personnalité</span>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-    <div class="col-md-2">
+    <div>
         <button style="padding: 0 !important;" onclick="setAvatar()"><img style="width: 155px;height: 155px;" id="chara" src="@Model.CheminPortrait" alt="" /></button>
         @using (Html.BeginForm("UploadPortrait", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
