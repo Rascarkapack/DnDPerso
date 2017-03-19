@@ -21,8 +21,7 @@
 <div id="mainBloc_1" class="mainBloc">
     <div class="header_bloc_title">infos</div>
     <div class="inner_bloc_container">
-        <div class="form-group">
-
+        <div class="form-group" style="width: 95%">
             <div class="form-group">
                 <div class="input_bloc col-sm-2">
                     @Html.TextBoxFor(model => model.Nom, "", new {@class = "form-control ", id = "input_characterName"})
@@ -96,7 +95,7 @@
         @using (Html.BeginForm("UploadPortrait", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <input type="file" id="imgupload" style="display: none;" name="FileUpload" />
-            <input type="submit" name="Submit" id="Submit" style="float: right; margin-top: 5px;" value="Upload" />
+            <input type="submit" name="Submit" id="Submit" style="float: right; margin-top: 5px; margin-right: 40px;" value="Upload" />
         }
     </div>
 </div>
