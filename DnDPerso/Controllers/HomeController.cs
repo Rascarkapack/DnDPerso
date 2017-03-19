@@ -89,6 +89,16 @@ namespace DnDPerso.Controllers
             return RedirectToAction("Index", new { IdPersonnage = IdPersonnage });
         }
 
+        #region partialEncartGroup
+        public ActionResult EncartGroupPartialView()
+        {
+            List<Personnage> listP = PersonnageBLL.GetRList();
+
+            return PartialView("EncartGroupPartialView", listP);
+        }
+
+        #endregion
+
         #region partialEncartPouvoir
 
         public ActionResult EncartPouvoirsPartialView(int idPersonnage)

@@ -1,0 +1,16 @@
+﻿@using DnDPersoEntities
+@model List<DnDPersoEntities.Personnage>
+
+@foreach (Personnage perso in Model)
+{
+    <div style="width: 200px; height: 20px;">
+        <div style="float: left;">
+            @perso.Nom
+        </div>
+        <div style="float: right;">
+            @perso.PVActuel
+            /
+            @perso.PVMax
+        </div>
+    </div>
+}

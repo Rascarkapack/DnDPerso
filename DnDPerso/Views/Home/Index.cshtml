@@ -6,7 +6,12 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
+<div id="bloc_Group" class="">
+    <div class="header_bloc_title" id="group_title_header" onclick="displayGroupPanel()">Groupe</div>
+    <div class="inner_bloc_container cache" id="group_inner_bloc">
+        @Html.Action("EncartGroupPartialView")
+    </div>
+</div>
 <div id="header">
     <img id="logo_header" src="~/Images/logo_header.png" alt=""/>
     <div id="account">

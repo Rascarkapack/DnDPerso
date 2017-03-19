@@ -390,3 +390,10 @@ function AddEquipement() {
 function LogOut() {
     window.location.href = "/Login/LogOut";
 }
+
+function displayGroupPanel() {
+    if ($("#group_inner_bloc").hasClass("cache"))
+        $("#group_inner_bloc").removeClass("cache")
+    else
+        $("#group_inner_bloc").addClass("cache")
+}
