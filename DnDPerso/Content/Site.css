@@ -449,6 +449,10 @@ input[type="color"]:focus,
     display: inline-block;
     float: left;
 }
+.descApt {
+    margin-top: 5px;
+    margin-left: 5px;
+}
 #encartAptitudes .inner_bloc_container {
     padding-left: 12px;
 }
