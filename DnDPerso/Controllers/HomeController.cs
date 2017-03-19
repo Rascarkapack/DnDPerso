@@ -94,7 +94,21 @@ namespace DnDPerso.Controllers
         {
             List<Personnage> listP = PersonnageBLL.GetRList();
 
-            return PartialView("EncartGroupPartialView", listP);
+            string html = "";
+
+            foreach (Personnage perso in listP)
+            {
+                html += "<div style='width: 200px; height: 20px;'>" +
+                    "<div style='float: left;'>" +
+                    perso.Nom + "</div>" +
+                    "<div style='float: right;'>" +
+                    perso.PVActuel +
+                    " / " +
+                    perso.PVMax +
+                    "</div></div>";
+            }
+
+            return Json(html);
         }
 
         #endregion

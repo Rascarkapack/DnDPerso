@@ -76,6 +76,8 @@ $(document).ready(function () {
         }
        
     });
+    setHTMLGroup();
+    recall();
 
     $("input[id^='checkBox_Former']").change(function (s, e) {
         var lenghtString = 'checkBox_Former'.length;
@@ -119,6 +121,16 @@ $(document).ready(function () {
 
     SetModifierValue();
 });
+
+function recall() {
+    setInterval(setHTMLGroup, 10000);
+}
+
+function setHTMLGroup() {
+    common.customRequest('POST', "Home", "EncartGroupPartialView", null, function (result) {
+        $("#group_inner_bloc").html(result);
+    });
+}
 
 function setAvatar() {
     $('#imgupload').click();
