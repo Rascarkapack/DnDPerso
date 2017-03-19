@@ -466,6 +466,9 @@ input[type="color"]:focus,
     border: 1px solid #B1B1B1;
     text-align: center;
 }
+#encartPouvoirs .infobox-power {
+    width: 90%;
+}
 .header_bloc_title input {
     margin-right: 20px;
     margin-top: -2px;
