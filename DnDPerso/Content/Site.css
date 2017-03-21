@@ -248,7 +248,7 @@ input[type="color"]:focus,
 }
 #mainBloc_3 {
 	min-height : 200px;
-    height: 394px;
+    /*height: 394px;*/
 }
 #mainBloc_4 {
     width: 18%;
@@ -564,7 +564,7 @@ input[type="color"]:focus,
     width: 30%;
 }
 #input_TypeEquipement {
-    width: 245px;
+    /*width: 245px;*/
     margin-right: 5px;
     margin-left: 5px;
     margin-bottom: 5px;

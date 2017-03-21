@@ -4,13 +4,20 @@
 @foreach (AllCompetenceByIdPersonnage compe in @Model)
 {
     <div>
-        <div class=""  style="display: inline">
-            @Html.Label(compe.Libelle, compe.Libelle)
+        <div class="" style="display: inline">
+            @if (compe.Libelle.Length >= 12)
+            {
+                @Html.Label(compe.Libelle, compe.Libelle.Substring(0, 12))
+            }
+            else
+            {
+                @Html.Label(compe.Libelle, compe.Libelle)
+            }
             <div class="encoartCompetenceInputBloc">
-                @Html.TextBox("modifDiversCompe" + compe.Libelle, null, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
-                @Html.CheckBox("checkBox_Former"+ compe.Libelle, compe.Former)
-                @Html.TextBox("totalValueCompe"  +compe.Libelle, null, new { @class = "text_center ", @style = "width: 50px;height: 20px" })
-                @Html.Hidden("hiddenId" + compe.Libelle ,compe.Id.ToString())
+                @Html.TextBox("modifDiversCompe" + compe.Libelle, null, new { @class = "text_center ", @style = "width: 35px;height: 20px" })
+                @Html.CheckBox("checkBox_Former" + compe.Libelle, compe.Former)
+                @Html.TextBox("totalValueCompe" + compe.Libelle, null, new { @class = "text_center ", @style = "width: 35px;height: 20px" })
+                @Html.Hidden("hiddenId" + compe.Libelle, compe.Id.ToString())
             </div>
         </div>
     </div>
