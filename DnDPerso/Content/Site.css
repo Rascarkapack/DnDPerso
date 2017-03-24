@@ -1,25 +1,25 @@
 ﻿@font-face {
 	font-family: "DetD";
-	src: url(../fonts/Planewalker.otf);
+	src: url(/fonts/Planewalker.otf);
 }
 
 @font-face {
 	font-family: "DetD";
 	font-weight: bold;
-	src: url(../fonts/PlanewalkerBold.otf);
+	src: url(/fonts/PlanewalkerBold.otf);
 }
 
 @font-face {
 	font-family: "DetD";
 	font-style: italic;
-	src: url(../fonts/PlanewalkerItalic.otf);
+	src: url(/fonts/PlanewalkerItalic.otf);
 }
 
 @font-face {
 	font-family: "DetD";
 	font-style: italic;
 	font-weight: bold;
-	src: url(../fonts/PlanewalkerBoldItalic.otf);
+	src: url(/fonts/PlanewalkerBoldItalic.otf);
 }
 .col-sm-0 {
     width: 4.33333%;
@@ -163,7 +163,7 @@ input[type="color"]:focus,
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 15px;
-	width: 87px;
+	/*width: 87px;*/
 	color: #424242;
 	border: 1px solid #B1B1B1;
 	text-align: center;

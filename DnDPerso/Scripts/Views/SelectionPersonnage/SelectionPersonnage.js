@@ -3,5 +3,9 @@
 }
 
 function deletePerso(idPersonnage) {
-    common.customRequest("POST", "SelectionPersonnage", "DeletePersonnage", JSON.stringify({ IdPersonnage: idPersonnage }), null);
+    common.customRequest("POST", "SelectionPersonnage", "DeletePersonnage", JSON.stringify({ IdPersonnage: idPersonnage }), function(result) {
+        if (result == "OK") {
+            window.location.href = "/SelectionPersonnage/Index";
+        }
+    });
 }

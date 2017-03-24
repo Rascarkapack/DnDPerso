@@ -33,7 +33,7 @@ namespace DnDPerso.Controllers
                 
                 throw;
             }
-            return View("Index");
+            return Json("OK");
         }
     }
 }

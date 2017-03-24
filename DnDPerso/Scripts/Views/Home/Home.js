@@ -10,6 +10,14 @@ $(document).ready(function () {
         SetModifierValue();
     });
 
+    $("#input_PVActuel").on('blur', function (s, e) {
+        common.customRequest('POST', "Home", "UpdatePVActuel", JSON.stringify({ value: $(this).val() }), function (result) {
+            if (result === "OK") {
+                toastr.info("Mise a jour effectuée");
+            }
+        });
+    });
+
     $("#ModDiversAttaque").val(0);
     $("#ModDiversAttaque").on('propertychange input', function (s, e) {
         SetModifierValue();

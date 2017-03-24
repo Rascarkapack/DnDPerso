@@ -89,6 +89,16 @@ namespace DnDPerso.Controllers
             return RedirectToAction("Index", new { IdPersonnage = IdPersonnage });
         }
 
+        public ActionResult UpdatePVActuel(string value)
+        {
+            int IdPersonnage = Convert.ToInt32(Session["IdPersonnage"]);
+            Personnage perso = PersonnageBLL.Get(IdPersonnage);
+            perso.PVActuel = Convert.ToInt32(value);
+            PersonnageBLL.Update(perso);
+
+            return Json("OK");
+        }
+
         #region partialEncartGroup
         public ActionResult EncartGroupPartialView()
         {
